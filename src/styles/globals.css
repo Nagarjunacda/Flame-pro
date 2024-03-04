@@ -105,8 +105,26 @@ a {
   text-decoration: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  :root {
+    --padding-btn: 20px 70px;
+    --font-size-btn: 22px;
   }
-} */
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --padding-btn: 20px 40px;
+    --font-size-btn: 18px;
+  }
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 767px) {
+  :root {
+    --padding-btn: 20px 20px;
+    --font-size-btn: 16px;
+  }
+}
