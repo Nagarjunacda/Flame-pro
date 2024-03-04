@@ -113,6 +113,7 @@ a {
     --heading-30: 48px;
     --description: 18px;
     --padding-50-35: 85px 0px;
+    --font-size-16: 18px;
   }
 }
 
@@ -124,6 +125,7 @@ a {
     --heading-30: 30px;
     --description: 16px;
     --padding-50-35: 65px 25px;
+    --font-size-16: 18px;
   }
 }
 
@@ -135,5 +137,6 @@ a {
     --heading-30: 30px;
     --description: 14px;
     --padding-50-35: 50px 35px;
+    --font-size-16: 16px;
   }
 }
