@@ -1,16 +1,10 @@
 import styles from "./header.module.css";
-import { Button } from "react-bootstrap";
+import HeaderMweb from "./HeaderMweb";
 
 function Header() {
   return (
-    <main className={styles.header}>
-      <p>This is the header component</p>
-      <Button as="a" variant="primary">
-        Button as link
-      </Button>
-      <Button as="a" variant="success">
-        Button as link
-      </Button>
+    <main>
+      <HeaderMweb />
     </main>
   );
 }
