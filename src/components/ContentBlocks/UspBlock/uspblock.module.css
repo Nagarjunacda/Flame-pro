@@ -1,0 +1,18 @@
+.uspblock {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.uspblock p {
+  font-size: var(--font-size-18);
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 767px) {
+  .uspblock {
+    width: 250%;
+    overflow: scroll;
+  }
+  .usbpblockMain {
+    overflow-x: scroll;
+  }
+}
