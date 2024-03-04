@@ -15,8 +15,8 @@
   --padding-medium: 64px;
   --padding-large: 24px;
 
-  --color-primary: #007bff;
-  --color-secondary: #6c757d;
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
