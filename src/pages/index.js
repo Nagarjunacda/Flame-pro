@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
+import TitleAndTextCentre from "@/components/ContentBlocks/TitleAndTextCentre";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,11 @@ export default function Home() {
       <main>
         <Header />
         <Footer />
-        <FlameBtn
-          color="#000"
-          text="About FlamePro"
-          textColor="#fff"
-          btnFunction={openPopup}
+        <TitleAndTextCentre
+          title={"About FlamePro & Who We Are"}
+          description={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id."
+          }
         />
       </main>
     </>
