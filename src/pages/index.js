@@ -26,12 +26,6 @@ export default function Home() {
       </Head> */}
       <main>
         <HeaderBanner />
-        <TitleAndTextCentre
-          title={"About FlamePro & Who We Are"}
-          description={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id."
-          }
-        />
         <UspBlock
           firtImage={icon1}
           firstText="Lorem Ipsum Dolor Sit Met"
@@ -39,6 +33,12 @@ export default function Home() {
           secondText="Lorem Ipsum Dolor Sit Met"
           thirdText="Lorem Ipsum Dolor Sit Met"
           thirdImage={icon3}
+        />
+        <TitleAndTextCentre
+          title={"About FlamePro & Who We Are"}
+          description={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id."
+          }
         />
       </main>
     </>

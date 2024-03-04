@@ -11,4 +11,24 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    border-bottom: solid 2px var(--color-secondary);
+    padding-bottom: 12px;
+  }
+  .hamburger{
+    width: 30px;
+    height: 30px;
+    margin-top: 4px;
+  }
+  .offCanvasHeading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .offCanvasClose{
+    width: 16px;
+    height: 16px;
+  }
+  .offCanvasTitle{
+    width: 100%;
   }
