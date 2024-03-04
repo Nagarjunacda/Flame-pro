@@ -1,0 +1,13 @@
+.main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .header{
+    position: absolute;
+    z-index: 1;
+    top:40px;
+    padding:0px 36px;
+    width:100%
+  }

@@ -8,8 +8,9 @@ const FlameImage = ({ src, alt }) => {
             width="0"
             height="0"
             sizes="100vw"
-            objectFit="contain"
+            // objectFit="cover"
             className="h-100 w-100"
+            style={{ objectFit: 'cover' }}
         />
     );
 };

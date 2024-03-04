@@ -2,5 +2,13 @@
     background-color: #333;
     color: white;
     padding: 10px 20px;
-
+  }
+  .headerLogo{
+    width: 157px;
+    height: 37px;
+  }
+  .headerMwebMain{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }

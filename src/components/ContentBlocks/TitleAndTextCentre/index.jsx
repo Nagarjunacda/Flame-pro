@@ -1,7 +1,10 @@
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import styles from "./title-text-center.module.css";
+
 const TitleAndTextCentre = ({ title, description, btnText, btnLink }) => {
-  function btnFunction() {}
+
+  function btnFunction() { }
+
   return (
     <section className={styles.titletextcentre}>
       <div>
@@ -17,5 +20,4 @@ const TitleAndTextCentre = ({ title, description, btnText, btnLink }) => {
     </section>
   );
 };
-
 export default TitleAndTextCentre;

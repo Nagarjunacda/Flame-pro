@@ -1,11 +1,16 @@
+import Header from "../Header"
+import Footer from "../Footer"
+import Styles from './wrapper.module.css'
+
 function LayoutWrapper({ children }) {
-    return (
-        <div>
-          {/* <Header data={item} isHeaderVisible={isHeaderVisible} /> */}
-          {children}
-          {/* <FooterTop isFooterVisible={isFooterVisible} />
-          <Footer footerData={footerItem} isFooterVisible={isFooterVisible} /> */}
-        </div>
-    )
-  }
-  export default LayoutWrapper
+  return (
+    <main className={Styles.main}>
+      <section className={Styles.header}>
+        <Header />
+      </section>
+      {children}
+      <Footer />
+    </main>
+  )
+}
+export default LayoutWrapper

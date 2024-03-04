@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import TitleAndTextCentre from "@/components/ContentBlocks/TitleAndTextCentre";
+import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <main>
-        <Header />
-        <Footer />
+        <HeaderBanner />
         <TitleAndTextCentre
           title={"About FlamePro & Who We Are"}
           description={
