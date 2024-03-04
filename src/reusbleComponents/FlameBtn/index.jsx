@@ -14,7 +14,8 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     fontSize: "var(--font-size-btn)",
   };
   const textStyle = {
-    transform: "skew(20deg)",
+    transform: "skew(20deg)", // Opposite skew to counter button skew
+    display: "inline-block",
   };
   const btnText = isLoadState ? "Loading..." : text;
   return (
