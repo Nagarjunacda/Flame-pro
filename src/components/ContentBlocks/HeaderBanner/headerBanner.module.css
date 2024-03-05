@@ -4,6 +4,15 @@
     position: relative;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
 .bannerImage{
     width: 100%;
     height: 930px;
@@ -21,6 +30,7 @@
     padding-right: 36px;
     gap: 25px;
     color: var(--color-secondary);
+    z-index: 1;
 }
 @media (min-width: 600px) {
     .headerTextBlock {
