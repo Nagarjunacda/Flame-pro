@@ -11,15 +11,21 @@
 }
 .headerTextBlock{
     position: absolute;
-    top:516px;
-    left: 36px;
-    padding-right: 36px;
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 25px;
     flex-direction: column;
+    max-width: 800px;
+    top:516px;
+    left: 36px;
+    padding-right: 36px;
+    gap: 25px;
     color: var(--color-secondary);
+}
+@media (min-width: 600px) {
+    .headerTextBlock {
+        top:358px; /* Change the max-width for smaller screens */
+    }
 }
 .btnSection{
     display: flex;
@@ -29,4 +35,16 @@
 }
 .heading{
     width: 100%;
+    font-size:var(--font-size-xl);
+    margin: 0px;
+}
+.text{
+    width: 100%;
+    max-width: 596px;
+    font-size: var(--font-size-sm);
+    margin-bottom: 0px;
+}
+.textSection{
+    width: 100%;
+    margin:0px
 }
