@@ -11,7 +11,7 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     transition: "all 0.3s ease",
     outline: "none",
     borderRadius: "0px",
-    fontSize: "var(--font-size-btn)",
+    fontSize: "var(--font-size-xs-ext)",
   };
   const textStyle = {
     transform: "skew(20deg)", // Opposite skew to counter button skew
