@@ -3,7 +3,7 @@
   justify-items: center;
   align-items: center;
   flex-direction: column;
-  padding: var(--padding-50-35);
+  padding: 85px 0px;
 }
 .titletextcentre div {
   max-width: 1088px;
@@ -14,7 +14,7 @@
   gap: 35px;
 }
 .titletextcentre h2 {
-  font-size: var(--heading-30);
+  font-size: var(--font-size-lg);
   color: var(--color-primary);
   text-align: center;
 }

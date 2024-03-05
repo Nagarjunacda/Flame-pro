@@ -2,11 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 30px 0;
+  overflow-x: auto; /* Horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
 }
 .uspblock p {
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-sm);
   margin-bottom: 0;
 }
+.uspblock img {
+  width: 34px;
+  height: 34px;
+  padding-right: 35px;
+}
+
 @media only screen and (max-width: 767px) {
   .uspblock {
     width: 250%;
