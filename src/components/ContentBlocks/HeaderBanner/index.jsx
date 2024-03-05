@@ -1,12 +1,15 @@
 import FlameImage from '@/reusbleComponents/FlameImage'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
+import { renderHTML } from '@/utils/htmlString'
 import styles from './headerBanner.module.css'
 
-function HeaderBanner() {
-    const bannerImage = '/Images/headerBannerMweb.svg'
+function HeaderBanner({ trayData }) {
+    const bannerImage = trayData?.image
     const buttonColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
-    const buttonText = 'About Flame PRO'
+    const buttonText = trayData?.button_title
+    const text = trayData?.text
+    const title = trayData?.title
 
     const handleButtonClick = () => { }
 
@@ -15,8 +18,10 @@ function HeaderBanner() {
             <FlameImage src={bannerImage} alt='bannerImage' />
         </figure>
         <section className={styles.headerTextBlock}>
-            <h1 className={styles.heading}>Heading Goes Here On One Or Two Lines</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h1 className={styles.heading}>{title}</h1>
+            <section className={styles.textSection}>
+                <section className={styles.text}>{renderHTML(text)}</section>
+            </section>
             <section className={styles.btnSection}>
                 <FlameBtn color={buttonColor} textColor={textColor} text={buttonText} isLoadState={false} btnFunction={handleButtonClick} />
             </section>
