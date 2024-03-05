@@ -2,8 +2,8 @@ import FlameImage from '@/reusbleComponents/FlameImage'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
 import styles from './headerBanner.module.css'
 
-function HeaderBanner() {
-    const bannerImage = '/Images/headerBannerMweb.svg'
+function HeaderBanner({ trayData }) {
+    const bannerImage = trayData.image
     const buttonColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
     const buttonText = 'About Flame PRO'
