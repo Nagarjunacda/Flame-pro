@@ -9,3 +9,24 @@
     height: 930px;
     position: relative;
 }
+.headerTextBlock{
+    position: absolute;
+    top:516px;
+    left: 36px;
+    padding-right: 36px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+    color: var(--color-secondary);
+}
+.btnSection{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    margin-left: 20px;
+}
+.heading{
+    width: 100%;
+}

@@ -133,7 +133,7 @@ a {
 @media only screen and (max-width: 767px) {
   :root {
     --padding-btn: 20px 70px;
-    --font-size-btn: 16px;
+    --font-size-btn: 14px;
     --heading-30: 30px;
     --description: 14px;
     --padding-50-35: 50px 35px;
