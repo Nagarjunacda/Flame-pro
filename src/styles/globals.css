@@ -5,6 +5,7 @@
   --color-secondary: #ffffff;
   --color-fire: #e53d1c;
   --color-defence: #858e20;
+  --color-mwebSearch: #F3F3F3;
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
@@ -12,6 +13,17 @@
   --font-size-lg: 30px;
   --font-size-xl: 40px;
   --font-size-xs-ext:14px;
+  --font-size-canvas:18px;
+
+  --font-wt-thin:100;
+  --font-wt-xlight:200;
+  --font-wt-light:300;
+  --font-wt-normal:400;
+  --font-wt-md:500;
+  --font-wt-sembold:600;
+  --font-wt-bold:700;
+  --font-wt-xbold:800;
+  --font-wt-heavy:900;
 
   --padding-btn: 20px 64px
 }
