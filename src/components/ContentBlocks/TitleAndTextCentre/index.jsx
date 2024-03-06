@@ -1,19 +1,19 @@
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import styles from "./title-text-center.module.css";
+import { renderHTML } from "@/utils/htmlString";
 
-const TitleAndTextCentre = ({ title, description, btnText, btnLink }) => {
-
-  function btnFunction() { }
+const TitleAndTextCentre = ({ trayData }) => {
+  function btnFunction() {}
 
   return (
     <section className={styles.titletextcentre}>
       <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <h2>{trayData?.title}</h2>
+        <p>{renderHTML(trayData?.text)}</p>
         <FlameBtn
-          text="About FlamePro"
-          textColor="#fff"
-          color="#000"
+          text={trayData?.button_title}
+          textColor="var( --color-secondary)"
+          color="var( --color-primary)"
           btnFunction={btnFunction}
         />
       </div>
