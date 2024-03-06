@@ -16,7 +16,7 @@ function HeaderMweb({ headerData }) {
         setIsCanvasOpen(false)
     }
 
-    return <section className={styles.headerMwebMain}>
+    return <section className={styles.headerMain}>
         <figure className={styles.headerLogo}>
             <FlameImage src={flameLogo} alt='flameLogo' />
         </figure>

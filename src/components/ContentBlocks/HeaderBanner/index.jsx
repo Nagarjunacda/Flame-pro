@@ -3,7 +3,6 @@ import FlameImage from '@/reusbleComponents/FlameImage'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
 import { renderHTML } from '@/utils/htmlString'
 import styles from './headerBanner.module.css'
-import { useReducer } from 'react'
 
 function HeaderBanner({ trayData }) {
     const router = useRouter()
