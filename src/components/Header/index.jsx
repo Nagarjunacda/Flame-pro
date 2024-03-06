@@ -1,10 +1,10 @@
 import styles from "./header.module.css";
 import HeaderMweb from "./HeaderMweb";
 
-function Header() {
+function Header({ headerData }) {
   return (
     <main>
-      <HeaderMweb />
+      <HeaderMweb headerData={headerData} />
     </main>
   );
 }

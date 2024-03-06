@@ -22,7 +22,7 @@
   .offCanvasHeading{
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
   }
   .offCanvasClose{
@@ -31,4 +31,44 @@
   }
   .offCanvasTitle{
     width: 100%;
+    border-bottom: solid 2px;
+    padding-bottom: 14px;
+  }
+  .offCanvasCont{
+    padding: 24px 20px;
+  }
+  .offCanvasBody{
+    display: flex;
+    flex-direction: column;
+    gap:32px;
+  }
+  .canvasTextItems{
+    font-size: var(--font-size-canvas);
+    font-weight: var(--font-wt-bold);
+  }
+  .searchMwebMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 30px;
+    background-color: var(--color-mwebSearch);
+  }
+  .searchText{
+    line-height: normal;
+    margin-top: 4px;
+  }
+  .searchIcon{
+    width: 18px;
+    height:18px;
+    display: flex;
+    align-items: center;
+  }
+  .basketMwebMain{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap:12px;
+    padding: 36px 0px;
+    border-top: solid var(--color-primary);
+    border-bottom: solid var(--color-primary);
   }

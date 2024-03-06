@@ -18,8 +18,13 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     display: "inline-block",
   };
   const btnText = isLoadState ? "Loading..." : text;
+
+  const handleClick = () => {
+    btnFunction()
+  }
+
   return (
-    <Button onClick={btnFunction} style={buttonStyle}>
+    <Button onClick={handleClick} style={buttonStyle}>
       <span style={textStyle}>{btnText}</span>
     </Button>
   );

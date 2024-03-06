@@ -1,9 +1,12 @@
+import Router, { useRouter } from 'next/router'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
 import { renderHTML } from '@/utils/htmlString'
 import styles from './headerBanner.module.css'
+import { useReducer } from 'react'
 
 function HeaderBanner({ trayData }) {
+    const router = useRouter()
     const bannerImage = trayData?.image
     const buttonColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
@@ -11,7 +14,9 @@ function HeaderBanner({ trayData }) {
     const text = trayData?.text
     const title = trayData?.title
 
-    const handleButtonClick = () => { }
+    const handleButtonClick = () => {
+        router.push('/about')
+    }
 
     return <section className={styles.main}>
         <figure className={styles.bannerImage}>
@@ -26,6 +31,7 @@ function HeaderBanner({ trayData }) {
                 <FlameBtn color={buttonColor} textColor={textColor} text={buttonText} isLoadState={false} btnFunction={handleButtonClick} />
             </section>
         </section>
+        <section className={styles.overlay}></section>
     </section>
 }
 export default HeaderBanner
