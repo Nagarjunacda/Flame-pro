@@ -28,7 +28,7 @@ function HeaderDweb({ headerData }) {
             </figure>
             <nav className={styles.navItems}>
                 {navItems?.map((item, index) => {
-                    return <nav>{getNavItem(item)}</nav>
+                    return <nav key={index}>{getNavItem(item)}</nav>
                 })}
             </nav>
         </section>

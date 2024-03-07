@@ -104,6 +104,7 @@
     color: var(--color-secondary);
     font-size: var(--font-size-xs);
     font-weight: var(--font-wt-bold);
+    cursor: pointer;
   }
   @media (min-width: 1280px) {
     .navItems {
