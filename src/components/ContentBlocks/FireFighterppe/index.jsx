@@ -23,8 +23,13 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
         </section>
         <section className={styles.subContainer}>
             <section className={styles.childHeading}>
-                {childItems.map((childItem, index) => {
-                    return <section key={index}>{childItem?.title}</section>
+                {childItems.map((item, index) => {
+                    return <section className={styles.childCont}><section key={index}>{item?.title}</section>
+                        {item.child_items && item.child_items.map((childItem, index) => {
+                            return <section className={styles.innerChild}>
+                                <section key={index}>{childItem?.title}</section>
+                            </section>
+                        })}</section>
                 })}
             </section>
             {!isFireFighting && <BasketMweb />}

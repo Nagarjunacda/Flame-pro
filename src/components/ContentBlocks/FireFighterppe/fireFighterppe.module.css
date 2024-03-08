@@ -42,3 +42,15 @@
     font-size: var(--font-size-canvas);
     font-weight: var(--font-wt-bold);
 }
+.childCont{
+    display: flex;
+    flex-direction: column;
+    gap:30px
+}
+.innerChild{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-wt-normal);
+}
