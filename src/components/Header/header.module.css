@@ -6,14 +6,38 @@
   .headerLogo{
     width: 157px;
     height: 37px;
+    margin: 0px;
   }
-  .headerMwebMain{
+  @media (min-width: 1280px) {
+    .headerLogo {
+      width: 200px;
+      height: 48px;
+    }
+}
+@media (min-width: 1680px) {
+  .headerLogo {
+    width: 253px;
+    height: 60px;
+  }
+}
+
+  .headerMain{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: solid 2px var(--color-secondary);
     padding-bottom: 12px;
   }
+  @media (min-width: 1280px) {
+    .headerMain {
+      padding-bottom: 16px;
+    }
+}
+  @media (min-width: 1680px) {
+    .headerMain {
+      padding-bottom: 22px;
+    }
+}
   .hamburger{
     width: 30px;
     height: 30px;
@@ -56,10 +80,11 @@
   .searchText{
     line-height: normal;
     margin-top: 4px;
+    font-weight: var(--font-wt-bold);
   }
   .searchIcon{
-    width: 18px;
-    height:18px;
+    width: 17px;
+    height:17px;
     display: flex;
     align-items: center;
   }
@@ -72,3 +97,42 @@
     border-top: solid var(--color-primary);
     border-bottom: solid var(--color-primary);
   }
+  .navItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    color: var(--color-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-wt-bold);
+    cursor: pointer;
+  }
+  @media (min-width: 1280px) {
+    .navItems {
+      font-size: var(--font-size-sm);
+      gap:36px;
+    }
+}
+
+    @media (min-width: 1680px) {
+    .navItems {
+      font-size: var(--font-size-sm);
+      gap:52px;
+    }
+}
+.subHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+}
+@media (min-width: 1280px) {
+  .subHeader {
+    padding-bottom: 16px;
+  }
+}
+@media (min-width: 1680px) {
+  .subHeader {
+    padding-bottom: 20px;
+  }
+}

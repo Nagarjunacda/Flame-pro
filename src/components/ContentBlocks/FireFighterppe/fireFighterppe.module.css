@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    gap:36px;
+    flex-direction: column;
+    justify-content: start;
+}
+.heading{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.backButton{
+    display: flex;
+    gap:8px;
+    position: absolute;
+    left: 0px;
+}
+.backIcon{
+    width: 16px;
+    height: 16px;
+}
+.backText{
+    font-size: var(--font-size-xs);
+    letter-spacing: 1px;
+    border-bottom: 2px solid;
+    padding-bottom: 2px;
+}
+.headingText{
+    font-size: var(--font-size-canvas);
+    font-weight: var(--font-wt-bold);
+}
+.subContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.childHeading{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    font-size: var(--font-size-canvas);
+    font-weight: var(--font-wt-bold);
+}

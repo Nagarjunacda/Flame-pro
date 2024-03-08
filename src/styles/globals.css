@@ -14,6 +14,7 @@
   --font-size-xl: 40px;
   --font-size-xs-ext:14px;
   --font-size-canvas:18px;
+  --font-size-headerDrawer:25px;
 
   --font-wt-thin:100;
   --font-wt-xlight:200;
@@ -68,5 +69,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p{
+  margin: 0px;
 }
 

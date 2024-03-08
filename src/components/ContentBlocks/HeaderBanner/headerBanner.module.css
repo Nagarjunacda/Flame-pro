@@ -19,6 +19,11 @@
     position: relative;
     margin: 0px;
 }
+@media (min-width: 900px) {
+    .bannerImage {
+        height: 100vh;
+    }
+}
 .headerTextBlock{
     position: absolute;
     display: flex;
@@ -26,7 +31,8 @@
     align-items: center;
     flex-direction: column;
     max-width: 800px;
-    top:516px;
+    top: 58%;
+    transform: translateY(-50%);
     left: 36px;
     padding-right: 36px;
     gap: 25px;
@@ -35,7 +41,15 @@
 }
 @media (min-width: 600px) {
     .headerTextBlock {
-        top:358px; /* Change the max-width for smaller screens */
+        top: 58%;
+        transform: translateY(-50%);
+    }
+}
+@media (min-width: 1680px) {
+    .headerTextBlock {
+       max-width: 900px;
+       top: 56%;
+       transform: translateY(-50%);
     }
 }
 .btnSection{
