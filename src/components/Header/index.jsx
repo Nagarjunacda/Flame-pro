@@ -7,7 +7,7 @@ function Header({ headerData }) {
   const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
   return (
     <main>
-      {isDesktop ? <HeaderDweb headerData={headerData} /> :
+      {isDesktop ? <HeaderDweb headerData={headerData} isFromDrawer={false} /> :
         <HeaderMweb headerData={headerData} />}
     </main>
   );
