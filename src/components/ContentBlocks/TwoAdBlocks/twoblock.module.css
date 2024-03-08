@@ -1,0 +1,52 @@
+.twoblockMain {
+  height: 640px;
+  overflow: hidden;
+  position: relative;
+}
+.figOne {
+  height: 640px;
+}
+.blockOne {
+  clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+  margin-right: -60px;
+  position: relative;
+  flex: 1 1 0%;
+}
+
+.blockTwo {
+  clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0% 100%);
+  margin-left: -60px;
+  position: relative;
+  flex: 1 1 0%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.twoBlockData {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.logosImg {
+  width: 250px;
+}
+.logoHolder {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainContainer {
+  display: flex;
+}
