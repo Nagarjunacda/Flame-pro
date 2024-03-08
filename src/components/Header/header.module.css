@@ -80,6 +80,7 @@
   .searchText{
     line-height: normal;
     margin-top: 4px;
+    font-weight: var(--font-wt-bold);
   }
   .searchIcon{
     width: 17px;

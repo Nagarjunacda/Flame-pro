@@ -38,7 +38,7 @@ function OffCanvas({ show, handleClose, headerData }) {
     }
 
     const handleItemClick = (item) => {
-        setSelectedNavItem(item?.title)
+        setSelectedNavItem(item)
         if (overlayArr.includes(item?.title)) {
             handleOffCanvas()
             return
@@ -46,9 +46,9 @@ function OffCanvas({ show, handleClose, headerData }) {
     }
 
     const getComp = () => {
-        switch (selectedNavItem) {
+        switch (selectedNavItem?.title) {
             case 'Firefighting PPE':
-                return <FireFighterppe handleOverlayClose={handleOverlayClose} />
+                return <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />
             case 'Defence Procurement':
                 return <DefenceProcurement handleOverlayClose={handleOverlayClose} />
             case 'Resource Hub':
@@ -92,7 +92,7 @@ function OffCanvas({ show, handleClose, headerData }) {
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className={styles.offCanvasBody}>
-                {getComp()}
+                <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />
             </Offcanvas.Body>
         </Offcanvas>
     </>
