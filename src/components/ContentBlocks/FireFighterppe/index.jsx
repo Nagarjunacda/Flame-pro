@@ -1,18 +1,19 @@
 import FlameImage from '@/reusbleComponents/FlameImage'
-import styles from './fireFighterppe.module.css'
 import BasketMweb from '@/components/Header/BasketMweb'
 import SearchMweb from '@/components/Header/SearchMweb'
 import BlogCard from '@/components/Cards/BlogCard'
+import { useMediaQuery } from 'react-responsive'
+import styles from './fireFighterppe.module.css'
 
 function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
-    console.log(selectedNavItem, '!!')
     const heading = selectedNavItem?.title
     const childItems = selectedNavItem?.child_items
     const isFireFighting = selectedNavItem?.title === 'Firefighting PPE'
     const backArrow = '/Images/backArrow.svg'
+    const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
 
     return <section className={styles.container}>
-        <section className={styles.heading}>
+        {!isDesktop && <section className={styles.heading}>
             <section className={styles.backButton} onClick={handleOverlayClose}>
                 <section className={styles.backIcon}>
                     <FlameImage src={backArrow} alt='back' />
@@ -20,9 +21,9 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                 <p className={styles.backText}>Back</p>
             </section>
             <p className={styles.headingText}>{heading}</p>
-        </section>
+        </section>}
         <section className={styles.subContainer}>
-            <section className={styles.childHeading}>
+            <section className={isFireFighting ? styles.childHeadingPpe : styles.childHeading}>
                 {childItems.map((item, index) => {
                     return <section className={styles.childCont}><section key={index}>{item?.title}</section>
                         {item.child_items && item.child_items.map((childItem, index) => {
@@ -32,8 +33,8 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                         })}</section>
                 })}
             </section>
-            {!isFireFighting && <BasketMweb />}
-            {!isFireFighting && <SearchMweb />}
+            {!isFireFighting && !isDesktop && <BasketMweb />}
+            {!isFireFighting && !isDesktop && <SearchMweb />}
             <section className={styles.blogCard}>
                 <BlogCard />
             </section>

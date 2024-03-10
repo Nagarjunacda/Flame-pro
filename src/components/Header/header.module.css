@@ -80,6 +80,10 @@
   .offCanvasCont{
     padding: 24px 20px;
   }
+  .offCanvasContDweb{
+    padding: 24px 20px;
+    height: auto !important;
+  }
   .offCanvasBody{
     display: flex;
     flex-direction: column;

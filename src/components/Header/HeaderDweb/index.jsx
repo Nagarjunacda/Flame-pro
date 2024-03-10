@@ -5,6 +5,7 @@ import styles from '../header.module.css'
 
 function HeaderDweb({ headerData, isFromDrawer }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
+    const [selectedNavItem, setSelectedNavItem] = useState({})
     const navItems = headerData?.items
     const flameLogo = isFromDrawer ? '/Images/flameLogoDark.svg' : '/Images/flameLogo.svg'
     const searchIcon = isFromDrawer ? '/Images/searchIcon.svg' : '/Images/searchIconWhite.svg'
@@ -24,8 +25,9 @@ function HeaderDweb({ headerData, isFromDrawer }) {
         return item?.title
     }
 
-    const handleNavItemClick = () => {
-        setIsCanvasOpen(true)
+    const handleNavItemClick = (item) => {
+        setSelectedNavItem(item)
+        setIsCanvasOpen(true);
     }
 
     const handleClose = () => {
@@ -43,7 +45,7 @@ function HeaderDweb({ headerData, isFromDrawer }) {
                 })}
             </nav>
         </section>
-        <OffCanvasDweb show={isCanvasOpen} handleClose={handleClose} headerData={headerData} />
+        <OffCanvasDweb show={isCanvasOpen} selectedNavItem={selectedNavItem} handleClose={handleClose} headerData={headerData} />
     </header>
 }
 export default HeaderDweb
