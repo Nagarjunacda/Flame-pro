@@ -13,7 +13,8 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
     const isLargeScreen = useMediaQuery({ query: '(min-width:1280px)' })
     const fireFightingCards = isLargeScreen ? ['item', 'item'] : ['item']
-    const blogCardArr = isFireFighting ? fireFightingCards : ['item', 'item', 'item']
+    const nonFireFightingCards = isDesktop ? ['item', 'item', 'item'] : ['item']
+    const blogCardArr = isFireFighting ? fireFightingCards : nonFireFightingCards
 
     return <section className={styles.container}>
         {!isDesktop && <section className={styles.heading}>
