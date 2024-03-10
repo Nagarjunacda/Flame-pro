@@ -11,6 +11,9 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
     const isFireFighting = selectedNavItem?.title === 'Firefighting PPE'
     const backArrow = '/Images/backArrow.svg'
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
+    const isLargeScreen = useMediaQuery({ query: '(min-width:1280px)' })
+    const fireFightingCards = isLargeScreen ? ['item', 'item'] : ['item']
+    const blogCardArr = isFireFighting ? fireFightingCards : ['item', 'item', 'item']
 
     return <section className={styles.container}>
         {!isDesktop && <section className={styles.heading}>
@@ -36,7 +39,9 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             {!isFireFighting && !isDesktop && <BasketMweb />}
             {!isFireFighting && !isDesktop && <SearchMweb />}
             <section className={styles.blogCard}>
-                <BlogCard />
+                {blogCardArr.map((e, index) => {
+                    return <BlogCard key={index} />
+                })}
             </section>
         </section>
     </section>

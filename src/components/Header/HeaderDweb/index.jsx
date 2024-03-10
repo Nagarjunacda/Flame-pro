@@ -41,7 +41,7 @@ function HeaderDweb({ headerData, isFromDrawer }) {
             </figure>
             <nav className={isFromDrawer ? styles.navItemsDrawer : styles.navItems}>
                 {navItems?.map((item, index) => {
-                    return <nav key={index} onClick={() => { handleNavItemClick(item) }}>{getNavItem(item)}</nav>
+                    return <nav className={item.title === selectedNavItem.title ? styles.navItemBorder : ''} key={index} onClick={() => { handleNavItemClick(item) }}>{getNavItem(item)}</nav>
                 })}
             </nav>
         </section>

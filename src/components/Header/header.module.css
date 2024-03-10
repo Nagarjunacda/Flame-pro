@@ -82,7 +82,7 @@
   }
   .offCanvasContDweb{
     padding: 24px 20px;
-    height: auto !important;
+    height: 95vh !important;
   }
   .offCanvasBody{
     display: flex;
@@ -183,4 +183,8 @@
   .subHeader {
     padding-bottom: 20px;
   }
+}
+.navItemBorder{
+  border-bottom: solid 2px;
+  border-color: var(--color-navItemBorder)
 }

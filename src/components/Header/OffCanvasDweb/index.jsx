@@ -12,8 +12,6 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
         setIsOverlayCanvasOpen(false)
     }
 
-
-
     return <Offcanvas show={show} className={styles.offCanvasContDweb} placement={'top'}>
         <Offcanvas.Header>
             <HeaderDweb headerData={headerData} isCanvasOpen={show} isFromDrawer />
