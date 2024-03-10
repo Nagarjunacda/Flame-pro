@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home(props) {
   const { data } = props;
   const trayData = data?.acf?.content_blocks;
-  console.log(trayData, "helloo");
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
       case "header_banner_with_cta":
