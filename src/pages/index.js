@@ -4,6 +4,7 @@ import { handleServerSideProps } from "@/utils/handleServerSideData";
 import TitleAndTextCentre from "@/components/ContentBlocks/TitleAndTextCentre";
 import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
+import ResourceHubBlock from "@/components/ContentBlocks/ResourceHubBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +22,8 @@ export default function Home(props) {
         return <TitleAndTextCentre trayData={tray} />;
       case "two_ad_blocks":
         return <TwoAdBlocks trayData={tray} />;
+      case "resource_hub":
+        return <ResourceHubBlock trayData={tray} />;
       default:
         return null;
     }

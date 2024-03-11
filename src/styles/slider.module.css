@@ -1,0 +1,26 @@
+.custom-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-slickDot);
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 24px;
+    top: 0px;
+  }
+
+  .active {
+    background-color: var(--color-footerBackground);
+  }
+  .sliderCont{
+    padding-bottom: 32px;
+  }
+  .slick-dots {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .slick-dots li {
+    display: inline-block;
+    margin: 0 5px; /* Adjust the margin as needed */
+  }
