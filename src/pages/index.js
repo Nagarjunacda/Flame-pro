@@ -6,6 +6,7 @@ import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
 import ResourceHubBlock from "@/components/ContentBlocks/ResourceHubBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
+import Testimonial from "@/components/ContentBlocks/Testimonial";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,8 @@ export default function Home(props) {
         return <TwoAdBlocks trayData={tray} />;
       case "resource_hub":
         return <ResourceHubBlock trayData={tray} />;
+      case "testimonial_slider_block":
+        return <Testimonial trayData={tray} />;
       default:
         return null;
     }
