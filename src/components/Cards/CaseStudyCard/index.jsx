@@ -4,10 +4,9 @@ import { useMediaQuery } from 'react-responsive';
 import styles from './caseStudyCard.module.css'
 
 function CaseStudyCard({ data }) {
-    console.log(data, '!!!')
     const { post_title, post_content, name } = data
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
-    const cardImage = '/Images/blogImg.svg'
+    const cardImage = '/Images/caseStudyImage.svg'
 
     return (
         <Card className={styles.cardCont}>
