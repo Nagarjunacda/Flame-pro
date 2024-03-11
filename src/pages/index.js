@@ -6,6 +6,7 @@ import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
 import ResourceHubBlock from "@/components/ContentBlocks/ResourceHubBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
+import NewsLetterSignUp from "@/components/ContentBlocks/NewsLetterSignUp";
 import Testimonial from "@/components/ContentBlocks/Testimonial";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,6 +28,8 @@ export default function Home(props) {
         return <ResourceHubBlock trayData={tray} />;
       case "testimonial_slider_block":
         return <Testimonial trayData={tray} />;
+      case "newsletter_sign_up":
+        return <NewsLetterSignUp trayData={tray} />;
       default:
         return null;
     }
