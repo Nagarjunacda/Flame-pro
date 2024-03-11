@@ -27,6 +27,10 @@
     margin:0px;
     font-size:var(--font-size-canvas);
     font-weight: var(--font-wt-normal);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 .blog{
     width: 100%;

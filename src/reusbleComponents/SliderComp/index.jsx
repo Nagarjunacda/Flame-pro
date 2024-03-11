@@ -14,7 +14,7 @@ function SliderComp({ data, title }) {
 
     const settings = {
         dots: isDesktop ? false : true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: isDesktop ? slidesToShow : 1,
         slidesToScroll: 1,
