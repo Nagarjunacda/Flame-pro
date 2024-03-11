@@ -1,8 +1,11 @@
 import SliderComp from "@/reusbleComponents/SliderComp"
+import { useMediaQuery } from "react-responsive"
+import CaseStudyDweb from "./CaseStudyDweb"
 import styles from './caseStudyBlock.module.css'
 
 function CaseStudyBlock({ trayData }) {
     const { title, button_title } = trayData
+    const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
     // const resourceData = trayData?.blog_select;
     const resourceData = {
         "blog_select": [
@@ -171,12 +174,13 @@ function CaseStudyBlock({ trayData }) {
         ]
     }
 
-    return <section className={styles.mainCont}>
+    return <>{!isDesktop ? <section className={styles.mainCont}>
         <section className={styles.heading}>
             <p className={styles.title}>{title}</p>
             <p className={styles.viewAll}><u>{button_title}</u></p>
         </section>
         <section className={styles.slider}><SliderComp data={resourceData?.blog_select} title={title} /></section>
-    </section>
+    </section> : <CaseStudyDweb data={resourceData?.blog_select} />}
+    </>
 }
 export default CaseStudyBlock
