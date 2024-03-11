@@ -1,0 +1,12 @@
+.testimonalMain {
+  background-color: var(--color-primary);
+  padding: var(--padding-testimonial);
+}
+.sliderBlock {
+  background-color: var(--color-secondary);
+  transform: skew(-20deg);
+}
+
+.unSkew {
+  transform: skew(20deg);
+}
