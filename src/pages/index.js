@@ -5,6 +5,7 @@ import TitleAndTextCentre from "@/components/ContentBlocks/TitleAndTextCentre";
 import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
+import Testimonial from "@/components/ContentBlocks/Testimonial";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,8 @@ export default function Home(props) {
         return <TitleAndTextCentre trayData={tray} />;
       case "two_ad_blocks":
         return <TwoAdBlocks trayData={tray} />;
+      case "testimonial_slider_block":
+        return <Testimonial trayData={tray} />;
       default:
         return null;
     }
