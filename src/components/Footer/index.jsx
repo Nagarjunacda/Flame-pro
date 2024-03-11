@@ -1,7 +1,15 @@
+import FooterDweb from "./FooterDweb";
+import FooterMweb from "./FooterMweb";
+import { useMediaQuery } from "react-responsive";
 import styles from "./footer.module.css";
 
 function Footer() {
-  return <main className={styles.header}>Heading Goes Here On One Or Two Lines
-  </main>;
+  const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
+  return (
+    <main>
+      {isDesktop ? <FooterDweb /> :
+        <FooterMweb />}
+    </main>
+  );
 }
 export default Footer;

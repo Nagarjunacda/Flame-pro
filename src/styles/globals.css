@@ -7,6 +7,7 @@
   --color-defence: #858e20;
   --color-mwebSearch: #F3F3F3;
   --color-navItemBorder:#878787;
+  --color-footerBackground:#0D0201;
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
@@ -27,7 +28,10 @@
   --font-wt-xbold:800;
   --font-wt-heavy:900;
 
-  --padding-btn: 20px 64px
+  --padding-btn: 20px 64px;
+  --padding-xs-24:24px;
+  --padding-xs-36: 36px;
+  --padding-xs-48:48px;
 }
 
 @media only screen and (min-width: 900px) {
@@ -50,6 +54,10 @@
     --font-size-xl: 80px;
     --font-size-canvas:25px;
     --font-size-xs-ext:18px;
+
+    --padding-xs-24:36px;
+    --padding-xs-36: 140px;
+    --padding-xs-48:100px;
   }
 }
 
