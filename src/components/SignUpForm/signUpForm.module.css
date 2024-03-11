@@ -5,6 +5,12 @@
     align-items: center;
     gap: 24px;
     width: 100%;
+    max-width: 500px;
+}
+@media (min-width: 900px) {
+    .signUpCont {
+        max-width: 416px;
+    }
 }
 .headingText{
     font-size: var(--font-size-md);
