@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import TitleAndTextCard from '@/components/Cards/TitleAndTextCard'
+import CaseStudyCard from '@/components/Cards/CaseStudyCard'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -32,6 +33,8 @@ function SliderComp({ data, title }) {
         switch (title) {
             case 'Resource Hub':
                 return <TitleAndTextCard data={item} />
+            case 'Case Studies':
+                return <CaseStudyCard data={item} />
         }
     }
     return <section className={styles.sliderCont}>

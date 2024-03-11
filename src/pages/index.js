@@ -6,6 +6,7 @@ import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
 import ResourceHubBlock from "@/components/ContentBlocks/ResourceHubBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
+import CaseStudyBlock from "@/components/ContentBlocks/CaseStudyBlock";
 import NewsLetterSignUp from "@/components/ContentBlocks/NewsLetterSignUp";
 import Testimonial from "@/components/ContentBlocks/Testimonial";
 
@@ -30,6 +31,8 @@ export default function Home(props) {
         return <Testimonial trayData={tray} />;
       case "newsletter_sign_up":
         return <NewsLetterSignUp trayData={tray} />;
+      case "case_studies_block":
+        return <CaseStudyBlock trayData={tray} />;
       default:
         return null;
     }
