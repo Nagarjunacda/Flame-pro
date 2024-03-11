@@ -1,10 +1,24 @@
 .mainCont{
     width: 100%;
     height: auto;
-    padding: 0px var(--padding-xs-36)
+    padding: 0px var(--padding-xs-26);
+    display: flex;
+    flex-direction: column;
+    gap:26px
 }
 .heading{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    line-height: normal;
+}
+.title{
+    font-size: var(--font-size-lg)
+}
+.slider{
+    padding: 0px 10px
+}
+.viewAll{
+    font-size: var(--font-size-xs);
+    color: var(--color-altTextColor);
 }

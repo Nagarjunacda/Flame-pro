@@ -35,9 +35,9 @@ function SliderComp({ data, title }) {
         }
     }
     return <section className={styles.sliderCont}>
-        <Slider ref={sliderRef} {...settings} >
+        <Slider ref={sliderRef} {...settings}>
             {data.map((item, index) => {
-                return getCardBlock(item)
+                return <section key={index} className={styles.slideWrapper}>{getCardBlock(item)}</section>
             })}
         </Slider></section>
 }

@@ -15,12 +15,3 @@
   .sliderCont{
     padding-bottom: 32px;
   }
-  .slick-dots {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-  }
-  
-  .slick-dots li {
-    display: inline-block;
-    margin: 0 5px; /* Adjust the margin as needed */
-  }

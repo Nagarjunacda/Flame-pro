@@ -7,10 +7,10 @@ function ResourceHubBlock({ trayData }) {
 
     return <section className={styles.mainCont}>
         <section className={styles.heading}>
-            <p>{title}</p>
-            <p><u>{button_title}</u></p>
+            <p className={styles.title}>{title}</p>
+            <p className={styles.viewAll}><u>{button_title}</u></p>
         </section>
-        <SliderComp data={resourceData} title={title} />
+        <section className={styles.slider}><SliderComp data={resourceData} title={title} /></section>
     </section>
 }
 export default ResourceHubBlock

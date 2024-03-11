@@ -7,7 +7,7 @@
     border-radius: 0px;
 }
 .text{
-    font-size: var(--font-size-canvas);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-wt-md);
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -25,7 +25,7 @@
 }
 .title{
     margin:0px;
-    font-size:var(--font-size-xs);
+    font-size:var(--font-size-canvas);
     font-weight: var(--font-wt-normal);
 }
 .blog{
@@ -43,4 +43,8 @@
 .linkText{
     border-bottom: solid 1px;
     padding-bottom: 1px;
+}
+.date{
+    font-size: var(--font-size-xs);
+    margin: 0px;
 }
