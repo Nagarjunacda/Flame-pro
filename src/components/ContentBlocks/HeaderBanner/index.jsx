@@ -18,7 +18,7 @@ function HeaderBanner({ trayData }) {
     }
 
     return <section className={styles.main}>
-        <figure className={styles.bannerImage}>
+        <figure className={styles.bannerImage} onClick={handleButtonClick}>
             <FlameImage src={bannerImage} alt='bannerImage' />
         </figure>
         <section className={styles.headerTextBlock}>

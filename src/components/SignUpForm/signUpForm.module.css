@@ -1,0 +1,89 @@
+.signUpCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 500px;
+}
+@media (min-width: 900px) {
+    .signUpCont {
+        max-width: 416px;
+    }
+}
+.headingText{
+    font-size: var(--font-size-md);
+    color: var(--color-secondary);
+}
+.textInput{
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: var(--font-size-xs);
+    width: 100%;
+    outline: none;
+    padding-bottom: 8px;
+}
+  /* Style placeholder text */
+  .textInput::placeholder {
+    color: var(--color-secondary);
+    opacity: 0.5;
+    font-weight: var(--font-wt-bold); /* White with 50% opacity */
+  }
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:32px;
+    width: 100%;
+}
+.formDiv{
+    width: 100%;
+    max-width: 500px;
+}
+.checkBoxCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.checkBox{
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-secondary);
+}
+@media (min-width: 1680px) {
+    .checkBox {
+        width: 21px;
+        height: 21px;
+    }
+}
+.checkBoxText{
+    color: var(--color-secondary);
+    font-size: var(--font-size-xs);
+}
+.checkBoxSection{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    /* margin-left: 26px; */
+}
+.checkBoxAndText{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.cta{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
