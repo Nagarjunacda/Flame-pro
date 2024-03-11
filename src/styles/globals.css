@@ -1,40 +1,41 @@
 :root {
   --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --color-primary: #000000;
+  --color-primary: #1c0401;
   --color-secondary: #ffffff;
   --color-fire: #e53d1c;
   --color-defence: #858e20;
-  --color-mwebSearch: #F3F3F3;
-  --color-navItemBorder:#878787;
-  --color-footerBackground:#0D0201;
-  --color-slickDot:#c1bebf;
-  --color-altTextColor:#1c0401;
+  --color-mwebSearch: #f3f3f3;
+  --color-navItemBorder: #878787;
+  --color-footerBackground: #0d0201;
+  --color-slickDot: #c1bebf;
+  --color-altTextColor: #1c0401;
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
-  --font-size-xs-ext:14px;
-  --font-size-canvas:18px;
-  --font-size-headerDrawer:25px;
+  --font-size-xs-ext: 14px;
+  --font-size-canvas: 18px;
+  --font-size-headerDrawer: 25px;
 
-  --font-wt-thin:100;
-  --font-wt-xlight:200;
-  --font-wt-light:300;
-  --font-wt-normal:400;
-  --font-wt-md:500;
-  --font-wt-sembold:600;
-  --font-wt-bold:700;
-  --font-wt-xbold:800;
-  --font-wt-heavy:900;
+  --font-wt-thin: 100;
+  --font-wt-xlight: 200;
+  --font-wt-light: 300;
+  --font-wt-normal: 400;
+  --font-wt-md: 500;
+  --font-wt-sembold: 600;
+  --font-wt-bold: 700;
+  --font-wt-xbold: 800;
+  --font-wt-heavy: 900;
 
   --padding-btn: 20px 64px;
-  --padding-xs-24:24px;
-  --padding-xs-26:26px;
+  --padding-xs-24: 24px;
+  --padding-xs-26: 26px;
   --padding-xs-36: 36px;
-  --padding-xs-48:48px;
+  --padding-xs-48: 48px;
+  --padding-testimonial: 50px 36px;
 }
 
 @media only screen and (min-width: 900px) {
@@ -44,8 +45,9 @@
     --font-size-md: 22px;
     --font-size-lg: 35px;
     --font-size-xl: 60px;
-    --font-size-canvas:18px;
-    --font-size-xs-ext:16px;
+    --font-size-canvas: 18px;
+    --font-size-xs-ext: 16px;
+    --padding-testimonial: 65px 145px;
   }
 }
 
@@ -56,12 +58,13 @@
     --font-size-md: 25px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
-    --font-size-canvas:25px;
-    --font-size-xs-ext:18px;
+    --font-size-canvas: 25px;
+    --font-size-xs-ext: 18px;
 
-    --padding-xs-24:36px;
+    --padding-xs-24: 36px;
     --padding-xs-36: 140px;
-    --padding-xs-48:100px;
+    --padding-xs-48: 100px;
+    --padding-testimonial: 65px 145px;
   }
 }
 
@@ -85,7 +88,6 @@ a {
   text-decoration: none;
 }
 
-p{
+p {
   margin: 0px;
 }
-

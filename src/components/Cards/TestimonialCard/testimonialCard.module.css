@@ -1,0 +1,12 @@
+.testimonialTitle {
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+}
+.testimonialDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+}
+.testimonialAuthor {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}

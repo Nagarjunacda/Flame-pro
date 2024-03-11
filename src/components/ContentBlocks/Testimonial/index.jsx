@@ -1,8 +1,22 @@
-import Carousel from "react-bootstrap/Carousel";
-import FlameImage from "@/reusbleComponents/FlameImage";
+import Style from "./testimonial.module.css";
+import SliderComp from "@/reusbleComponents/SliderComp";
 
-function Testimonial() {
-  return <></>;
+function Testimonial({ trayData }) {
+  console.log(trayData?.testimonial_slider, "!!!!");
+  const testimonialData = trayData?.testimonial_slider;
+  return (
+    <section className={Style.testimonalMain}>
+      <div className={Style.sliderBlock}>
+        <div className={Style.unSkew}>
+          <SliderComp
+            data={testimonialData}
+            title={"testimonial"}
+            slidesToShow={1}
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Testimonial;
