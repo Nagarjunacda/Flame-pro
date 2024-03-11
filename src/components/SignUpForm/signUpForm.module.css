@@ -55,7 +55,7 @@
     height: 12px;
     background-color: var(--color-secondary);
 }
-@media (min-width: 1280px) {
+@media (min-width: 1680px) {
     .checkBox {
         width: 21px;
         height: 21px;
