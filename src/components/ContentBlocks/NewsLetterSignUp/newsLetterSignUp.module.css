@@ -1,0 +1,50 @@
+.mainCont{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 52px;
+}
+@media (min-width: 1680px) {
+    .mainCont {
+        margin-bottom: 92px;
+    }
+}
+.imageStyles{
+    width: 100%;
+    height: 900px;
+}
+@media (min-width: 600px) {
+    .imageStyles {
+        height: 585px;
+    }
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
+}
+@media (min-width: 900px) {
+    .overlay {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+.form{
+    position: absolute;
+    bottom: 50px;
+    left: 0px;
+    top: 50%; /* Move the top of the child to the center of the parent */
+    left: 50%; /* Move the left of the child to the center of the parent */
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0px var(--padding-xs-36)
+}
+@media (min-width: 600px) {
+    .form {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        bottom: auto;
+    }
+}
