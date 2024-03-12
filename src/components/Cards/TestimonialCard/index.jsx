@@ -16,7 +16,11 @@ const TestimonialCard = ({ data }) => {
               <h4 className={Style.testimonialAuthor}>- Name, Company Name</h4>
             </div>
           </Col>
-          <Col xs={12} lg={2}>
+          <Col
+            xs={12}
+            lg={2}
+            className="d-flex align-items-center justify-content-center"
+          >
             <figure className={Style.testimonalImage}>
               <FlameImage
                 src={"./images/testimonalImage.svg"}

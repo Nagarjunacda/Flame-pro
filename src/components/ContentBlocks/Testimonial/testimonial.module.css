@@ -12,7 +12,7 @@
   /* transform: skew(20deg); */
   padding: var(--padding-inner-testimonial);
 }
-@media only screen and (min-width: 1680px) {
+@media only screen and (min-width: 900px) {
   .sliderBlock {
     background-color: var(--color-secondary);
     /* transform: skew(-20deg); */

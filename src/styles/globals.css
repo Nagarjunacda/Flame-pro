@@ -37,6 +37,7 @@
   --padding-xs-48: 48px;
   --padding-testimonial: 50px 36px;
   --padding-inner-testimonial: 150px 15px;
+  --padding-text-center-block: 50px 35px;
 }
 
 @media only screen and (min-width: 900px) {
@@ -47,11 +48,18 @@
     --font-size-lg: 35px;
     --font-size-xl: 60px;
     --font-size-canvas: 18px;
-    --font-size-xs-ext: 16px;
-    --padding-testimonial: 65px 145px;
+    --padding-testimonial: 50px 36px;
+    --padding-inner-testimonial: 35px 50px;
+    --padding-text-center-block: 85px 35px;
   }
 }
-
+@media only screen and (min-width: 1200px) {
+  :root {
+    --padding-testimonial: 50px 36px;
+    --padding-inner-testimonial: 35px 120px;
+    --padding-text-center-block: 85px 35px;
+  }
+}
 @media only screen and (min-width: 1680px) {
   :root {
     --font-size-xs: 16px;
@@ -67,6 +75,7 @@
     --padding-xs-48: 100px;
     --padding-testimonial: 65px 145px;
     --padding-inner-testimonial: 85px 145px;
+    --padding-text-center-block: 50px 85px;
   }
 }
 

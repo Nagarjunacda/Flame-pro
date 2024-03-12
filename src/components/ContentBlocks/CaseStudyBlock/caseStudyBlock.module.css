@@ -1,66 +1,66 @@
-.mainCont{
-    width: 100%;
-    height: auto;
-    padding: 0px var(--padding-xs-26);
-    display: flex;
-    flex-direction: column;
-    gap:26px
+.mainCont {
+  width: 100%;
+  height: auto;
+  padding: 0px var(--padding-xs-26);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 }
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    line-height: normal;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: normal;
 }
-.title{
-    font-size: var(--font-size-lg)
+.title {
+  font-size: var(--font-size-lg);
 }
-.slider{
-    padding: 0px 10px
+.slider {
+  padding: 0px 10px;
 }
-.viewAll{
-    font-size: var(--font-size-xs);
-    color: var(--color-altTextColor);
+.viewAll {
+  font-size: var(--font-size-xs);
+  color: var(--color-altTextColor);
 }
-.dwebCont{
-width: 100%;
-height: auto;
-display: flex;
-justify-content: space-between;
-gap: 48px;
-align-items: flex-start;
-padding: var(--padding-xs-26) var(--padding-xs-48)
+.dwebCont {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  align-items: flex-start;
+  padding: var(--padding-xs-26) var(--padding-xs-48);
 }
-.headingAndCategory{
-    display: flex;
-    flex-direction: column;
-    gap:74px;
+.headingAndCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
 }
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.categories{
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column;
-    gap: 36px;
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 36px;
 }
-.categoryItem{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.categoryItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.rightArrow{
-    width: 16px;
-    height: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.rightArrow {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.cardSection{
-    width: 60%;
+.cardSection {
+  width: 60%;
 }
