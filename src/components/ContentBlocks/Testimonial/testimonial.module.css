@@ -9,4 +9,5 @@
 
 .unSkew {
   transform: skew(20deg);
+  padding: var(--padding-inner-testimonial);
 }

@@ -8,14 +8,16 @@ const TestimonialCard = ({ data }) => {
   return (
     <section>
       <Container>
-        <Row>
+        <Row className="align-items-center">
           <Col xs={12} lg={10}>
             <h2 className={Style.testimonialTitle}>{data?.post_title}</h2>
             <p className={Style.testimonialDesc}>{data?.post_content}</p>
             <h4 className={Style.testimonialAuthor}>- Name, Company Name</h4>
           </Col>
           <Col xs={12} lg={2}>
-            <FlameImage src={"./images/fireLogo.svg"} alt={"testimage"} />
+            <figure>
+              <FlameImage src={"./images/fireLogo.svg"} alt={"testimage"} />
+            </figure>
           </Col>
         </Row>
       </Container>
