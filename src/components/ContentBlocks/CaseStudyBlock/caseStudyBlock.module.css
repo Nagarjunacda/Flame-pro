@@ -22,3 +22,45 @@
     font-size: var(--font-size-xs);
     color: var(--color-altTextColor);
 }
+.dwebCont{
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+gap: 48px;
+align-items: flex-start;
+padding: var(--padding-xs-26) var(--padding-xs-48)
+}
+.headingAndCategory{
+    display: flex;
+    flex-direction: column;
+    gap:74px;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 36px;
+}
+.categoryItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightArrow{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardSection{
+    width: 60%;
+}
