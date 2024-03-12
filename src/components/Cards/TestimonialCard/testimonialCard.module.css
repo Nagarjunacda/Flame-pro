@@ -12,3 +12,26 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-wt-xbold);
 }
+.testimonalRow {
+  display: flex;
+  align-items: center;
+}
+.testimonalData {
+  padding-right: 30px;
+}
+
+@media only screen and (max-width: 699px) {
+  .testimonalRow {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .testimonalImage {
+    padding: 40px;
+  }
+  .slider_slideWrapper__7oBiz {
+    padding: 0px;
+  }
+  .testimonalData {
+    padding-right: 0px;
+  }
+}

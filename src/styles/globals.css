@@ -36,7 +36,7 @@
   --padding-xs-36: 36px;
   --padding-xs-48: 48px;
   --padding-testimonial: 50px 36px;
-  --padding-inner-testimonial: 90px 35px;
+  --padding-inner-testimonial: 150px 15px;
 }
 
 @media only screen and (min-width: 900px) {

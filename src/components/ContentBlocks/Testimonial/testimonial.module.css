@@ -4,10 +4,18 @@
 }
 .sliderBlock {
   background-color: var(--color-secondary);
-  transform: skew(-20deg);
+  /* transform: skew(-20deg); */
+  clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%);
 }
 
 .unSkew {
-  transform: skew(20deg);
+  /* transform: skew(20deg); */
   padding: var(--padding-inner-testimonial);
+}
+@media only screen and (min-width: 1680px) {
+  .sliderBlock {
+    background-color: var(--color-secondary);
+    /* transform: skew(-20deg); */
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+  }
 }
