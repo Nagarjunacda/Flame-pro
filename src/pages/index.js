@@ -10,12 +10,15 @@ import TwoAdBlockTest from "@/components/ContentBlocks/TwoAdBlockTest";
 import CaseStudyBlock from "@/components/ContentBlocks/CaseStudyBlock";
 import NewsLetterSignUp from "@/components/ContentBlocks/NewsLetterSignUp";
 import Testimonial from "@/components/ContentBlocks/Testimonial";
+import { useMediaQuery } from "react-responsive";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
   const { data } = props;
   const trayData = data?.acf?.content_blocks;
+  const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
+
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
       case "header_banner_with_cta":
@@ -25,7 +28,7 @@ export default function Home(props) {
       case "title_and_text_centre":
         return <TitleAndTextCentre trayData={tray} />;
       case "two_ad_blocks":
-        return <TwoAdBlockTest trayData={tray} />;
+        return isDesktop ? <TwoAdBlockTest trayData={tray} /> : <TwoAdBlocks trayData={tray} />
       case "resource_hub":
         return <ResourceHubBlock trayData={tray} />;
       case "testimonial_slider_block":
