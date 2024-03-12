@@ -8,11 +8,13 @@ function TwoAdBlockTest({ trayData }) {
         <section className={styles.section1}>
             <section className={styles.innerSection1}>
                 <FlameImage src={img1} alt='logo' />
+                <section className={styles.overlay}></section>
             </section>
         </section>
         <section className={styles.section2}>
             <section className={styles.innerSection2}>
                 <FlameImage src={img2} alt='logo' />
+                <section className={styles.overlay}></section>
             </section>
         </section>
     </section>
