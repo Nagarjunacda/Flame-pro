@@ -102,3 +102,6 @@ a {
 p {
   margin: 0px;
 }
+.zls-lftbtn {
+  display: none !important;
+}
