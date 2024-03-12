@@ -6,7 +6,7 @@ import styles from './caseStudyCard.module.css'
 function CaseStudyCard({ data }) {
     const { post_title, post_content, name } = data
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
-    const cardImage = '/Images/caseStudyImage.svg'
+    const cardImage = isDesktop ? '/Images/caseStudyImage.svg' : '/Images/blogImg.svg'
 
     return (
         <Card className={styles.cardCont}>

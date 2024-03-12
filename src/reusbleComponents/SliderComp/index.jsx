@@ -15,7 +15,7 @@ function SliderComp({ data, title, slidesToShow }) {
     const noSlidesToShow = slidesToShow;
 
     const settings = {
-        dots: isDesktop ? false : true,
+        dots: isDesktop || title === 'testimonial' ? false : true,
         infinite: false,
         speed: 500,
         slidesToShow: isDesktop ? noSlidesToShow : 1,

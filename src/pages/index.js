@@ -6,6 +6,7 @@ import HeaderBanner from "@/components/ContentBlocks/HeaderBanner";
 import UspBlock from "@/components/ContentBlocks/UspBlock";
 import ResourceHubBlock from "@/components/ContentBlocks/ResourceHubBlock";
 import TwoAdBlocks from "@/components/ContentBlocks/TwoAdBlocks";
+import TwoAdBlockTest from "@/components/ContentBlocks/TwoAdBlockTest";
 import CaseStudyBlock from "@/components/ContentBlocks/CaseStudyBlock";
 import NewsLetterSignUp from "@/components/ContentBlocks/NewsLetterSignUp";
 import Testimonial from "@/components/ContentBlocks/Testimonial";
@@ -24,7 +25,7 @@ export default function Home(props) {
       case "title_and_text_centre":
         return <TitleAndTextCentre trayData={tray} />;
       case "two_ad_blocks":
-        return <TwoAdBlocks trayData={tray} />;
+        return <TwoAdBlockTest trayData={tray} />;
       case "resource_hub":
         return <ResourceHubBlock trayData={tray} />;
       case "testimonial_slider_block":
