@@ -1,7 +1,7 @@
 .mainCont {
   width: 100%;
   height: auto;
-  padding: 0px var(--padding-xs-26);
+  padding: var(--padding-xs-48) var(--padding-xs-36);
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -29,7 +29,7 @@
   justify-content: space-between;
   gap: 48px;
   align-items: flex-start;
-  padding: var(--padding-xs-26) var(--padding-xs-48);
+  padding: var(--padding-xs-48) var(--padding-xs-36);
 }
 .headingAndCategory {
   display: flex;
