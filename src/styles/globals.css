@@ -48,13 +48,22 @@
     --font-size-lg: 35px;
     --font-size-xl: 60px;
     --font-size-canvas: 18px;
+
+    --padding-xs-24: 24px;
+    --padding-xs-26: 26px;
+    --padding-xs-36: 44px;
+    --padding-xs-48: 52px;
     --padding-testimonial: 50px 36px;
     --padding-inner-testimonial: 35px 50px;
     --padding-text-center-block: 85px 35px;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1280px) {
   :root {
+    --padding-xs-24: 24px;
+    --padding-xs-26: 70px;
+    --padding-xs-36: 80px;
+    --padding-xs-48: 72px;
     --padding-testimonial: 50px 36px;
     --padding-inner-testimonial: 35px 120px;
     --padding-text-center-block: 85px 35px;
@@ -71,6 +80,7 @@
     --font-size-xs-ext: 18px;
 
     --padding-xs-24: 36px;
+    --padding-xs-26: 130px;
     --padding-xs-36: 140px;
     --padding-xs-48: 100px;
     --padding-testimonial: 65px 145px;

@@ -6,8 +6,8 @@
 
   .header{
     position: absolute;
+    padding:0px var(--padding-xs-36);
     z-index: 1;
     top:40px;
-    padding:0px 36px;
     width:100%
   }

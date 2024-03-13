@@ -10,10 +10,17 @@
 @media (min-width: 900px) {
     .signUpCont {
         max-width: 416px;
+        justify-content: flex-start;
     }
 }
 .headingText{
+    width: 100%;
     font-size: var(--font-size-md);
+    color: var(--color-secondary);
+}
+.headingTextBlock{
+    width: 100%;
+    font-size: var(--font-size-lg);
     color: var(--color-secondary);
 }
 .textInput{
@@ -86,4 +93,12 @@
     display: flex;
     justify-content: end;
     align-items: start;
+}
+.text{
+    color: var(--color-secondary);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: var(--font-size-sm);
 }

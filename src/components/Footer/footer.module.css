@@ -102,7 +102,7 @@
 }
 @media (min-width: 1680px) {
   .dataContDweb {
-    gap:120px;
+    gap:100px;
   }
 }
 .flameImg{
@@ -138,10 +138,10 @@
   max-width: 256px;
 }
 .innerLinks{
-  font-size: var(--font-size-canvas);
+  font-size: var(--font-size-sm);
   white-space:nowrap;
 }
 .address{
-  font-size: var(--font-size-canvas);
+  font-size: var(--font-size-sm);
   white-space:wrap;
 }

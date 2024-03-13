@@ -45,11 +45,24 @@
         transform: translateY(-50%);
     }
 }
+@media (min-width: 900px) {
+    .headerTextBlock {
+        left: 44px;
+    }
+}
+@media (min-width: 1280px) {
+    .headerTextBlock {
+        left: 80px;
+        gap: 30px;
+    }
+}
 @media (min-width: 1680px) {
     .headerTextBlock {
        max-width: 900px;
        top: 56%;
        transform: translateY(-50%);
+       left: 140px;
+       gap: 36px;
     }
 }
 .btnSection{

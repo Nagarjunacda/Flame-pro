@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import CheckBoxWithText from './CheckBoxWithText';
+import { renderHTML } from '@/utils/htmlString';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import styles from './signUpForm.module.css'
 
-function SignUpForm({ isFromFooter }) {
+function SignUpForm({ isFromFooter, text }) {
     const [formData, setFormData] = useState({});
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
@@ -24,7 +25,8 @@ function SignUpForm({ isFromFooter }) {
     };
     const data = ['Full Name', 'Email Address', 'Area Of Interest']
     return <section className={styles.signUpCont}>
-        <p className={styles.headingText}>Sign Up To Our Mailing List</p>
+        <p className={isFromFooter ? styles.headingText : styles.headingTextBlock}>Sign Up To Our Mailing</p>
+        {text && <p className={styles.text}>{renderHTML(text)}</p>}
         <form onSubmit={handleSubmit} className={styles.form}>
             {data.map((fieldName) => (
                 <div key={fieldName} className={styles.formDiv}>

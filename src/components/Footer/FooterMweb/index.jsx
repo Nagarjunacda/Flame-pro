@@ -87,7 +87,7 @@ function FooterMweb() {
                 )
             })}
         </section>
-        <SignUpForm />
+        <SignUpForm isFromFooter />
         <section className={styles.copyRightCont}><CopyRightText /></section>
     </section>
 }

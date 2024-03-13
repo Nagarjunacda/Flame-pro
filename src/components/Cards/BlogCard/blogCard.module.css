@@ -39,4 +39,6 @@
 .linkText{
     border-bottom: solid 1px;
     padding-bottom: 1px;
+    font-weight: var(--font-wt-normal);
+    letter-spacing: 1px;
 }

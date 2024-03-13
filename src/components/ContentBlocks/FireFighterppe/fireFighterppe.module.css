@@ -23,8 +23,9 @@
 .backText{
     font-size: var(--font-size-xs);
     letter-spacing: 1px;
-    border-bottom: 2px solid;
+    border-bottom: 1px solid;
     padding-bottom: 2px;
+    letter-spacing: 2px;
 }
 .headingText{
     font-size: var(--font-size-canvas);

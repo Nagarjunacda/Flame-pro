@@ -21,4 +21,5 @@
 .viewAll{
     font-size: var(--font-size-xs);
     color: var(--color-altTextColor);
+    letter-spacing: 1px;
 }
