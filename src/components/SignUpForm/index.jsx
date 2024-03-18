@@ -20,10 +20,10 @@ function SignUpForm({ isFromFooter, text }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted with data:', formData);
-        // Add your form submission logic here
     };
+
     const data = ['Full Name', 'Email Address', 'Area Of Interest']
+
     return <section className={styles.signUpCont}>
         <p className={isFromFooter ? styles.headingText : styles.headingTextBlock}>Sign Up To Our Mailing</p>
         {text && <p className={styles.text}>{renderHTML(text)}</p>}

@@ -4,7 +4,6 @@ import CaseStudyCard from '@/components/Cards/CaseStudyCard';
 import styles from '../caseStudyBlock.module.css'
 
 function CaseStudyDweb({ data }) {
-    console.log(data, '!!')
     const [selectedCategory, setSelectedCategory] = useState(data[0])
     const imgSrc = '/Images/rightRedArrow.svg';
 

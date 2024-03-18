@@ -3,7 +3,6 @@ import SignUpForm from '@/components/SignUpForm'
 import styles from './newsLetterSignUp.module.css'
 
 function NewsLetterSignUp({ trayData }) {
-    console.log(trayData, '!! tray')
     const imgSrc = trayData?.image
     const text = trayData?.text
     return <section className={styles.mainCont}>

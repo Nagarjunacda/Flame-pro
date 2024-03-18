@@ -2,7 +2,6 @@ import Style from "./testimonial.module.css";
 import SliderComp from "@/reusbleComponents/SliderComp";
 
 function Testimonial({ trayData }) {
-  console.log(trayData?.testimonial_slider, "!!!!");
   const testimonialData = trayData?.testimonial_slider;
   return (
     <section className={Style.testimonalMain}>
