@@ -6,13 +6,15 @@ const ButtonStyleTwo = ({ text, textColor, isLoadState, btnFunction }) => {
     borderTop: "0",
     borderLeft: "0",
     borderRight: "0",
-    borderBottom: "1px solid #fff !important", // Increase specificity
+    borderColor: 'var(--color-navItemBorder)',// Change borderBottom to borderColor
+    borderWidth: "0 0 1px 0", // Optional: Specify individual border widths if needed
+    borderStyle: "solid",
     color: textColor,
     textDecoration: "underline",
     transition: "all 0.3s ease",
     outline: "none",
     borderRadius: "0px",
-    fontSize: "16px", // Set a specific font size or use a CSS variable
+    fontSize: "16px",
   };
   const textStyle = {
     display: "inline-block",

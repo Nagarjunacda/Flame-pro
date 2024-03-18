@@ -3,6 +3,7 @@ import HeaderBannerSlim from "../ContentBlocks/HeaderBannerSlim";
 import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
+import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 
 function FireFighting({ pageData }) {
     const { data } = pageData;
@@ -13,6 +14,8 @@ function FireFighting({ pageData }) {
         switch (tray?.acf_fc_layout) {
             case "header_banner_slim":
                 return <HeaderBannerSlim trayData={tray} />;
+            case "title_and_text_centre":
+                return <TitleAndTextCentre trayData={tray} />;
             case "testimonial_slider_block":
                 return <Testimonial trayData={tray} />;
             case "case_studies_block":

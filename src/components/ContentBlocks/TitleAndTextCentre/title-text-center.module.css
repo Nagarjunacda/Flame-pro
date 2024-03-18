@@ -22,3 +22,26 @@
   font-size: var(--description);
   text-align: center;
 }
+.btnSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+@media (min-width: 900px) {
+    .btnSection {
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+@media (min-width: 900px) {
+  .btnSection {
+      gap: 40px;
+  }
+}
+@media (min-width: 1680px) {
+  .btnSection {
+      gap: 52px;
+  }
+}
