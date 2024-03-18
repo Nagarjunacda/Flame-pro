@@ -1,15 +1,14 @@
 import { useRouter } from 'next/router'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
-import { renderHTML } from '@/utils/htmlString'
-import styles from './headerBanner.module.css'
+import styles from './headerBannerSlim.module.css'
 
-function HeaderBanner({ trayData }) {
+function HeaderBannerSlim({ trayData }) {
     const router = useRouter()
     const bannerImage = trayData?.image
     const buttonColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
-    const buttonText = trayData?.button_title
+    const buttonText = trayData?.speak_to_us_button
     const text = trayData?.text
     const title = trayData?.title
 
@@ -23,9 +22,6 @@ function HeaderBanner({ trayData }) {
         </figure>
         <section className={styles.headerTextBlock}>
             <h1 className={styles.heading}>{title}</h1>
-            <section className={styles.textSection}>
-                <section className={styles.text}>{renderHTML(text)}</section>
-            </section>
             <section className={styles.btnSection}>
                 <FlameBtn color={buttonColor} textColor={textColor} text={buttonText} isLoadState={false} btnFunction={handleButtonClick} />
             </section>
@@ -33,4 +29,4 @@ function HeaderBanner({ trayData }) {
         <section className={styles.overlay}></section>
     </section>
 }
-export default HeaderBanner
+export default HeaderBannerSlim
