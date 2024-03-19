@@ -1,0 +1,18 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    background-color:var(--color-mwebSearch);
+    padding: var(--padding-xs-44) var(--padding-xs-36);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+.title{
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-wt-heavy);
+    font-stretch: condensed;
+}
+.slider{
+    padding: 0px 0px
+}

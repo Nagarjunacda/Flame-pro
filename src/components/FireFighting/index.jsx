@@ -7,6 +7,7 @@ import Testimonial from "../ContentBlocks/Testimonial";
 import FullWidthAdBlock from "../ContentBlocks/FullWidthAdBlock";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 import ImageLeftTextRight from "../ContentBlocks/ImageLeftTextRight";
+import FourCategoryBlock from "../ContentBlocks/FourCategoryBlock";
 
 function FireFighting({ pageData }) {
     const { data } = pageData;
@@ -33,6 +34,8 @@ function FireFighting({ pageData }) {
                 return <FullWidthAdBlock trayData={tray} />;
             case "resource_hub":
                 return <ResourceHubBlock trayData={tray} />;
+            case "four_category_blocks":
+                return <FourCategoryBlock trayData={tray} />;
             default:
                 return null;
         }

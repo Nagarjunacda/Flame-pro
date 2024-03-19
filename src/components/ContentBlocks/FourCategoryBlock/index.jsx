@@ -1,0 +1,15 @@
+import FourCategoryCard from "@/components/Cards/FourCategoryCard"
+import SliderComp from "@/reusbleComponents/SliderComp";
+import { Container, Row, Col } from 'react-bootstrap';
+import styles from './fourCategoryBlock.module.css'
+
+function FourCategoryBlock({ trayData }) {
+    const trayTitle = trayData?.acf_fc_layout
+    const blockTitle = trayData?.title
+    const productList = trayData?.product_category || []
+    return <section className={styles.mainCont}>
+        {blockTitle && <p className={styles.title}>{blockTitle}</p>}
+        <section className={styles.slider}><SliderComp data={productList} title={trayTitle} slidesToShow={4} /></section>
+    </section>
+}
+export default FourCategoryBlock

@@ -1,0 +1,8 @@
+.cardCont{
+    width: 100%;
+    height: auto;
+    border:none
+}
+.cardImg{
+    border-radius: 0px;
+}

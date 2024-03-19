@@ -7,6 +7,7 @@ import TitleAndTextCard from '@/components/Cards/TitleAndTextCard'
 import CaseStudyCard from '@/components/Cards/CaseStudyCard'
 import TestimonialCard from "@/components/Cards/TestimonialCard";
 import styles from '../../styles/slider.module.css'
+import FourCategoryCard from '@/components/Cards/FourCategoryCard'
 
 function SliderComp({ data, title, slidesToShow }) {
     const sliderRef = useRef(null);
@@ -38,6 +39,8 @@ function SliderComp({ data, title, slidesToShow }) {
                 return <TestimonialCard data={item} />;
             case 'Case Studies':
                 return <CaseStudyCard data={item} />
+            case 'four_category_blocks':
+                return <FourCategoryCard data={item} />
         }
     };
     return (
