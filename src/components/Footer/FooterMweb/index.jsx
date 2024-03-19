@@ -10,6 +10,7 @@ function FooterMweb() {
     const [linkData, setLinkData] = useState([])
     const [accor, setAccor] = useState(false)
     const plusIcon = '/Images/plusIcon.svg'
+    const formHeading = 'Sign Up To Our Mailing'
     const data1 = ['Useful Links', 'Legal', 'Contact']
     const usefulLinks = [
         'Distributors',
@@ -87,7 +88,7 @@ function FooterMweb() {
                 )
             })}
         </section>
-        <SignUpForm isFromFooter />
+        <SignUpForm isFromFooter heading={formHeading} />
         <section className={styles.copyRightCont}><CopyRightText /></section>
     </section>
 }

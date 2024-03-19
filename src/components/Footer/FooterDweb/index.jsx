@@ -6,6 +6,7 @@ import styles from '../footer.module.css'
 
 function FooterDweb() {
     const flameImg = '/Images/flameLogo.svg'
+    const formHeading = 'Sign Up To Our Mailing'
     const data1 = ['Useful Links', 'Legal', 'Contact']
     const usefulLinks = [
         'Distributors',
@@ -46,7 +47,7 @@ function FooterDweb() {
                     </section>
                 })}
             </section>
-            <SignUpForm isFromFooter />
+            <SignUpForm isFromFooter heading={formHeading} />
         </section>
         <section className={styles.copyRight}>
             <CopyRightText />

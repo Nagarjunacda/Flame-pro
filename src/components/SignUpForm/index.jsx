@@ -4,7 +4,7 @@ import { renderHTML } from '@/utils/htmlString';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import styles from './signUpForm.module.css'
 
-function SignUpForm({ isFromFooter, text }) {
+function SignUpForm({ isFromFooter, text, heading }) {
     const [formData, setFormData] = useState({});
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
@@ -25,7 +25,7 @@ function SignUpForm({ isFromFooter, text }) {
     const data = ['Full Name', 'Email Address', 'Area Of Interest']
 
     return <section className={styles.signUpCont}>
-        <p className={isFromFooter ? styles.headingText : styles.headingTextBlock}>Sign Up To Our Mailing</p>
+        <p className={isFromFooter ? styles.headingText : styles.headingTextBlock}>{heading}</p>
         {text && <p className={styles.text}>{renderHTML(text)}</p>}
         <form onSubmit={handleSubmit} className={styles.form}>
             {data.map((fieldName) => (
