@@ -12,12 +12,13 @@ function ContactFormBlock({ trayData }) {
     const textColor = 'var(--color-primary)'
     const btnText = trayData?.button_title
     const formHeading = 'Enter Your Details'
+    const formData = [{ section1: 'Full Name*', section2: 'Email Address*' }, { section1: 'Phone Number*', section2: 'Company Name*' }, { section1: 'Job Title*' }, { section1: 'Message' }]
 
     const btnFunction = () => { }
 
     return <section className={styles.mainCont}>
         <section className={styles.formSection}>
-            <SignUpForm isFromFooter={false} text={text} heading={formHeading} />
+            <SignUpForm isFromFooter={false} text={text} heading={formHeading} formFields={formData} />
         </section>
         <section className={styles.imageSection}>
             <section className={styles.img}>

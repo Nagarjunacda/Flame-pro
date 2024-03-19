@@ -4,7 +4,7 @@ import { renderHTML } from '@/utils/htmlString';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import styles from './signUpForm.module.css'
 
-function SignUpForm({ isFromFooter, text, heading }) {
+function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const [formData, setFormData] = useState({});
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
@@ -22,23 +22,30 @@ function SignUpForm({ isFromFooter, text, heading }) {
         e.preventDefault();
     };
 
-    const data = ['Full Name', 'Email Address', 'Area Of Interest']
-
     return <section className={styles.signUpCont}>
         <p className={isFromFooter ? styles.headingText : styles.headingTextBlock}>{heading}</p>
         {text && <p className={styles.text}>{renderHTML(text)}</p>}
         <form onSubmit={handleSubmit} className={styles.form}>
-            {data.map((fieldName) => (
+            {formFields?.map((fieldName) => (
                 <div key={fieldName} className={styles.formDiv}>
                     <input
                         type="text"
-                        id={fieldName}
-                        name={fieldName}
+                        id={fieldName?.section1}
+                        name={fieldName?.section1}
                         className={styles.textInput}
-                        placeholder={fieldName}
-                        onChange={(e) => handleChange(e, fieldName)}
+                        placeholder={fieldName?.section1}
+                        onChange={(e) => handleChange(e, fieldName?.section1)}
                         value={formData[fieldName] || ''}
                     />
+                    {fieldName.section2 && <input
+                        type="text"
+                        id={fieldName?.section2}
+                        name={fieldName?.section2}
+                        className={styles.textInput}
+                        placeholder={fieldName?.section2}
+                        onChange={(e) => handleChange(e, fieldName?.section2)}
+                        value={formData[fieldName] || ''}
+                    />}
                 </div>
             ))}
         </form>

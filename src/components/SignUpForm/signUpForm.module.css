@@ -48,6 +48,8 @@
     width: 100%;
 }
 .formDiv{
+    display: flex;
+    gap:16px;
     width: 100%;
     max-width: 500px;
 }
