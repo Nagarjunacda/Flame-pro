@@ -4,14 +4,16 @@ import ImageRightTextLeft from "../ContentBlocks/ImageRightTextLeft";
 import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
+import ContactFormBlock from "../ContentBlocks/ContactFormBlock";
 import FullWidthAdBlock from "../ContentBlocks/FullWidthAdBlock";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 import ImageLeftTextRight from "../ContentBlocks/ImageLeftTextRight";
 import FourCategoryBlock from "../ContentBlocks/FourCategoryBlock";
 
-function FireFighting({ pageData }) {
+function DefenceProcurement({ pageData }) {
     const { data } = pageData;
     const trayData = data?.acf?.content_blocks;
+    console.log(trayData, '!!')
 
     function getTrays(tray) {
         switch (tray?.acf_fc_layout) {
@@ -35,6 +37,8 @@ function FireFighting({ pageData }) {
                 return <ResourceHubBlock trayData={tray} />;
             case "four_category_blocks":
                 return <FourCategoryBlock trayData={tray} />;
+            case "contact_form":
+                return <ContactFormBlock trayData={tray} />;
             default:
                 return null;
         }
@@ -50,4 +54,4 @@ function FireFighting({ pageData }) {
         )}
     </main>
 }
-export default FireFighting
+export default DefenceProcurement
