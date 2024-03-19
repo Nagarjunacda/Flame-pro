@@ -4,6 +4,7 @@ import ImageRightTextLeft from "../ContentBlocks/ImageRightTextLeft";
 import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
+import FullWidthAdBlock from "../ContentBlocks/FullWidthAdBlock";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 import ImageLeftTextRight from "../ContentBlocks/ImageLeftTextRight";
 
@@ -28,6 +29,8 @@ function FireFighting({ pageData }) {
                 return <CaseStudyBlock trayData={tray} />;
             case "newsletter_sign_up":
                 return <NewsLetterSignUp trayData={tray} />;
+            case "full_width_ad_block":
+                return <FullWidthAdBlock trayData={tray} />;
             case "resource_hub":
                 return <ResourceHubBlock trayData={tray} />;
             default:

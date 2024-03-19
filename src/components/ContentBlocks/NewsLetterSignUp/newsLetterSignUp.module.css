@@ -33,17 +33,18 @@
 }
 .form{
     position: absolute;
-    bottom: 50px;
+    bottom: 80px;
     left: 0px;
-    top: 50%; /* Move the top of the child to the center of the parent */
-    left: 50%; /* Move the left of the child to the center of the parent */
-    transform: translateX(-50%);
+    /* top: 50%;
+    left: 50%;
+    transform: translateX(-50%); */
     width: 100%;
     padding: 0px var(--padding-xs-36)
 }
 @media (min-width: 600px) {
     .form {
         top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         bottom: auto;
     }
