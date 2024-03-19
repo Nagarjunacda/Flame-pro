@@ -1,9 +1,11 @@
 import CaseStudyBlock from "../ContentBlocks/CaseStudyBlock";
 import HeaderBannerSlim from "../ContentBlocks/HeaderBannerSlim";
+import ImageRightTextLeft from "../ContentBlocks/ImageRightTextLeft";
 import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
+import ImageLeftTextRight from "../ContentBlocks/ImageLeftTextRight";
 
 function FireFighting({ pageData }) {
     const { data } = pageData;
@@ -16,6 +18,10 @@ function FireFighting({ pageData }) {
                 return <HeaderBannerSlim trayData={tray} />;
             case "title_and_text_centre":
                 return <TitleAndTextCentre trayData={tray} />;
+            case "image_right_text_left":
+                return <ImageRightTextLeft trayData={tray} />;
+            case "image_left_text_right":
+                return <ImageLeftTextRight trayData={tray} />;
             case "testimonial_slider_block":
                 return <Testimonial trayData={tray} />;
             case "case_studies_block":
