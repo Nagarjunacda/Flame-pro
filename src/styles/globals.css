@@ -13,6 +13,7 @@
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
+  --font-size-cardTitle:14px;
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
@@ -45,6 +46,7 @@
   :root {
     --font-size-xs: 15px;
     --font-size-sm: 17px;
+    --font-size-cardTitle:16px;
     --font-size-md: 22px;
     --font-size-lg: 35px;
     --font-size-xl: 48px;
@@ -77,6 +79,7 @@
     --font-size-xs: 16px;
     --font-size-sm: 18px;
     --font-size-md: 25px;
+    --font-size-cardTitle:19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
     --font-size-canvas: 25px;

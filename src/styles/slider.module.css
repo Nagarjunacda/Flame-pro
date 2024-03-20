@@ -13,9 +13,12 @@
     background-color: var(--color-footerBackground);
   }
   .sliderCont{
-    padding-bottom: 32px;
+    padding-bottom: 0px;
   }
   .slideWrapper{
     width: 100%;
     padding-left: 20px;
+  }
+  .slideWrapperMweb{
+    width: 100%;
   }

@@ -12,6 +12,7 @@ import FourCategoryBlock from "../ContentBlocks/FourCategoryBlock";
 function FireFighting({ pageData }) {
     const { data } = pageData;
     const trayData = data?.acf?.content_blocks;
+    const categories = data?.category_info;
 
     function getTrays(tray) {
         switch (tray?.acf_fc_layout) {
@@ -34,7 +35,7 @@ function FireFighting({ pageData }) {
             case "resource_hub":
                 return <ResourceHubBlock trayData={tray} />;
             case "four_category_blocks":
-                return <FourCategoryBlock trayData={tray} />;
+                return <FourCategoryBlock trayData={tray} categories={categories} />;
             default:
                 return null;
         }

@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css'
 import TitleAndTextCard from '@/components/Cards/TitleAndTextCard'
 import CaseStudyCard from '@/components/Cards/CaseStudyCard'
 import TestimonialCard from "@/components/Cards/TestimonialCard";
-import styles from '../../styles/slider.module.css'
 import FourCategoryCard from '@/components/Cards/FourCategoryCard'
+import styles from '../../styles/slider.module.css'
 
 function SliderComp({ data, title, slidesToShow }) {
     const sliderRef = useRef(null);
@@ -21,6 +21,7 @@ function SliderComp({ data, title, slidesToShow }) {
         speed: 500,
         slidesToShow: isDesktop ? noSlidesToShow : 1,
         slidesToScroll: 1,
+        arrows: false,
         customPaging: (i) => (
             <span
                 className={`${styles["custom-dot"]} ${i === currentSlide ? styles.active : ""
@@ -29,6 +30,8 @@ function SliderComp({ data, title, slidesToShow }) {
             ></span>
         ),
         beforeChange: (current, next) => setCurrentSlide(next),
+        prevArrow: false,
+        nextArrow: false,
     };
 
     const getCardBlock = (item) => {
@@ -46,9 +49,9 @@ function SliderComp({ data, title, slidesToShow }) {
     return (
         <section className={styles.sliderCont}>
             <Slider ref={sliderRef} {...settings}>
-                {data.map((item, index) => {
+                {data?.map((item, index) => {
                     return (
-                        <section key={index} className={styles.slideWrapper}>
+                        <section key={index} className={isDesktop ? styles.slideWrapper : styles.slideWrapperMweb}>
                             {getCardBlock(item)}
                         </section>
                     );

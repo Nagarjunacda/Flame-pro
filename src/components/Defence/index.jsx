@@ -13,7 +13,6 @@ import FourCategoryBlock from "../ContentBlocks/FourCategoryBlock";
 function DefenceProcurement({ pageData }) {
     const { data } = pageData;
     const trayData = data?.acf?.content_blocks;
-    console.log(trayData, '!!')
 
     function getTrays(tray) {
         switch (tray?.acf_fc_layout) {
