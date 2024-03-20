@@ -2,6 +2,7 @@ import { useState } from 'react'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import OffCanvasDweb from '../OffCanvasDweb'
 import styles from '../header.module.css'
+import Link from 'next/link'
 
 function HeaderDweb({ headerData, isFromDrawer }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
@@ -37,7 +38,9 @@ function HeaderDweb({ headerData, isFromDrawer }) {
     return <header className={styles.headerMainDweb}>
         <section className={styles.subHeader}>
             <figure className={styles.headerLogo}>
-                <FlameImage src={flameLogo} alt='flameLogo' />
+                <Link href={'/'}>
+                    <FlameImage src={flameLogo} alt='flameLogo' />
+                </Link>
             </figure>
             <nav className={isFromDrawer ? styles.navItemsDrawer : styles.navItems}>
                 {navItems?.map((item, index) => {

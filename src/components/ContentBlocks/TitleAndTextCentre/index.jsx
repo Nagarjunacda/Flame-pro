@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import { renderHTML } from "@/utils/htmlString";
@@ -17,12 +18,14 @@ const TitleAndTextCentre = ({ trayData }) => {
         <h2>{trayData?.title}</h2>
         <p>{renderHTML(trayData?.text)}</p>
         <section className={styles.btnSection}>
-          <FlameBtn
-            text={trayData?.button_title}
-            textColor="var( --color-secondary)"
-            color="var( --color-primary)"
-            btnFunction={btnFunction}
-          />
+          <Link href={'/shop-all'}>
+            <FlameBtn
+              text={trayData?.button_title}
+              textColor="var( --color-secondary)"
+              color="var( --color-primary)"
+              btnFunction={btnFunction}
+            />
+          </Link>
           {buttonTwoTitle && <ButtonStyleTwo text={buttonTwoTitle} textColor={buttonTwoColor} isLoadState={false} btnFunction={btnTwoFunction} />}
         </section>
       </div>
