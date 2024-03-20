@@ -1,0 +1,18 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+}
+.listingPage{
+    width: 100%;
+    height: auto;
+    padding: var(--padding-xs-44) var(--padding-xs-36);
+    display: flex;
+}
+.productsCont{
+    width: 100%;
+    height: auto;
+}
+.products{
+    width: 100%;
+    height: auto;
+}
