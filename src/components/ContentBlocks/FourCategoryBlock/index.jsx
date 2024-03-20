@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './fourCategoryBlock.module.css'
 
 function FourCategoryBlock({ trayData, categories }) {
-    console.log(categories, '!! tray')
     const trayTitle = trayData?.acf_fc_layout
     const categoryType = trayData?.select_category
     const blockTitle = trayData?.title

@@ -2,7 +2,6 @@ import Card from 'react-bootstrap/Card';
 import styles from './fourCategoryCard.module.css'
 
 function FourCategoryCard({ data }) {
-    console.log(data, '!! item')
     const cardImage = data?.featured_image_url
     const cardTitle = data?.name
     return <Card className={styles.cardCont}>
