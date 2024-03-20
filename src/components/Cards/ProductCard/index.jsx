@@ -1,8 +1,8 @@
 import Card from 'react-bootstrap/Card';
+import FlameImage from '@/reusbleComponents/FlameImage';
 import styles from './productCard.module.css'
 
 function ProductCard({ product }) {
-    console.log(product, '!!!')
     const cardImage = product?.images[0]?.src
     const cardTitle = product?.name
     return <Card className={styles?.cardCont}>
