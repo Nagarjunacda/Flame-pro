@@ -1,0 +1,16 @@
+.bastetSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bastetSection .basketcontent {
+  max-width: 1327px;
+}
+.bastetSection h2 {
+  font-size: var(--font-size-xl);
+  text-align: center;
+}
+.bastetSection p {
+  font-size: var(--font-size-sm);
+  text-align: center;
+}

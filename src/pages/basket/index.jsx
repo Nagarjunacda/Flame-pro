@@ -1,5 +1,6 @@
+import BasketTitleBlock from "@/components/ContentBlocks/BasketTitleBlock";
 const Basket = () => {
-  return <h1>Hello World</h1>;
+  return <BasketTitleBlock />;
 };
 
 export default Basket;
