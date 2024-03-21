@@ -4,13 +4,15 @@
   align-items: center;
 }
 .bastetSection .basketcontent {
-  max-width: 1327px;
+  max-width: 1088px;
 }
 .bastetSection h2 {
   font-size: var(--font-size-xl);
   text-align: center;
+  font-weight: bold;
 }
 .bastetSection p {
   font-size: var(--font-size-sm);
   text-align: center;
+  font-weight: 200;
 }
