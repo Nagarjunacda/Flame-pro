@@ -1,5 +1,3 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import Style from "./twoblock.module.css";

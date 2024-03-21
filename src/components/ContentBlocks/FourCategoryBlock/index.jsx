@@ -18,7 +18,7 @@ function FourCategoryBlock({ trayData, categories }) {
         {!isDesktop ? <section className={styles.slider}><SliderComp data={productList} title={trayTitle} slidesToShow={4} /></section> :
             <Container fluid>
                 <Row>
-                    {productList.map((item, index) => {
+                    {productList?.map((item, index) => {
                         return <Col key={index} md={3} className={styles.col}>
                             <FourCategoryCard data={item} />
                         </Col>
