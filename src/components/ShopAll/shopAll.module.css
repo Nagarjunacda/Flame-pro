@@ -9,6 +9,8 @@
     display: flex;
 }
 .productsCont{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: auto;
 }
@@ -52,3 +54,48 @@
         width: 30%;
     }
 }
+.pagesCont{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 48px;
+}
+.showBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-8) var(--padding-16);
+    gap: 28px;
+    border: solid 1px var(--color-primary);
+}
+.showText{
+    position: relative;
+    display: flex;
+    gap: 4px;
+    font-size: var(--font-size-sm);
+}
+.show{
+    font-weight: var(--font-wt-normal);
+}
+.itemNum{
+    font-weight: var(--font-wt-bold);
+}
+.pageNumCont{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+  .dropDown{
+    background-color: var(--color-secondary);
+    position: absolute;
+    left: 0px;
+    top: 36px;
+    z-index: 2;
+  }
+  .showItems{
+    display: flex;
+    flex-direction: column;
+  }
+  .downArrow{
+    cursor: pointer;
+  }

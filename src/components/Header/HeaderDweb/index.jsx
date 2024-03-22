@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import OffCanvasDweb from '../OffCanvasDweb'
 import styles from '../header.module.css'
-import Link from 'next/link'
 
 function HeaderDweb({ headerData, isFromDrawer }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)

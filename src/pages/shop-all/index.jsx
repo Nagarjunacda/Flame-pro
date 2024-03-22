@@ -1,6 +1,8 @@
-import ShopAll from "@/components/ShopAll";
+import dynamic from 'next/dynamic';
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { productsUrl } from "@/utils/urls";
+
+const ShopAll = dynamic(() => import("@/components/ShopAll"));
 
 function ShopAllPage({ data }) {
     return <ShopAll productsData={data} />
@@ -8,7 +10,8 @@ function ShopAllPage({ data }) {
 export default ShopAllPage;
 
 export async function getServerSideProps(context) {
-    const { data, error } = await handleServerSideProps(productsUrl);
+    const url = `${productsUrl}?per_page=10&page=1`
+    const { data, error } = await handleServerSideProps(url);
     if (error) {
         return {
             props: {
