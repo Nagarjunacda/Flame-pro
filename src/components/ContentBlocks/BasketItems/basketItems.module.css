@@ -9,7 +9,7 @@
 }
 
 .backetProducts {
-  padding: 0px 100px;
+  padding: var(--padding-basket-items);
 }
 .backetProducts h3 {
   font-size: var(--font-size-md);

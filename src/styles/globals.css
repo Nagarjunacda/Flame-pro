@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 :root {
-  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family: "Inter", sans-serif;
 
   --color-primary: #1c0401;
   --color-secondary: #ffffff;
@@ -13,7 +15,7 @@
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
-  --font-size-cardTitle:14px;
+  --font-size-cardTitle: 14px;
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
@@ -40,13 +42,14 @@
   --padding-testimonial: 50px 36px;
   --padding-inner-testimonial: 150px 15px;
   --padding-text-center-block: 50px 35px;
+  --padding-basket-items: 0 20px;
 }
 
 @media only screen and (min-width: 900px) {
   :root {
     --font-size-xs: 15px;
     --font-size-sm: 17px;
-    --font-size-cardTitle:16px;
+    --font-size-cardTitle: 16px;
     --font-size-md: 22px;
     --font-size-lg: 35px;
     --font-size-xl: 48px;
@@ -60,6 +63,7 @@
     --padding-testimonial: 50px 36px;
     --padding-inner-testimonial: 35px 50px;
     --padding-text-center-block: 85px 35px;
+    --padding-basket-items: 0 60px;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -72,6 +76,7 @@
     --padding-testimonial: 50px 36px;
     --padding-inner-testimonial: 35px 120px;
     --padding-text-center-block: 85px 35px;
+    --padding-basket-items: 0 100px;
   }
 }
 @media only screen and (min-width: 1680px) {
@@ -79,7 +84,7 @@
     --font-size-xs: 16px;
     --font-size-sm: 18px;
     --font-size-md: 25px;
-    --font-size-cardTitle:19px;
+    --font-size-cardTitle: 19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
     --font-size-canvas: 25px;
@@ -93,6 +98,7 @@
     --padding-testimonial: 65px 145px;
     --padding-inner-testimonial: 85px 145px;
     --padding-text-center-block: 50px 85px;
+    --padding-basket-items: 0 100px;
   }
 }
 
@@ -121,4 +127,14 @@ p {
 }
 .zls-lftbtn {
   display: none !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  margin: 0px;
+  letter-spacing: -0.5px;
 }
