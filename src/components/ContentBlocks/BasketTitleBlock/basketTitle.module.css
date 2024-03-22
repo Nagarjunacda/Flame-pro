@@ -9,10 +9,12 @@
 .bastetSection h2 {
   font-size: var(--font-size-xl);
   text-align: center;
-  font-weight: bold;
 }
 .bastetSection p {
   font-size: var(--font-size-sm);
   text-align: center;
   font-weight: 200;
+}
+.bastetSection h3 {
+  text-align: center;
 }
