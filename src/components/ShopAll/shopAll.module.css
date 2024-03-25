@@ -61,6 +61,7 @@
     gap: 48px;
 }
 .showBlock{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,7 +70,6 @@
     border: solid 1px var(--color-primary);
 }
 .showText{
-    position: relative;
     display: flex;
     gap: 4px;
     font-size: var(--font-size-sm);
@@ -86,16 +86,24 @@ gap: 12px;
 justify-content: center;
 align-items: center;
 }
-  .dropDown{
-    background-color: var(--color-secondary);
+.dropDown{
+    background-color: var(--color-slickDot);
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:8px;
+    padding: 8px;
+    width: 100%;
     left: 0px;
-    top: 36px;
+    top: 42px;
     z-index: 2;
-  }
+}
   .showItems{
     display: flex;
     flex-direction: column;
+    cursor: pointer;
   }
   .downArrow{
     cursor: pointer;

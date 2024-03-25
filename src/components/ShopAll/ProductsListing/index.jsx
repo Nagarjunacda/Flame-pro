@@ -35,7 +35,7 @@ function ProductsListing({ productsData }) {
     }, [itemsNumber, selectedPageNum])
 
     const handleBottomBtn = () => {
-        setShowDropdown(true)
+        setShowDropdown(!showDropdown)
     }
 
     const handleNoOfProducts = (number) => {
@@ -53,7 +53,7 @@ function ProductsListing({ productsData }) {
             return
         }
         if (number === 'right') {
-            if (selectedPageNum === totalPages) {
+            if (selectedPageNum == totalPages) {
                 return
             }
             setSelectedPageNum(selectedPageNum + 1)
@@ -70,13 +70,13 @@ function ProductsListing({ productsData }) {
                     <section className={styles.showText}>
                         <p className={styles.show}>Show:</p>
                         <p className={styles.itemNum}>{itemsNumber}</p>
-                        {showDropdown && <section className={styles.dropDown}>{numberArr.map((e, index) => {
-                            return <section key={index} className={styles.showItems} onClick={() => { handleNoOfProducts(e) }}>{e}</section>
-                        })}</section>}
                     </section>
                     <section onClick={handleBottomBtn} className={styles.downArrow}>
                         <FlameImage src={arrowSrc} alt='icon' />
                     </section>
+                    {showDropdown && <section className={styles.dropDown}>{numberArr.map((e, index) => {
+                        return <section key={index} className={styles.showItems} onClick={() => { handleNoOfProducts(e) }}>{e} items</section>
+                    })}</section>}
                 </section>
                 <section className={styles.pageNumCont}>
                     <section className={styles.arrows} onClick={() => { handlePageSelection('left') }}>
