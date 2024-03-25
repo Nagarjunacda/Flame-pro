@@ -82,6 +82,7 @@
 }
 .pageNumCont{
 display: flex;
+gap: 12px;
 justify-content: center;
 align-items: center;
 }
@@ -98,4 +99,28 @@ align-items: center;
   }
   .downArrow{
     cursor: pointer;
+  }
+  .pageNumHighlighted{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 35px;
+    height: 35px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    cursor: pointer;
+  }
+  .pageNum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 35px;
+    height: 35px;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  .arrows{
+    cursor: pointer;
+    width: 25px;
+    height: 30px;
   }
