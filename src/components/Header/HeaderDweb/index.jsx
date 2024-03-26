@@ -4,13 +4,13 @@ import FlameImage from '@/reusbleComponents/FlameImage'
 import OffCanvasDweb from '../OffCanvasDweb'
 import styles from '../header.module.css'
 
-function HeaderDweb({ headerData, isFromDrawer }) {
+function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
     const [selectedNavItem, setSelectedNavItem] = useState({})
     const navItems = headerData?.items
-    const flameLogo = isFromDrawer ? '/Images/flameLogoDark.svg' : '/Images/flameLogo.svg'
-    const searchIcon = isFromDrawer ? '/Images/searchIcon.svg' : '/Images/searchIconWhite.svg'
-    const basketIcon = isFromDrawer ? '/Images/basketIcon.svg' : '/Images/basketIconWhite.svg'
+    const flameLogo = isFromDrawer || relativeHeader ? '/Images/flameLogoDark.svg' : '/Images/flameLogo.svg'
+    const searchIcon = isFromDrawer || relativeHeader ? '/Images/searchIcon.svg' : '/Images/searchIconWhite.svg'
+    const basketIcon = isFromDrawer || relativeHeader ? '/Images/basketIcon.svg' : '/Images/basketIconWhite.svg'
 
     const getNavItem = (item) => {
         if (item?.title === 'Cart') {
@@ -35,14 +35,14 @@ function HeaderDweb({ headerData, isFromDrawer }) {
         setIsCanvasOpen(false)
     }
 
-    return <header className={styles.headerMainDweb}>
+    return <header className={relativeHeader ? styles.relativeHeaderMainDweb : styles.headerMainDweb}>
         <section className={styles.subHeader}>
             <figure className={styles.headerLogo}>
                 <Link href={'/'}>
                     <FlameImage src={flameLogo} alt='flameLogo' />
                 </Link>
             </figure>
-            <nav className={isFromDrawer ? styles.navItemsDrawer : styles.navItems}>
+            <nav className={isFromDrawer || relativeHeader ? styles.navItemsDrawer : styles.navItems}>
                 {navItems?.map((item, index) => {
                     return <nav key={index} onClick={() => { handleNavItemClick(item) }}>{getNavItem(item)}</nav>
                 })}

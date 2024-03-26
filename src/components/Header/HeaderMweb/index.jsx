@@ -3,10 +3,10 @@ import FlameImage from "@/reusbleComponents/FlameImage"
 import OffCanvas from "../OffCanvas"
 import styles from '../header.module.css'
 
-function HeaderMweb({ headerData }) {
+function HeaderMweb({ headerData, relativeHeader }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
-    const flameLogo = 'Images/flameLogo.svg'
-    const hamburgerIcon = 'Images/hamburger.svg'
+    const flameLogo = relativeHeader ? '/Images/flameLogoDark.svg' : '/Images/flameLogo.svg'
+    const hamburgerIcon = relativeHeader ? '/Images/hamburgerDark.svg' : 'Images/hamburger.svg'
 
     const handleOffCanvas = () => {
         setIsCanvasOpen(true)
@@ -16,7 +16,7 @@ function HeaderMweb({ headerData }) {
         setIsCanvasOpen(false)
     }
 
-    return <section className={styles.headerMain}>
+    return <section className={relativeHeader ? styles.relativeHeaderMain : styles.headerMain}>
         <figure className={styles.headerLogo}>
             <FlameImage src={flameLogo} alt='flameLogo' />
         </figure>

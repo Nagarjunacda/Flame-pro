@@ -11,3 +11,9 @@
     top:40px;
     width:100%
   }
+  .relativeHeader{
+    position: relative;
+    padding:0px var(--padding-xs-36);
+    z-index: 1;
+    width:100%
+  }

@@ -1,4 +1,5 @@
 import ProductDetail from "@/components/ProductDetail"
+import { homePageUrl } from "@/utils/urls"
 import { handleServerSideProps } from "@/utils/handleServerSideData"
 
 function ProductDetailPage() {
