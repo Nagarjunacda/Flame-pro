@@ -5,3 +5,5 @@ export const headerMenuUrl = `${baseUrl}/menus/v1/menus/26`
 export const fireFightingUrl = `${baseUrl}/wp/v2/pages/96`
 export const defenceUrl = `${baseUrl}/wp/v2/pages/98`
 export const productsUrl = `${baseUrl}/wc/store/v1/products`
+export const getCartUrl = `${baseUrl}/wc/store/v1/cart/`
+export const nonceUrl = `${baseUrl}/wp/v2/wc-nonce`

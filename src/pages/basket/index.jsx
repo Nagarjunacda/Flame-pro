@@ -1,6 +1,13 @@
+import { useContext } from "react";
+import NonceContext from "@/context/NonceContext";
+import CartContext from "@/context/CartContext";
 import BasketTitleBlock from "@/components/ContentBlocks/BasketTitleBlock";
 import BasketItems from "@/components/ContentBlocks/BasketItems";
+
 const Basket = () => {
+  const nonceVal = useContext(NonceContext)
+  const cartData = useContext(CartContext)
+
   return (
     <>
       <BasketTitleBlock

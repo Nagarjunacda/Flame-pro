@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { headerMenuUrl } from "@/utils/urls"
 import { handleServerSideProps } from "@/utils/handleServerSideData"
+import { CartDataProvider } from "@/context/CartContext"
+import { NonceProvider } from "@/context/NonceContext"
 import Header from "../Header"
 import Footer from "../Footer"
 import Styles from './wrapper.module.css'
@@ -19,13 +21,17 @@ function LayoutWrapper({ children }) {
   }, [])
 
   return (
-    <main className={Styles.main}>
-      <section className={Styles.header}>
-        <Header headerData={headerData} />
-      </section>
-      {children}
-      <Footer />
-    </main>
+    <NonceProvider>
+      <CartDataProvider>
+        <main className={Styles.main}>
+          <section className={Styles.header}>
+            <Header headerData={headerData} />
+          </section>
+          {children}
+          <Footer />
+        </main>
+      </CartDataProvider>
+    </NonceProvider>
   )
 }
 export default LayoutWrapper

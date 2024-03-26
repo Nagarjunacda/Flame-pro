@@ -47,7 +47,8 @@
 }
 .filtersCont{
     width: 40%;
-    background-color: red;
+    background-color: var(--color-slickDot);
+    height: auto;
 }
 @media (min-width: 1280px) {
     .filtersCont {
