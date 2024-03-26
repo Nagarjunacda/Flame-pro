@@ -9,7 +9,6 @@ export const CartDataProvider = ({ children }) => {
     const [triggerUpdate, setTriggerUpdate] = useState(false)
 
     useEffect(() => {
-        console.log(triggerUpdate, '!! trigg')
         const getCartData = async () => {
             const { data, error, headers } = await handleServerSideProps(getCartUrl);
             setCartData(data)

@@ -4,7 +4,7 @@ import { useCartData } from "@/context/CartContext";
 import { handlePostRequests } from "@/utils/handlePostCalls"
 import { addToCartUrl } from "@/utils/urls"
 
-function ProductDetail() {
+function ProductDetail({ productData }) {
     const nonceVal = useContext(NonceContext)
     const { setTriggerUpdate } = useCartData();
     const handleAddCart = async () => {

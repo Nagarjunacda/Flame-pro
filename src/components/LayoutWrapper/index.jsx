@@ -11,9 +11,9 @@ import Styles from './wrapper.module.css'
 
 function LayoutWrapper({ children }) {
   const router = useRouter()
-  const { asPath } = router
+  const { route } = router
   const [headerData, setHeaderData] = useState({})
-  const relativeHeader = relativeHeaderPaths.includes(asPath)
+  const relativeHeader = relativeHeaderPaths.includes(route)
 
   useEffect(() => {
     const getData = async () => {

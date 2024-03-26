@@ -8,4 +8,4 @@ export const productsUrl = `${baseUrl}/wc/store/v1/products`
 export const getCartUrl = `${baseUrl}/wc/store/v1/cart/`
 export const nonceUrl = `${baseUrl}/wp/v2/wc-nonce`
 export const addToCartUrl = `${baseUrl}/wc/store/v1/cart/add-item`
-export const productDetailUrl = `${baseUrl}/wc/v3/products/`
+export const productDetailUrl = `${baseUrl}/wc/v3/products`

@@ -1,16 +1,17 @@
 import ProductDetail from "@/components/ProductDetail"
-import { homePageUrl } from "@/utils/urls"
-import { handleServerSideProps } from "@/utils/handleServerSideData"
+import { productDetailUrl } from "@/utils/urls"
+import { handleGetReqAuth } from "@/utils/handleServerSideData"
 
-function ProductDetailPage() {
-    return <ProductDetail />
+function ProductDetailPage({ data }) {
+    return <ProductDetail productData={data} />
 }
 export default ProductDetailPage
 
 export async function getServerSideProps(context) {
     const { params } = context
     const { productId } = params
-    const { data, error } = await handleServerSideProps(homePageUrl);
+    const url = `${productDetailUrl}/${productId}`
+    const { data, error } = await handleGetReqAuth(url);
     if (error) {
         return {
             props: {
