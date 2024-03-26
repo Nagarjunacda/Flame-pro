@@ -1,0 +1,6 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    padding: 0px var(--padding-xs-36);
+    display: flex;
+}

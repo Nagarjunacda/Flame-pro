@@ -1,0 +1,10 @@
+.mainCont{
+    width: auto;
+    font-size: var(--font-size-crumbs);
+}
+.fontBold{
+    font-weight: var(--font-wt-bold);
+}
+.fontNormal{
+    font-weight: var(--font-wt-normal);
+}
