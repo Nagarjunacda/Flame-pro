@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import NonceContext from "@/context/NonceContext";
+import { useCartData } from "@/context/CartContext";
 import { handlePostRequests } from "@/utils/handlePostCalls"
 import { addToCartUrl } from "@/utils/urls"
 
 function ProductDetail() {
     const nonceVal = useContext(NonceContext)
+    const { setTriggerUpdate } = useCartData();
     const handleAddCart = async () => {
         const data = {
             "id": 3727,
@@ -17,6 +19,9 @@ function ProductDetail() {
         }
         const customHeaders = { Nonce: nonceVal }
         const res = await handlePostRequests(addToCartUrl, data, customHeaders)
+        if (res?.data) {
+            setTriggerUpdate(true)
+        }
     }
     return <button onClick={handleAddCart}>Add to Cart</button>
 }

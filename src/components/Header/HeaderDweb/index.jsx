@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import OffCanvasDweb from '../OffCanvasDweb'
 import styles from '../header.module.css'
 
 function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
+    const router = useRouter()
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
     const [selectedNavItem, setSelectedNavItem] = useState({})
     const navItems = headerData?.items
@@ -14,7 +16,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
 
     const getNavItem = (item) => {
         if (item?.title === 'Cart') {
-            return <section className={styles.searchIcon}>
+            return <section className={styles.searchIcon} onClick={() => { router.push('/basket') }} >
                 <FlameImage src={basketIcon} alt='basketIcon' />
             </section>
         }
@@ -28,6 +30,9 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
 
     const handleNavItemClick = (item) => {
         setSelectedNavItem(item)
+        if (item?.title === 'Cart') {
+            return
+        }
         setIsCanvasOpen(true);
     }
 

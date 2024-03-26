@@ -4,8 +4,9 @@ import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import style from "./basketItems.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
-const BasketItems = () => {
-  function btnFunction() {}
+const BasketItems = ({ cartData }) => {
+  const productImg = cartData && cartData?.items[0]?.images[0]?.src
+  function btnFunction() { }
   return (
     <section className={style.backetProducts}>
       <div className="d-none d-sm-none d-lg-block">
@@ -34,7 +35,7 @@ const BasketItems = () => {
           <Col lg={2} sm={4} xs={4}>
             <figure className={style.productImage}>
               <FlameImage
-                src={"./Images/productTestImage.svg"}
+                src={productImg}
                 alt={"Product"}
               />
             </figure>
