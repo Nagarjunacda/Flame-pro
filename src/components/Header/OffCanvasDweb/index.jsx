@@ -15,6 +15,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
 
     const handleOverlayClose = () => {
         setIsOverlayCanvasOpen(false)
+        handleClose()
     }
 
     useEffect(() => {
@@ -40,7 +41,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
         // setIsCanvasOpen(true);
     }
 
-    return <Offcanvas show={show} className={styles.offCanvasContDweb} placement={'top'}>
+    return <Offcanvas show={show} onHide={handleOverlayClose} className={styles.offCanvasContDweb} placement={'top'}>
         <Offcanvas.Header>
             <header className={styles.headerMainDweb}>
                 <section className={styles.subHeader}>
