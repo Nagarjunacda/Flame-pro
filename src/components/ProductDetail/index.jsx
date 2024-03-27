@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
+import ProductBlock from "./ProductBlock";
 import { handlePostRequests } from "@/utils/handlePostCalls"
 import { addToCartUrl } from "@/utils/urls"
 import Breadcrumbs from "../BreadCrumbs";
@@ -30,6 +31,7 @@ function ProductDetail({ productData }) {
     }
     return <main className={styles.mainCont}>
         <Breadcrumbs />
+        <ProductBlock productData={productData} />
     </main>
 }
 export default ProductDetail

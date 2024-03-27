@@ -6,9 +6,9 @@ function FourCategoryCard({ data }) {
     const cardTitle = data?.name
     return <Card className={styles.cardCont}>
         <Card.Img variant="top" src={cardImage} className={styles.cardImg} />
-        <Card.Body className={styles.cardBody}>
+        {cardTitle && <Card.Body className={styles.cardBody}>
             <Card.Title className={styles.cardTitle}>{cardTitle}</Card.Title>
-        </Card.Body>
+        </Card.Body>}
     </Card>
 }
 export default FourCategoryCard

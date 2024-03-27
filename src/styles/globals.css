@@ -48,7 +48,7 @@
   --padding-basket-items: 0 20px;
 }
 
-@media only screen and (min-width: 900px) {
+/* @media only screen and (min-width: 900px) {
   :root {
     --font-size-xs: 15px;
     --font-size-sm: 17px;
@@ -68,8 +68,8 @@
     --padding-text-center-block: 85px 35px;
     --padding-basket-items: 0 60px;
   }
-}
-@media only screen and (min-width: 1280px) {
+} */
+/* @media only screen and (min-width: 1280px) {
   :root {
     --padding-xs-24: 24px;
     --padding-xs-26: 70px;
@@ -81,7 +81,7 @@
     --padding-text-center-block: 85px 35px;
     --padding-basket-items: 0 100px;
   }
-}
+} */
 @media only screen and (min-width: 1680px) {
   :root {
     --font-size-crumbs: 14px;
@@ -94,7 +94,7 @@
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
 
-    --padding-16:16px;
+    --padding-16:20px;
     --padding-xs-24: 36px;
     --padding-xs-26: 130px;
     --padding-xs-36: 140px;

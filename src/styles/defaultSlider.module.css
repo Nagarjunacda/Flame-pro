@@ -1,0 +1,43 @@
+.custom-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-slickDot);
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 24px;
+    top: 0px;
+  }
+
+  .active {
+    background-color: var(--color-footerBackground);
+  }
+  .sliderCont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0px;
+  }
+  .slideWrapper{
+    width: 100%;
+    padding:2px;
+  }
+  .imageCont{
+    width: 100%;
+    height: auto;
+  }
+  .selectedImgCont{
+    width: 100%;
+    height: auto;
+    border: solid 1px var(--color-primary);
+  }
+  .sliderImg{
+    width: 80%;
+    max-width: 80%;
+  }
+  .button{
+    border: none;
+    background-color: var(--color-secondary);
+  }

@@ -3,4 +3,34 @@
     height: auto;
     padding: 0px var(--padding-xs-36);
     display: flex;
+    flex-direction: column;
+}
+.productBlock{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+.imageAndText{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.title{
+    font-size: var(--font-size-lg);
+}
+.imageBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.mainImg{
+    width: 100%;
+    height: auto;
+}
+.sliderSection{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: flex;
 }

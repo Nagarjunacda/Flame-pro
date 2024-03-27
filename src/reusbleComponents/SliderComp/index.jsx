@@ -13,10 +13,12 @@ function SliderComp({ data, title, slidesToShow }) {
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
+    const hideDotsArr = ['testimonial']
+    const isDotsHidden = hideDotsArr.includes(title)
     const noSlidesToShow = slidesToShow;
 
     const settings = {
-        dots: isDesktop || title === 'testimonial' ? false : true,
+        dots: isDesktop || isDotsHidden ? false : true,
         infinite: false,
         speed: 500,
         slidesToShow: isDesktop ? noSlidesToShow : 1,

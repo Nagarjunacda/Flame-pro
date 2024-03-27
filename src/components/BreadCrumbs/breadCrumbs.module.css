@@ -1,6 +1,7 @@
 .mainCont{
     width: auto;
     font-size: var(--font-size-crumbs);
+    padding: var(--padding-16) 0px;
 }
 .fontBold{
     font-weight: var(--font-wt-bold);
