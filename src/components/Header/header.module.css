@@ -103,14 +103,19 @@
   .offCanvasTitle{
     width: 100%;
     border-bottom: solid 2px;
-    padding-bottom: 14px;
+    padding-bottom: 30px;
   }
   .offCanvasCont{
     padding: 24px 20px;
   }
   .offCanvasContDweb{
-    padding: 24px 20px;
-    height: 85vh !important;
+    padding: 32px 32px;
+    height: 90vh !important;
+  }
+  @media (min-width: 1680px) {
+  .offCanvasContDweb {
+    padding: 86px 124px;
+  }
   }
   .offCanvasBody{
     display: flex;
