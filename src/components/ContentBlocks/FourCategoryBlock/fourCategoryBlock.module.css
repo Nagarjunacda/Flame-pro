@@ -12,6 +12,12 @@
     font-size: var(--font-size-lg);
     font-weight: var(--font-wt-heavy);
     font-stretch: condensed;
+    margin-bottom: 25px;
+}
+@media (min-width: 1680px) {
+    .title {
+        margin-bottom: 50px;
+    }
 }
 .slider{
     padding: 0px 0px

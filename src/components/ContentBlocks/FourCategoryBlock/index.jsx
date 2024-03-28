@@ -1,8 +1,8 @@
 import SliderComp from "@/reusbleComponents/SliderComp";
 import { Container, Row, Col } from 'react-bootstrap';
-import styles from './fourCategoryBlock.module.css'
 import { useMediaQuery } from "react-responsive";
 import FourCategoryCard from "@/components/Cards/FourCategoryCard";
+import styles from './fourCategoryBlock.module.css'
 
 function FourCategoryBlock({ trayData, categories }) {
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })

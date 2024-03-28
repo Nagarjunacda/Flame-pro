@@ -5,10 +5,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 @media (min-width: 900px) {
     .mainCont {
         flex-direction: row;
+    }
+}
+@media (min-width: 1680px) {
+    .mainCont {
+        margin-bottom: 85px;
     }
 }
 .textBlock{
