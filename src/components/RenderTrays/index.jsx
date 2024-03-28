@@ -10,6 +10,7 @@ import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
+import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import UspBlock from "../ContentBlocks/UspBlock";
 
@@ -53,7 +54,8 @@ function RenderTrays({ trayData, categories = {} }) {
     return <main>
         {trayData && (
             trayData.map((tray) => {
-                return getTrays(tray);
+                return <><section>{getTrays(tray)}</section>
+                    {tray?.acf_fc_layout === "header_banner_slim" && <Breadcrumbs />}</>
             })
         )}
     </main>
