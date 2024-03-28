@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import CheckBoxWithText from './CheckBoxWithText';
-import { renderHTML } from '@/utils/htmlString';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
+import FlameImage from '@/reusbleComponents/FlameImage';
+import { renderHTML } from '@/utils/htmlString';
 import styles from './signUpForm.module.css'
 
 function SignUpForm({ isFromFooter, text, heading, formFields }) {
@@ -33,16 +34,19 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                         type="text"
                         id={fieldName?.section1}
                         name={fieldName?.section1}
-                        className={styles.textInput}
+                        className={fieldName?.section1 === 'Area Of Interest*' ? styles.areaInterestInput : styles.textInput}
                         placeholder={fieldName?.section1}
                         onChange={(e) => handleChange(e, fieldName?.section1)}
                         value={formData[fieldName] || ''}
                     />
+                    {fieldName?.section1 === 'Area Of Interest*' && <section className={styles.downArrow}>
+                        <FlameImage src={'/Images/downWhiteArrow.svg'} alt='arrow' />
+                    </section>}
                     {fieldName.section2 && <input
                         type="text"
                         id={fieldName?.section2}
                         name={fieldName?.section2}
-                        className={styles.textInput}
+                        className={fieldName?.section2 === 'Area Of Interest*' ? styles.areaInterestInput : styles.textInput}
                         placeholder={fieldName?.section2}
                         onChange={(e) => handleChange(e, fieldName?.section2)}
                         value={formData[fieldName] || ''}

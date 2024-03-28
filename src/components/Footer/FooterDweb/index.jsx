@@ -23,7 +23,7 @@ function FooterDweb() {
         'info@flame-pro.com',
         '+44 (0)1332 325783'
     ]
-    const formData = [{ section1: 'Full Name' }, { section1: 'Email Address' }, { section1: 'Area Of Interest' }]
+    const formData = [{ section1: 'Full Name*' }, { section1: 'Email Address*' }, { section1: 'Area Of Interest*' }]
     return <section className={styles.dwebCont}>
         <section className={styles.dataContDweb}>
             <section className={styles.flameImg}>
