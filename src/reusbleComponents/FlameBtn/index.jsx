@@ -12,17 +12,18 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     outline: "none",
     borderRadius: "0px",
     fontSize: "var(--font-size-xs-ext)",
+    fontFamily: "'CustomFont-Black', sans-serif",
   };
   const textStyle = {
     transform: "skew(20deg)",
     display: "inline-block",
-    whiteSpace: 'nowrap'
+    whiteSpace: "nowrap",
   };
   const btnText = isLoadState ? "Loading..." : text;
 
   const handleClick = () => {
-    btnFunction()
-  }
+    btnFunction();
+  };
 
   return (
     <Button onClick={handleClick} style={buttonStyle}>

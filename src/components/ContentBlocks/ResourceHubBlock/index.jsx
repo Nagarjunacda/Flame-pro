@@ -1,5 +1,6 @@
 import SliderComp from "@/reusbleComponents/SliderComp";
 import styles from "./resourceHubBlock.module.css";
+import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function ResourceHubBlock({ trayData }) {
   const { title, button_title } = trayData;
@@ -8,10 +9,11 @@ function ResourceHubBlock({ trayData }) {
   return (
     <section className={styles.mainCont}>
       <section className={styles.heading}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.viewAll}>
-          <u>{button_title}</u>
-        </p>
+        <h5 className={styles.title}>{title}</h5>
+        <ButtonStyleTwo
+          text={"Remove Product"}
+          textColor="var( --color-primary)"
+        />
       </section>
       <section className={styles.slider}>
         <SliderComp data={resourceData} title={title} slidesToShow={3} />

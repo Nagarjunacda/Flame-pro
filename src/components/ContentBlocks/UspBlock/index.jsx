@@ -13,7 +13,10 @@ const UspBlock = ({ trayData }) => {
             <div>
               <FlameImage src={item?.icon_x3} alt={`Icon ${index + 1}`} />
             </div>
-            <p>{item?.usp_title_x3}</p>
+            <p>
+              <span className={styles.boldText}>{item?.title_bold}</span>{" "}
+              {item?.usp_title_x3}
+            </p>
           </div>
         ))}
       </div>
