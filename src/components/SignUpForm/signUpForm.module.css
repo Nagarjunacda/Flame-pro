@@ -130,4 +130,13 @@
     width: 20px;
     height: 20px;
     right: 0px;
+    top: 0px;
+}
+.formInput{
+    width: 100%;
+    height: auto;
+}
+.errorMsg{
+    color: var(--color-fire);
+    font-size: var(--font-size-xs);
 }
