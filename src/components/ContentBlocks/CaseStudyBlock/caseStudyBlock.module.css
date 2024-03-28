@@ -1,7 +1,7 @@
 .mainCont {
   width: 100%;
   height: auto;
-  padding: var(--padding-xs-48) var(--padding-xs-36);
+  padding: var(--padding-xs-48) 24px;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -55,6 +55,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: var(--font-size-md);
 }
 .rightArrow {
   width: 16px;

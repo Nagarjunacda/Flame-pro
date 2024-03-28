@@ -7,6 +7,7 @@
     border-radius: 0px;
 }
 .mainHeading{
+    font-size: var(--font-size-18-40);
     padding-bottom: 24px;
     margin:0px;
 }

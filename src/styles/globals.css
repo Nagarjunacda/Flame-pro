@@ -20,6 +20,7 @@
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
+  --font-size-18-40:18px;
   --font-size-xs-ext: 14px;
   --font-size-canvas: 18px;
   --font-size-headerDrawer: 25px;
@@ -44,7 +45,7 @@
   --padding-xs-44: 44px;
   --padding-testimonial: 50px 36px;
   --padding-inner-testimonial: 150px 15px;
-  --padding-text-center-block: 50px 35px;
+  --padding-text-center-block: 50px 36px;
   --padding-basket-items: 0 20px;
 }
 
@@ -91,6 +92,7 @@
     --font-size-cardTitle: 19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
+    --font-size-18-40:40px;
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
 
@@ -130,6 +132,7 @@ a {
 p {
   margin: 0px;
 }
+
 .zls-lftbtn {
   display: none !important;
 }

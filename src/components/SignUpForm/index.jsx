@@ -8,6 +8,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const [formData, setFormData] = useState({});
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
+    const checkBoxText = 'I consent to email marketing'
 
     const handleChange = (e, fieldName) => {
         setFormData({
@@ -50,7 +51,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
             ))}
         </form>
         <section className={styles.checkBoxAndText}>
-            <section className={styles.checkBoxSection}><CheckBoxWithText text={'I consent to email marketing'} /></section>
+            <section className={styles.checkBoxSection}><CheckBoxWithText text={checkBoxText} /></section>
         </section >
         <section className={styles.cta}><FlameBtn color={btnColor} text={'Sign Up'} textColor={textColor} isLoadState={false} btnFunction={handleButtonClick} /></section>
     </section>

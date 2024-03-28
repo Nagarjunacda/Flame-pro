@@ -1,8 +1,9 @@
-import style from "./twoAddBlock.module.css";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
-function btnFunction() {}
+import style from "./twoAddBlock.module.css";
+
 const TwoAddBlockNew = () => {
+  function btnFunction() { }
   const blockOneStyle = {
     background: "url(./images/pexels-anna-shvets-5965111.jpg)",
     backgroundPosition: "center",

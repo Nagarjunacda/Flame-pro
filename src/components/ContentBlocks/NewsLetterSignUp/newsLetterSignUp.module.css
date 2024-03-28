@@ -2,12 +2,6 @@
     position: relative;
     width: 100%;
     height: auto;
-    margin-bottom: 52px;
-}
-@media (min-width: 1680px) {
-    .mainCont {
-        margin-bottom: 92px;
-    }
 }
 .imageStyles{
     width: 100%;
