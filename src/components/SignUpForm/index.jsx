@@ -4,7 +4,7 @@ import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import Toast from '@/reusbleComponents/ToastMsg';
 import { renderHTML } from '@/utils/htmlString';
-// import { handlePostRequests } from '@/utils/handlePostCalls';
+import { handlePostRequests } from '@/utils/handlePostCalls';
 import { newsLettersignUpUrl } from '@/utils/urls';
 import styles from './signUpForm.module.css'
 
@@ -15,6 +15,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const [isDropdownOpen, setIsDropDownOpen] = useState(false)
     const [isChecked, setIsChecked] = useState(false)
     const [showToast, setShowToast] = useState(false)
+    const [isLoadState, setIsLoadState] = useState(false)
     const [toastMsg, setToastMsg] = useState('')
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
@@ -22,7 +23,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const areaOfInterests = ['Fire Fighting Ppe', 'Defence Procurement']
     const arrowImgSrc = isDropdownOpen ? '/Images/upWhiteArrow.svg' : '/Images/downWhiteArrow.svg'
 
-    const handleChange = (e, fieldName) => {
+    const handleChange = async (e, fieldName) => {
         const { name, value } = e.target
         if (!value) {
             setErrors({
@@ -56,10 +57,12 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
             ...formData,
             [fieldName]: e.target.value,
         });
-
     }
 
     const handleButtonClick = async () => {
+        if (isLoadState) {
+            return
+        }
         if (Object.keys(errors).some(key => errors[key])) {
             setShowToast(true)
             setToastMsg('Please enter all the required fields.')
@@ -101,7 +104,24 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
             setToastMsg('Please enter all the required fields.')
             return;
         }
-        const res = await handlePostRequests(newsLettersignUpUrl, data, customHeaders)
+        setIsLoadState(true)
+        const selOption = areaOfInt === 'Fire Fighting Ppe' ? 'Fire' : areaOfInt === 'Defence Procurement' ? 'Defence' : null
+        const data = { input_5_3: formData['Full Name*'], input_7: formData['Email Address*'], input_8: selOption, input_9_1: isChecked ? 1 : 0 }
+        const res = await handlePostRequests(newsLettersignUpUrl, data)
+        if (res?.data?.is_valid) {
+            setIsLoadState(false)
+            setShowToast(true)
+            setToastMsg('Successfully signedup to our mailing list.')
+        }
+        if (res?.error) {
+            const errMsg = res?.error?.response?.data?.validation_messages
+            const firstKey = errMsg ? Object.keys(errMsg)[0] : null;
+            const toastMsg = firstKey ? `!Failed ${errMsg[firstKey]}` : 'Please check all the fields entered.';
+            setIsLoadState(false)
+            setShowToast(true)
+            setToastMsg(toastMsg)
+        }
+
     };
 
 
@@ -171,7 +191,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
             <section className={styles.checkBoxSection}><CheckBoxWithText text={checkBoxText} isChecked={isChecked} setIsChecked={setIsChecked} /></section>
         </section >
         {showToast && <Toast showToast={showToast} setShowToast={setShowToast} toastMsg={toastMsg} />}
-        <section className={styles.cta}><FlameBtn color={btnColor} text={'Sign Up'} textColor={textColor} isLoadState={false} btnFunction={handleButtonClick} /></section>
+        <section className={styles.cta}><FlameBtn color={btnColor} text={'Sign Up'} textColor={textColor} isLoadState={isLoadState} btnFunction={handleButtonClick} /></section>
     </section>
 }
 export default SignUpForm
