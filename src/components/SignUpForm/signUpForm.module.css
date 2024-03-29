@@ -50,9 +50,11 @@
     border: none;
     border-bottom: 1px solid white;
     font-size: var(--font-size-xs-ext);
+    font-weight: var(--font-wt-bold);
     width: 100%;
     outline: none;
     padding-bottom: 8px;
+    cursor: pointer;
 }
   /* Style placeholder text */
   .areaInterestInput::placeholder {
@@ -81,9 +83,13 @@
     gap: 10px;
 }
 .checkBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 12px;
     height: 12px;
     background-color: var(--color-secondary);
+    cursor: pointer;
 }
 @media (min-width: 1680px) {
     .checkBox {
@@ -101,7 +107,6 @@
     display: flex;
     justify-content: start;
     align-items: start;
-    /* margin-left: 26px; */
 }
 .checkBoxAndText{
     width: 100%;
@@ -127,7 +132,34 @@
 }
 .downArrow{
     position: absolute;
+    cursor: pointer;
     width: 20px;
     height: 20px;
     right: 0px;
+    top: 0px;
 }
+.formInput{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.errorMsg{
+    color: var(--color-fire);
+    font-size: var(--font-size-xs);
+}
+.areaOfInt{
+    position: absolute;
+    width: 100%;
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+.interestOptions {
+    color: var(--color-primary);
+    padding:12px;
+    font-weight: var(--font-wt-bold);
+    border-bottom: solid 1px var(--color-primary);
+}
+

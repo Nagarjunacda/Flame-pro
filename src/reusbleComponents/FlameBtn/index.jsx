@@ -1,4 +1,5 @@
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
 
 const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
   const buttonStyle = {
@@ -18,6 +19,9 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     transform: "skew(20deg)",
     display: "inline-block",
     whiteSpace: "nowrap",
+    display: "flex",
+    gap: "12px",
+    alignItems: "center",
   };
   const btnText = isLoadState ? "Loading..." : text;
 
@@ -27,7 +31,12 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
 
   return (
     <Button onClick={handleClick} style={buttonStyle}>
-      <span style={textStyle}>{btnText}</span>
+      <span style={textStyle}>
+        {isLoadState && (
+          <Spinner animation="border" variant="danger" size="sm" />
+        )}
+        {btnText}
+      </span>
     </Button>
   );
 };

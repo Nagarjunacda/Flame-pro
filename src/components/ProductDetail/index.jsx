@@ -11,7 +11,6 @@ function ProductDetail({ productData }) {
     const { setTriggerUpdate } = useCartData();
     const nonceVal = useContext(NonceContext)
     const productId = productData?.id
-    console.log(productData, '!!')
 
     const handleAddCart = async () => {
         const data = {
