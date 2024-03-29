@@ -10,3 +10,4 @@ export const nonceUrl = `${baseUrl}/wp/v2/wc-nonce`
 export const addToCartUrl = `${baseUrl}/wc/store/v1/cart/add-item`
 export const productDetailUrl = `${baseUrl}/wc/v3/products`
 export const newsLettersignUpUrl = `${baseUrl}/gf/v2/forms/1/submissions`
+export const userDetailsFormUrl = `${baseUrl}/gf/v2/forms/3/submissions`

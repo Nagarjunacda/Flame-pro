@@ -13,7 +13,6 @@ function FourCategoryBlock({ trayData, categories }) {
     const productList = categories?.filter((item) => {
         return item?.category === categoryType
     })
-    console.log(productList, '!!')
 
     return <section className={styles.mainCont}>
         {blockTitle && <p className={styles.title}>{blockTitle}</p>}

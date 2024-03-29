@@ -5,6 +5,7 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import Toast from '@/reusbleComponents/ToastMsg';
 import { renderHTML } from '@/utils/htmlString';
 import { handlePostRequests } from '@/utils/handlePostCalls';
+import { userDetailsFormUrl } from '@/utils/urls';
 import { newsLettersignUpUrl } from '@/utils/urls';
 import styles from './signUpForm.module.css'
 
@@ -22,6 +23,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const checkBoxText = 'I consent to email marketing'
     const areaOfInterests = ['Fire Fighting Ppe', 'Defence Procurement']
     const arrowImgSrc = isDropdownOpen ? '/Images/upWhiteArrow.svg' : '/Images/downWhiteArrow.svg'
+    const isUserDetailForm = formFields[1]?.section1 === 'Phone Number*'
 
     const handleChange = async (e, fieldName) => {
         const { name, value } = e.target
@@ -52,6 +54,14 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                 });
             }
         }
+        if (name === 'Phone Number*') {
+            if (!/^[0-9]+$/.test(value)) {
+                setErrors({
+                    ...errors,
+                    [fieldName]: 'Please enter valid phone number',
+                });
+            }
+        }
         errors[fieldName] = null
         setFormData({
             ...formData,
@@ -62,6 +72,9 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const handleButtonClick = async () => {
         if (isLoadState) {
             return
+        }
+        if (isUserDetailForm) { // need to refactor this later
+            errors['Area Of Interest*'] = null
         }
         if (Object.keys(errors).some(key => errors[key])) {
             setShowToast(true)
@@ -92,7 +105,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                 formValid = false;
             }
         });
-        if (areaOfInt === 'Area Of Interest') {
+        if (areaOfInt === 'Area Of Interest' && !isUserDetailForm) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 'Area Of Interest*': 'Please select an Area Of Interest',
@@ -107,7 +120,10 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
         setIsLoadState(true)
         const selOption = areaOfInt === 'Fire Fighting Ppe' ? 'Fire' : areaOfInt === 'Defence Procurement' ? 'Defence' : null
         const data = { input_5_3: formData['Full Name*'], input_7: formData['Email Address*'], input_8: selOption, input_9_1: isChecked ? 1 : 0 }
-        const res = await handlePostRequests(newsLettersignUpUrl, data)
+        const userDetailData = { input_1_3: formData['Full Name*'], input_3: formData['Email Address*'], input_4: formData['Phone Number*'], input_5: formData['Company Name*'], input_6: formData['Job Title*'], input_7: formData['Message'], input_8_1: isChecked ? 1 : 0 }
+        const userData = isUserDetailForm ? userDetailData : data
+        const url = isUserDetailForm ? userDetailsFormUrl : newsLettersignUpUrl
+        const res = await handlePostRequests(url, userData)
         if (res?.data?.is_valid) {
             setIsLoadState(false)
             setShowToast(true)
