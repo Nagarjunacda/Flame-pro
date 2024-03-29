@@ -88,7 +88,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                                 value={formData[fieldName?.section1] || ''}
                             /> : <section className={styles.areaInterestInput} onClick={handleDropdown}>{areaOfInt}</section>}
                         {errors[fieldName?.section1] && <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>}
-                        {fieldName?.section1 === 'Area Of Interest*' && <section className={styles.downArrow}>
+                        {fieldName?.section1 === 'Area Of Interest*' && <section className={styles.downArrow} onClick={handleDropdown}>
                             <FlameImage src={arrowImgSrc} alt='arrow' />
                         </section>}
                         {fieldName?.section1 === 'Area Of Interest*' && isDropdownOpen &&

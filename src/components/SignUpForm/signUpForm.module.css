@@ -54,6 +54,7 @@
     width: 100%;
     outline: none;
     padding-bottom: 8px;
+    cursor: pointer;
 }
   /* Style placeholder text */
   .areaInterestInput::placeholder {
@@ -88,6 +89,7 @@
     width: 12px;
     height: 12px;
     background-color: var(--color-secondary);
+    cursor: pointer;
 }
 @media (min-width: 1680px) {
     .checkBox {
@@ -105,7 +107,6 @@
     display: flex;
     justify-content: start;
     align-items: start;
-    /* margin-left: 26px; */
 }
 .checkBoxAndText{
     width: 100%;
@@ -131,6 +132,7 @@
 }
 .downArrow{
     position: absolute;
+    cursor: pointer;
     width: 20px;
     height: 20px;
     right: 0px;
