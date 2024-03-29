@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SliderComp from "@/reusbleComponents/SliderComp";
 import { Container, Row, Col } from 'react-bootstrap';
 import { useMediaQuery } from "react-responsive";
@@ -12,6 +13,7 @@ function FourCategoryBlock({ trayData, categories }) {
     const productList = categories?.filter((item) => {
         return item?.category === categoryType
     })
+    console.log(productList, '!!')
 
     return <section className={styles.mainCont}>
         {blockTitle && <p className={styles.title}>{blockTitle}</p>}
@@ -20,7 +22,7 @@ function FourCategoryBlock({ trayData, categories }) {
                 <Row>
                     {productList?.map((item, index) => {
                         return <Col key={index} md={3} className={styles.col}>
-                            <FourCategoryCard data={item} />
+                            <Link href={`/shop-all/${item?.slug}?category=${item?.id}`}><FourCategoryCard data={item} /></Link>
                         </Col>
                     })}
                 </Row>
