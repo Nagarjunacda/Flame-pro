@@ -17,9 +17,9 @@ function ImageRightTextLeft({ trayData }) {
         <section className={styles.textBlock}>
             <p className={styles.title}>{title}</p>
             <p className={styles.desc}>{renderHTML(desc)}</p>
-            <section className={styles.btnSection}>
+            {buttonText && <section className={styles.btnSection}>
                 <FlameBtn color={buttonColor} text={buttonText} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} />
-            </section>
+            </section>}
         </section>
         <section className={styles.imageBlock}>
             <FlameImage src={imageBanner} alt={'bannerImg'} />

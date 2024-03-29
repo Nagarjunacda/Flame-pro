@@ -21,6 +21,7 @@
     width: 100%;
     height: auto;
     display: flex;
+    align-self: stretch;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
