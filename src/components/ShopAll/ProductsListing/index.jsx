@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive'
 import { productsUrl } from '@/utils/urls'
 import { handleServerSideProps } from '@/utils/handleServerSideData';
@@ -7,6 +8,8 @@ import FlameImage from '@/reusbleComponents/FlameImage'
 import styles from '../shopAll.module.css'
 
 function ProductsListing({ productsData }) {
+    const router = useRouter()
+    const category = router?.query?.category
     const [showDropdown, setShowDropdown] = useState(false)
     const [itemsNumber, setItemsNumbers] = useState(10)
     const [products, setProducts] = useState([])
@@ -25,7 +28,9 @@ function ProductsListing({ productsData }) {
 
     useEffect(() => {
         const getProductData = async () => {
-            const url = `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
+            const categoryurl = `${productsUrl}?category=${category}`
+            const allProductsUrl = `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
+            const url = category ? categoryurl : allProductsUrl
             const { data, error, headers } = await handleServerSideProps(url);
             const totalNoOfPages = headers['x-wp-totalpages']
             setProducts(data)

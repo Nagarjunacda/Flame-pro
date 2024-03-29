@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import BasketMweb from '@/components/Header/BasketMweb'
 import SearchMweb from '@/components/Header/SearchMweb'
@@ -32,9 +33,9 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                 {childItems && childItems.map((item, index) => {
                     return <section className={styles.childCont}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section>
                         {item.child_items && item.child_items.map((childItem, index) => {
-                            return <section className={styles.innerChild}>
-                                <section key={index}>{childItem?.title}</section>
-                            </section>
+                            return <Link href={`/shop-all/${childItem?.slug}?category=${childItem?.object_id}`} className={styles.innerChild}>
+                                <section key={index} onClick={handleOverlayClose}>{childItem?.title}</section>
+                            </Link>
                         })}</section>
                 })}
             </section>
