@@ -21,8 +21,9 @@ function FourCategoryBlock({ trayData, categories }) {
             <Container fluid>
                 <Row>
                     {productList?.map((item, index) => {
+                        const route = `/shop-all/${item?.slug}?category=${item?.id}`
                         return <Col key={index} md={3} className={styles.col}>
-                            <Link href={`/shop-all/${item?.slug}?category=${item?.id}`}><FourCategoryCard data={item} /></Link>
+                            <Link href={route}><FourCategoryCard data={item} /></Link>
                         </Col>
                     })}
                 </Row>
