@@ -18,7 +18,7 @@ const TitleAndTextCentre = ({ trayData }) => {
       <div>
         <h2>{trayData?.title}</h2>
         <p>{renderHTML(trayData?.text)}</p>
-        <section className={styles.btnSection}>
+        {trayData?.button_title && <section className={styles.btnSection}>
           <Link href={route}>
             <FlameBtn
               text={trayData?.button_title}
@@ -28,7 +28,7 @@ const TitleAndTextCentre = ({ trayData }) => {
             />
           </Link>
           {buttonTwoTitle && <ButtonStyleTwo text={buttonTwoTitle} textColor={buttonTwoColor} isLoadState={false} btnFunction={btnTwoFunction} />}
-        </section>
+        </section>}
       </div>
     </section>
   );

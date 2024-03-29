@@ -19,19 +19,19 @@ function RenderTrays({ trayData, categories = {} }) {
     function getTrays(tray) {
         switch (tray?.acf_fc_layout) {
             case "header_banner_with_cta":
-                return <HeaderBanner trayData={tray} />; //completed
+                return <HeaderBanner trayData={tray} />;
             case "usp_block":
-                return <UspBlock trayData={tray} />; //completed some doubt
+                return <UspBlock trayData={tray} />;
             case "title_and_text_centre":
-                return <TitleAndTextCentre trayData={tray} />; //completed
+                return <TitleAndTextCentre trayData={tray} />;
             case "two_ad_blocks":
-                return <TwoAddBlockNew trayData={tray} />; //completed
+                return <TwoAddBlockNew trayData={tray} />;
             case "resource_hub":
-                return <ResourceHubBlock trayData={tray} />; // completed
+                return <ResourceHubBlock trayData={tray} />;
             case "testimonial_slider_block":
                 return <Testimonial trayData={tray} />;
             case "newsletter_sign_up":
-                return <NewsLetterSignUp trayData={tray} />; //completed
+                return <NewsLetterSignUp trayData={tray} />;
             case "case_studies_block":
                 return <CaseStudyBlock trayData={tray} />;
             case "header_banner_slim":
