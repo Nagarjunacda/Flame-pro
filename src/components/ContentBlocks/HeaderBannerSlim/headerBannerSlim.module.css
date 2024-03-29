@@ -80,3 +80,22 @@
     font-size:var(--font-size-xl);
     margin: 0px;
 }
+.text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: var(--font-size-xs-ext);
+    max-width: 50%;
+}
+.titleSection{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+@media (min-width: 1680px) {
+    .titleSection {
+        gap: 32px;
+    }
+}

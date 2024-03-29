@@ -1,9 +1,9 @@
+import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import style from "./twoAddBlock.module.css";
 
 const TwoAddBlockNew = ({ trayData }) => {
-  console.log(trayData, '!!')
   const img1 = trayData?.image
   const img2 = trayData?.image_2
   const logo1 = trayData?.logo
@@ -37,30 +37,34 @@ const TwoAddBlockNew = ({ trayData }) => {
     <section className={style.mainTwoBlock}>
       <div className={style.mainDiv}>
         <div className={style.blockOne} style={blockOneStyle}>
-          <div style={overlayStyle}></div>
-          <div className={style.blockContent}>
-            <figure className={style.fireLogo}>
-              <FlameImage src={logo1} alt={"flamepro"} />
-            </figure>
-            <ButtonStyleTwo
-              text={buttonTitle1}
-              textColor="var( --color-secondary)"
-              btnFunction={btnFunction}
-            />
-          </div>
+          <Link className={style.blockContent} href={'/firefighting-ppe'}>
+            <div style={overlayStyle}></div>
+            <div className={style.blockContent}>
+              <figure className={style.fireLogo}>
+                <FlameImage src={logo1} alt={"flamepro"} />
+              </figure>
+              <ButtonStyleTwo
+                text={buttonTitle1}
+                textColor="var( --color-secondary)"
+                btnFunction={btnFunction}
+              />
+            </div>
+          </Link>
         </div>
         <div className={style.blockTwo} style={blockTwoStyle}>
-          <div style={overlayStyle}></div>
-          <div className={style.blockContent}>
-            <figure className={style.fireLogo}>
-              <FlameImage src={logo2} alt={"flamepro"} />
-            </figure>
-            <ButtonStyleTwo
-              text={buttonTitle2}
-              textColor="var( --color-secondary)"
-              btnFunction={btnFunction}
-            />
-          </div>
+          <Link className={style.blockContent} href={'/defence-procurement'}>
+            <div style={overlayStyle}></div>
+            <div className={style.blockContent}>
+              <figure className={style.fireLogo}>
+                <FlameImage src={logo2} alt={"flamepro"} />
+              </figure>
+              <ButtonStyleTwo
+                text={buttonTitle2}
+                textColor="var( --color-secondary)"
+                btnFunction={btnFunction}
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

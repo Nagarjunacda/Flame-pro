@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }) {
   return (
     <LayoutWrapper>
       <NextNProgress
-        color="#CDAA72"
+        color="linear-gradient(to right,#858e20,#e53d1c)"
         startPosition={0.3}
-        stopDelayMs={200}
-        height={2}
+        stopDelayMs={300}
+        height={5}
         options={{ showSpinner: false }}
       />
       <Component {...pageProps} />

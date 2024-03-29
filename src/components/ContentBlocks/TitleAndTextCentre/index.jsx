@@ -7,6 +7,7 @@ import styles from "./title-text-center.module.css";
 const TitleAndTextCentre = ({ trayData }) => {
   const buttonTwoTitle = trayData?.button2_title
   const buttonTwoColor = "var( --color-primary)"
+  const route = trayData?.button_title === 'Shop All' ? '/shop-all' : trayData?.button_title === 'About FlamePro' ? '/aboutUs' : null
 
   function btnFunction() { }
 
@@ -18,7 +19,7 @@ const TitleAndTextCentre = ({ trayData }) => {
         <h2>{trayData?.title}</h2>
         <p>{renderHTML(trayData?.text)}</p>
         <section className={styles.btnSection}>
-          <Link href={'/shop-all'}>
+          <Link href={route}>
             <FlameBtn
               text={trayData?.button_title}
               textColor="var( --color-secondary)"

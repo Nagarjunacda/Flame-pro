@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import CaseStudyCard from '@/components/Cards/CaseStudyCard';
 import styles from '../caseStudyBlock.module.css'
@@ -27,7 +28,7 @@ function CaseStudyDweb({ data }) {
             </section>
         </section>
         <section className={styles.cardSection}>
-            <CaseStudyCard data={selectedCategory} />
+            <Link href='/case-studies'><CaseStudyCard data={selectedCategory} /></Link>
         </section>
     </section>
 }

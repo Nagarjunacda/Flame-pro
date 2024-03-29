@@ -56,6 +56,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: var(--font-size-md);
+  cursor: pointer;
 }
 .rightArrow {
   width: 16px;

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { useMediaQuery } from 'react-responsive'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -39,11 +40,11 @@ function SliderComp({ data, title, slidesToShow }) {
     const getCardBlock = (item) => {
         switch (title) {
             case "Resource Hub":
-                return <TitleAndTextCard data={item} />;
+                return <Link href='/resource-hub'><TitleAndTextCard data={item} /></Link>;
             case "testimonial":
                 return <TestimonialCard data={item} />;
             case 'Case Studies':
-                return <CaseStudyCard data={item} />
+                return <Link href='/case-studies'><CaseStudyCard data={item} /></Link>
             case 'four_category_blocks':
                 return <FourCategoryCard data={item} />
         }
