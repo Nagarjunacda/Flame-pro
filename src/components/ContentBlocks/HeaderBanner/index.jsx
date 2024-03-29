@@ -14,7 +14,7 @@ function HeaderBanner({ trayData }) {
     const title = trayData?.title
 
     const handleButtonClick = () => {
-        router.push('/about')
+        router.push('/aboutUs')
     }
 
     return <section className={styles.main}>

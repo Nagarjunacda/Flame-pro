@@ -2,15 +2,25 @@ import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import style from "./twoAddBlock.module.css";
 
-const TwoAddBlockNew = () => {
+const TwoAddBlockNew = ({ trayData }) => {
+  console.log(trayData, '!!')
+  const img1 = trayData?.image
+  const img2 = trayData?.image_2
+  const logo1 = trayData?.logo
+  const logo2 = trayData?.logo_2
+  const buttonTitle1 = trayData?.button_title
+  const buttonTitle2 = trayData?.button_title_2
+
+
   function btnFunction() { }
+
   const blockOneStyle = {
-    background: "url(./images/pexels-anna-shvets-5965111.jpg)",
+    background: `url(${img1})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
   const blockTwoStyle = {
-    background: "url(./images/pexels-anna-shvets-5965111.jpg)",
+    background: `url(${img2})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
@@ -30,10 +40,10 @@ const TwoAddBlockNew = () => {
           <div style={overlayStyle}></div>
           <div className={style.blockContent}>
             <figure className={style.fireLogo}>
-              <FlameImage src={"./Images/fireLogo.svg"} alt={"flamepro"} />
+              <FlameImage src={logo1} alt={"flamepro"} />
             </figure>
             <ButtonStyleTwo
-              text={"Discover Firefighting PPE"}
+              text={buttonTitle1}
               textColor="var( --color-secondary)"
               btnFunction={btnFunction}
             />
@@ -43,10 +53,10 @@ const TwoAddBlockNew = () => {
           <div style={overlayStyle}></div>
           <div className={style.blockContent}>
             <figure className={style.fireLogo}>
-              <FlameImage src={"./Images/fireLogo.svg"} alt={"flamepro"} />
+              <FlameImage src={logo2} alt={"flamepro"} />
             </figure>
             <ButtonStyleTwo
-              text={"Discover Defence Procurement"}
+              text={buttonTitle2}
               textColor="var( --color-secondary)"
               btnFunction={btnFunction}
             />

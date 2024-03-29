@@ -25,7 +25,7 @@ function RenderTrays({ trayData, categories = {} }) {
             case "title_and_text_centre":
                 return <TitleAndTextCentre trayData={tray} />;
             case "two_ad_blocks":
-                return <TwoAddBlockNew />;
+                return <TwoAddBlockNew trayData={tray} />;
             case "resource_hub":
                 return <ResourceHubBlock trayData={tray} />;
             case "testimonial_slider_block":
