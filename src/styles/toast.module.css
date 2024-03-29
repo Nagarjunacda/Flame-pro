@@ -1,0 +1,8 @@
+.toastMain{
+    position: relative;
+    background: var(--color-fire);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--color-secondary);
+    width: 100%;
+}

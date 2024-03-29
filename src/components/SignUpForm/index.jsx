@@ -2,7 +2,10 @@ import { useState } from 'react';
 import CheckBoxWithText from './CheckBoxWithText';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
+import Toast from '@/reusbleComponents/ToastMsg';
 import { renderHTML } from '@/utils/htmlString';
+// import { handlePostRequests } from '@/utils/handlePostCalls';
+import { newsLettersignUpUrl } from '@/utils/urls';
 import styles from './signUpForm.module.css'
 
 function SignUpForm({ isFromFooter, text, heading, formFields }) {
@@ -11,6 +14,8 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const [areaOfInt, setAreaOfInt] = useState('Area Of Interest')
     const [isDropdownOpen, setIsDropDownOpen] = useState(false)
     const [isChecked, setIsChecked] = useState(false)
+    const [showToast, setShowToast] = useState(false)
+    const [toastMsg, setToastMsg] = useState('')
     const btnColor = 'var(--color-secondary)'
     const textColor = 'var(--color-primary)'
     const checkBoxText = 'I consent to email marketing'
@@ -54,13 +59,13 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
 
     }
 
-    const handleButtonClick = () => {
+    const handleButtonClick = async () => {
         if (Object.keys(errors).some(key => errors[key])) {
+            setShowToast(true)
+            setToastMsg('Please enter all the required fields.')
             return;
         }
         let formValid = true;
-
-        // Check if any field is empty
         formFields.forEach((fieldName) => {
             if (!formData[fieldName?.section1]) {
                 if (fieldName?.section1 === 'Area Of Interest*') {
@@ -84,8 +89,6 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                 formValid = false;
             }
         });
-
-        // Check if Area Of Interest is selected
         if (areaOfInt === 'Area Of Interest') {
             setErrors((prevErrors) => ({
                 ...prevErrors,
@@ -93,14 +96,12 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
             }));
             formValid = false;
         }
-
-        // If form is not valid, return to stop further execution
         if (!formValid) {
+            setShowToast(true)
+            setToastMsg('Please enter all the required fields.')
             return;
         }
-        console.log('!! form validated')
-
-        // Your logic for handling the form submission
+        const res = await handlePostRequests(newsLettersignUpUrl, data, customHeaders)
     };
 
 
@@ -169,6 +170,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
         <section className={styles.checkBoxAndText}>
             <section className={styles.checkBoxSection}><CheckBoxWithText text={checkBoxText} isChecked={isChecked} setIsChecked={setIsChecked} /></section>
         </section >
+        {showToast && <Toast showToast={showToast} setShowToast={setShowToast} toastMsg={toastMsg} />}
         <section className={styles.cta}><FlameBtn color={btnColor} text={'Sign Up'} textColor={textColor} isLoadState={false} btnFunction={handleButtonClick} /></section>
     </section>
 }
