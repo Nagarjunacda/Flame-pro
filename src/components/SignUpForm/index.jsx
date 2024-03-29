@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
 import CheckBoxWithText from './CheckBoxWithText';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
@@ -18,7 +18,6 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const arrowImgSrc = isDropdownOpen ? '/Images/upWhiteArrow.svg' : '/Images/downWhiteArrow.svg'
 
     const handleChange = (e, fieldName) => {
-        console.log(errors, formFields, '!!')
         const { name, value } = e.target
         if (!value) {
             setErrors({
@@ -55,7 +54,56 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
 
     }
 
-    const handleButtonClick = () => { }
+    const handleButtonClick = () => {
+        if (Object.keys(errors).some(key => errors[key])) {
+            return;
+        }
+        let formValid = true;
+
+        // Check if any field is empty
+        formFields.forEach((fieldName) => {
+            if (!formData[fieldName?.section1]) {
+                if (fieldName?.section1 === 'Area Of Interest*') {
+                    return
+                }
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    [fieldName?.section1]: `${fieldName?.section1} is required`,
+                }));
+                formValid = false;
+            }
+
+            if (fieldName?.section2 && (!formData[fieldName?.section2])) {
+                if (fieldName?.section1 === 'Area Of Interest*') {
+                    return
+                }
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    [fieldName?.section2]: `${fieldName?.section2} is required`,
+                }));
+                formValid = false;
+            }
+        });
+
+        // Check if Area Of Interest is selected
+        if (areaOfInt === 'Area Of Interest') {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                'Area Of Interest*': 'Please select an Area Of Interest',
+            }));
+            formValid = false;
+        }
+
+        // If form is not valid, return to stop further execution
+        if (!formValid) {
+            return;
+        }
+        console.log('!! form validated')
+
+        // Your logic for handling the form submission
+    };
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -68,6 +116,10 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     const handleInterestSel = (area) => {
         setAreaOfInt(area)
         setIsDropDownOpen(false)
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            'Area Of Interest*': null,
+        }));
     }
 
     return <section className={styles.signUpCont}>
