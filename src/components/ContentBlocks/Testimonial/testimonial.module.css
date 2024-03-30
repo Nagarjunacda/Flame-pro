@@ -1,21 +1,49 @@
 .testimonalMain {
   background-color: var(--color-primary);
-  padding: var(--padding-testimonial);
+  padding: var(--padding-xs-50) var(--padding-xs-36);
 }
 .sliderBlock {
   background-color: var(--color-secondary);
-  /* transform: skew(-20deg); */
-  clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%);
 }
 
-.unSkew {
-  /* transform: skew(20deg); */
-  padding: var(--padding-inner-testimonial);
-}
 @media only screen and (min-width: 900px) {
   .sliderBlock {
-    background-color: var(--color-secondary);
-    /* transform: skew(-20deg); */
     clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+  }
+  .unSkew {
+    padding: 50px 120px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .sliderBlock {
+    clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%);
+  }
+  .unSkew {
+    padding-top: 50px;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 120px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .sliderBlock {
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+  }
+  .unSkew {
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .sliderBlock {
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+  }
+  .unSkew {
+    padding-top: 50px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 50px;
   }
 }

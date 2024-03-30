@@ -7,79 +7,79 @@ import HeaderDweb from '../HeaderDweb';
 import styles from '../header.module.css'
 
 function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
-    const router = useRouter()
-    const [clickedItem, setClickedItem] = useState({})
-    const navItems = headerData?.items
-    const flameLogo = '/Images/flameLogoDark.svg'
-    const searchIcon = '/Images/searchIcon.svg'
-    const basketIcon = '/Images/basketIcon.svg'
-    const [isOverlayCanvasOpen, setIsOverlayCanvasOpen] = useState(false)
+  const router = useRouter()
+  const [clickedItem, setClickedItem] = useState({})
+  const navItems = headerData?.items
+  const flameLogo = '/Images/flameLogoDark.svg'
+  const searchIcon = '/Images/searchIcon.svg'
+  const basketIcon = '/Images/basketIcon.svg'
+  const [isOverlayCanvasOpen, setIsOverlayCanvasOpen] = useState(false)
 
-    const handleOverlayClose = () => {
-        setIsOverlayCanvasOpen(false)
-        handleClose()
+  const handleOverlayClose = () => {
+    setIsOverlayCanvasOpen(false)
+    handleClose()
+  }
+
+  useEffect(() => {
+    setClickedItem(selectedNavItem)
+  }, [selectedNavItem])
+
+  const getNavItem = (item) => {
+    if (item?.title === 'Cart') {
+      return <section className={styles.searchIcon}>
+        <FlameImage src={basketIcon} alt='basketIcon' />
+      </section>
     }
-
-    useEffect(() => {
-        setClickedItem(selectedNavItem)
-    }, [selectedNavItem])
-
-    const getNavItem = (item) => {
-        if (item?.title === 'Cart') {
-            return <section className={styles.searchIcon}>
-                <FlameImage src={basketIcon} alt='basketIcon' />
-            </section>
-        }
-        if (item?.title === 'Search') {
-            return <section className={styles.searchIcon}>
-                <FlameImage src={searchIcon} alt='searchIcon' />
-            </section>
-        }
-        return item?.title
+    if (item?.title === 'Search') {
+      return <section className={styles.searchIcon}>
+        <FlameImage src={searchIcon} alt='searchIcon' />
+      </section>
     }
+    return item?.title
+  }
 
-    const handleNavItemClick = (item) => {
-        if (item?.title === 'Cart') {
-            router.push('/basket')
-            handleOverlayClose()
-            return
-        }
-        if (item?.title === 'Search') {
-            handleOverlayClose()
-            return
-        }
-        if (item?.title === 'About') {
-            router.push('/aboutUs')
-            handleOverlayClose()
-            return
-        }
-        if (item?.title === 'Contact Us') {
-            router.push('/contact-us')
-            handleOverlayClose()
-            return
-        }
-        setClickedItem(item)
-        // setIsCanvasOpen(true);
+  const handleNavItemClick = (item) => {
+    if (item?.title === 'Cart') {
+      router.push('/basket')
+      handleOverlayClose()
+      return
     }
+    if (item?.title === 'Search') {
+      handleOverlayClose()
+      return
+    }
+    if (item?.title === 'About') {
+      router.push('/aboutUs')
+      handleOverlayClose()
+      return
+    }
+    if (item?.title === 'Contact Us') {
+      router.push('/contact-us')
+      handleOverlayClose()
+      return
+    }
+    setClickedItem(item)
+    // setIsCanvasOpen(true);
+  }
 
-    return <Offcanvas show={show} onHide={handleOverlayClose} className={styles.offCanvasContDweb} placement={'top'}>
-        <Offcanvas.Header>
-            <header className={styles.headerMainDweb}>
-                <section className={styles.subHeader}>
-                    <figure className={styles.headerLogo}>
-                        <FlameImage src={flameLogo} alt='flameLogo' />
-                    </figure>
-                    <nav className={styles.navItemsDrawer}>
-                        {navItems?.map((item, index) => {
-                            return <nav className={item?.title === clickedItem?.title && styles.navItemBorder} key={index} onClick={() => { handleNavItemClick(item) }}>{getNavItem(item)}</nav>
-                        })}
-                    </nav>
-                </section>
-            </header>
-        </Offcanvas.Header>
-        <Offcanvas.Body className={styles.offCanvasBody}>
-            <FireFighterppe selectedNavItem={clickedItem} handleOverlayClose={handleOverlayClose} />
-        </Offcanvas.Body>
-    </Offcanvas>
+  return <Offcanvas show={show} onHide={handleOverlayClose} className={styles.offCanvasContDweb} placement={'top'}>
+    <Offcanvas.Header>
+      <header className={styles.headerMainDweb}>
+        <section className={styles.subHeader}>
+          <figure className={styles.headerLogo}>
+            <FlameImage src={flameLogo} alt='flameLogo' />
+          </figure>
+          <nav className={styles.navItemsDrawer}>
+            {navItems?.map((item, index) => {
+              return <nav className={item?.title === clickedItem?.title && styles.navItemBorder} key={index} onClick={() => { handleNavItemClick(item) }}>{getNavItem(item)}</nav>
+            })}
+          </nav>
+        </section>
+      </header>
+    </Offcanvas.Header>
+    <Offcanvas.Body className={styles.offCanvasBody}>
+      <FireFighterppe selectedNavItem={clickedItem} handleOverlayClose={handleOverlayClose} />
+    </Offcanvas.Body>
+  </Offcanvas>
 }
 export default OffCanvasDweb

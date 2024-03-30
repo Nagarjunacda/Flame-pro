@@ -17,12 +17,14 @@
   font-size: var(--font-size-lg);
   color: var(--color-primary);
   text-align: center;
+  font-family: "CustomFont-Black", sans-serif;
 }
 .titletextcentre p {
-  font-size: var(--description);
+  font-size: var(--font-size-sm);
   text-align: center;
+  font-family: "CustomFont-Regular", sans-serif;
 }
-.btnSection{
+.btnSection {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,18 +33,18 @@
   flex-direction: column;
 }
 @media (min-width: 900px) {
-    .btnSection {
-        flex-direction: row;
-        gap: 32px;
-    }
+  .btnSection {
+    flex-direction: row;
+    gap: 32px;
+  }
 }
 @media (min-width: 900px) {
   .btnSection {
-      gap: 40px;
+    gap: 40px;
   }
 }
 @media (min-width: 1680px) {
   .btnSection {
-      gap: 52px;
+    gap: 52px;
   }
 }

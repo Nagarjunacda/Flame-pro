@@ -6,63 +6,63 @@ import styles from '../footer.module.css'
 
 
 function FooterDweb() {
-    const router = useRouter()
-    const flameImg = '/Images/flameLogo.svg'
-    const formHeading = 'Sign Up To Our Mailing'
-    const data1 = ['Useful Links', 'Legal', 'Contact']
+  const router = useRouter()
+  const flameImg = '/Images/flameLogo.svg'
+  const formHeading = 'Sign Up To Our Mailing'
+  const data1 = ['Useful Links', 'Legal', 'Contact']
 
-    const handleLabelClick = (label) => {
-        if (label === 'About Flame Pro') {
-            router.push('/aboutUs')
-            return
-        }
-        router.push('/terms-conditions')
+  const handleLabelClick = (label) => {
+    if (label === 'About Flame Pro') {
+      router.push('/aboutUs')
+      return
     }
-    const usefulLinks = [
-        'Distributors',
-        'About Flame Pro',
-        'FAQs',
-    ]
-    const Legal = [
-        'Terms & Conditions',
-        'Privacy Policy',
-        'Cookies',
-    ]
-    const contact = [
-        'FlamePro Global Ltd Unit 2, Dianthus Business Park, Common Lane, Newport,Brough, East Yorkshire,HU15 2FT',
-        'info@flame-pro.com',
-        '+44 (0)1332 325783'
-    ]
-    const formData = [{ section1: 'Full Name*' }, { section1: 'Email Address*' }, { section1: 'Area Of Interest*' }]
-    return <section className={styles.dwebCont}>
-        <section className={styles.dataContDweb}>
-            <section className={styles.flameImg}>
-                <FlameImage src={flameImg} alt='logo' />
-            </section>
-            <section className={styles.linkListCont}>
-                {data1.map((link, index) => {
-                    return <section key={index} className={styles.navLinks}>
-                        <p>{link}</p>
-                        {link === 'Useful Links' &&
-                            usefulLinks.map((e, index) => {
-                                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
-                            })}
-                        {link === 'Legal' &&
-                            Legal.map((e, index) => {
-                                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
-                            })}
-                        {link === 'Contact' &&
-                            contact.map((e, index) => {
-                                return <section className={styles.address} key={index}>{e}</section>
-                            })}
-                    </section>
-                })}
-            </section>
-            <SignUpForm isFromFooter heading={formHeading} formFields={formData} />
-        </section>
-        <section className={styles.copyRight}>
-            <CopyRightText />
-        </section>
+    router.push('/terms-conditions')
+  }
+  const usefulLinks = [
+    'Distributors',
+    'About Flame Pro',
+    'FAQs',
+  ]
+  const Legal = [
+    'Terms & Conditions',
+    'Privacy Policy',
+    'Cookies',
+  ]
+  const contact = [
+    'FlamePro Global Ltd Unit 2, Dianthus Business Park, Common Lane, Newport,Brough, East Yorkshire,HU15 2FT',
+    'info@flame-pro.com',
+    '+44 (0)1332 325783'
+  ]
+  const formData = [{ section1: 'Full Name*' }, { section1: 'Email Address*' }, { section1: 'Area Of Interest*' }]
+  return <section className={styles.dwebCont}>
+    <section className={styles.dataContDweb}>
+      <section className={styles.flameImg}>
+        <FlameImage src={flameImg} alt='logo' />
+      </section>
+      <section className={styles.linkListCont}>
+        {data1.map((link, index) => {
+          return <section key={index} className={styles.navLinks}>
+            <p>{link}</p>
+            {link === 'Useful Links' &&
+              usefulLinks.map((e, index) => {
+                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
+              })}
+            {link === 'Legal' &&
+              Legal.map((e, index) => {
+                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
+              })}
+            {link === 'Contact' &&
+              contact.map((e, index) => {
+                return <section className={styles.address} key={index}>{e}</section>
+              })}
+          </section>
+        })}
+      </section>
+      <SignUpForm isFromFooter heading={formHeading} formFields={formData} />
     </section>
+    <section className={styles.copyRight}>
+      <CopyRightText />
+    </section>
+  </section>
 }
 export default FooterDweb

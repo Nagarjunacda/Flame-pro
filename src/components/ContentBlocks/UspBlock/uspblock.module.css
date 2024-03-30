@@ -9,11 +9,15 @@
 .uspblock p {
   font-size: var(--font-size-xs-ext);
   margin-bottom: 0;
+  font-family: "CustomFont-Regular", sans-serif;
 }
 .uspblock img {
   width: 34px;
   height: 34px;
   padding-right: 35px;
+}
+.boldText {
+  font-family: "CustomFont-Black", sans-serif;
 }
 
 @media only screen and (max-width: 767px) {

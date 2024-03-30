@@ -16,8 +16,9 @@ const ButtonStyleTwo = ({
     transition: "all 0.3s ease",
     outline: "none",
     borderRadius: "0px",
-    fontSize: "16px",
+    fontSize: "var(--font-size-xs)",
     padding: "0px",
+    fontFamily: "CustomFont-Black, sans-serif",
   };
   const iconStyleInline = {
     width: "15px",

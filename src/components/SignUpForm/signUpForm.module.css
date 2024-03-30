@@ -1,165 +1,165 @@
-.signUpCont{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-    max-width: 500px;
+.signUpCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 500px;
 }
 @media (min-width: 900px) {
-    .signUpCont {
-        max-width: 416px;
-        justify-content: flex-start;
-    }
+  .signUpCont {
+    max-width: 416px;
+    justify-content: flex-start;
+  }
 }
 @media (min-width: 900px) {
-    .signUpCont {
-        max-width: 500px;
-    }
-}
-.headingText{
-    width: 100%;
-    font-size: var(--font-size-md);
-    color: var(--color-secondary);
-}
-.headingTextBlock{
-    width: 100%;
-    font-size: var(--font-size-lg);
-    color: var(--color-secondary);
-}
-.textInput{
-    background-color: transparent;
-    color: white;
-    border: none;
-    border-bottom: 1px solid white;
-    font-size: var(--font-size-xs-ext);
-    width: 100%;
-    outline: none;
-    padding-bottom: 8px;
-}
-  /* Style placeholder text */
-  .textInput::placeholder {
-    color: var(--color-secondary);
-    opacity: 0.5;
-    font-weight: var(--font-wt-bold); /* White with 50% opacity */
-  }
-  .areaInterestInput{
-    background-color: transparent;
-    color: white;
-    border: none;
-    border-bottom: 1px solid white;
-    font-size: var(--font-size-xs-ext);
-    font-weight: var(--font-wt-bold);
-    width: 100%;
-    outline: none;
-    padding-bottom: 8px;
-    cursor: pointer;
-}
-  /* Style placeholder text */
-  .areaInterestInput::placeholder {
-    color: var(--color-secondary);
-    font-weight: var(--font-wt-bold); /* White with 50% opacity */
-  }
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:32px;
-    width: 100%;
-}
-.formDiv{
-    position: relative;
-    display: flex;
-    gap:16px;
-    width: 100%;
+  .signUpCont {
     max-width: 500px;
+  }
 }
-.checkBoxCont{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.headingText {
+  width: 100%;
+  font-size: var(--font-size-md);
+  color: var(--color-secondary);
 }
-.checkBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12px;
-    height: 12px;
-    background-color: var(--color-secondary);
-    cursor: pointer;
+.headingTextBlock {
+  width: 100%;
+  font-size: var(--font-size-lg);
+  color: var(--color-secondary);
+}
+.textInput {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: var(--font-size-xs-ext);
+  width: 100%;
+  outline: none;
+  padding-bottom: 8px;
+}
+/* Style placeholder text */
+.textInput::placeholder {
+  color: var(--color-secondary);
+  opacity: 0.5;
+  font-weight: var(--font-wt-bold); /* White with 50% opacity */
+}
+.areaInterestInput {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: var(--font-size-xs-ext);
+  font-weight: var(--font-wt-bold);
+  width: 100%;
+  outline: none;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+/* Style placeholder text */
+.areaInterestInput::placeholder {
+  color: var(--color-secondary);
+  font-weight: var(--font-wt-bold); /* White with 50% opacity */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+.formDiv {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+.checkBoxCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.checkBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+  margin-bottom: 7px;
 }
 @media (min-width: 1680px) {
-    .checkBox {
-        width: 21px;
-        height: 21px;
-    }
+  .checkBox {
+    width: 21px;
+    height: 21px;
+  }
 }
-.checkBoxText{
-    color: var(--color-secondary);
-    font-size: var(--font-size-xs-ext);
+.checkBoxText {
+  color: var(--color-secondary);
+  font-size: var(--font-size-xs-ext);
 }
-.checkBoxSection{
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: start;
-    align-items: start;
+.checkBoxSection {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
 }
-.checkBoxAndText{
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+.checkBoxAndText {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
-.cta{
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: end;
-    align-items: start;
+.cta {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: end;
+  align-items: start;
 }
-.text{
-    color: var(--color-secondary);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    font-size: var(--font-size-xs-ext);
+.text {
+  color: var(--color-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: var(--font-size-xs-ext);
 }
-.downArrow{
-    position: absolute;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    right: 0px;
-    top: 0px;
+.downArrow {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  right: 0px;
+  top: 0px;
 }
-.formInput{
-    position: relative;
-    width: 100%;
-    height: auto;
+.formInput {
+  position: relative;
+  width: 100%;
+  height: auto;
 }
-.errorMsg{
-    color: var(--color-fire);
-    font-size: var(--font-size-xs);
+.errorMsg {
+  color: var(--color-fire);
+  font-size: var(--font-size-xs);
 }
-.areaOfInt{
-    position: absolute;
-    width: 100%;
-    color: var(--color-primary);
-    background: var(--color-secondary);
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
+.areaOfInt {
+  position: absolute;
+  width: 100%;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
 }
 .interestOptions {
-    color: var(--color-primary);
-    padding:12px;
-    font-weight: var(--font-wt-bold);
-    border-bottom: solid 1px var(--color-primary);
+  color: var(--color-primary);
+  padding: 12px;
+  font-weight: var(--font-wt-bold);
+  border-bottom: solid 1px var(--color-primary);
 }
-

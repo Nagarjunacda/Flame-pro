@@ -1,7 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+/* Custom Font Setup */
+@font-face {
+  font-family: "CustomFont-Black";
+  src: url("/fonts/black.woff") format("woff");
+  font-weight: 900; /* Adjust weight as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CustomFont-Bold";
+  src: url("/fonts/bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CustomFont-Medium";
+  src: url("/fonts/medium.woff") format("woff");
+  font-weight: 500; /* Adjust weight as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CustomFont-Regular";
+  src: url("/fonts/regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: "CustomFont-Regular", sans-serif;
 
   --color-primary: #1c0401;
   --color-secondary: #ffffff;
@@ -20,7 +47,7 @@
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
-  --font-size-18-40:18px;
+  --font-size-18-40: 18px;
   --font-size-xs-ext: 14px;
   --font-size-canvas: 18px;
   --font-size-headerDrawer: 25px;
@@ -35,15 +62,17 @@
   --font-wt-xbold: 800;
   --font-wt-heavy: 900;
 
-  --padding-8:8px;
-  --padding-16:16px;
+  --padding-8: 8px;
+  --padding-16: 16px;
   --padding-btn: 20px 64px;
   --padding-xs-24: 24px;
   --padding-xs-26: 26px;
   --padding-xs-36: 36px;
+  --padding-xs-90: 50px;
+  --padding-xs-36-testimonal: 36px;
   --padding-xs-48: 48px;
   --padding-xs-44: 44px;
-  --padding-testimonial: 50px 36px;
+  --padding-xs-50: 65px;
   --padding-inner-testimonial: 150px 15px;
   --padding-text-center-block: 50px 36px;
   --padding-basket-items: 0 20px;
@@ -70,9 +99,9 @@
     --padding-basket-items: 0 60px;
   }
 } */
-/* @media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) {
   :root {
-    --padding-xs-24: 24px;
+    /* --padding-xs-24: 24px;
     --padding-xs-26: 70px;
     --padding-xs-36: 80px;
     --padding-xs-48: 72px;
@@ -80,9 +109,24 @@
     --padding-testimonial: 50px 36px;
     --padding-inner-testimonial: 35px 120px;
     --padding-text-center-block: 85px 35px;
-    --padding-basket-items: 0 100px;
+    --padding-basket-items: 0 100px; */
+
+    /* Testimonal */
+    --padding-xs-36-testimonal: 250px;
+    --padding-xs-50: 65px;
+
+    --font-size-crumbs: 14px;
+    --font-size-xs: 16px;
+    --font-size-sm: 18px;
+    --font-size-md: 25px;
+    --font-size-cardTitle: 19px;
+    --font-size-lg: 40px;
+    --font-size-xl: 80px;
+    --font-size-18-40: 40px;
+    --font-size-canvas: 25px;
+    --font-size-xs-ext: 18px;
   }
-} */
+}
 @media only screen and (min-width: 1680px) {
   :root {
     --font-size-crumbs: 14px;
@@ -92,18 +136,19 @@
     --font-size-cardTitle: 19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
-    --font-size-18-40:40px;
+    --font-size-18-40: 40px;
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
 
-    --padding-16:20px;
+    --padding-16: 20px;
     --padding-xs-24: 36px;
+    --padding-xs-90: 50px;
+    --padding-xs-36-testimonal: 250px;
     --padding-xs-26: 130px;
     --padding-xs-36: 140px;
     --padding-xs-48: 100px;
     --padding-xs-44: 84px;
-    --padding-testimonial: 65px 145px;
-    --padding-inner-testimonial: 85px 145px;
+    --padding-xs-50: 65px;
     --padding-text-center-block: 50px 85px;
     --padding-basket-items: 0 100px;
   }
@@ -145,4 +190,8 @@ h6 {
   font-weight: 900;
   margin: 0px;
   letter-spacing: -0.5px;
+  font-family: "CustomFont-Black", sans-serif;
+}
+p {
+  font-family: "CustomFont-Regular", sans-serif;
 }
