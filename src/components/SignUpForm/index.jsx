@@ -156,11 +156,11 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
 
   return (
     <section className={styles.signUpCont}>
-      <p
+      <h5
         className={isFromFooter ? styles.headingText : styles.headingTextBlock}
       >
         {heading}
-      </p>
+      </h5>
       {text && <p className={styles.text}>{renderHTML(text)}</p>}
       <form onSubmit={handleSubmit} className={styles.form}>
         {formFields?.map((fieldName) => (

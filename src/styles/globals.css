@@ -28,7 +28,7 @@
 }
 
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: "CustomFont-Regular", sans-serif;
 
   --color-primary: #1c0401;
   --color-secondary: #ffffff;
@@ -68,9 +68,11 @@
   --padding-xs-24: 24px;
   --padding-xs-26: 26px;
   --padding-xs-36: 36px;
+  --padding-xs-90: 50px;
+  --padding-xs-36-testimonal: 36px;
   --padding-xs-48: 48px;
   --padding-xs-44: 44px;
-  --padding-testimonial: 50px 36px;
+  --padding-xs-50: 65px;
   --padding-inner-testimonial: 150px 15px;
   --padding-text-center-block: 50px 36px;
   --padding-basket-items: 0 20px;
@@ -108,6 +110,11 @@
     --padding-inner-testimonial: 35px 120px;
     --padding-text-center-block: 85px 35px;
     --padding-basket-items: 0 100px; */
+
+    /* Testimonal */
+    --padding-xs-36-testimonal: 250px;
+    --padding-xs-50: 65px;
+
     --font-size-crumbs: 14px;
     --font-size-xs: 16px;
     --font-size-sm: 18px;
@@ -135,12 +142,13 @@
 
     --padding-16: 20px;
     --padding-xs-24: 36px;
+    --padding-xs-90: 50px;
+    --padding-xs-36-testimonal: 250px;
     --padding-xs-26: 130px;
     --padding-xs-36: 140px;
     --padding-xs-48: 100px;
     --padding-xs-44: 84px;
-    --padding-testimonial: 65px 145px;
-    --padding-inner-testimonial: 85px 145px;
+    --padding-xs-50: 65px;
     --padding-text-center-block: 50px 85px;
     --padding-basket-items: 0 100px;
   }
