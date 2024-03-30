@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Link from "next/link"
 import FlameImage from "@/reusbleComponents/FlameImage"
 import OffCanvas from "../OffCanvas"
 import styles from '../header.module.css'
@@ -18,7 +19,9 @@ function HeaderMweb({ headerData, relativeHeader }) {
 
     return <section className={relativeHeader ? styles.relativeHeaderMain : styles.headerMain}>
         <figure className={styles.headerLogo}>
-            <FlameImage src={flameLogo} alt='flameLogo' />
+            <Link href='/'>
+                <FlameImage src={flameLogo} alt='flameLogo' />
+            </Link>
         </figure>
         <figure className={styles.hamburger} onClick={handleOffCanvas}>
             <FlameImage src={hamburgerIcon} alt='hamburger' />

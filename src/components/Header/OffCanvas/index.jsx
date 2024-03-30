@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import SearchMweb from '../SearchMweb';
@@ -25,8 +26,12 @@ function OffCanvas({ show, handleClose, headerData }) {
         setIsOverlayCanvasOpen(true)
     }
 
-    const handleOverlayClose = () => {
+    const handleOverlayClose = (item) => {
         setIsOverlayCanvasOpen(false)
+        if (item === 'back') {
+            return
+        }
+        handleClose()
     }
 
     const getNavItem = (item) => {
@@ -43,12 +48,17 @@ function OffCanvas({ show, handleClose, headerData }) {
         setSelectedNavItem(item)
         if (item?.title === 'About') {
             router.push('/aboutUs')
-            handleOverlayClose()
+            handleClose()
             return
         }
         if (item?.title === 'Contact Us') {
             router.push('/contact-us')
-            handleOverlayClose()
+            handleClose()
+            return
+        }
+        if (item?.title === 'Cart') {
+            router.push('/basket')
+            handleClose()
             return
         }
         if (overlayArr.includes(item?.title)) {

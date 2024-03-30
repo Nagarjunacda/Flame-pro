@@ -20,7 +20,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
 
     return <section className={styles.container}>
         {!isDesktop && <section className={styles.heading}>
-            <section className={styles.backButton} onClick={handleOverlayClose}>
+            <section className={styles.backButton} onClick={() => handleOverlayClose('back')}>
                 <section className={styles.backIcon}>
                     <FlameImage src={backArrow} alt='back' />
                 </section>
@@ -34,7 +34,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                     return <section className={styles.childCont}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section>
                         {item.child_items && item.child_items.map((childItem, index) => {
                             return <Link href={`/shop-all/${childItem?.slug}?category=${childItem?.object_id}`} className={styles.innerChild}>
-                                <section key={index} onClick={handleOverlayClose}>{childItem?.title}</section>
+                                <section key={index} onClick={() => { handleOverlayClose('item') }}>{childItem?.title}</section>
                             </Link>
                         })}</section>
                 })}
