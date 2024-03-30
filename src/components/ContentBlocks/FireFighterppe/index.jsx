@@ -31,7 +31,8 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
         <section className={styles.subContainer}>
             <section className={isFireFighting ? styles.childHeadingPpe : styles.childHeading}>
                 {childItems && childItems.map((item, index) => {
-                    return <section className={styles.childCont}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section>
+                    const url = heading === 'Defence Procurement' ? `/${item?.slug}?category=${item?.object_id}` : heading === 'Resource Hub' ? '/blog-listing' : '#'
+                    return <section className={styles.childCont}><Link href={url} onClick={() => { handleOverlayClose('item') }}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section></Link>
                         {item.child_items && item.child_items.map((childItem, index) => {
                             const url = item?.title === 'Products' ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}` : `/${childItem?.slug}?category=${childItem?.object_id}`
                             return <Link href={url} className={styles.innerChild}>

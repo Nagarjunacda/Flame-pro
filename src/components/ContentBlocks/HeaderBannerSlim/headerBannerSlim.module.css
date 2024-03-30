@@ -28,7 +28,7 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     width: 100%;
     top: 58%;
@@ -48,6 +48,7 @@
     .headerTextBlock {
         left: 0px;
         flex-direction: row;
+        align-items: center;
     }
 }
 @media (min-width: 1280px) {
