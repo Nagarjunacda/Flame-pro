@@ -88,7 +88,7 @@ function ProductsListing({ productsData }) {
                         <FlameImage src={leftArrowSrc} alt='icon' />
                     </section>
                     {pageNumbers?.map((num, index) => {
-                        return <section onClick={() => { handlePageSelection(num) }} className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}>{num}</section>
+                        return <section key={index} onClick={() => { handlePageSelection(num) }} className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}>{num}</section>
                     })}
                     <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
                         <FlameImage src={rightArrowSrc} alt='icon' />
@@ -96,8 +96,8 @@ function ProductsListing({ productsData }) {
                 </section>
             </section>
             <section className={styles.products}>
-                {products?.map((product) => {
-                    return <ProductCard product={product} />
+                {products?.map((product, index) => {
+                    return <ProductCard key={index} product={product} />
                 })}
             </section>
         </section>

@@ -20,7 +20,7 @@ function CaseStudyDweb({ data }) {
             </section>
             <section className={styles.categories}>
                 {data.map((category, index) => {
-                    return <section className={styles.categoryItem}>
+                    return <section key={index} className={styles.categoryItem}>
                         <p key={index} onClick={() => { handleCategoryClick(category) }}>{category?.name}</p>
                         {category?.name === selectedCategory?.name && <section className={styles.rightArrow}> <FlameImage src={imgSrc} alt='rightArr' /></section>}
                     </section>

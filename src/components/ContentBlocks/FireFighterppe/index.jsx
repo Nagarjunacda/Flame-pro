@@ -32,10 +32,10 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             <section className={isFireFighting ? styles.childHeadingPpe : styles.childHeading}>
                 {childItems && childItems.map((item, index) => {
                     const url = heading === 'Defence Procurement' ? `/${item?.slug}?category=${item?.object_id}` : heading === 'Resource Hub' ? '/blog-listing' : '#'
-                    return <section className={styles.childCont}><Link href={url} onClick={() => { handleOverlayClose('item') }}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section></Link>
+                    return <section key={index} className={styles.childCont}><Link href={url} onClick={() => { handleOverlayClose('item') }}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section></Link>
                         {item.child_items && item.child_items.map((childItem, index) => {
                             const url = item?.title === 'Products' ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}` : `/${childItem?.slug}?category=${childItem?.object_id}`
-                            return <Link href={url} className={styles.innerChild}>
+                            return <Link key={index} href={url} className={styles.innerChild}>
                                 <section key={index} onClick={() => { handleOverlayClose('item') }}>{childItem?.title}</section>
                             </Link>
                         })}</section>
@@ -45,7 +45,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             {!isFireFighting && !isDesktop && <SearchMweb />}
             <section className={styles.blogCard}>
                 {blogCardArr.map((e, index) => {
-                    return <Link href={'/blog-listing'} onClick={() => { handleOverlayClose('item') }}><BlogCard key={index} /></Link>
+                    return <Link key={index} href={'/blog-listing'} onClick={() => { handleOverlayClose('item') }}><BlogCard /></Link>
                 })}
             </section>
         </section>

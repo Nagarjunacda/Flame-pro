@@ -181,8 +181,8 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                             <FlameImage src={arrowImgSrc} alt='arrow' />
                         </section>}
                         {fieldName?.section1 === 'Area Of Interest*' && isDropdownOpen &&
-                            <section className={styles.areaOfInt}>{areaOfInterests.map((area) => {
-                                return <section className={styles.interestOptions} onClick={() => { handleInterestSel(area) }}>{area}</section>
+                            <section className={styles.areaOfInt}>{areaOfInterests.map((area, index) => {
+                                return <section key={index} className={styles.interestOptions} onClick={() => { handleInterestSel(area) }}>{area}</section>
                             })}</section>}
                     </section>
                     {fieldName.section2 && <section className={styles.formInput}>
