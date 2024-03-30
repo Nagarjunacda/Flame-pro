@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import FireFighterppe from '@/components/ContentBlocks/FireFighterppe';
@@ -6,6 +7,7 @@ import HeaderDweb from '../HeaderDweb';
 import styles from '../header.module.css'
 
 function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
+    const router = useRouter()
     const [clickedItem, setClickedItem] = useState({})
     const navItems = headerData?.items
     const flameLogo = '/Images/flameLogoDark.svg'
@@ -37,6 +39,26 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
     }
 
     const handleNavItemClick = (item) => {
+        console.log(item?.title, '!!')
+        if (item?.title === 'Cart') {
+            router.push('/basket')
+            handleOverlayClose()
+            return
+        }
+        if (item?.title === 'Search') {
+            handleOverlayClose()
+            return
+        }
+        if (item?.title === 'About') {
+            router.push('/aboutUs')
+            handleOverlayClose()
+            return
+        }
+        if (item?.title === 'Contact Us') {
+            router.push('/contact-us')
+            handleOverlayClose()
+            return
+        }
         setClickedItem(item)
         // setIsCanvasOpen(true);
     }

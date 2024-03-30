@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import SearchMweb from '../SearchMweb';
@@ -9,6 +10,7 @@ import ResoureceHub from '@/components/ContentBlocks/ResourceHub';
 import styles from '../header.module.css'
 
 function OffCanvas({ show, handleClose, headerData }) {
+    const router = useRouter()
     const [isOverlayCanvasOpen, setIsOverlayCanvasOpen] = useState(false)
     const [selectedNavItem, setSelectedNavItem] = useState(false)
     const flameLogo = '/Images/flameLogoDark.svg'
@@ -39,6 +41,16 @@ function OffCanvas({ show, handleClose, headerData }) {
 
     const handleItemClick = (item) => {
         setSelectedNavItem(item)
+        if (item?.title === 'About') {
+            router.push('/aboutUs')
+            handleOverlayClose()
+            return
+        }
+        if (item?.title === 'Contact Us') {
+            router.push('/contact-us')
+            handleOverlayClose()
+            return
+        }
         if (overlayArr.includes(item?.title)) {
             handleOffCanvas()
             return
