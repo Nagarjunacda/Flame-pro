@@ -39,7 +39,6 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
     }
 
     const handleNavItemClick = (item) => {
-        console.log(item?.title, '!!')
         if (item?.title === 'Cart') {
             router.push('/basket')
             handleOverlayClose()

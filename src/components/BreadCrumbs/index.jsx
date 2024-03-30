@@ -6,8 +6,8 @@ import styles from './breadCrumbs.module.css'
 
 const Breadcrumbs = () => {
     const router = useRouter()
-    const { query, asPath } = router
-    const urlString = asPath || ''
+    const { asPath } = router
+    const urlString = asPath.split('?')[0] || ''
     const pathArray = urlString.split('/').filter(Boolean)
     // const uppercasedArray = pathArray.map((str) => str.toUpperCase())
     const uppercasedArray = pathArray.map(

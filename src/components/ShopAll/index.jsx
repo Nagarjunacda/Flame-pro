@@ -7,6 +7,7 @@ function ShopAll({ productsData }) {
 
     return <section className={styles.mainCont}>
         <HeaderBannerSlim trayData={trayData} />
+        <h1>This page is under development</h1>
         <ProductsListing productsData={productsData} />
     </section>
 }

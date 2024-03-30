@@ -12,3 +12,4 @@ export const productDetailUrl = `${baseUrl}/wc/v3/products`
 export const newsLettersignUpUrl = `${baseUrl}/gf/v2/forms/1/submissions`
 export const userDetailsFormUrl = `${baseUrl}/gf/v2/forms/3/submissions`
 export const aboutUsUrl = `${baseUrl}/wp/v2/pages/100`
+export const allPageUrl = `${baseUrl}/wp/v2/pages`
