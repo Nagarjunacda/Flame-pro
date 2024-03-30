@@ -44,7 +44,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             {!isFireFighting && !isDesktop && <SearchMweb />}
             <section className={styles.blogCard}>
                 {blogCardArr.map((e, index) => {
-                    return <BlogCard key={index} />
+                    return <Link href={'/blog-listing'} onClick={() => { handleOverlayClose('item') }}><BlogCard key={index} /></Link>
                 })}
             </section>
         </section>

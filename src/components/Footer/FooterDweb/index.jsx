@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import SignUpForm from '@/components/SignUpForm'
 import CopyRightText from '../CopyRightText'
@@ -5,9 +6,18 @@ import styles from '../footer.module.css'
 
 
 function FooterDweb() {
+    const router = useRouter()
     const flameImg = '/Images/flameLogo.svg'
     const formHeading = 'Sign Up To Our Mailing'
     const data1 = ['Useful Links', 'Legal', 'Contact']
+
+    const handleLabelClick = (label) => {
+        if (label === 'About Flame Pro') {
+            router.push('/aboutUs')
+            return
+        }
+        router.push('/terms-conditions')
+    }
     const usefulLinks = [
         'Distributors',
         'About Flame Pro',
@@ -35,11 +45,11 @@ function FooterDweb() {
                         <p>{link}</p>
                         {link === 'Useful Links' &&
                             usefulLinks.map((e, index) => {
-                                return <section className={styles.innerLinks} key={index}>{e}</section>
+                                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
                             })}
                         {link === 'Legal' &&
                             Legal.map((e, index) => {
-                                return <section className={styles.innerLinks} key={index}>{e}</section>
+                                return <section onClick={() => { handleLabelClick(e) }} className={styles.innerLinks} key={index}>{e}</section>
                             })}
                         {link === 'Contact' &&
                             contact.map((e, index) => {

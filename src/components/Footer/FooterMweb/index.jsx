@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import CopyRightText from '../CopyRightText';
 import SignUpForm from '@/components/SignUpForm';
 import styles from '../footer.module.css';
 
 function FooterMweb() {
+    const router = useRouter()
     const footerLogo = '/Images/footerLogo.svg';
     const [clickedLink, setClickedLink] = useState('')
     const [linkData, setLinkData] = useState([])
@@ -12,6 +14,18 @@ function FooterMweb() {
     const plusIcon = '/Images/plusIcon.svg'
     const formHeading = 'Sign Up To Our Mailing'
     const data1 = ['Useful Links', 'Legal', 'Contact']
+
+    const handleLabelClick = (label, link) => {
+        if (link === 'Contact') {
+            return
+        }
+        if (label === 'About Flame Pro') {
+            router.push('/aboutUs')
+            return
+        }
+        router.push('/terms-conditions')
+    }
+
     const usefulLinks = [
         'Distributors',
         'About Flame Pro',
@@ -79,7 +93,7 @@ function FooterMweb() {
                         {accor && link === clickedLink && (
                             <section className={styles.listCont}>
                                 {linkData.map((e, index) => (
-                                    <section key={index} className={styles.listItem}>
+                                    <section onClick={() => { handleLabelClick(e, link) }} key={index} className={styles.listItem}>
                                         {e}
                                     </section>
                                 ))}
