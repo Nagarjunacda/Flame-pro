@@ -204,7 +204,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
       ))}
     </form>
     <section className={styles.checkBoxAndText}>
-      <section className={styles.checkBoxSection}><CheckBoxWithText text={checkBoxText} isChecked={isChecked} setIsChecked={setIsChecked} /></section>
+      <section className={styles.checkBoxSection}><CheckBoxWithText text={checkBoxText} isChecked={isChecked} setIsChecked={setIsChecked} isDarkMode={false} /></section>
     </section >
     {showToast && <Toast showToast={showToast} setShowToast={setShowToast} toastMsg={toastMsg} />}
     <section className={styles.cta}><FlameBtn color={btnColor} text={'Sign Up'} textColor={textColor} isLoadState={isLoadState} btnFunction={handleButtonClick} /></section>

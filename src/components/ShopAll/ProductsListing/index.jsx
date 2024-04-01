@@ -5,6 +5,7 @@ import { productsUrl } from '@/utils/urls'
 import { handleServerSideProps } from '@/utils/handleServerSideData';
 import ProductCard from '@/components/Cards/ProductCard'
 import FlameImage from '@/reusbleComponents/FlameImage'
+import FiltersBlock from '../FiltersBlock';
 import styles from '../shopAll.module.css'
 
 function ProductsListing({ productsData }) {
@@ -68,7 +69,7 @@ function ProductsListing({ productsData }) {
     }
 
     return <section className={styles.listingPage}>
-        {isDesktop && <section className={styles.filtersCont}></section>}
+        {isDesktop && <FiltersBlock />}
         <section className={styles.productsCont}>
             <section className={styles.pagesCont}>
                 <section className={styles.showBlock}>
