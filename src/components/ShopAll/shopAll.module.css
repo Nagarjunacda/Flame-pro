@@ -7,6 +7,17 @@
     height: auto;
     padding: var(--padding-18) var(--padding-xs-36);
     display: flex;
+    gap: 36px;
+}
+@media (min-width:1280px){
+    .listingPage{
+        gap: 54px;
+    }
+}
+@media (min-width:1680px){
+    .listingPage{
+        gap: 72px;
+    }
 }
 .breadCrumbs{
     width: 100%;
@@ -22,7 +33,7 @@
 }
 @media (min-width: 900px) {
     .productsCont {
-        width: 70%;
+        width: 75%;
     }
 }
 .products{
@@ -52,7 +63,7 @@
     }
 }
 .filtersCont{
-    width: 40%;
+    width: 25%;
     background-color: var(--color-slickDot);
     height: auto;
 }

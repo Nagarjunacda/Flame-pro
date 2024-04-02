@@ -9,13 +9,13 @@ import FiltersMweb from "./FiltersMweb"
 function FiltersBlock() {
     const [filtersData, setFiltersData] = useState([])
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-    const availableFilters = ['Select Applications', 'Select Industries']
+    const availableFilters = ['industry', 'application', 'pa_gender', 'pa_colour']
 
     useEffect(() => {
         const getFilterData = async () => {
             const { data, error } = await handleServerSideProps(filtersUrl);
             if (data) {
-                const filteredData = data?.filter((e) => availableFilters.includes(e?.taxonomy_title))
+                const filteredData = data?.filter((e) => availableFilters.includes(e?.taxonomy))
                 setFiltersData(filteredData)
             }
         }

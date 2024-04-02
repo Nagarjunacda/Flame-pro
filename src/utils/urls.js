@@ -14,3 +14,4 @@ export const userDetailsFormUrl = `${baseUrl}/gf/v2/forms/3/submissions`;
 export const aboutUsUrl = `${baseUrl}/wp/v2/pages/100`;
 export const allPageUrl = `${baseUrl}/wp/v2/pages`;
 export const filtersUrl = `${baseUrl}/custom-taxonomy/v1/list`;
+export const listingPageUrl = `${baseUrl}/wp/v2/pages/100`;

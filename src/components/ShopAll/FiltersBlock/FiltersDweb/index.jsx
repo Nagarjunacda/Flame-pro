@@ -1,9 +1,8 @@
+import { useState } from 'react'
 import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText'
 import styles from '../filters.module.css'
-import { useState } from 'react'
 
 function FiltersDweb({ filtersData }) {
-    console.log(filtersData, '!!')
     const [isChecked, setIsChecked] = useState(false)
     const [selectedItem, setSelectedItem] = useState({})
     const [itemsArray, setItemsArray] = useState([])
@@ -22,10 +21,12 @@ function FiltersDweb({ filtersData }) {
             {filtersData.map((category, index) => {
                 return <section key={index} className={styles.filtersCategory}>
                     <h4 className={styles.filterTitle}>{category?.taxonomy_title}</h4>
-                    {category?.terms?.map((categoryTitle, index) => {
-                        const isItemChecked = itemsArray?.includes(categoryTitle?.title)
-                        return <section onClick={() => { handleItemClick(categoryTitle) }}><CheckBoxWithText key={index} text={categoryTitle?.title} isChecked={isItemChecked} setIsChecked={setIsChecked} isDarkMode /></section>
-                    })}
+                    <section className={styles.categorySection}>
+                        {category?.terms?.map((categoryTitle, index) => {
+                            const isItemChecked = itemsArray?.includes(categoryTitle?.title)
+                            return <section onClick={() => { handleItemClick(categoryTitle) }}><CheckBoxWithText key={index} text={categoryTitle?.title} isChecked={isItemChecked} setIsChecked={setIsChecked} isDarkMode /></section>
+                        })}
+                    </section>
                 </section>
             })}
         </section>
