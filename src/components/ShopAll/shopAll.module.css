@@ -5,18 +5,35 @@
 .listingPage{
     width: 100%;
     height: auto;
-    padding: var(--padding-xs-44) var(--padding-xs-36);
+    padding: var(--padding-18) var(--padding-xs-36);
     display: flex;
+    gap: 36px;
+}
+@media (min-width:1280px){
+    .listingPage{
+        gap: 54px;
+    }
+}
+@media (min-width:1680px){
+    .listingPage{
+        gap: 72px;
+    }
+}
+.breadCrumbs{
+    width: 100%;
+    height: auto;
+    padding: 0px var(--padding-xs-36);
 }
 .productsCont{
     display: flex;
     flex-direction: column;
+    gap:32px;
     width: 100%;
     height: auto;
 }
 @media (min-width: 900px) {
     .productsCont {
-        width: 70%;
+        width: 75%;
     }
 }
 .products{
@@ -46,7 +63,7 @@
     }
 }
 .filtersCont{
-    width: 40%;
+    width: 25%;
     background-color: var(--color-slickDot);
     height: auto;
 }
@@ -57,23 +74,42 @@
 }
 .pagesCont{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 48px;
+    gap: 0px;
+}
+@media (min-width: 900px) {
+    .pagesCont {
+        justify-content: flex-end;
+        gap: 48px;
+    }
 }
 .showBlock{
+    width: auto;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--padding-8) var(--padding-16);
-    gap: 28px;
+    padding: 4px var(--padding-8);
+    gap: 12px;
     border: solid 1px var(--color-primary);
 }
+@media (min-width: 900px) {
+    .showBlock {
+        padding: var(--padding-8) var(--padding-16);
+        gap: 28px;
+    }
+}
 .showText{
+    width: 100%;
+    height: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 4px;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs-ext);
+    margin-top: 4px;
+    flex: 1 1 10%;
 }
 .show{
     font-weight: var(--font-wt-normal);
@@ -83,9 +119,14 @@
 }
 .pageNumCont{
 display: flex;
-gap: 12px;
+gap: 6px;
 justify-content: center;
 align-items: center;
+}
+@media (min-width: 900px) {
+    .pageNumCont {
+        gap: 12px;
+    }
 }
 .dropDown{
     background-color: var(--color-slickDot);
@@ -107,29 +148,69 @@ align-items: center;
     cursor: pointer;
   }
   .downArrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    width: 14px;
+    height: 14px;
   }
+  @media (min-width: 900px) {
+    .downArrow {
+        width: 16px;
+        height: 16px;
+    }
+}
+.numText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+}
   .pageNumHighlighted{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 35px;
-    height: 35px;
+    min-width: 20px;
+    height: 20px;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     cursor: pointer;
+    font-size: var(--font-size-xs);
+  }
+  @media (min-width:900px){
+    .pageNumHighlighted{
+        min-width: 35px;
+        height: 35px;
+    }
   }
   .pageNum{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 35px;
-    height: 35px;
+    min-width: 20px;
+    height: 20px;
     color: var(--color-primary);
     cursor: pointer;
+    font-size: var(--font-size-xs);
+  }
+  @media (min-width:900px){
+    .pageNum{
+        min-width: 35px;
+        height: 35px;
+    }
   }
   .arrows{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    width: 25px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
+  }
+  @media (min-width: 900px){
+    .arrows{
+        width: 25px;
+        height: 30px;
+      }
   }

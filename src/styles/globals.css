@@ -64,6 +64,7 @@
 
   --padding-8: 8px;
   --padding-16: 16px;
+  --padding-18:18px;
   --padding-btn: 20px 64px;
   --padding-xs-24: 24px;
   --padding-xs-26: 26px;
@@ -141,6 +142,7 @@
     --font-size-xs-ext: 18px;
 
     --padding-16: 20px;
+    --padding-18:18px;
     --padding-xs-24: 36px;
     --padding-xs-90: 50px;
     --padding-xs-36-testimonal: 250px;
