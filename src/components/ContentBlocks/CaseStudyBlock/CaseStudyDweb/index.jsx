@@ -10,7 +10,7 @@ function CaseStudyDweb({ data }) {
   const imgSrc = "/Images/rightRedArrow.svg";
 
   const handleCategoryClick = (category) => {
-    vvvvvvvvvvvvvvvv(category);
+    setSelectedCategory(category);
   };
 
   return (
