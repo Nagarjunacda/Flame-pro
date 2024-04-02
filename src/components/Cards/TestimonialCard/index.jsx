@@ -22,7 +22,7 @@ const TestimonialCard = ({ data }) => {
           >
             <figure className={Style.testimonalImage}>
               <FlameImage
-                src={"/images/testimonalImage.svg"}
+                src={"/Images/testimonalImage.svg"}
                 alt={"testimage"}
               />
             </figure>

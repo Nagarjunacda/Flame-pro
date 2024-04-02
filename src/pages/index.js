@@ -24,7 +24,7 @@ export default function Home(props) {
         {trayData ? (
           <RenderTrays trayData={trayData} />
         ) : (
-          <p>Something went wrong unable to fetch the data</p>
+          <p>This Page Under Development</p>
         )}
       </main>
     </>
