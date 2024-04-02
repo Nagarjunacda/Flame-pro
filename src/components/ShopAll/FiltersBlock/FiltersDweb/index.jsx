@@ -25,7 +25,7 @@ function FiltersDweb({ filtersData }) {
                     <section className={styles.categorySection}>
                         {category?.terms?.map((categoryTitle, index) => {
                             const isItemChecked = itemsArray?.includes(categoryTitle?.title)
-                            return <section onClick={() => { handleItemClick(categoryTitle) }}><CheckBoxWithText key={index} text={categoryTitle?.title} isChecked={isItemChecked} setIsChecked={setIsChecked} isDarkMode /></section>
+                            return <section key={index} onClick={() => { handleItemClick(categoryTitle) }}><CheckBoxWithText key={index} text={categoryTitle?.title} isChecked={isItemChecked} setIsChecked={setIsChecked} isDarkMode /></section>
                         })}
                     </section>
                 </section>

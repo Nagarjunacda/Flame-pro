@@ -89,7 +89,7 @@ function ProductsListing({ productsData }) {
                         <FlameImage src={leftArrowSrc} alt='icon' />
                     </section>}
                     {pageNumbers?.map((num, index) => {
-                        return <section className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
+                        return <section key={index} className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
                     })}
                     {selectedPageNum != totalPages && <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
                         <FlameImage src={rightArrowSrc} alt='icon' />
@@ -119,7 +119,7 @@ function ProductsListing({ productsData }) {
                         <FlameImage src={leftArrowSrc} alt='icon' />
                     </section>}
                     {pageNumbers?.map((num, index) => {
-                        return <section className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
+                        return <section key={index} className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
                     })}
                     {selectedPageNum != totalPages && <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
                         <FlameImage src={rightArrowSrc} alt='icon' />
