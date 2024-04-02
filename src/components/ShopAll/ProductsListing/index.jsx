@@ -85,21 +85,46 @@ function ProductsListing({ productsData }) {
                     })}</section>}
                 </section>
                 <section className={styles.pageNumCont}>
-                    <section className={styles.arrows} onClick={() => { handlePageSelection('left') }}>
+                    {totalPages != 1 && <section className={styles.arrows} onClick={() => { handlePageSelection('left') }}>
                         <FlameImage src={leftArrowSrc} alt='icon' />
-                    </section>
+                    </section>}
                     {pageNumbers?.map((num, index) => {
-                        return <section key={index} onClick={() => { handlePageSelection(num) }} className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}>{num}</section>
+                        return <section className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
                     })}
-                    <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
+                    {selectedPageNum != totalPages && <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
                         <FlameImage src={rightArrowSrc} alt='icon' />
-                    </section>
+                    </section>}
                 </section>
             </section>
             <section className={styles.products}>
                 {products?.map((product, index) => {
                     return <ProductCard key={index} product={product} />
                 })}
+            </section>
+            <section className={styles.pagesCont}>
+                <section className={styles.showBlock}>
+                    <section className={styles.showText}>
+                        <p className={styles.show}>Show:</p>
+                        <p className={styles.itemNum}>{itemsNumber}</p>
+                    </section>
+                    <section onClick={handleBottomBtn} className={styles.downArrow}>
+                        <FlameImage src={arrowSrc} alt='icon' />
+                    </section>
+                    {showDropdown && <section className={styles.dropDown}>{numberArr.map((e, index) => {
+                        return <section key={index} className={styles.showItems} onClick={() => { handleNoOfProducts(e) }}>{e} items</section>
+                    })}</section>}
+                </section>
+                <section className={styles.pageNumCont}>
+                    {totalPages != 1 && <section className={styles.arrows} onClick={() => { handlePageSelection('left') }}>
+                        <FlameImage src={leftArrowSrc} alt='icon' />
+                    </section>}
+                    {pageNumbers?.map((num, index) => {
+                        return <section className={selectedPageNum === index + 1 ? styles.pageNumHighlighted : styles.pageNum}><span className={styles.numText} key={index} onClick={() => { handlePageSelection(num) }} >{num}</span></section>
+                    })}
+                    {selectedPageNum != totalPages && <section className={styles.arrows} onClick={() => { handlePageSelection('right') }}>
+                        <FlameImage src={rightArrowSrc} alt='icon' />
+                    </section>}
+                </section>
             </section>
         </section>
     </section>

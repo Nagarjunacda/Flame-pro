@@ -13,7 +13,8 @@ const Breadcrumbs = () => {
   const uppercasedArray = pathArray.map(
     (str) => str.charAt(0).toUpperCase() + str.slice(1),
   )
-  const shopAllRoute = uppercasedArray.slice(0, -1)
+  const isShopAllOnly = pathArray.length === 1 && pathArray.includes('shop-all')
+  const shopAllRoute = isShopAllOnly ? uppercasedArray : uppercasedArray.slice(0, -1)
   const routeArr = pathArray.includes('shop-all')
     ? shopAllRoute
     : uppercasedArray

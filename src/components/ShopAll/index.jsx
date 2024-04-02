@@ -1,5 +1,6 @@
 import HeaderBannerSlim from "../ContentBlocks/HeaderBannerSlim"
 import ProductsListing from "./ProductsListing"
+import Breadcrumbs from "../BreadCrumbs"
 import styles from './shopAll.module.css'
 
 function ShopAll({ productsData }) {
@@ -7,6 +8,7 @@ function ShopAll({ productsData }) {
 
     return <section className={styles.mainCont}>
         <HeaderBannerSlim trayData={trayData} />
+        <section className={styles.breadCrumbs}><Breadcrumbs /></section>
         <ProductsListing productsData={productsData} />
     </section>
 }
