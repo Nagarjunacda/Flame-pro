@@ -10,6 +10,7 @@ function FiltersDweb({ filtersData }) {
     const handleItemClick = (item) => {
         if (itemsArray?.includes(item?.title)) {
             setItemsArray(itemsArray.filter(title => title !== item?.title));
+            return
         }
         setSelectedItem(item)
         itemsArray.push(item?.title)
