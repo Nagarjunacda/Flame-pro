@@ -162,4 +162,17 @@
   padding: 12px;
   font-weight: var(--font-wt-bold);
   border-bottom: solid 1px var(--color-primary);
+  cursor: pointer;
+}
+.interestOptions:hover {
+  background-color: #000;
+  color: #fff;
+}
+.selectedArea {
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  font-weight: var(--font-wt-bold);
+  border-bottom: solid 1px var(--color-primary);
+  cursor: pointer;
 }

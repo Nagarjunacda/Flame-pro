@@ -21,7 +21,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
   const btnColor = "var(--color-secondary)";
   const textColor = "var(--color-primary)";
   const checkBoxText = "I consent to email marketing";
-  const areaOfInterests = ["Fire Fighting Ppe", "Defence Procurement"];
+  const areaOfInterests = ["Fire Fighting PPE", "Defence Procurement"];
   const arrowImgSrc = isDropdownOpen
     ? "/Images/upWhiteArrow.svg"
     : "/Images/downWhiteArrow.svg";
@@ -228,7 +228,11 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
                       return (
                         <section
                           key={index}
-                          className={styles.interestOptions}
+                          className={
+                            area === areaOfInt
+                              ? styles.selectedArea
+                              : styles.interestOptions
+                          }
                           onClick={() => {
                             handleInterestSel(area);
                           }}

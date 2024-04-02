@@ -5,6 +5,7 @@ import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function BlogCard() {
   const blogImage = "/Images/blogImg.svg";
+  const text = "View All Blocks";
   return (
     <Card className={styles.cardCont}>
       <Card.Img variant="top" src={blogImage} className={styles.cardImg} />
@@ -20,12 +21,6 @@ function BlogCard() {
           </h5>
         </Card.Text>
         <section className={styles.colorBar}></section>
-        <section className={styles.blog}>
-          <ButtonStyleTwo
-            text={"View All Blogs"}
-            textColor="var( --color-primary)"
-          />
-        </section>
       </Card.Body>
     </Card>
   );

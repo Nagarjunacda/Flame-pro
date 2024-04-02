@@ -41,20 +41,32 @@ function FooterDweb() {
             return (
               <section key={index} className={styles.navLinks}>
                 <h5>{link}</h5>
-                {link === "Useful Links" &&
-                  usefulLinks.map((e, index) => {
-                    return (
-                      <section
-                        onClick={() => {
-                          handleLabelClick(e);
-                        }}
-                        className={styles.innerLinks}
-                        key={index}
-                      >
-                        {e}
-                      </section>
-                    );
-                  })}
+
+                {link === "Useful Links" && (
+                  <section className={styles.navLinks}>
+                    {usefulLinks.map((e, index) => {
+                      return (
+                        <section
+                          onClick={() => {
+                            handleLabelClick(e);
+                          }}
+                          className={styles.innerLinks}
+                          key={index}
+                        >
+                          {e}
+                        </section>
+                      );
+                    })}
+                    <div className={styles.socialItems}>
+                      <figure className={styles.socialItem}>
+                        <FlameImage src={"/Images/linkedin.svg"} />
+                      </figure>
+                      <figure className={styles.socialItem}>
+                        <FlameImage src={"/Images/twitter.svg"} />
+                      </figure>
+                    </div>
+                  </section>
+                )}
                 {link === "Legal" &&
                   Legal.map((e, index) => {
                     return (

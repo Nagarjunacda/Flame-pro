@@ -10,10 +10,7 @@ function ResourceHubBlock({ trayData }) {
     <section className={styles.mainCont}>
       <section className={styles.heading}>
         <h5 className={styles.title}>{title}</h5>
-        <ButtonStyleTwo
-          text={"Remove Product"}
-          textColor="var( --color-primary)"
-        />
+        <ButtonStyleTwo text={button_title} textColor="var( --color-primary)" />
       </section>
       <section className={styles.slider}>
         <SliderComp data={resourceData} title={title} slidesToShow={3} />

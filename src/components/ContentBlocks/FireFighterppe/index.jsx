@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import FlameImage from '@/reusbleComponents/FlameImage'
-import BasketMweb from '@/components/Header/BasketMweb'
-import SearchMweb from '@/components/Header/SearchMweb'
-import BlogCard from '@/components/Cards/BlogCard'
-import { useMediaQuery } from 'react-responsive'
-import styles from './fireFighterppe.module.css'
+import Link from "next/link";
+import FlameImage from "@/reusbleComponents/FlameImage";
+import BasketMweb from "@/components/Header/BasketMweb";
+import SearchMweb from "@/components/Header/SearchMweb";
+import BlogCard from "@/components/Cards/BlogCard";
+import { useMediaQuery } from "react-responsive";
+import styles from "./fireFighterppe.module.css";
+import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
   const heading = selectedNavItem?.title;
@@ -18,37 +19,113 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
   const nonFireFightingCards = isDesktop ? ["item", "item", "item"] : ["item"];
   const blogCardArr = isFireFighting ? fireFightingCards : nonFireFightingCards;
 
-  return <section className={styles.container}>
-    {!isDesktop && <section className={styles.heading}>
-      <section className={styles.backButton} onClick={() => handleOverlayClose('back')}>
-        <section className={styles.backIcon}>
-          <FlameImage src={backArrow} alt='back' />
+  return (
+    <section className={styles.container}>
+      {!isDesktop && (
+        <section className={styles.heading}>
+          <section
+            className={styles.backButton}
+            onClick={() => handleOverlayClose("back")}
+          >
+            <section className={styles.backIcon}>
+              <FlameImage src={backArrow} alt="back" />
+            </section>
+            <p className={styles.backText}>Back</p>
+          </section>
+          <p
+            className={
+              isDefencePro ? styles.headingTextMar : styles.headingText
+            }
+          >
+            {heading}
+          </p>
         </section>
-        <p className={styles.backText}>Back</p>
-      </section>
-      <p className={isDefencePro ? styles.headingTextMar : styles.headingText}>{heading}</p>
-    </section>}
-    <section className={styles.subContainer}>
-      <section className={isFireFighting ? styles.childHeadingPpe : styles.childHeading}>
-        {childItems && childItems.map((item, index) => {
-          const url = heading === 'Defence Procurement' ? `/${item?.slug}?category=${item?.object_id}` : heading === 'Resource Hub' ? '/blog-listing' : '#'
-          return <section key={index} className={styles.childCont}><Link href={url} onClick={() => { handleOverlayClose('item') }}><section className={isFireFighting && !isDesktop ? styles.subContTitle : null} key={index}>{item?.title}</section></Link>
-            {item.child_items && item.child_items.map((childItem, index) => {
-              const url = item?.title === 'Products' ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}` : `/${childItem?.slug}?category=${childItem?.object_id}`
-              return <Link key={index} href={url} className={styles.innerChild}>
-                <section key={index} onClick={() => { handleOverlayClose('item') }}>{childItem?.title}</section>
-              </Link>
-            })}</section>
-        })}
-      </section>
-      {!isFireFighting && !isDesktop && <BasketMweb />}
-      {!isFireFighting && !isDesktop && <SearchMweb />}
-      <section className={styles.blogCard}>
-        {blogCardArr.map((e, index) => {
-          return <Link key={index} href={'/blog-listing'} onClick={() => { handleOverlayClose('item') }}><BlogCard /></Link>
-        })}
+      )}
+      <section className={styles.subContainer}>
+        <section
+          className={
+            isFireFighting ? styles.childHeadingPpe : styles.childHeading
+          }
+        >
+          {childItems &&
+            childItems.map((item, index) => {
+              const url =
+                heading === "Defence Procurement"
+                  ? `/${item?.slug}?category=${item?.object_id}`
+                  : heading === "Resource Hub"
+                  ? "/blog-listing"
+                  : "#";
+              return (
+                <section key={index} className={styles.childCont}>
+                  <Link
+                    href={url}
+                    onClick={() => {
+                      handleOverlayClose("item");
+                    }}
+                  >
+                    <section
+                      className={
+                        isFireFighting && !isDesktop
+                          ? styles.subContTitle
+                          : null
+                      }
+                      key={index}
+                    >
+                      {item?.title}
+                    </section>
+                  </Link>
+                  {item.child_items &&
+                    item.child_items.map((childItem, index) => {
+                      const url =
+                        item?.title === "Products"
+                          ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}`
+                          : `/${childItem?.slug}?category=${childItem?.object_id}`;
+                      return (
+                        <Link
+                          key={index}
+                          href={url}
+                          className={styles.innerChild}
+                        >
+                          <section
+                            key={index}
+                            onClick={() => {
+                              handleOverlayClose("item");
+                            }}
+                          >
+                            {childItem?.title}
+                          </section>
+                        </Link>
+                      );
+                    })}
+                </section>
+              );
+            })}
+        </section>
+        {!isFireFighting && !isDesktop && <BasketMweb />}
+        {!isFireFighting && !isDesktop && <SearchMweb />}
+        <section className={styles.blogCard}>
+          <section className={styles.blogCardInner}>
+            {blogCardArr.map((e, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={"/blog-listing"}
+                  onClick={() => {
+                    handleOverlayClose("item");
+                  }}
+                >
+                  <BlogCard />
+                </Link>
+              );
+            })}
+          </section>
+          <ButtonStyleTwo
+            text={"View All Blogs"}
+            textColor={"var( --color-primary)"}
+          />
+        </section>
       </section>
     </section>
-  </section>
+  );
 }
 export default FireFighterppe;
