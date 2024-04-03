@@ -4,7 +4,7 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import styles from './productCard.module.css'
 
 function ProductCard({ product }) {
-    const cardImage = product?.images[0]?.src
+    const cardImage = product?.images?.length ? product?.images[0]?.src : product?.image
     const cardTitle = product?.name
     const slug = product?.slug
     const productId = product?.id

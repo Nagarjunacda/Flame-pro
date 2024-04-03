@@ -5,6 +5,7 @@ import { productsUrl } from '@/utils/urls'
 import { handleServerSideProps } from '@/utils/handleServerSideData';
 import ProductCard from '@/components/Cards/ProductCard'
 import FlameImage from '@/reusbleComponents/FlameImage'
+import { filtersCategoryUrl } from '@/utils/urls';
 import FiltersBlock from '../FiltersBlock';
 import styles from '../shopAll.module.css'
 
@@ -16,6 +17,8 @@ function ProductsListing({ productsData }) {
     const [products, setProducts] = useState([])
     const [totalPages, setTotalPages] = useState(0)
     const [selectedPageNum, setSelectedPageNum] = useState(1)
+    const [filteredArray, setFilteredArray] = useState([])
+    const [filtersUrl, setFiltersUrl] = useState('')
     const isDesktop = useMediaQuery({ query: '(min-width:900px)' })
     const arrowSrc = '/Images/bottomGreyArrow.svg'
     const leftArrowSrc = '/Images/leftGreyArrow.svg'
@@ -31,14 +34,14 @@ function ProductsListing({ productsData }) {
         const getProductData = async () => {
             const categoryurl = `${productsUrl}?category=${category}`
             const allProductsUrl = `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
-            const url = category ? categoryurl : allProductsUrl
+            const url = filteredArray.length ? filtersUrl : category ? categoryurl : allProductsUrl
             const { data, error, headers } = await handleServerSideProps(url);
             const totalNoOfPages = headers['x-wp-totalpages']
             setProducts(data)
             setTotalPages(totalNoOfPages)
         }
         getProductData()
-    }, [itemsNumber, selectedPageNum])
+    }, [itemsNumber, selectedPageNum, filteredArray])
 
     const handleBottomBtn = () => {
         setShowDropdown(!showDropdown)
@@ -68,8 +71,24 @@ function ProductsListing({ productsData }) {
         setSelectedPageNum(number)
     }
 
+    const getFilteredProducts = (data) => {
+        setFilteredArray(data)
+        let arr = [];
+        data.map((e) => {
+            const existingIndex = arr.findIndex(item => item.startsWith(`${e?.taxonomy}=`));
+            if (existingIndex !== -1) {
+                arr[existingIndex] += `,${e.term_id}`;
+            } else {
+                arr.push(`${e?.taxonomy}=${e.term_id}`);
+            }
+        })
+        const url = arr.length >= 1 ? arr.join('&') : arr.length === 1 ? arr[0] : ''
+        const completeUrl = `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`
+        setFiltersUrl(completeUrl)
+    }
+
     return <section className={styles.listingPage}>
-        {isDesktop && <FiltersBlock />}
+        {isDesktop && <FiltersBlock getFilteredProducts={getFilteredProducts} />}
         <section className={styles.productsCont}>
             <section className={styles.pagesCont}>
                 <section className={styles.showBlock}>
