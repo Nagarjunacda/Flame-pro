@@ -1,7 +1,7 @@
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import { renderHTML } from "@/utils/htmlString";
-import styles from "./ImageLeftTextRight.module.css";
+import styles from "./imageLeftTextRight.module.css";
 
 function ImageLeftTextRight({ trayData }) {
   const imageBanner = trayData?.image;
