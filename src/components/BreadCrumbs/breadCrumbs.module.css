@@ -11,3 +11,6 @@
   font-weight: var(--font-wt-normal);
   font-family: "CustomFont-Regular", sans-serif;
 }
+.mainContwithPadding {
+  padding: var(--padding-18) var(--padding-xs-36);
+}

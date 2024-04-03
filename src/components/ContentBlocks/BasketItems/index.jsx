@@ -4,9 +4,19 @@ import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import style from "./basketItems.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
+
+import { useState } from "react";
 const BasketItems = ({ cartData }) => {
-  const productImg = cartData && cartData?.items[0]?.images[0]?.src
-  function btnFunction() { }
+  const [showTextBox, setShowTextBox] = useState(false);
+  const [quanityValue, setquanityValue] = useState("");
+  console.log(cartData, "!!!!!!!!!");
+  function btnFunction() {}
+  function handleEditQuote() {
+    setShowTextBox(!showTextBox);
+  }
+  function quanityInput(e) {}
   return (
     <section className={style.backetProducts}>
       <div className="d-none d-sm-none d-lg-block">
@@ -30,57 +40,72 @@ const BasketItems = ({ cartData }) => {
       </div>
 
       {/* Header ends */}
-      <div>
-        <Row className="d-flex justify-content-start align-items-center">
-          <Col lg={2} sm={4} xs={4}>
-            <figure className={style.productImage}>
-              <FlameImage
-                src={productImg}
-                alt={"Product"}
-              />
-            </figure>
-          </Col>
-          <Col lg={10} sm={8} xs={8}>
-            <Row className="">
-              <Col lg={4} sm={12} xs={12}>
-                <h3 className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4">
-                  770/775 Valiant Fire-Fighters Suit Lorem Ipsum Dolor Sit Amet
-                </h3>
-              </Col>
-              <Col
-                lg={2}
-                sm={12}
-                xs={12}
-                className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
-              >
-                80,000
-              </Col>
-              <Col
-                lg={3}
-                sm={12}
-                xs={12}
-                className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
-              >
-                <ButtonStyleTwo
-                  text={"Remove Product"}
-                  textColor="var( --color-primary)"
-                  btnFunction={btnFunction}
-                  btnIcon={"/Images/deleteIcon.svg"}
-                />
-              </Col>
-              <Col lg={3} sm={12} xs={12}>
-                <ButtonStyleTwo
-                  text={"Edit Quote"}
-                  textColor="var( --color-primary)"
-                  btnFunction={btnFunction}
-                  btnIcon={"/Images/editIcon.svg"}
-                />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <hr className={style.horizontalLine} />
-      </div>
+      {cartData?.items?.map((data, index) => (
+        <div key={index}>
+          <Row className={style.BasketItemsRow}>
+            <Col lg={2} sm={4} xs={4}>
+              <figure className={style.productImage}>
+                <FlameImage src={data.images[0].src} alt={"Product"} />
+              </figure>
+            </Col>
+            <Col lg={10} sm={8} xs={8}>
+              <Row className="">
+                <Col lg={4} sm={12} xs={12}>
+                  <h3 className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4">
+                    {data.name}
+                  </h3>
+                </Col>
+                <Col
+                  lg={2}
+                  sm={12}
+                  xs={12}
+                  className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
+                >
+                  {" "}
+                  {showTextBox ? (
+                    <InputGroup>
+                      <Form.Control
+                        type="text"
+                        aria-label="Quantity"
+                        aria-describedby="Quantity"
+                        value={data.quantity}
+                        onChange={quanityInput}
+                      />
+                      <InputGroup.Text id="btnGroupAddon">
+                        &#10004;
+                      </InputGroup.Text>
+                    </InputGroup>
+                  ) : (
+                    data.quantity
+                  )}
+                </Col>
+                <Col
+                  lg={3}
+                  sm={12}
+                  xs={12}
+                  className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
+                >
+                  <ButtonStyleTwo
+                    text={"Remove Product"}
+                    textColor="var( --color-primary)"
+                    btnFunction={btnFunction}
+                    btnIcon={"/Images/deleteIcon.svg"}
+                  />
+                </Col>
+                <Col lg={3} sm={12} xs={12}>
+                  <ButtonStyleTwo
+                    text={showTextBox ? "Cancel" : "Edit Quote"}
+                    textColor="var( --color-primary)"
+                    btnFunction={handleEditQuote}
+                    btnIcon={"/Images/editIcon.svg"}
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <hr className={style.horizontalLine} />
+        </div>
+      ))}
       {/* items */}
     </section>
   );

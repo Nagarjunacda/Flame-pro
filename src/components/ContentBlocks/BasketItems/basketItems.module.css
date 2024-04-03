@@ -9,7 +9,7 @@
 }
 
 .backetProducts {
-  padding: var(--padding-basket-items);
+  padding: var(--padding-xs-36);
 }
 .backetProducts h3 {
   font-size: var(--font-size-md);
@@ -20,4 +20,19 @@
   height: 2px;
   background-color: #ededed; /* Change this to the desired color */
   margin: 20px 0; /* Adjust margin as needed */
+}
+.BasketItemsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 900px) {
+  .productImage {
+    width: 100%;
+  }
+  .BasketItemsRow {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
 }

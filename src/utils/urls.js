@@ -1,4 +1,4 @@
-const baseUrl = 'https://flameprodev.cda-development3.co.uk/cms/wp-json'
+const baseUrl = "https://flameprodev.cda-development3.co.uk/cms/wp-json";
 
 export const homePageUrl = `${baseUrl}/wp/v2/pages/88`;
 export const headerMenuUrl = `${baseUrl}/menus/v1/menus/26`;
@@ -16,3 +16,4 @@ export const allPageUrl = `${baseUrl}/wp/v2/pages`;
 export const filtersUrl = `${baseUrl}/custom-taxonomy/v1/list`;
 export const listingPageUrl = `${baseUrl}/wp/v2/pages/100`;
 export const filtersCategoryUrl = `${baseUrl}/custom/v1/products`;
+export const basketPageUrl = `${baseUrl}/wp/v2/pages/8`;
