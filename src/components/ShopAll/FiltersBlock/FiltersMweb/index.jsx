@@ -6,6 +6,7 @@ import styles from './filtersMweb.module.css';
 
 function FiltersMweb({ filtersData, getFilteredProducts }) {
     const [showFilters, setShowFilters] = useState(false);
+    const [selectedItemsArray, setSelectedArray] = useState([]);
     const [selectedItem, setSelectedItem] = useState({});
     const [isChecked, setIsChecked] = useState(false)
     const [selectedFilter, setSelectedFilter] = useState([]);
@@ -30,11 +31,13 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
             updatedArray = [...itemsArray, item];
         }
         setItemsArray(updatedArray);
-        getFilteredProducts(updatedArray);
+        // getFilteredProducts(updatedArray);
         setSelectedItem(item);
     }
 
-    const handleApplyBtn = () => { }
+    const handleApplyBtn = () => {
+        getFilteredProducts(itemsArray);
+    }
 
     return <section className={styles.mainCont}>
         <section
