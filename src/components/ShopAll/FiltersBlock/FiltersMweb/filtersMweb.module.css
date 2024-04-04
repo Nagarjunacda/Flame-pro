@@ -1,0 +1,79 @@
+.mainCont{
+display: flex;
+height: auto;
+width: 100%;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 16px;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    gap: 8px;
+    background-color: var(--color-primary);
+    transform: skew(-20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 0px;
+}
+.filter{
+    color: var(--color-secondary);
+    transform: skew(20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+    letter-spacing: 1px;
+}
+.img{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    transform: skew(20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.filterSec{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.filtersCategory{
+    display: flex;
+    gap:28px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--color-navItemBorder);
+    padding-top: 24px;
+}
+.filterTitle{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: normal;
+}
+.categorySection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+.btnStyle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 48px;
+}

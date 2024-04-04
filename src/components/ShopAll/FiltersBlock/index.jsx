@@ -22,6 +22,6 @@ function FiltersBlock({ getFilteredProducts, products }) {
         getFilterData()
     }, [])
 
-    return <>{isDesktop ? <FiltersDweb products={products} filtersData={filtersData} getFilteredProducts={getFilteredProducts} /> : <FiltersMweb filtersData={filtersData} />}</>
+    return <>{isDesktop ? <FiltersDweb products={products} filtersData={filtersData} getFilteredProducts={getFilteredProducts} /> : <FiltersMweb filtersData={filtersData} getFilteredProducts={getFilteredProducts} />}</>
 }
 export default FiltersBlock

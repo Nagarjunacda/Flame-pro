@@ -88,7 +88,7 @@ function ProductsListing({ productsData }) {
     }
 
     return <section className={styles.listingPage}>
-        {isDesktop && <FiltersBlock getFilteredProducts={getFilteredProducts} products={products} />}
+        <FiltersBlock getFilteredProducts={getFilteredProducts} products={products} />
         <section className={styles.productsCont}>
             <section className={styles.pagesCont}>
                 <section className={styles.showBlock}>
