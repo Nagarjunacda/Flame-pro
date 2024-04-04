@@ -22,12 +22,11 @@ const BasketItems = () => {
     title: "Basket Empty",
     button_title: "Shop All",
   };
-  console.log(cartData, "!!!!!!!!!");
-  function btnFunction() {}
+  function btnFunction() { }
   function handleEditQuote() {
     setShowTextBox(!showTextBox);
   }
-  function quanityInput(e) {}
+  function quanityInput(e) { }
   return (
     <>
       {cartData?.items?.length ? (
