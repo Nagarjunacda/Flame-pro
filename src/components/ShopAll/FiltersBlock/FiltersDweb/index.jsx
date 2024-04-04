@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText'
 import styles from '../filters.module.css'
 
-function FiltersDweb({ filtersData, getFilteredProducts }) {
+function FiltersDweb({ filtersData, getFilteredProducts, products }) {
     const [isChecked, setIsChecked] = useState(false)
     const [selectedItem, setSelectedItem] = useState({})
     const [itemsArray, setItemsArray] = useState([])
@@ -19,8 +19,6 @@ function FiltersDweb({ filtersData, getFilteredProducts }) {
         setItemsArray(updatedArray);
         getFilteredProducts(updatedArray);
         setSelectedItem(item);
-        // const url = 'https://flameprodev.cda-development3.co.uk/cms/wp-json/custom/v1/products?application=185&per_page=20&page=1';
-        // const { data, error, headers } = await handleServerSideProps(url);
     }
 
     return <section className={styles.mainCont}>
