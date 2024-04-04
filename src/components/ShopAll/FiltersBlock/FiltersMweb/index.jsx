@@ -6,7 +6,6 @@ import styles from './filtersMweb.module.css';
 
 function FiltersMweb({ filtersData, getFilteredProducts }) {
     const [showFilters, setShowFilters] = useState(false);
-    const [selectedItemsArray, setSelectedArray] = useState([]);
     const [selectedItem, setSelectedItem] = useState({});
     const [isChecked, setIsChecked] = useState(false)
     const [selectedFilter, setSelectedFilter] = useState([]);

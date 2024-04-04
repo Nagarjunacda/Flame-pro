@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText'
+import FlameImage from '@/reusbleComponents/FlameImage'
 import styles from '../filters.module.css'
 
 function FiltersDweb({ filtersData, getFilteredProducts, products }) {
-    const [isChecked, setIsChecked] = useState(false)
-    const [selectedItem, setSelectedItem] = useState({})
-    const [itemsArray, setItemsArray] = useState([])
+    const [isChecked, setIsChecked] = useState(false);
+    const [selectedItem, setSelectedItem] = useState({});
+    const [itemsArray, setItemsArray] = useState([]);
+    const [categoryArr, setCategoryArr] = useState([]);
+    const downArrowSrc = '/Images/bottomGreyArrow.svg';
+    const upArrowSrc = '/Images/upGreyArrow.svg';
 
     const handleItemClick = async (item) => {
         const isFilterUnchecked = itemsArray.some(filter => filter?.title === item?.title);
@@ -21,18 +25,34 @@ function FiltersDweb({ filtersData, getFilteredProducts, products }) {
         setSelectedItem(item);
     }
 
+    const handleAccorClick = (category) => {
+        const isCategorySelected = categoryArr.includes(category?.taxonomy)
+        if (isCategorySelected) {
+            const filterArr = categoryArr.filter((e) => e !== category?.taxonomy);
+            setCategoryArr(filterArr);
+            return
+        }
+        setCategoryArr((prev) => [...prev, category?.taxonomy]);
+    }
+
     return <section className={styles.mainCont}>
         <h3 className={styles.filterHeading}>Filters</h3>
         <section className={styles.filtersCont}>
             {filtersData.map((category, index) => {
+                const isCategorysel = categoryArr.includes(category?.taxonomy);
                 return <section key={index} className={styles.filtersCategory}>
-                    <h4 className={styles.filterTitle}>{category?.taxonomy_title}</h4>
-                    <section className={styles.categorySection}>
+                    <section className={styles.titleSec} onClick={() => handleAccorClick(category)}>
+                        <h4 className={styles.filterTitle}>{category?.taxonomy_title}</h4>
+                        <section className={styles.accorImg}>
+                            <FlameImage src={isCategorysel ? upArrowSrc : downArrowSrc} alt={'arrow'} />
+                        </section>
+                    </section>
+                    {isCategorysel && <section className={styles.categorySection}>
                         {category?.terms?.map((categoryTitle, index) => {
                             const isItemChecked = itemsArray?.some(item => item.title === categoryTitle?.title);
                             return <section key={index} onClick={() => { handleItemClick(categoryTitle) }}><CheckBoxWithText key={index} text={categoryTitle?.title} isChecked={isItemChecked} setIsChecked={setIsChecked} isDarkMode /></section>
                         })}
-                    </section>
+                    </section>}
                 </section>
             })}
         </section>

@@ -14,7 +14,6 @@ function ProductDetail({ productData }) {
   const productId = productData?.id;
 
   const handleAddCart = async () => {
-    console.log("hello");
     const data = {
       id: productId,
       // variation: [

@@ -34,3 +34,12 @@
     align-items: flex-start;
     gap: 8px;
 }
+.accorImg{
+    width: 16px;
+    height: 16px;
+}
+.titleSec{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
