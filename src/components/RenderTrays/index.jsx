@@ -13,6 +13,7 @@ import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import UspBlock from "../ContentBlocks/UspBlock";
+import BasketItems from "../ContentBlocks/BasketItems";
 
 function RenderTrays({ trayData, categories = {} }) {
   function getTrays(tray) {
@@ -45,6 +46,8 @@ function RenderTrays({ trayData, categories = {} }) {
         return <FourCategoryBlock trayData={tray} categories={categories} />;
       case "contact_form":
         return <ContactFormBlock trayData={tray} />;
+      case "basket_items":
+        return <BasketItems trayData={tray} />;
       default:
         return null;
     }
