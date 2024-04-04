@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/BreadCrumbs";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";
+import Popup from "@/reusbleComponents/Popup";
 
 const Basket = ({ data }) => {
   const nonceVal = useContext(NonceContext);
@@ -28,13 +29,16 @@ const Basket = ({ data }) => {
   //   </>
   // );
   return (
-    <main>
-      {trayData ? (
-        <RenderTrays trayData={trayData} />
-      ) : (
-        <p>This Page Under Development</p>
-      )}
-    </main>
+    <>
+      <main>
+        {trayData ? (
+          <RenderTrays trayData={trayData} />
+        ) : (
+          <p>This Page Under Development</p>
+        )}
+      </main>
+      <Popup />
+    </>
   );
 };
 

@@ -64,7 +64,7 @@
 
   --padding-8: 8px;
   --padding-16: 16px;
-  --padding-18:18px;
+  --padding-18: 18px;
   --padding-btn: 20px 64px;
   --padding-xs-24: 24px;
   --padding-xs-26: 26px;
@@ -78,7 +78,19 @@
   --padding-text-center-block: 50px 36px;
   --padding-basket-items: 0 20px;
 }
+.modal-content {
+  padding: 30px 20px;
+  border-radius: 0;
+  border: 0;
+}
 
+.modal-footer {
+  gap: 20px;
+  border: 0;
+}
+.modal-header {
+  border: 0;
+}
 /* @media only screen and (min-width: 900px) {
   :root {
     --font-size-xs: 15px;
@@ -127,6 +139,13 @@
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
   }
+
+  .modal-content {
+    padding: 50px 100px;
+  }
+  .modal-dialog {
+    max-width: 80vw;
+  }
 }
 @media only screen and (min-width: 1680px) {
   :root {
@@ -142,7 +161,7 @@
     --font-size-xs-ext: 18px;
 
     --padding-16: 20px;
-    --padding-18:18px;
+    --padding-18: 18px;
     --padding-xs-24: 36px;
     --padding-xs-90: 50px;
     --padding-xs-36-testimonal: 250px;

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
 import ProductBlock from "./ProductBlock";
@@ -7,14 +7,15 @@ import { addToCartUrl } from "@/utils/urls";
 import Breadcrumbs from "../BreadCrumbs";
 import styles from "./productDetail.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
+import Popup from "@/reusbleComponents/Popup";
 
 function ProductDetail({ productData }) {
+  const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
   const nonceVal = useContext(NonceContext);
   const productId = productData?.id;
 
   const handleAddCart = async () => {
-    console.log("hello");
     const data = {
       id: productId,
       // variation: [
@@ -28,6 +29,7 @@ function ProductDetail({ productData }) {
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);
     if (res?.data) {
       setTriggerUpdate(true);
+      setShowPopup(true);
     }
   };
   return (
@@ -39,6 +41,7 @@ function ProductDetail({ productData }) {
         text={"ADD TO BASKET"}
         btnFunction={handleAddCart}
       />
+      <Popup show={showPopup} setShow={setShowPopup} />
     </main>
   );
 }
