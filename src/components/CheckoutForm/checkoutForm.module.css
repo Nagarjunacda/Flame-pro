@@ -22,7 +22,13 @@
 }
 .phoneEmail{
     display: flex;
-    margin-left: 16px;
+    padding-left: 16px;
+    padding-bottom: 24px;
+}
+@media (min-width:900px){
+  .phoneEmail{
+    border-bottom: solid 1px var(--color-navItemBorder);
+  }
 }
 .formCont {
     display: flex;
@@ -36,6 +42,7 @@
   @media (min-width: 900px) {
     .formCont {
       /* max-width: 416px; */
+      gap: 48px;
       justify-content: flex-start;
     }
   }

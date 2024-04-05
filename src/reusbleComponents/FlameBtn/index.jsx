@@ -2,6 +2,8 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
 const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
+  const applyBorderArr = ['Phone', 'Email'];
+  const applyBorder = applyBorderArr.includes(text);
   const buttonStyle = {
     backgroundColor: color,
     border: "none",
@@ -12,6 +14,7 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     transition: "all 0.3s ease",
     outline: "none",
     borderRadius: "0px",
+    border: applyBorder ? 'solid 1px' : 'none',
     fontSize: "var(--font-size-xs-ext)",
     fontFamily: "'CustomFont-Black', sans-serif",
   };
