@@ -2,8 +2,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
+import Link from "next/link";
 
 function AddedBasketItem() {
+  const handleBtnclick = () => { }
   return (
     <>
       <Row>
@@ -18,11 +20,14 @@ function AddedBasketItem() {
           </h2>
         </Col>
         <Col>
-          <FlameBtn
-            text={"View Your Quote Basket"}
-            textColor={"var(--color-secondary)"}
-            color={"var(--color-primary)"}
-          />
+          <Link href={'/basket'}>
+            <FlameBtn
+              text={"View Your Quote Basket"}
+              textColor={"var(--color-secondary)"}
+              color={"var(--color-primary)"}
+              btnFunction={handleBtnclick}
+            />
+          </Link>
         </Col>
       </Row>
     </>
