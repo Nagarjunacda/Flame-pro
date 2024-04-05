@@ -5,16 +5,24 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
+    gap:48px;
     background-color: var(--color-mwebSearch);
     padding: var(--padding-xs-44) var(--padding-xs-36);
 }
 @media (min-width: 900px) {
     .mainCont {
        flex-direction: row;
+       gap: 32px;
       }
+}
+@media (min-width: 1680px) {
+  .mainCont {
+     gap: 90px;
+    }
 }
 .phoneEmail{
     display: flex;
+    margin-left: 16px;
 }
 .formCont {
     display: flex;
@@ -23,18 +31,18 @@
     align-items: center;
     gap: 24px;
     width: 100%;
-    max-width: 500px;
+    /* max-width: 500px; */
   }
   @media (min-width: 900px) {
     .formCont {
-      max-width: 416px;
+      /* max-width: 416px; */
       justify-content: flex-start;
     }
   }
   @media (min-width: 900px) {
-    .formCont {
+    /* .formCont {
       max-width: 500px;
-    }
+    } */
   }
   .form2Cont{
     width: 100%;
@@ -97,7 +105,7 @@
     display: flex;
     gap: 16px;
     width: 100%;
-    max-width: 500px;
+    /* max-width: 500px; */
   }
   .checkBoxCont {
     display: flex;
@@ -165,6 +173,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex: 1 1 0%;
   }
   .text {
     color: var(--color-secondary);
@@ -221,11 +230,24 @@
   }
   .submitSec{
     display: flex;
+    flex-direction: column;
     gap: 16px;
+  }
+  @media (min-width:900px){
+    .submitSec{
+      width: 100%;
+      flex-direction: row;
+    }
   }
   .btnStyle2{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1 1 0%;
+  }
+  @media (min-width:900px) {
+    .btnStyle2{
+      justify-content: flex-end;
+    }
   }
   

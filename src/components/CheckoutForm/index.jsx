@@ -5,8 +5,9 @@ import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
-import styles from './checkoutForm.module.css'
+import styles from './checkoutForm.module.css';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
+import Link from 'next/link';
 
 function CheckoutForm({ heading, formFields, heading2 }) {
     const nonceVal = useContext(NonceContext);
@@ -306,14 +307,14 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                 </section>
             </section>
             <section className={styles.submitSec}>
-                <section className={styles.btnStyle2}>
+                <Link href={'/shop-all'} className={styles.btnStyle2}>
                     <ButtonStyleTwo
                         text={"Keep Browsing Products"}
                         textColor={"var( --color-primary)"}
                         btnFunction={handleBrowseAll}
                     // btnIcon={"/Images/deleteIcon.svg"}
                     />
-                </section>
+                </Link>
                 <section className={styles.cta}>
                     <FlameBtn
                         color={btnColor}
