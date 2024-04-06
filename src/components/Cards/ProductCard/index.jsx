@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import FlameImage from '@/reusbleComponents/FlameImage';
 import styles from './productCard.module.css'
 
 function ProductCard({ product }) {
@@ -11,7 +10,21 @@ function ProductCard({ product }) {
     const isOnSale = product?.on_sale
     const productUrl = `/shop-all/${slug}/${productId}`
 
-    return <Link href={productUrl}><Card className={styles?.cardCont}>
+    const handleCardClick = () => {
+        if (!localStorage.getItem('recentlyViewed')) {
+            localStorage.setItem('recentlyViewed', JSON.stringify([]));
+        }
+        const recentProducts = JSON.parse(localStorage.getItem('recentlyViewed'));
+        const isduplicateProduct = recentProducts.some(e => e?.id === product?.id);
+        if (isduplicateProduct) {
+            return
+        }
+        recentProducts.unshift(product)
+        const slicedArray = recentProducts.slice(0, 4);
+        localStorage.setItem('recentlyViewed', JSON.stringify(slicedArray));
+    }
+
+    return <Link href={productUrl}><Card className={styles?.cardCont} onClick={handleCardClick}>
         <Card.Img variant="top" src={cardImage} className={styles.cardImg} />
         {isOnSale && <section className={styles.saleLabel}>Sale</section>}
         <Card.Body className={styles.cardBody}>

@@ -1,0 +1,22 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    padding: var(--padding-xs-44) var(--padding-xs-36);
+}
+.title{
+    font-size: var(--font-size-16-30);
+    font-weight: var(--font-wt-heavy);
+    font-stretch: condensed;
+    margin-bottom: 25px;
+}
+@media (min-width: 1680px) {
+    .title {
+        margin-bottom: 50px;
+    }
+}
+.slider{
+    padding: 0px 0px
+}
+.col{
+    margin-bottom: 24px;
+}

@@ -6,7 +6,6 @@ const Basket = () => {
   const router = useRouter();
   const { query } = router;
   const { ref } = query
-  console.log(router, '!!')
   return (
     <>
       <BasketTitleBlock

@@ -1,6 +1,7 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
+import RecentlyViewedBlock from "../ContentBlocks/RecentlyViewedBlock";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import Link from "next/link";
 
@@ -28,6 +29,11 @@ function AddedBasketItem() {
               btnFunction={handleBtnclick}
             />
           </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <RecentlyViewedBlock />
         </Col>
       </Row>
     </>

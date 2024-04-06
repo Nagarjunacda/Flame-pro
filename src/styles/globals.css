@@ -48,6 +48,7 @@
   --font-size-md: 20px;
   --font-size-lg: 30px;
   --font-size-xl: 40px;
+  --font-size-16-30: 16px;
   --font-size-18-40: 18px;
   --font-size-xs-ext: 14px;
   --font-size-canvas: 18px;
@@ -134,6 +135,7 @@
     --font-size-sm: 18px;
     --font-size-md: 25px;
     --font-size-cardTitle: 19px;
+    --font-size-16-30: 24px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
     --font-size-18-40: 40px;
@@ -157,6 +159,7 @@
     --font-size-cardTitle: 19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
+    --font-size-16-30:30px;
     --font-size-18-40: 40px;
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
