@@ -8,16 +8,18 @@ import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import InputGroup from "react-bootstrap/InputGroup";
+import { handlePostRequests } from "@/utils/handlePostCalls";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import { removeFromCartUrl } from "@/utils/urls";
 import TitleAndTextCentre from "../TitleAndTextCentre";
 import style from "./basketItems.module.css";
 
 const BasketItems = () => {
   const nonceVal = useContext(NonceContext);
-  const { cartData } = useCartData();
+  const { cartData, setTriggerUpdate } = useCartData();
   const [showTextBox, setShowTextBox] = useState(false);
-  const [quanityValue, setquanityValue] = useState("");
+  const [quanityValue, setquanityValue] = useState('');
   const emptyBasket = {
     title: "Basket Empty",
     button_title: "Shop All",
@@ -26,7 +28,24 @@ const BasketItems = () => {
   function handleEditQuote() {
     setShowTextBox(!showTextBox);
   }
-  function quanityInput(e) { }
+  function quanityInput(event) {
+  }
+
+  const handleRemoveFromCart = async (data) => {
+    const body = {
+      key: data?.key
+    };
+    const customHeaders = { Nonce: nonceVal };
+    const res = await handlePostRequests(removeFromCartUrl, body, customHeaders);
+    if (res?.data) {
+      setTriggerUpdate(true);
+    }
+  };
+
+  const handleTickMarkClick = () => {
+    console.log('!! som')
+  }
+
   return (
     <>
       {cartData?.items?.length ? (
@@ -83,7 +102,7 @@ const BasketItems = () => {
                             value={data.quantity}
                             onChange={quanityInput}
                           />
-                          <InputGroup.Text id="btnGroupAddon">
+                          <InputGroup.Text id="btnGroupAddon" onClick={handleTickMarkClick}>
                             &#10004;
                           </InputGroup.Text>
                         </InputGroup>
@@ -96,6 +115,7 @@ const BasketItems = () => {
                       sm={12}
                       xs={12}
                       className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
+                      onClick={() => { handleRemoveFromCart(data) }}
                     >
                       <ButtonStyleTwo
                         text={"Remove Product"}
