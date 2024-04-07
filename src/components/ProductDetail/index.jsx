@@ -5,9 +5,9 @@ import ProductBlock from "./ProductBlock";
 import { handlePostRequests } from "@/utils/handlePostCalls";
 import { addToCartUrl } from "@/utils/urls";
 import Breadcrumbs from "../BreadCrumbs";
-import styles from "./productDetail.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import Popup from "@/reusbleComponents/Popup";
+import styles from "./productDetail.module.css";
 
 function ProductDetail({ productData }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -18,12 +18,6 @@ function ProductDetail({ productData }) {
   const handleAddCart = async () => {
     const data = {
       id: productId,
-      // variation: [
-      //     {
-      //         "attribute": "Gloves Size",
-      //         "value": "10"
-      //     }
-      // ]
     };
     const customHeaders = { Nonce: nonceVal };
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);

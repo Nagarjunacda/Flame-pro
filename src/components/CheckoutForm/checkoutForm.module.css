@@ -1,0 +1,260 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap:48px;
+    background-color: var(--color-mwebSearch);
+    padding: var(--padding-xs-44) var(--padding-xs-36);
+}
+@media (min-width: 900px) {
+    .mainCont {
+       flex-direction: row;
+       gap: 32px;
+      }
+}
+@media (min-width: 1680px) {
+  .mainCont {
+     gap: 90px;
+    }
+}
+.phoneEmail{
+    display: flex;
+    padding-left: 16px;
+    padding-bottom: 24px;
+}
+@media (min-width:900px){
+  .phoneEmail{
+    border-bottom: solid 1px var(--color-navItemBorder);
+  }
+}
+.formCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    /* max-width: 500px; */
+  }
+  @media (min-width: 900px) {
+    .formCont {
+      /* max-width: 416px; */
+      gap: 48px;
+      justify-content: flex-start;
+    }
+  }
+  @media (min-width: 900px) {
+    /* .formCont {
+      max-width: 500px;
+    } */
+  }
+  .form2Cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .headingText {
+    width: 100%;
+    font-size: var(--font-size-md);
+    color: var(--color-secondary);
+  }
+  .headingTextBlock {
+    width: 100%;
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+  }
+  .textInput {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: none;
+    border-bottom: 2px solid var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+    width: 100%;
+    outline: none;
+    padding-bottom: 8px;
+  }
+  /* Style placeholder text */
+  .textInput::placeholder {
+    color: var(--color-primary);
+    opacity: 0.5;
+    font-weight: var(--font-wt-bold); /* White with 50% opacity */
+  }
+  .areaInterestInput {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: none;
+    border-bottom: 1px solid var(--color-secondary);
+    font-size: var(--font-size-xs-ext);
+    font-weight: var(--font-wt-bold);
+    width: 100%;
+    outline: none;
+    padding-bottom: 8px;
+    cursor: pointer;
+  }
+  /* Style placeholder text */
+  .areaInterestInput::placeholder {
+    color: var(--color-secondary);
+    font-weight: var(--font-wt-bold); /* White with 50% opacity */
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+  }
+  .formDiv {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    /* max-width: 500px; */
+  }
+  .checkBoxCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .checkBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-secondary);
+    cursor: pointer;
+    margin-bottom: 7px;
+  }
+  @media (min-width: 1680px) {
+    .checkBox {
+      width: 21px;
+      height: 21px;
+    }
+  }
+  .checkBoxDark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+    margin-bottom: 7px;
+  }
+  @media (min-width: 1680px) {
+    .checkBoxDark {
+      width: 21px;
+      height: 21px;
+    }
+  }
+  .checkBoxText {
+    color: var(--color-secondary);
+    font-size: var(--font-size-xs-ext);
+  }
+  .checkBoxTextDark {
+    color: var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+  }
+  .checkBoxSection {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  .checkBoxAndText {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .cta {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 1 0%;
+  }
+  .text {
+    color: var(--color-secondary);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: var(--font-size-xs-ext);
+  }
+  .downArrow {
+    position: absolute;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    top: 0px;
+  }
+  .formInput {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .errorMsg {
+    color: var(--color-fire);
+    font-size: var(--font-size-xs);
+  }
+  .areaOfInt {
+    position: absolute;
+    width: 100%;
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+  }
+  .interestOptions {
+    color: var(--color-primary);
+    padding: 12px;
+    font-weight: var(--font-wt-bold);
+    border-bottom: solid 1px var(--color-primary);
+    cursor: pointer;
+  }
+  .interestOptions:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .selectedArea {
+    background-color: #000;
+    color: #fff;
+    padding: 12px;
+    font-weight: var(--font-wt-bold);
+    border-bottom: solid 1px var(--color-primary);
+    cursor: pointer;
+  }
+  .submitSec{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  @media (min-width:900px){
+    .submitSec{
+      width: 100%;
+      flex-direction: row;
+    }
+  }
+  .btnStyle2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0%;
+  }
+  @media (min-width:900px) {
+    .btnStyle2{
+      justify-content: flex-end;
+    }
+  }
+  

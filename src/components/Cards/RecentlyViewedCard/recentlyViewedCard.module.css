@@ -1,0 +1,25 @@
+.cardCont{
+    width: 100%;
+    height: auto;
+    border:none
+}
+.cardImg{
+    border-radius: 0px;
+}
+.cardBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 900px) {
+    .cardBody {
+       padding-bottom: 0px;
+    }
+}
+.cardTitle{
+    font-size: var(--font-size-cardTitle);
+    font-weight: var(--font-wt-heavy);
+    padding-bottom: 4px;
+    font-stretch: condensed;
+    margin: 0px;
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import styles from '../filters.module.css'

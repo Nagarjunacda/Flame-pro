@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import FlameBtn from "../FlameBtn";
 import ButtonStyleTwo from "../ButtonStyleTwo";
 import AddedBasketItem from "@/components/AddedBasketItem";
+import Link from "next/link";
 
 function Popup({ show, setShow }) {
   // const [show, setShow] = useState(false);
@@ -13,6 +14,8 @@ function Popup({ show, setShow }) {
   const popupStyleDweb = {
     padding: "50px 100px",
   };
+
+  const handleBtnClick = () => { }
 
   return (
     <>
@@ -39,10 +42,13 @@ function Popup({ show, setShow }) {
             text={"Browse More Products"}
             textColor={"var(--color-primary)"}
           />
-          <FlameBtn
-            text={"View Your Quote Basket"}
-            color={"var(--color-primary)"}
-          />
+          <Link href={'/basket'}>
+            <FlameBtn
+              text={"View Your Quote Basket"}
+              color={"var(--color-primary)"}
+              btnFunction={handleBtnClick}
+            />
+          </Link>
         </Modal.Footer>
       </Modal>
     </>

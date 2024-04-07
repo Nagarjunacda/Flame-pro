@@ -8,13 +8,21 @@ import Breadcrumbs from "@/components/BreadCrumbs";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";
-import ProductAddBlock from "@/reusbleComponents/ProductAddBlock";
+import Popup from "@/reusbleComponents/Popup";
+import CheckoutForm from "@/components/CheckoutForm";
 
 const Basket = ({ data }) => {
   const nonceVal = useContext(NonceContext);
   const { cartData } = useCartData();
-
   const trayData = data?.acf?.content_blocks;
+  const formData = [
+    { section1: "Full Name*" },
+    { section1: "Email Address*" },
+    { section1: "Phone Number*" },
+    { section1: "Company Name*" },
+    { section1: "Job Title*" },
+    { section1: "Message" },
+  ];
 
   // return (
   //   <>
@@ -32,7 +40,14 @@ const Basket = ({ data }) => {
     <>
       <main>
         {trayData ? (
-          <RenderTrays trayData={trayData} />
+          <>
+            <RenderTrays trayData={trayData} />
+            <CheckoutForm
+              heading={"Enter Your Details"}
+              formFields={formData}
+              heading2={"Contact Me By..."}
+            />
+          </>
         ) : (
           <p>This Page Under Development</p>
         )}
