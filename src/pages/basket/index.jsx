@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/BreadCrumbs";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";
-import Popup from "@/reusbleComponents/Popup";
+import ProductAddBlock from "@/reusbleComponents/ProductAddBlock";
 
 const Basket = ({ data }) => {
   const nonceVal = useContext(NonceContext);
@@ -36,8 +36,8 @@ const Basket = ({ data }) => {
         ) : (
           <p>This Page Under Development</p>
         )}
+        <ProductAddBlock />
       </main>
-      <Popup />
     </>
   );
 };
