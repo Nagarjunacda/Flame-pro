@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: column;
 }
+.pageContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
 .productBlock{
     display: flex;
     flex-direction: column;
@@ -25,8 +31,16 @@
     gap: 20px;
 }
 .mainImg{
+    position: relative;
     width: 100%;
     height: auto;
+}
+.magnifier{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    bottom: 16px;
+    left: 16px;
 }
 .sliderSection{
     width: 100%;
