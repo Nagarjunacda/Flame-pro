@@ -21,7 +21,7 @@ function ProductsListing({ productsData }) {
   const [filteredArray, setFilteredArray] = useState([]);
   const [filtersUrl, setFiltersUrl] = useState("");
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-  const scrollToTop = document.getElementById("scrollId");
+  const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
   const arrowSrc = "/Images/bottomGreyArrow.svg";
   const leftArrowSrc = "/Images/leftGreyArrow.svg";
   const rightArrowSrc = "/Images/rightGreyArrow.svg";
@@ -42,8 +42,8 @@ function ProductsListing({ productsData }) {
       const url = filteredArray.length
         ? filtersUrl
         : category
-        ? categoryurl
-        : allProductsUrl;
+          ? categoryurl
+          : allProductsUrl;
       const { data, error, headers } = await handleServerSideProps(url);
       const totalNoOfPages = headers["x-wp-totalpages"];
       setProducts(data);
@@ -83,6 +83,7 @@ function ProductsListing({ productsData }) {
       setSelectedPageNum(selectedPageNum + 1);
       return;
     }
+    scrollToTop.scrollIntoView({ behavior: "smooth" });
     setSelectedPageNum(number);
   };
 
