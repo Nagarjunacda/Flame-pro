@@ -8,7 +8,7 @@ import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
 import styles from '../productDetail.module.css'
 
-function ProductBlock({ productData, handleAddCart }) {
+function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const productName = productData?.name;
     const trayTitle = 'productDetail';
@@ -45,7 +45,7 @@ function ProductBlock({ productData, handleAddCart }) {
                 <section className={styles.inputAndCta}>
                     <section className={styles.inputBlock}>
                         <h6 className={styles.quantity}>Quantity</h6>
-                        <EditableDiv />
+                        <EditableDiv getProductQuantity={getProductQuantity} />
                     </section>
                     <section className={styles.ctaSection}>
                         <section>

@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import styles from './editableDiv.module.css';
 
-function EditableDiv() {
+function EditableDiv({ getProductQuantity }) {
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(0);
 
     const handleBlur = () => {
         setIsEditing(false);
     };
+
+    const handleValueChange = (e) => {
+        const quant = e.target.value;
+        setValue(quant);
+        getProductQuantity(quant);
+    }
 
     return (
         <div
@@ -18,7 +24,7 @@ function EditableDiv() {
                 <input
                     type="text"
                     value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={(e) => handleValueChange(e)}
                     onBlur={handleBlur}
                     autoFocus
                     className={styles.inputField}

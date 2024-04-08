@@ -12,12 +12,14 @@ import styles from "./productDetail.module.css";
 function ProductDetail({ productData }) {
   const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
+  const [productQuantity, setProductQuantity] = useState(0)
   const nonceVal = useContext(NonceContext);
   const productId = productData?.id;
 
   const handleAddCart = async () => {
     const data = {
       id: productId,
+      quantity: productQuantity
     };
     const customHeaders = { Nonce: nonceVal };
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);
@@ -27,10 +29,14 @@ function ProductDetail({ productData }) {
     }
   };
 
+  const getProductQuantity = (quant) => {
+    setProductQuantity(quant)
+  }
+
   return (
     <main className={styles.mainCont}>
       <Breadcrumbs />
-      <ProductBlock productData={productData} handleAddCart={handleAddCart} />
+      <ProductBlock productData={productData} handleAddCart={handleAddCart} getProductQuantity={getProductQuantity} />
       {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
