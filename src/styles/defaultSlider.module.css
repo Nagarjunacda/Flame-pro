@@ -23,6 +23,7 @@
   .slideWrapper{
     width: 100%;
     padding:2px;
+    cursor: pointer;
   }
   .imageCont{
     width: 100%;

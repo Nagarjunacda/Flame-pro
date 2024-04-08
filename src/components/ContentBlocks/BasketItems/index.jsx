@@ -43,7 +43,6 @@ const BasketItems = () => {
   };
 
   const handleTickMarkClick = () => {
-    console.log('!! som')
   }
 
   return (

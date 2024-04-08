@@ -7,10 +7,7 @@ import AddedBasketItem from "@/components/AddedBasketItem";
 import Link from "next/link";
 
 function Popup({ show, setShow }) {
-  // const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const popupStyleDweb = {
     padding: "50px 100px",
   };
@@ -24,8 +21,6 @@ function Popup({ show, setShow }) {
         onHide={handleClose}
         centered
         size="lg"
-        //dialogClassName="modal-90w"
-        // style={popupStyleDweb}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
       >

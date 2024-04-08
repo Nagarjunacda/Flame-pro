@@ -26,15 +26,16 @@ function ProductDetail({ productData }) {
       setShowPopup(true);
     }
   };
+
   return (
     <main className={styles.mainCont}>
       <Breadcrumbs />
-      <ProductBlock productData={productData} />
-      <ButtonStyleTwo
+      <ProductBlock productData={productData} handleAddCart={handleAddCart} />
+      {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
         btnFunction={handleAddCart}
-      />
+      /> */}
       <Popup show={showPopup} setShow={setShowPopup} />
     </main>
   );

@@ -1,14 +1,17 @@
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import { useMediaQuery } from "react-responsive";
 
 const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
+  const isTabScreen = useMediaQuery({ query: "(min-width:600px)" });
   const applyBorderArr = ['Phone', 'Email'];
   const applyBorder = applyBorderArr.includes(text);
+  const isSmallBtn = text === 'Add To Quote Basket' && !isTabScreen;
   const buttonStyle = {
     backgroundColor: color,
     border: "none",
     color: textColor,
-    padding: "var(--padding-btn)",
+    padding: isSmallBtn ? '20px' : "var(--padding-btn)",
     transform: "skew(-20deg)",
     textDecoration: "none",
     transition: "all 0.3s ease",
@@ -17,6 +20,7 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     border: applyBorder ? 'solid 1px' : 'none',
     fontSize: "var(--font-size-xs-ext)",
     fontFamily: "'CustomFont-Black', sans-serif",
+    width: 'auto'
   };
   const textStyle = {
     transform: "skew(20deg)",

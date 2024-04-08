@@ -16,11 +16,29 @@
     flex-direction: column;
     width: 100%;
     height: auto;
+    gap: 30px;
+}
+@media (min-width:900px){
+    .productBlock{
+        flex-direction: row;
+    }
+}
+@media (min-width:1680px){
+    .productBlock{
+        flex-direction: row;
+        gap: 70px;
+    }
 }
 .imageAndText{
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 28px;
+}
+@media (min-width:900px){
+    .imageAndText{
+    width: 50%;
+    }
 }
 .title{
     font-size: var(--font-size-lg);
@@ -42,9 +60,59 @@
     bottom: 16px;
     left: 16px;
 }
+@media (min-width:1280px){
+    .magnifier{
+    width: 24px;
+    height: 22px;
+}
+}
+@media (min-width:1680px){
+    .magnifier{
+    width: 32px;
+    height: 30px;
+}
+}
 .sliderSection{
     width: 100%;
     max-width: 100%;
     height: auto;
     display: flex;
+}
+.ctaSection{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 24px;
+}
+.inputAndCta{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.btnStyle2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+.descCont{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+@media (min-width:900px){
+    .descCont{
+    width: 50%;
+    justify-content: space-evenly;
+    }
+}
+.inputBlock{
+    display: flex;
+    flex-direction: column;
+}
+.quantity{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 0.5px;
 }
