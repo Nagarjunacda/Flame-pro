@@ -14,8 +14,8 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const productName = productData?.name;
     const trayTitle = 'productDetail';
-    const imgArr = [{ featured_image_url: 'https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/valiant_770_775_gold_front.jpg' }, { featured_image_url: 'https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/defender-902-903-red-firefighters-wildland-suit-front.jpg' }, { featured_image_url: 'https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/403front.jpg' }, { featured_image_url: 'https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/402front.jpg' }, { featured_image_url: 'https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/638612.jpg' }]
-    const initailImage = imgArr[0]?.featured_image_url;
+    const imgArr = productData?.images;
+    const initailImage = imgArr[0]?.src;
     const [selectedImage, setSelectedImage] = useState(initailImage);
     const magnifierSrc = '/Images/magnifierLogo.svg';
     const description = productData?.description;

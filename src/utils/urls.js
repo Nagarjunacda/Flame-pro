@@ -19,3 +19,4 @@ export const filtersCategoryUrl = `${baseUrl}/custom/v1/products`;
 export const basketPageUrl = `${baseUrl}/wp/v2/pages/8`;
 export const checkoutUrl = `${baseUrl}/wc/store/v1/checkout`;
 export const removeFromCartUrl = `${baseUrl}/wc/store/v1/cart/remove-item`;
+export const allPostsUrl = `${baseUrl}/wp/v2/posts`;

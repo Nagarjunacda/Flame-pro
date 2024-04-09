@@ -13,8 +13,9 @@ function DetailSliderComp({ data, setSelectedImage }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
 
     const handleItemClick = (item, index) => {
-        setSelectedImage(item?.featured_image_url)
-        setSelImgIndex(index)
+        const imageSelected = item?.src;
+        setSelectedImage(imageSelected);
+        setSelImgIndex(index);
     }
 
     const handleNextBtn = () => {
@@ -58,7 +59,7 @@ function DetailSliderComp({ data, setSelectedImage }) {
                         return (
                             <section key={index} className={styles.slideWrapper} onClick={() => { handleItemClick(item, index) }}>
                                 <section className={index === selImgIndex ? styles.selectedImgCont : styles.imageCont}>
-                                    <FourCategoryCard data={item} />
+                                    <FourCategoryCard data={item} blockTitle />
                                 </section>
                             </section>
                         );
