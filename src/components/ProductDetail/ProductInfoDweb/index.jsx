@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
 import ConformsToBlock from '../ConformsToBlock';
+import OuterLayerBlock from '../OuterLayerBlock';
 import styles from '../productDetail.module.css';
 
 function ProductInfoDweb({ data, productInfo }) {
@@ -16,6 +17,8 @@ function ProductInfoDweb({ data, productInfo }) {
                 return <AdditionalInfoBlock productInfo={productInfo} />
             case 'Conforms To':
                 return <ConformsToBlock productInfo={productInfo} />
+            case 'Outer Layers':
+                return <OuterLayerBlock productInfo={productInfo} />
             default:
                 return ''
         }
