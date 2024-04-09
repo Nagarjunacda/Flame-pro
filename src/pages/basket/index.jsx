@@ -10,6 +10,7 @@ import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";
 import Popup from "@/reusbleComponents/Popup";
 import CheckoutForm from "@/components/CheckoutForm";
+import ProductAddBlock from "@/reusbleComponents/ProductAddBlock";
 
 const Basket = ({ data }) => {
   const nonceVal = useContext(NonceContext);
@@ -51,7 +52,6 @@ const Basket = ({ data }) => {
         ) : (
           <p>This Page Under Development</p>
         )}
-        <ProductAddBlock />
       </main>
     </>
   );

@@ -18,3 +18,4 @@ export const listingPageUrl = `${baseUrl}/wp/v2/pages/100`;
 export const filtersCategoryUrl = `${baseUrl}/custom/v1/products`;
 export const basketPageUrl = `${baseUrl}/wp/v2/pages/8`;
 export const checkoutUrl = `${baseUrl}/wc/store/v1/checkout`;
+export const policiesUrl = `${baseUrl}/wp/v2/pages/4190`;
