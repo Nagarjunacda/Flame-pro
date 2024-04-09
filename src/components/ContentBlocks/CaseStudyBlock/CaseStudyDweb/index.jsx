@@ -34,6 +34,11 @@ function CaseStudyDweb({ data }) {
                   onClick={() => {
                     handleCategoryClick(category);
                   }}
+                  className={
+                    category?.name === selectedCategory?.name
+                      ? styles.active
+                      : styles.caseStudyItem
+                  }
                 >
                   {category?.name}
                 </p>
