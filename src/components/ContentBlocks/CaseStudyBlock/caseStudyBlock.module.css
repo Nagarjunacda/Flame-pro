@@ -70,3 +70,11 @@
   max-width: 60%;
   align-self: stretch;
 }
+.caseStudyItem {
+  color: #7f7f7f;
+  font-weight: 400;
+}
+.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}

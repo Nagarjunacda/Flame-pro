@@ -14,6 +14,7 @@ import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
+import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 
 function RenderTrays({ trayData, categories = {} }) {
   function getTrays(tray) {
@@ -48,6 +49,8 @@ function RenderTrays({ trayData, categories = {} }) {
         return <ContactFormBlock trayData={tray} />;
       case "basket_items":
         return <BasketItems trayData={tray} />;
+      case "policies_select":
+        return <PoliciesBlock trayData={tray} />;
       default:
         return null;
     }

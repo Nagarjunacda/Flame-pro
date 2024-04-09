@@ -131,7 +131,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
       input_5_3: formData["Full Name*"],
       input_7: formData["Email Address*"],
       input_8: selOption,
-      input_9_1: isChecked ? 1 : 0,
+      input_10_1: isChecked ? "I consent to email marketing" : null,
     };
     const userDetailData = {
       input_1_3: formData["Full Name*"],
@@ -149,6 +149,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
       setIsLoadState(false);
       setShowToast(true);
       setToastMsg("Successfully signedup to our mailing list.");
+      setFormData("");
     }
     if (res?.error) {
       const errMsg = res?.error?.response?.data?.validation_messages;
