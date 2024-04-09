@@ -9,7 +9,7 @@ import FiltersMweb from "./FiltersMweb"
 function FiltersBlock({ getFilteredProducts, products }) {
     const [filtersData, setFiltersData] = useState([])
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-    const availableFilters = ['industry', 'application', 'pa_gender', 'pa_colour']
+    const availableFilters = ['industry', 'application', 'standard--certification']
 
     useEffect(() => {
         const getFilterData = async () => {

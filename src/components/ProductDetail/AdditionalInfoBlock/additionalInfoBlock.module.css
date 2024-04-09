@@ -1,0 +1,65 @@
+.mainCont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.tableBlock{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+.tableItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 12px;
+    font-size: 12px;
+    gap: 8px;
+}
+.itemName{
+    font-size: var(--font-size-xs-ext);
+    font-weight: var(--font-wt-thin);
+    min-width: 30%;
+}
+.itemVal{
+    width: 100%;
+    font-size: var(--font-size-xs-ext);
+    font-weight: var(--font-wt-thin);
+}
+.tableItemAlt{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 12px;
+    font-size: 12px;
+    gap: 8px;
+    background-color: var(--color-product-back);
+}
+.downloadsBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.donwloadHead{
+    font-size: var(--font-size-lg);
+}
+.downloadText{
+    font-size: var(--font-size-xs-ext);
+}
+.brochure{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.brochureItem{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+.brochureText{
+    font-size: var(--font-size-xs);
+}

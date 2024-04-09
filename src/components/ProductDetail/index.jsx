@@ -10,6 +10,7 @@ import Popup from "@/reusbleComponents/Popup";
 import styles from "./productDetail.module.css";
 
 function ProductDetail({ productData }) {
+  console.log(productData, '!!')
   const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
   const [productQuantity, setProductQuantity] = useState(0)

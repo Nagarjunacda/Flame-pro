@@ -22,6 +22,11 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
     const btnText = 'Add To Quote Basket';
+    const productInfo = productData?.acf?.product__data;
+    const productInfoCategories = productInfo?.map((e) => {
+        return e?.title
+    })
+    console.log(productInfoCategories, '!!')
 
     const infoArr = ['Additional Information', 'Jackets', 'Trousers', 'Outer Layers', 'Moisture Barrier', 'Thermal Lining', 'Wear Fit Guide', 'Conforms To']
 
@@ -72,7 +77,7 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
             </section>
         </section>
         <section className={styles.productInfoCont}>
-            {isDesktop ? <ProductInfoDweb data={infoArr} /> : <ProductInfoMweb data={infoArr} />}
+            {isDesktop ? <ProductInfoDweb data={productInfoCategories} productInfo={productInfo} /> : <ProductInfoMweb data={productInfoCategories} productInfo={productInfo} />}
         </section>
     </section>
 }
