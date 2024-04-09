@@ -14,7 +14,6 @@ function ProductInfoMweb({ data, productInfo }) {
     }
 
     const getInfoData = (infoLink) => {
-        console.log(infoLink, '!!')
         switch (infoLink) {
             case 'Additional Information':
                 return <AdditionalInfoBlock productInfo={productInfo} />

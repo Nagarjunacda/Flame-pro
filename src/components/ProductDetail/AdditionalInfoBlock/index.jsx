@@ -11,7 +11,6 @@ function AdditionalInfoBlock({ productInfo }) {
     const pdf1 = info?.downloads?.download_brochure?.filename;
     const pdf2 = info?.downloads?.technical_data_sheet_download?.filename;
     const techDataLink = info?.downloads?.technical_data_sheet_download?.url;
-    console.log(info, '!!!')
 
     return <section className={styles.mainCont}>
         <section className={styles.tableBlock}>

@@ -1,18 +1,32 @@
 import { useState } from 'react';
 import styles from '../productDetail.module.css';
+import AdditionalInfoBlock from '../AdditionalInfoBlock';
 
-function ProductInfoDweb({ data }) {
+function ProductInfoDweb({ data, productInfo }) {
     const [selectedLink, setSelectedLink] = useState('Additional Information')
 
     const handleSelectedLink = (link) => {
         setSelectedLink(link)
     }
-    return <>
-        {
-            data.map((infoLink, index) => {
-                return <section key={index} className={selectedLink === infoLink ? styles.selectedLinkDweb : styles.infoLinksDweb} onClick={() => { handleSelectedLink(infoLink) }}><h5 className={styles.infoText}>{infoLink}</h5></section>
-            })
+
+    const getInfoData = () => {
+        switch (selectedLink) {
+            case 'Additional Information':
+                return <AdditionalInfoBlock productInfo={productInfo} />
+            default:
+                return ''
         }
-    </>
+    }
+
+    return <section className={styles.infoDwebCont}>
+        <section className={styles.dwebHeadingCont}>
+            {
+                data.map((infoLink, index) => {
+                    return <section key={index} className={selectedLink === infoLink ? styles.selectedLinkDweb : styles.infoLinksDweb} onClick={() => { handleSelectedLink(infoLink) }}><h5 className={styles.infoText}>{infoLink}</h5></section>
+                })
+            }
+        </section>
+        <section className={styles.dataBlock}>{getInfoData()}</section>
+    </section>
 }
 export default ProductInfoDweb

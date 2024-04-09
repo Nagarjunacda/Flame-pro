@@ -26,7 +26,6 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const productInfoCategories = productInfo?.map((e) => {
         return e?.title
     })
-    console.log(productInfoCategories, '!!')
 
     const infoArr = ['Additional Information', 'Jackets', 'Trousers', 'Outer Layers', 'Moisture Barrier', 'Thermal Lining', 'Wear Fit Guide', 'Conforms To']
 

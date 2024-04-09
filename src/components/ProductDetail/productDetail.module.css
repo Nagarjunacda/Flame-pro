@@ -124,8 +124,6 @@
 @media (min-width:900px){
     .productInfoCont{
         display: flex;
-        padding-left: 20px;
-        padding-right: 20px;
     }
 }
 .infoLinks{
@@ -152,10 +150,10 @@
     background-color: var(--color-primary);
     color: var(--color-secondary);
 }
-.infoDwebCont{
+/* .infoDwebCont{
     transform: skew(-20deg, 0);
     display: flex;
-}
+} */
 .infoLinksDweb{
     width: 100%;
     height: auto;
@@ -191,6 +189,9 @@ font-size: var(--font-size-xs-ext);
 }
 .infoDwebCont{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
 }
 .infoMwebCont{
     display: flex;
@@ -202,4 +203,14 @@ font-size: var(--font-size-xs-ext);
     height: auto;
     background-color: var(--color-mwebSearch);
     padding: 24px 16px
+}
+@media (min-width:900px){
+    .dataBlock{
+        padding: 52px 48px ;
+    }
+}
+.dwebHeadingCont{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
 }
