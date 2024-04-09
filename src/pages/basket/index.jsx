@@ -5,6 +5,7 @@ import CartContext from "@/context/CartContext";
 import BasketTitleBlock from "@/components/ContentBlocks/BasketTitleBlock";
 import BasketItems from "@/components/ContentBlocks/BasketItems";
 import Breadcrumbs from "@/components/BreadCrumbs";
+import ProductAddBlock from "@/reusbleComponents/ProductAddBlock";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";

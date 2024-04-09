@@ -7,7 +7,8 @@ import 'slick-carousel/slick/slick-theme.css'
 import TitleAndTextCard from '@/components/Cards/TitleAndTextCard'
 import CaseStudyCard from '@/components/Cards/CaseStudyCard'
 import TestimonialCard from "@/components/Cards/TestimonialCard";
-import FourCategoryCard from '@/components/Cards/FourCategoryCard'
+import FourCategoryCard from '@/components/Cards/FourCategoryCard';
+import RecentlyViewedCard from '@/components/Cards/RecentlyViewedCard';
 import styles from '../../styles/slider.module.css'
 
 function SliderComp({ data, title, slidesToShow }) {
@@ -47,6 +48,8 @@ function SliderComp({ data, title, slidesToShow }) {
                 return <Link href='/case-studies'><CaseStudyCard data={item} /></Link>
             case 'four_category_blocks':
                 return <FourCategoryCard data={item} />
+            case 'Recently Viewed':
+                return <RecentlyViewedCard data={item} />
         }
     };
     return (

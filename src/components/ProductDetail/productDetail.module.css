@@ -5,16 +5,41 @@
     display: flex;
     flex-direction: column;
 }
+.pageContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 50px;
+}
 .productBlock{
     display: flex;
     flex-direction: column;
     width: 100%;
     height: auto;
+    gap: 30px;
+}
+@media (min-width:900px){
+    .productBlock{
+        flex-direction: row;
+    }
+}
+@media (min-width:1680px){
+    .productBlock{
+        flex-direction: row;
+        gap: 70px;
+    }
 }
 .imageAndText{
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 28px;
+}
+@media (min-width:900px){
+    .imageAndText{
+    width: 50%;
+    }
 }
 .title{
     font-size: var(--font-size-lg);
@@ -25,12 +50,167 @@
     gap: 20px;
 }
 .mainImg{
+    position: relative;
     width: 100%;
     height: auto;
+}
+.magnifier{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    bottom: 16px;
+    left: 16px;
+}
+@media (min-width:1280px){
+    .magnifier{
+    width: 24px;
+    height: 22px;
+}
+}
+@media (min-width:1680px){
+    .magnifier{
+    width: 32px;
+    height: 30px;
+}
 }
 .sliderSection{
     width: 100%;
     max-width: 100%;
     height: auto;
     display: flex;
+}
+.ctaSection{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 24px;
+}
+.inputAndCta{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.btnStyle2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+.descCont{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+@media (min-width:900px){
+    .descCont{
+    width: 50%;
+    justify-content: space-evenly;
+    }
+}
+.inputBlock{
+    display: flex;
+    flex-direction: column;
+}
+.quantity{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 0.5px;
+}
+.productInfoCont{
+    width: 100%;
+    height: auto;
+}
+@media (min-width:900px){
+    .productInfoCont{
+        display: flex;
+    }
+}
+.infoLinks{
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+.selectedLink{
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+/* .infoDwebCont{
+    transform: skew(-20deg, 0);
+    display: flex;
+} */
+.infoLinksDweb{
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+    transform: skew(-20deg, 0);
+    cursor: pointer;
+}
+.infoText{
+transform: skew(20deg,0);
+text-align: center;
+font-size: var(--font-size-xs-ext);
+}
+.selectedLinkDweb{
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-primary);
+    font-size: var(--font-size-xs-ext);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    transform: skew(-20deg, 0);
+    cursor: pointer;
+}
+.infoDwebCont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+}
+.infoMwebCont{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.dataBlock{
+    width: 100%;
+    height: auto;
+    background-color: var(--color-mwebSearch);
+    padding: 24px 16px
+}
+@media (min-width:900px){
+    .dataBlock{
+        padding: 52px 48px ;
+    }
+}
+.dwebHeadingCont{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
 }
