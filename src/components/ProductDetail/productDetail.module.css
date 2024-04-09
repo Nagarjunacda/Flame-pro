@@ -206,6 +206,11 @@ font-size: var(--font-size-xs-ext);
 }
 @media (min-width:900px){
     .dataBlock{
+        padding: 38px 32px ;
+    }
+}
+@media (min-width:1280px){
+    .dataBlock{
         padding: 52px 48px ;
     }
 }

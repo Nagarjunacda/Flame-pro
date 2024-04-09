@@ -2,6 +2,7 @@ import { useState } from 'react';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
 import ConformsToBlock from '../ConformsToBlock';
 import styles from '../productDetail.module.css';
+import OuterLayerBlock from '../OuterLayerBlock';
 
 
 function ProductInfoMweb({ data, productInfo }) {
@@ -21,6 +22,8 @@ function ProductInfoMweb({ data, productInfo }) {
                 return <AdditionalInfoBlock productInfo={productInfo} />
             case 'Conforms To':
                 return <ConformsToBlock productInfo={productInfo} />
+            case 'Outer Layers':
+                return <OuterLayerBlock productInfo={productInfo} />
             default:
                 return ''
         }

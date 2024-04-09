@@ -1,0 +1,32 @@
+.outerLayerTable {
+    margin-top: 20px;
+}
+
+.tableContainer {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.outerLayerTable table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 0; /* Remove borders from the table */
+}
+
+.outerLayerTable th,
+.outerLayerTable td {
+    padding: 8px;
+    text-align: left;
+    border: 0; /* Remove borders from table cells */
+}
+
+.outerLayerTable th {
+    background-color: black;
+    color: white;
+}
+.outerLayerTable td:first-child { /* Add a bottom border to the first column */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+.brownRow {
+    background-color: var(--color-product-back);
+}
