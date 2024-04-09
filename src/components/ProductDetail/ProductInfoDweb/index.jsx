@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import styles from '../productDetail.module.css';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
+import ConformsToBlock from '../ConformsToBlock';
+import styles from '../productDetail.module.css';
 
 function ProductInfoDweb({ data, productInfo }) {
     const [selectedLink, setSelectedLink] = useState('Additional Information')
@@ -13,6 +14,8 @@ function ProductInfoDweb({ data, productInfo }) {
         switch (selectedLink) {
             case 'Additional Information':
                 return <AdditionalInfoBlock productInfo={productInfo} />
+            case 'Conforms To':
+                return <ConformsToBlock productInfo={productInfo} />
             default:
                 return ''
         }

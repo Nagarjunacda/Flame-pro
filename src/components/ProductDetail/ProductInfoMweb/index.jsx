@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
+import ConformsToBlock from '../ConformsToBlock';
 import styles from '../productDetail.module.css';
+
 
 function ProductInfoMweb({ data, productInfo }) {
     const [selectedLink, setSelectedLink] = useState('Additional Information')
@@ -17,6 +19,8 @@ function ProductInfoMweb({ data, productInfo }) {
         switch (infoLink) {
             case 'Additional Information':
                 return <AdditionalInfoBlock productInfo={productInfo} />
+            case 'Conforms To':
+                return <ConformsToBlock productInfo={productInfo} />
             default:
                 return ''
         }
