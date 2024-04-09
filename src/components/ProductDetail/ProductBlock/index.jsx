@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import FlameImage from '@/reusbleComponents/FlameImage'
-import DetailSliderComp from '@/reusbleComponents/DetailSliderComp'
-import EditableDiv from '@/components/EditableDiv'
-import { renderHTML } from '@/utils/htmlString'
-import { useMediaQuery } from 'react-responsive'
-import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo'
-import FlameBtn from '@/reusbleComponents/FlameBtn'
-import styles from '../productDetail.module.css'
+import { useState } from 'react';
+import FlameImage from '@/reusbleComponents/FlameImage';
+import DetailSliderComp from '@/reusbleComponents/DetailSliderComp';
+import EditableDiv from '@/components/EditableDiv';
+import { renderHTML } from '@/utils/htmlString';
+import { useMediaQuery } from 'react-responsive';
+import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
+import FlameBtn from '@/reusbleComponents/FlameBtn';
+import ProductInfoMweb from '../ProductInfoMweb';
+import ProductInfoDweb from '../ProductInfoDweb';
+import styles from '../productDetail.module.css';
 
 function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
@@ -20,6 +22,8 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
     const btnText = 'Add To Quote Basket';
+
+    const infoArr = ['Additional Information', 'Jackets', 'Trousers', 'Outer Layers', 'Moisture Barrier', 'Thermal Lining', 'Wear Fit Guide', 'Conforms To']
 
     const handleSpeakToUs = () => { }
 
@@ -66,6 +70,9 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
                     </section>
                 </section>
             </section>
+        </section>
+        <section className={styles.productInfoCont}>
+            {isDesktop ? <ProductInfoDweb data={infoArr} /> : <ProductInfoMweb data={infoArr} />}
         </section>
     </section>
 }
