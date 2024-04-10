@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
+import { renderHTML } from "@/utils/htmlString";
 const TestimonialCard = ({ data }) => {
   return (
     <section>
@@ -10,9 +11,15 @@ const TestimonialCard = ({ data }) => {
         <Row className={Style.testimonalRow}>
           <Col xs={12} lg={10}>
             <div className={Style.testimonalData}>
-              <h2 className={Style.testimonialTitle}>{data?.post_title}</h2>
-              <p className={Style.testimonialDesc}>{data?.post_content}</p>
-              <h4 className={Style.testimonialAuthor}>- Name, Company Name</h4>
+              <h2 className={Style.testimonialTitle}>
+                {data?.title?.rendered}
+              </h2>
+              <p className={Style.testimonialDesc}>
+                {renderHTML(data?.content?.rendered)}
+              </p>
+              <h4 className={Style.testimonialAuthor}>
+                - {data?.name_and_company_title}
+              </h4>
             </div>
           </Col>
           <Col
@@ -22,7 +29,7 @@ const TestimonialCard = ({ data }) => {
           >
             <figure className={Style.testimonalImage}>
               <FlameImage
-                src={"/Images/testimonalImage.svg"}
+                src={data?.featured_image_url}
                 alt={"Testimonal Image"}
               />
             </figure>

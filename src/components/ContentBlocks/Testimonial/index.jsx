@@ -1,14 +1,14 @@
 import Style from "./testimonial.module.css";
 import SliderComp from "@/reusbleComponents/SliderComp";
 
-function Testimonial({ trayData }) {
+function Testimonial({ trayData, testimonialExt }) {
   const testimonialData = trayData?.testimonial_slider;
   return (
     <section className={Style.testimonalMain}>
       <div className={Style.sliderBlock}>
         <div className={Style.unSkew}>
           <SliderComp
-            data={testimonialData}
+            data={testimonialExt}
             title={"testimonial"}
             slidesToShow={1}
           />
