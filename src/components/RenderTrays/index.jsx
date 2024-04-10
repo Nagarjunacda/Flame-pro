@@ -37,7 +37,7 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
       case "newsletter_sign_up":
         return <NewsLetterSignUp trayData={tray} />;
       case "case_studies_block":
-        return <CaseStudyBlock trayData={tray} />;
+        return <CaseStudyBlock trayData={tray} caseStudyExt={caseStudyExt} />;
       case "header_banner_slim":
         return <HeaderBannerSlim trayData={tray} />;
       case "image_right_text_left":

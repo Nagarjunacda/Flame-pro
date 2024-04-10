@@ -4,7 +4,7 @@ import CaseStudyDweb from "./CaseStudyDweb";
 import styles from "./caseStudyBlock.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
-function CaseStudyBlock({ trayData }) {
+function CaseStudyBlock({ trayData, caseStudyExt }) {
   const { title, button_title } = trayData;
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   // const resourceData = trayData?.blog_select;
@@ -201,7 +201,7 @@ function CaseStudyBlock({ trayData }) {
           </section>
         </section>
       ) : (
-        <CaseStudyDweb data={resourceData?.blog_select} />
+        <CaseStudyDweb data={caseStudyExt} />
       )}
     </>
   );
