@@ -5,7 +5,6 @@ import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import { renderHTML } from "@/utils/htmlString";
 const TestimonialCard = ({ data }) => {
-  console.log(data, "test!!!");
   return (
     <section>
       <Container>

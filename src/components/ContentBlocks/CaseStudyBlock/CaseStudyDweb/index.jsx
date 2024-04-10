@@ -6,8 +6,12 @@ import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "../caseStudyBlock.module.css";
 
 function CaseStudyDweb({ data }) {
+  console.log(data, '!!')
   const [selectedCategory, setSelectedCategory] = useState(data[0]);
   const imgSrc = "/Images/rightRedArrow.svg";
+  const selectedArr = selectedCategory?.wordpress_category_taxonomy?.child;
+  const selectedName = selectedArr ? selectedArr[0] : ''
+
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -27,6 +31,8 @@ function CaseStudyDweb({ data }) {
         </section>
         <section className={styles.categories}>
           {data.map((category, index) => {
+            const categoryArr = category?.wordpress_category_taxonomy?.child;
+            const catName = categoryArr ? categoryArr[0] : '';
             return (
               <section key={index} className={styles.categoryItem}>
                 <p
@@ -35,14 +41,14 @@ function CaseStudyDweb({ data }) {
                     handleCategoryClick(category);
                   }}
                   className={
-                    category?.name === selectedCategory?.name
+                    catName === selectedName
                       ? styles.active
                       : styles.caseStudyItem
                   }
                 >
-                  {category?.name}
+                  {catName}
                 </p>
-                {category?.name === selectedCategory?.name && (
+                {catName === selectedName && (
                   <section className={styles.rightArrow}>
                     {" "}
                     <FlameImage src={imgSrc} alt="rightArr" />
