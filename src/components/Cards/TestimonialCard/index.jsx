@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 const TestimonialCard = ({ data }) => {
+  console.log(data, "test!!!");
   return (
     <section>
       <Container>
@@ -23,7 +24,7 @@ const TestimonialCard = ({ data }) => {
             <figure className={Style.testimonalImage}>
               <FlameImage
                 src={"/Images/testimonalImage.svg"}
-                alt={"testimage"}
+                alt={"Testimonal Image"}
               />
             </figure>
           </Col>
