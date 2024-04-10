@@ -28,9 +28,9 @@ function HeaderBannerSlim({ trayData }) {
                 <h1 className={styles.heading}>{title}</h1>
                 {isDesktop && <p className={styles.text}>{renderHTML(text)}</p>}
             </section>
-            <section className={styles.btnSection}>
+            {buttonText && <section className={styles.btnSection}>
                 <FlameBtn color={buttonColor} textColor={textColor} text={buttonText} isLoadState={false} btnFunction={handleButtonClick} />
-            </section>
+            </section>}
         </section>
         <section className={styles.overlay}></section>
     </section>

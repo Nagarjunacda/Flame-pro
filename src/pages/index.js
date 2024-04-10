@@ -10,6 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home(props) {
   const { data } = props;
   const trayData = data?.acf?.content_blocks;
+  const additionalDataExt = data?.acf_fields;
+
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
 
   return (
@@ -22,7 +24,7 @@ export default function Home(props) {
       </Head>
       <main>
         {trayData ? (
-          <RenderTrays trayData={trayData} />
+          <RenderTrays trayData={trayData} additionalDataExt={additionalDataExt} />
         ) : (
           <p>This Page Under Development</p>
         )}

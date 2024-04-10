@@ -1,4 +1,4 @@
-import FireFighting from "@/components/FireFighting"
+import FireFighting from "@/components/FireFighting";
 import { fireFightingUrl } from "@/utils/urls";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 

@@ -16,7 +16,7 @@ import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 
-function RenderTrays({ trayData, categories = {} }) {
+function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
       case "header_banner_with_cta":
