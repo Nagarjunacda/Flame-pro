@@ -19,6 +19,7 @@ import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
+  const testimonialExt = additionalDataExt?.testimonial_slider_ext;
 
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
@@ -31,9 +32,11 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
       case "two_ad_blocks":
         return <TwoAddBlockNew trayData={tray} />;
       case "resource_hub":
-        return <ResourceHubBlock trayData={tray} resourceHubExt={resourceHubExt} />;
+        return (
+          <ResourceHubBlock trayData={tray} resourceHubExt={resourceHubExt} />
+        );
       case "testimonial_slider_block":
-        return <Testimonial trayData={tray} />;
+        return <Testimonial trayData={tray} testimonialExt={testimonialExt} />;
       case "newsletter_sign_up":
         return <NewsLetterSignUp trayData={tray} />;
       case "case_studies_block":
