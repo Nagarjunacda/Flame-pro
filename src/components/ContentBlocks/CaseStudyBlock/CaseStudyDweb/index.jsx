@@ -6,7 +6,7 @@ import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "../caseStudyBlock.module.css";
 
 function CaseStudyDweb({ data }) {
-  const [selectedCategory, setSelectedCategory] = useState(data[0]);
+  const [selectedCategory, setSelectedCategory] = useState(data[0] || []);
   const imgSrc = "/Images/rightRedArrow.svg";
   const selectedArr = selectedCategory?.wordpress_category_taxonomy?.child;
   const selectedName = selectedArr ? selectedArr[0] : ''

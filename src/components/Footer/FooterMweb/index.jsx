@@ -13,9 +13,9 @@ function FooterMweb({ footerData }) {
     const [accor, setAccor] = useState(false)
     const plusIcon = '/Images/plusIcon.svg'
     const formHeading = 'Sign Up To Our Mailing'
-    const data1 = footerData?.items.map((e) => {
+    const data1 = footerData ? footerData?.items?.map((e) => {
         return e?.title
-    })
+    }) : []
 
     const handleLabelClick = (label, link) => {
         if (link === 'Contact') {
@@ -29,11 +29,11 @@ function FooterMweb({ footerData }) {
     }
 
     const usefulLinksArr = footerData?.items?.filter(e => e?.title === 'Useful Links');
-    const usefulLinks = usefulLinksArr[0]?.child_items.map(e => e?.title);
+    const usefulLinks = usefulLinksArr && usefulLinksArr[0]?.child_items.map(e => e?.title);
     const legalArr = footerData?.items?.filter(e => e?.title === 'Legal');
-    const Legal = legalArr[0]?.child_items.map(e => e?.title);
+    const Legal = legalArr && legalArr[0]?.child_items.map(e => e?.title);
     const contactArr = footerData?.items?.filter(e => e?.title === 'Contact');
-    const contact = contactArr[0]?.child_items.map(e => e?.title);
+    const contact = contactArr && contactArr[0]?.child_items.map(e => e?.title);
 
     // const usefulLinks = [
     //     'Distributors',
@@ -81,7 +81,7 @@ function FooterMweb({ footerData }) {
             <FlameImage src={footerLogo} alt='logo' />
         </section>
         <section className={styles.linksCont}>
-            {data1.map((link, index) => {
+            {data1 && data1.map((link, index) => {
                 return (
                     <section key={index} className={styles.linksInnerCont}>
                         <section
