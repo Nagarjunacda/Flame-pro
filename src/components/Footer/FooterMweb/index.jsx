@@ -5,7 +5,7 @@ import CopyRightText from '../CopyRightText';
 import SignUpForm from '@/components/SignUpForm';
 import styles from '../footer.module.css';
 
-function FooterMweb() {
+function FooterMweb({ footerData }) {
     const router = useRouter()
     const footerLogo = '/Images/footerLogo.svg';
     const [clickedLink, setClickedLink] = useState('')
@@ -13,7 +13,9 @@ function FooterMweb() {
     const [accor, setAccor] = useState(false)
     const plusIcon = '/Images/plusIcon.svg'
     const formHeading = 'Sign Up To Our Mailing'
-    const data1 = ['Useful Links', 'Legal', 'Contact']
+    const data1 = footerData?.items.map((e) => {
+        return e?.title
+    })
 
     const handleLabelClick = (label, link) => {
         if (link === 'Contact') {
@@ -26,21 +28,28 @@ function FooterMweb() {
         router.push('/terms-conditions')
     }
 
-    const usefulLinks = [
-        'Distributors',
-        'About Flame Pro',
-        'FAQs',
-    ]
-    const Legal = [
-        'Terms & Conditions',
-        'Privacy Policy',
-        'Cookies',
-    ]
-    const contact = [
-        'FlamePro Global Ltd Unit 2, Dianthus Business Park, Common Lane, Newport,Brough, East Yorkshire,HU15 2FT',
-        'info@flame-pro.com',
-        '+44 (0)1332 325783'
-    ]
+    const usefulLinksArr = footerData?.items?.filter(e => e?.title === 'Useful Links');
+    const usefulLinks = usefulLinksArr[0]?.child_items.map(e => e?.title);
+    const legalArr = footerData?.items?.filter(e => e?.title === 'Legal');
+    const Legal = legalArr[0]?.child_items.map(e => e?.title);
+    const contactArr = footerData?.items?.filter(e => e?.title === 'Contact');
+    const contact = contactArr[0]?.child_items.map(e => e?.title);
+
+    // const usefulLinks = [
+    //     'Distributors',
+    //     'About Flame Pro',
+    //     'FAQs',
+    // ]
+    // const Legal = [
+    //     'Terms & Conditions',
+    //     'Privacy Policy',
+    //     'Cookies',
+    // ]
+    // const contact = [
+    //     'FlamePro Global Ltd Unit 2, Dianthus Business Park, Common Lane, Newport,Brough, East Yorkshire,HU15 2FT',
+    //     'info@flame-pro.com',
+    //     '+44 (0)1332 325783'
+    // ]
     const formData = [{ section1: 'Full Name*' }, { section1: 'Email Address*' }, { section1: 'Area Of Interest*' }]
 
     const handleAcor = (link) => {
