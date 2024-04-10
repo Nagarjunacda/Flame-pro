@@ -4,9 +4,12 @@ import { formatDate } from "@/utils/formatDate";
 import styles from "./TitleAndTextCard.module.css";
 
 function TitleAndTextCard({ data }) {
-  const { post_title, post_content, post_date } = data;
-  const cardImage = "/Images/blogImg.svg";
-  const formattedDate = formatDate(post_date);
+  const { title, content, date, featured_image_url, post_type_cat } = data;
+  const cardImage = featured_image_url ? featured_image_url : "/Images/blogImg.svg";
+  const postTitle = title?.rendered;
+  const postContent = content?.rendered;
+  const postType = post_type_cat ? post_type_cat[0]?.name : 'Fire'
+  const formattedDate = formatDate(date);
 
   return (
     <Card className={styles.cardCont}>
@@ -16,12 +19,12 @@ function TitleAndTextCard({ data }) {
           <p>{formattedDate}</p>
         </Card.Title>
         <Card.Title className={styles.title}>
-          <h5>{post_title}</h5>
+          <h5>{postTitle}</h5>
         </Card.Title>
         <Card.Text className={styles.text}>
-          <p> {renderHTML(post_content)}</p>
+          <p> {renderHTML(postContent)}</p>
         </Card.Text>
-        <section className={styles.colorBar}></section>
+        <section className={postType === 'Defence' ? styles.colorBarDefence : styles.colorBarFire}></section>
       </Card.Body>
     </Card>
   );
