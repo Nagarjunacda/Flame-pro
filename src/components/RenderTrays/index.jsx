@@ -17,6 +17,9 @@ import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 
 function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
+  const caseStudyExt = additionalDataExt?.casestudy_ext;
+  const resourceHubExt = additionalDataExt?.resources_hub_ext;
+
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
       case "header_banner_with_cta":
@@ -28,7 +31,7 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
       case "two_ad_blocks":
         return <TwoAddBlockNew trayData={tray} />;
       case "resource_hub":
-        return <ResourceHubBlock trayData={tray} />;
+        return <ResourceHubBlock trayData={tray} resourceHubExt={resourceHubExt} />;
       case "testimonial_slider_block":
         return <Testimonial trayData={tray} />;
       case "newsletter_sign_up":

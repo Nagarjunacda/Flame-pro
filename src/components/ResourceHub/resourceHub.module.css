@@ -21,9 +21,3 @@
       grid-gap: 20px;
     }
   }
-  @media (min-width: 1280px) {
-    .products {
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 24px;
-    }
-  }
