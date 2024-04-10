@@ -1,0 +1,29 @@
+.mainCont{
+  padding: var(--padding-18) var(--padding-xs-36);
+}
+.products {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: auto; /* Auto-sized rows */
+    grid-template-columns: repeat(1, 1fr); /* Five columns with equal width */
+    grid-gap: 20px;
+  }
+  @media (min-width: 600px) {
+    .products {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+  }
+  @media (min-width: 900px) {
+    .products {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .products {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 24px;
+    }
+  }
