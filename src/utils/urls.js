@@ -22,3 +22,4 @@ export const policiesUrl = `${baseUrl}/wp/v2/pages/4190`;
 export const removeFromCartUrl = `${baseUrl}/wc/store/v1/cart/remove-item`;
 export const blogPostsUrl = `${baseUrl}/wp/v2/posts`;
 export const resourceHubPageUrl = `${baseUrl}/wp/v2/pages/90`;
+export const faqPageUrl = `${baseUrl}/wp/v2/pages/114`;
