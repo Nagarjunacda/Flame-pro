@@ -1,3 +1,4 @@
+import { renderHTML } from '@/utils/htmlString';
 import styles from './outerLayerBlock.module.css';
 
 function OuterLayerBlock({ productInfo }) {
@@ -25,7 +26,7 @@ function OuterLayerBlock({ productInfo }) {
                                 <td>{item.outer_shell_tensile__tear_strength}</td>
                                 <td>{item.radiant_heat_transfer_performance}</td>
                                 <td>{item.breathability_performance}</td>
-                                <td>{item.lead_times}</td>
+                                <td>{renderHTML(item.lead_times)}</td>
                                 <td>{item.notes}</td>
                             </tr>
                         ))}

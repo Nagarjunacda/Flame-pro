@@ -2,10 +2,11 @@ import { useState } from 'react';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
 import ConformsToBlock from '../ConformsToBlock';
 import OuterLayerBlock from '../OuterLayerBlock';
+import CommonInfoBlock from '../CommonInfoBlock';
 import styles from '../productDetail.module.css';
 
 function ProductInfoDweb({ data, productInfo }) {
-    const [selectedLink, setSelectedLink] = useState('Additional Information')
+    const [selectedLink, setSelectedLink] = useState('Additional Information');
 
     const handleSelectedLink = (link) => {
         setSelectedLink(link)
@@ -20,7 +21,7 @@ function ProductInfoDweb({ data, productInfo }) {
             case 'Outer Layers':
                 return <OuterLayerBlock productInfo={productInfo} />
             default:
-                return ''
+                return <CommonInfoBlock productInfo={productInfo} selectedLink={selectedLink} />
         }
     }
 
