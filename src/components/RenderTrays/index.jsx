@@ -15,6 +15,7 @@ import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
+import FaqItem from "../FaqItem";
 
 function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
@@ -57,6 +58,8 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
         return <BasketItems trayData={tray} />;
       case "policies_select":
         return <PoliciesBlock trayData={tray} />;
+      case "faq_block":
+        return <FaqItem trayData={tray} />;
       default:
         return null;
     }

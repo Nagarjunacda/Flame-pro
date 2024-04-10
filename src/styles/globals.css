@@ -40,7 +40,7 @@
   --color-footerBackground: #0d0201;
   --color-slickDot: #c1bebf;
   --color-altTextColor: #1c0401;
-  --color-product-back:#cfcece;
+  --color-product-back: #cfcece;
 
   --font-size-crumbs: 14px;
   --font-size-xs: 14px;
@@ -160,7 +160,7 @@
     --font-size-cardTitle: 19px;
     --font-size-lg: 40px;
     --font-size-xl: 80px;
-    --font-size-16-30:30px;
+    --font-size-16-30: 30px;
     --font-size-18-40: 40px;
     --font-size-canvas: 25px;
     --font-size-xs-ext: 18px;
@@ -220,4 +220,52 @@ h6 {
 }
 p {
   font-family: "CustomFont-Regular", sans-serif;
+}
+.accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  background-color: transparent;
+  box-shadow: none;
+  font-size: var(--font-size-md);
+}
+.accordion-button:focus {
+  z-index: 3;
+  outline: 0;
+  box-shadow: none;
+}
+.accordion-button {
+  font-size: var(--font-size-md);
+}
+
+.accordion-body {
+  border-bottom: none !important;
+}
+.accordion-button::after {
+  flex-shrink: 0;
+  width: var(--bs-accordion-btn-icon-width);
+  height: var(--bs-accordion-btn-icon-width);
+  margin-left: auto;
+  content: "";
+  background-image: url("../../public/Images/arrowbottom.svg");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  transition: var(--bs-accordion-btn-icon-transition);
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url("../../public/Images/arrowbottom.svg");
+  transform: var(--bs-accordion-btn-icon-transform);
+}
+.accordion-item {
+  border-top: 2px solid #8787872f !important;
+  border-bottom: 0px solid #8787872f !important;
+  padding: 20px 0px;
+}
+.accordion-item:last-child {
+  border-top: 2px solid #8787872f !important;
+  border-bottom: 2px solid #8787872f !important;
+}
+.accordion-button {
+  padding: 16px 0px;
+}
+.accordion-body {
+  padding: 16px 0px;
 }
