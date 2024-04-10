@@ -5,10 +5,11 @@ import CopyRightText from "../CopyRightText";
 import styles from "../footer.module.css";
 import Link from "next/link";
 
-function FooterDweb() {
+function FooterDweb({ footerData }) {
   const router = useRouter();
   const flameImg = "/Images/flameLogo.svg";
   const formHeading = "Sign Up To Our Mailing";
+  const footerLinks = footerData?.items ? footerData?.items : [];
   const data1 = ["Useful Links", "Legal", "Contact"];
 
   const handleLabelClick = (label) => {
@@ -37,37 +38,36 @@ function FooterDweb() {
           <FlameImage src={flameImg} alt="logo" />
         </Link>
         <section className={styles.linkListCont}>
-          {data1.map((link, index) => {
+          {footerLinks.map((link, index) => {
             return (
               <section key={index} className={styles.navLinks}>
-                <h5>{link}</h5>
+                <h5>{link?.title}</h5>
 
-                {link === "Useful Links" && (
-                  <section className={styles.navLinks}>
-                    {usefulLinks.map((e, index) => {
-                      return (
-                        <section
-                          onClick={() => {
-                            handleLabelClick(e);
-                          }}
-                          className={styles.innerLinks}
-                          key={index}
-                        >
-                          {e}
-                        </section>
-                      );
-                    })}
-                    <div className={styles.socialItems}>
-                      <figure className={styles.socialItem}>
-                        <FlameImage src={"/Images/linkedin.svg"} />
-                      </figure>
-                      <figure className={styles.socialItem}>
-                        <FlameImage src={"/Images/twitter.svg"} />
-                      </figure>
-                    </div>
-                  </section>
-                )}
-                {link === "Legal" &&
+
+                <section className={styles.navLinks}>
+                  {link?.child_items.map((e, index) => {
+                    return (
+                      <section
+                        onClick={() => {
+                          handleLabelClick(e);
+                        }}
+                        className={styles.innerLinks}
+                        key={index}
+                      >
+                        {e?.title}
+                      </section>
+                    );
+                  })}
+                  {link?.title === 'Useful Links' && <div className={styles.socialItems}>
+                    <figure className={styles.socialItem}>
+                      <FlameImage src={"/Images/linkedin.svg"} />
+                    </figure>
+                    <figure className={styles.socialItem}>
+                      <FlameImage src={"/Images/twitter.svg"} />
+                    </figure>
+                  </div>}
+                </section>
+                {/* {link === "Legal" &&
                   Legal.map((e, index) => {
                     return (
                       <section
@@ -80,15 +80,15 @@ function FooterDweb() {
                         {e}
                       </section>
                     );
-                  })}
-                {link === "Contact" &&
+                  })} */}
+                {/* {link === "Contact" &&
                   contact.map((e, index) => {
                     return (
                       <section className={styles.address} key={index}>
                         {e}
                       </section>
                     );
-                  })}
+                  })} */}
               </section>
             );
           })}

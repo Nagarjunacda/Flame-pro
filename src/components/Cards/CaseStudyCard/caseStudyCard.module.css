@@ -46,10 +46,15 @@
     font-size: var(--font-size-xs-ext);
     font-weight: var(--font-wt-xlight);
 }
-.colorBar{
+.colorBarFire{
     width: 100%;
     height: 8px;
     background-color: var(--color-fire);
+}
+.colorBarDefence{
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-defence);
 }
 .linkText{
     border-bottom: solid 1px;

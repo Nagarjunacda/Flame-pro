@@ -12,7 +12,6 @@ import RecentlyViewedCard from "@/components/Cards/RecentlyViewedCard";
 import styles from "../../styles/slider.module.css";
 
 function SliderComp({ data, title, slidesToShow }) {
-  console.log(data, "data!!");
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
@@ -29,9 +28,8 @@ function SliderComp({ data, title, slidesToShow }) {
     arrows: false,
     customPaging: (i) => (
       <span
-        className={`${styles["custom-dot"]} ${
-          i === currentSlide ? styles.active : ""
-        }`}
+        className={`${styles["custom-dot"]} ${i === currentSlide ? styles.active : ""
+          }`}
         onClick={() => sliderRef.current.slickGoTo(i)}
       ></span>
     ),

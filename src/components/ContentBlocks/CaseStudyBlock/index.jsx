@@ -197,7 +197,7 @@ function CaseStudyBlock({ trayData, caseStudyExt }) {
             />
           </section>
           <section className={styles.slider}>
-            <SliderComp data={resourceData?.blog_select} title={title} />
+            <SliderComp data={caseStudyExt} title={title} />
           </section>
         </section>
       ) : (
