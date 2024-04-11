@@ -10,7 +10,7 @@ import ProductInfoMweb from '../ProductInfoMweb';
 import ProductInfoDweb from '../ProductInfoDweb';
 import styles from '../productDetail.module.css';
 
-function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
+function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoading }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const productName = productData?.name;
     const trayTitle = 'productDetail';
@@ -60,7 +60,7 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity }) {
                             <FlameBtn color={btnColor}
                                 text={btnText}
                                 textColor={textColor}
-                                isLoadState={false}
+                                isLoadState={isLoading}
                                 btnFunction={handleAddCart} />
                         </section>
                         <section className={styles.btnStyle2}>

@@ -145,6 +145,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
         };
         const customHeaders = { Nonce: nonceVal };
         const url = checkoutUrl
+        setIsLoadState(true)
         const res = await handlePostRequests(url, userDetailData, customHeaders);
         if (res?.data) {
             const refNum = res?.data?.order_number

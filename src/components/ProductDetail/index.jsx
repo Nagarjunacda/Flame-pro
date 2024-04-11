@@ -13,6 +13,7 @@ function ProductDetail({ productData }) {
   const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
   const [productQuantity, setProductQuantity] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
   const nonceVal = useContext(NonceContext);
   const productId = productData?.id;
 
@@ -21,11 +22,13 @@ function ProductDetail({ productData }) {
       id: productId,
       quantity: productQuantity
     };
+    setIsLoading(true)
     const customHeaders = { Nonce: nonceVal };
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);
     if (res?.data) {
       setTriggerUpdate(true);
       setShowPopup(true);
+      setIsLoading(false)
     }
   };
 
@@ -36,7 +39,7 @@ function ProductDetail({ productData }) {
   return (
     <main className={styles.mainCont}>
       <Breadcrumbs />
-      <ProductBlock productData={productData} handleAddCart={handleAddCart} getProductQuantity={getProductQuantity} />
+      <ProductBlock productData={productData} handleAddCart={handleAddCart} isLoading={isLoading} getProductQuantity={getProductQuantity} />
       {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
