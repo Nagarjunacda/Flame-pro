@@ -122,11 +122,11 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     }
     setIsLoadState(true);
     const selOption =
-      areaOfInt === "Fire Fighting Ppe"
+      areaOfInt === "Fire Fighting PPE"
         ? "Fire"
         : areaOfInt === "Defence Procurement"
-        ? "Defence"
-        : null;
+          ? "Defence"
+          : null;
     const data = {
       input_5_3: formData["Full Name*"],
       input_7: formData["Email Address*"],

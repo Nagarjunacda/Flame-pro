@@ -15,12 +15,19 @@ const Breadcrumbs = ({ isPadding }) => {
   );
   const isShopAllOnly =
     pathArray.length === 1 && pathArray.includes("shop-all");
+  const isResourceHubOnly =
+    pathArray.length === 1 && pathArray.includes("resource-hub");
   const shopAllRoute = isShopAllOnly
+    ? uppercasedArray
+    : uppercasedArray.slice(0, -1);
+  const resourceHubRoute = isResourceHubOnly
     ? uppercasedArray
     : uppercasedArray.slice(0, -1);
   const routeArr = pathArray.includes("shop-all")
     ? shopAllRoute
-    : uppercasedArray;
+    : pathArray.includes("resource-hub")
+      ? resourceHubRoute
+      : uppercasedArray;
 
   // Render the breadcrumbs
   return (

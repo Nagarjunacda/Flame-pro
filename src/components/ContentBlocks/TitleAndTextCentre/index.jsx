@@ -7,7 +7,7 @@ import styles from "./title-text-center.module.css";
 const TitleAndTextCentre = ({ trayData }) => {
   const buttonTwoTitle = trayData?.button2_title
   const buttonTwoColor = "var( --color-primary)"
-  const route = trayData?.button_title === 'Shop All' ? '/shop-all' : trayData?.button_title === 'About FlamePro' ? '/aboutUs' : null
+  const route = trayData?.button_title === 'Shop All' ? '/shop-all' : trayData?.button_title === 'About FlamePro' ? '/about' : null
 
   function btnFunction() { }
 

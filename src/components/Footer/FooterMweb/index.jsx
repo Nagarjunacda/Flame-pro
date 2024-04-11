@@ -22,7 +22,7 @@ function FooterMweb({ footerData }) {
             return
         }
         if (label === 'About Flame Pro') {
-            router.push('/aboutUs')
+            router.push('/about')
             return
         }
         router.push('/terms-conditions')

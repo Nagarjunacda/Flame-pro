@@ -47,7 +47,7 @@ function OffCanvas({ show, handleClose, headerData }) {
     const handleItemClick = (item) => {
         setSelectedNavItem(item)
         if (item?.title === 'About') {
-            router.push('/aboutUs')
+            router.push('/about')
             handleClose()
             return
         }

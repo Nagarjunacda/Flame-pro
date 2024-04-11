@@ -131,17 +131,17 @@
     --padding-xs-36-testimonal: 250px;
     --padding-xs-50: 65px;
 
-    --font-size-crumbs: 14px;
+    /* --font-size-crumbs: 14px;
     --font-size-xs: 16px;
     --font-size-sm: 18px;
     --font-size-md: 25px;
     --font-size-cardTitle: 19px;
     --font-size-16-30: 24px;
-    --font-size-lg: 40px;
-    --font-size-xl: 80px;
-    --font-size-18-40: 40px;
+    --font-size-lg: 40px; */
+    --font-size-xl: 52px;
+    /* --font-size-18-40: 40px;
     --font-size-canvas: 25px;
-    --font-size-xs-ext: 18px;
+    --font-size-xs-ext: 18px; */
   }
 
   .modal-content {

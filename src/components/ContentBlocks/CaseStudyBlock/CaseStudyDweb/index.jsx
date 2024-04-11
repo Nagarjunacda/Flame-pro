@@ -21,7 +21,7 @@ function CaseStudyDweb({ data }) {
       <section className={styles.headingAndCategory}>
         <section className={styles.heading}>
           <h5 className={styles.title}>Case Studies</h5>
-          <Link href={"/case-studies"}>
+          <Link href={"/resource-hub/the-importance-of-fr-base-layers/3480"}>
             <ButtonStyleTwo
               text={"View All Case Studies"}
               textColor="var( --color-primary)"
@@ -59,7 +59,7 @@ function CaseStudyDweb({ data }) {
         </section>
       </section>
       <section className={styles.cardSection}>
-        <Link href="/case-studies">
+        <Link href="/resource-hub/the-importance-of-fr-base-layers/3480">
           <CaseStudyCard data={selectedCategory} />
         </Link>
         {/* </section>

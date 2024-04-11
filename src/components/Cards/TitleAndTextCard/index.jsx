@@ -11,7 +11,7 @@ function TitleAndTextCard({ data }) {
   const postContent = content?.rendered;
   const postType = post_type_cat ? post_type_cat[0]?.name : 'Fire'
   const formattedDate = formatDate(date);
-  const url = `/${data?.slug}/${data?.id}`
+  const url = `resource-hub/${data?.slug}/${data?.id}`
 
   return (
     <Card className={styles.cardCont}>

@@ -54,7 +54,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
       return;
     }
     if (item?.title === "About") {
-      router.push("/aboutUs");
+      router.push("/about");
       handleOverlayClose();
       return;
     }

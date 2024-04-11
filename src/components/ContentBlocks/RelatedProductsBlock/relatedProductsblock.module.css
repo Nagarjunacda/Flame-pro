@@ -1,0 +1,15 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-18) var(--padding-xs-36);
+    gap: 32px;
+}
+.headingSec{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

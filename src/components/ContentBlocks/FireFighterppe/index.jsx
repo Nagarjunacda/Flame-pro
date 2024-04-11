@@ -53,8 +53,8 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                 heading === "Defence Procurement"
                   ? `/${item?.slug}?category=${item?.object_id}`
                   : heading === "Resource Hub"
-                  ? "/blog-listing"
-                  : "#";
+                    ? "/resource-hub/the-importance-of-fr-base-layers/3480"
+                    : "#";
               return (
                 <section key={index} className={styles.childCont}>
                   <Link
@@ -109,7 +109,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
               return (
                 <Link
                   key={index}
-                  href={"/blog-listing"}
+                  href={"/resource-hub/the-importance-of-fr-base-layers/3480"}
                   onClick={() => {
                     handleOverlayClose("item");
                   }}

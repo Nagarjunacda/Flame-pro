@@ -16,7 +16,7 @@ function HeaderBannerSlim({ trayData }) {
     const title = trayData?.title
 
     const handleButtonClick = () => {
-        router.push('/about')
+        router.push('/contact-us')
     }
 
     return <section className={styles.main}>

@@ -10,14 +10,16 @@ import NewsLetterSignUp from "../ContentBlocks/NewsLetterSignUp";
 import ResourceHubBlock from "../ContentBlocks/ResourceHubBlock";
 import Testimonial from "../ContentBlocks/Testimonial";
 import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
+import PostContent from "../ResourceHub/PostContent";
 import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 import FaqItem from "../FaqItem";
+import RelatedProductsblock from "../ContentBlocks/RelatedProductsBlock";
 
-function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
+function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageData = {} }) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
   const testimonialExt = additionalDataExt?.testimonial_slider_ext;
@@ -60,6 +62,10 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt }) {
         return <PoliciesBlock trayData={tray} />;
       case "faq_block":
         return <FaqItem trayData={tray} />;
+      case "post_description":
+        return <PostContent trayData={tray} fullPageData={fullPageData} />;
+      case "related_products":
+        return <RelatedProductsblock trayData={tray} />;
       default:
         return null;
     }

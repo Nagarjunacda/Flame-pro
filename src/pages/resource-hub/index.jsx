@@ -26,11 +26,7 @@ export async function getServerSideProps(context) {
             },
         };
     }
-
-    // Ensure blogPostsData is an array
     const blogPostsArray = Array.isArray(blogPostsData) ? blogPostsData : [];
-
-    // Merge the data from both APIs
     const data = { ...resourceHubData, blogPosts: blogPostsArray };
 
     return {

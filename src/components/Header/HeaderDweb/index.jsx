@@ -55,7 +55,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
       return;
     }
     if (item?.title === "About") {
-      router.push("/aboutUs");
+      router.push("/about");
       return;
     }
     if (item?.title === "Contact Us") {
