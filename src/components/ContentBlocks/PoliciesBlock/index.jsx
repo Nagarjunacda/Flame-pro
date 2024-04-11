@@ -9,7 +9,7 @@ function PoliciesBlock({ trayData }) {
         <ul className={styles.policesUl}>
           {policies.map((item, index) => {
             return (
-              <li className={styles.policesLists}>
+              <li className={styles.policesLists} key={index}>
                 <h3>{item.post_title}</h3>
                 <ButtonStyleTwo
                   text={"Read More"}

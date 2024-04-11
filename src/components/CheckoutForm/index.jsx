@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
+import FlameImage from '@/reusbleComponents/FlameImage';
 import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
 import styles from './checkoutForm.module.css';

@@ -6,7 +6,7 @@ function FaqItem({ trayData }) {
       <Accordion defaultActiveKey="0" flush>
         {trayData?.faq_select?.map((fqsItems, index) => {
           return (
-            <Accordion.Item eventKey={index}>
+            <Accordion.Item eventKey={index} key={index}>
               <Accordion.Header>
                 <h3>{fqsItems.post_title}</h3>
               </Accordion.Header>

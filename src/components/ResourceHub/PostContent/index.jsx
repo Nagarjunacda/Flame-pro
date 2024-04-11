@@ -35,8 +35,8 @@ function PostContent({ trayData, fullPageData }) {
             <section className={styles.iconShareSec}>
                 <h6>Share This Article</h6>
                 <section className={styles.iconSec}>
-                    {logoArr.map((e) => {
-                        return <section className={styles.imgSec}>
+                    {logoArr.map((e, index) => {
+                        return <section className={styles.imgSec} key={index}>
                             <FlameImage src={e} alt={'logo'} />
                         </section>
                     })}
