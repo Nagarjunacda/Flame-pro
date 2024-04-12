@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import DatePicker from 'react-datepicker';
+// import { BsCalendar } from 'react-icons/bs';
+import 'react-datepicker/dist/react-datepicker.css';
+import DatePickerComp from '@/reusbleComponents/DatePIckerComp';
 import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
-import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import styles from './contactUsPageForm.module.css';
 
 function ContactUsPageForm({ heading, formFields, heading2 }) {
@@ -22,6 +25,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     const [isChecked, setIsChecked] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const [isLoadState, setIsLoadState] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
     const [toastMsg, setToastMsg] = useState("");
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
@@ -330,6 +334,18 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         isLoadState={false}
                         btnFunction={() => { handleTimeSel('Arrange A Time') }} />
                 </section>
+            </section>
+            {/* <DatePickerComp /> */}
+            <section className={styles.datePickerCont}>
+                <DatePicker placeholderText="Please select a date"
+                    selected={selectedDate}
+                    minDate={new Date()}
+                    dateFormat='dd/mm/yyyy'
+                    showYearDropdown
+                    scrollableMonthYearDropdown
+                    className={styles.customDatepicker}
+                    calendarClassName={styles.customCalendar}
+                    onChange={(date) => { setSelectedDate(date) }} />
             </section>
             {/* <section className={styles.submitSec}>
                 <Link href={'/shop-all'} className={styles.btnStyle2}>

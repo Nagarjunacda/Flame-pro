@@ -261,4 +261,21 @@
       justify-content: flex-end;
     }
   }
-  
+  .customDatepicker {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.customDatepicker:focus {
+  /* Custom styles for the date picker input field when focused */
+  outline: none;
+  /* border-bottom: 1px solid #333; */
+}
+.customCalendar{
+  width: 100%;
+}
+.datePickerCont{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
