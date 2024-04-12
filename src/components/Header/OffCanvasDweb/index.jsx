@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FireFighterppe from "@/components/ContentBlocks/FireFighterppe";
 import HeaderDweb from "../HeaderDweb";
 import styles from "../header.module.css";
-import Link from "next/link";
 
 function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
   const router = useRouter();

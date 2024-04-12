@@ -5,6 +5,7 @@ import SearchMweb from "@/components/Header/SearchMweb";
 import BlogCard from "@/components/Cards/BlogCard";
 import { useMediaQuery } from "react-responsive";
 import styles from "./fireFighterppe.module.css";
+import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
@@ -21,25 +22,26 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
 
   return (
     <section className={styles.container}>
-      {!isDesktop && (
-        <section className={styles.heading}>
-          <section
-            className={styles.backButton}
-            onClick={() => handleOverlayClose("back")}
-          >
-            <section className={styles.backIcon}>
-              <FlameImage src={backArrow} alt="back" />
-            </section>
-            <p className={styles.backText}>Back</p>
+      <Search />
+      {/* {!isDesktop && (
+      <section className={styles.heading}>
+        <section
+          className={styles.backButton}
+          onClick={() => handleOverlayClose("back")}
+        >
+          <section className={styles.backIcon}>
+            <FlameImage src={backArrow} alt="back" />
           </section>
-          <p
-            className={
-              isDefencePro ? styles.headingTextMar : styles.headingText
-            }
-          >
-            {heading}
-          </p>
+          <p className={styles.backText}>Back</p>
         </section>
+        <p
+          className={
+            isDefencePro ? styles.headingTextMar : styles.headingText
+          }
+        >
+          {heading}
+        </p>
+      </section>
       )}
       <section className={styles.subContainer}>
         <section
@@ -124,7 +126,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             textColor={"var( --color-primary)"}
           />
         </section>
-      </section>
+      </section> */}
     </section>
   );
 }

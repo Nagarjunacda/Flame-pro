@@ -25,3 +25,4 @@ export const blogPostsUrl = `${baseUrl}/wp/v2/posts`;
 export const resourceHubPageUrl = `${baseUrl}/wp/v2/pages/90`;
 export const faqPageUrl = `${baseUrl}/wp/v2/pages/114`;
 export const contactUsUrl = `${baseUrl}/wp/v2/pages/102`;
+export const searchUrl = `${baseUrl}/wp/v2/search`;

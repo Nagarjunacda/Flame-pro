@@ -51,9 +51,9 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
     if (item?.title === "Cart") {
       return;
     }
-    if (item?.title === "Search") {
-      return;
-    }
+    // if (item?.title === "Search") {
+    //   return;
+    // }
     if (item?.title === "About") {
       router.push("/about");
       return;
