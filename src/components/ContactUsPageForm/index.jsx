@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 // import { BsCalendar } from 'react-icons/bs';
 import 'react-datepicker/dist/react-datepicker.css';
-import DatePickerComp from '@/reusbleComponents/DatePIckerComp';
 import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
@@ -340,9 +339,11 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                 <DatePicker placeholderText="Please select a date"
                     selected={selectedDate}
                     minDate={new Date()}
-                    dateFormat='dd/mm/yyyy'
+                    dateFormat='dd/MM/yyyy'
                     showYearDropdown
+                    calendarIcon='calendar'
                     scrollableMonthYearDropdown
+                    wrapperClassName={styles.fullWidthDatePicker}
                     className={styles.customDatepicker}
                     calendarClassName={styles.customCalendar}
                     onChange={(date) => { setSelectedDate(date) }} />

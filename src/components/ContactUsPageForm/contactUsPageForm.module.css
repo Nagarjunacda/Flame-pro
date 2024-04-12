@@ -14,6 +14,12 @@
        gap: 32px;
       }
 }
+@media (min-width: 1280px) {
+  .mainCont {
+     flex-direction: row;
+     gap: 54px;
+    }
+}
 @media (min-width: 1680px) {
   .mainCont {
      gap: 90px;
@@ -277,5 +283,8 @@
 .datePickerCont{
   display: flex;
   align-items: center;
+  width: 100%;
+}
+.fullWidthDatePicker {
   width: 100%;
 }
