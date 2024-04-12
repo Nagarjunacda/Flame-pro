@@ -117,6 +117,15 @@
     padding: 86px 124px;
   }
 }
+.offCanvasContDwebSearch{
+    padding: 32px 32px;
+    height: 35vh !important;
+}
+@media (min-width: 1680px) {
+  .offCanvasContDwebSearch {
+    padding: 86px 124px;
+  }
+}
 .offCanvasBody {
   display: flex;
   flex-direction: column;

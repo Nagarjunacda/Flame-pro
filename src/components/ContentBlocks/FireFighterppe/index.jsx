@@ -13,6 +13,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
   const childItems = selectedNavItem?.child_items;
   const isFireFighting = selectedNavItem?.title === "Firefighting PPE";
   const isDefencePro = selectedNavItem?.title === "Defence Procurement";
+  const isSearch = selectedNavItem?.title === "Search";
   const backArrow = "/Images/backArrow.svg";
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   const isLargeScreen = useMediaQuery({ query: "(min-width:1280px)" });
@@ -22,28 +23,28 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
 
   return (
     <section className={styles.container}>
-      <Search />
-      {/* {!isDesktop && (
-      <section className={styles.heading}>
-        <section
-          className={styles.backButton}
-          onClick={() => handleOverlayClose("back")}
-        >
-          <section className={styles.backIcon}>
-            <FlameImage src={backArrow} alt="back" />
+      {isSearch && <Search />}
+      {!isDesktop && !isSearch && (
+        <section className={styles.heading}>
+          <section
+            className={styles.backButton}
+            onClick={() => handleOverlayClose("back")}
+          >
+            <section className={styles.backIcon}>
+              <FlameImage src={backArrow} alt="back" />
+            </section>
+            <p className={styles.backText}>Back</p>
           </section>
-          <p className={styles.backText}>Back</p>
+          <p
+            className={
+              isDefencePro ? styles.headingTextMar : styles.headingText
+            }
+          >
+            {heading}
+          </p>
         </section>
-        <p
-          className={
-            isDefencePro ? styles.headingTextMar : styles.headingText
-          }
-        >
-          {heading}
-        </p>
-      </section>
       )}
-      <section className={styles.subContainer}>
+      {!isSearch && <section className={styles.subContainer}>
         <section
           className={
             isFireFighting ? styles.childHeadingPpe : styles.childHeading
@@ -126,7 +127,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             textColor={"var( --color-primary)"}
           />
         </section>
-      </section> */}
+      </section>}
     </section>
   );
 }

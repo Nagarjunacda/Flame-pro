@@ -1,0 +1,38 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.textInput {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-wt-bold);
+    width: 100%;
+    outline: none;
+  }
+  .innerCont{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ctaSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:30px;
+  }
+  .suggestionList{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .suggestionText{
+    font-size: var(--font-size-xs-ext);
+  }

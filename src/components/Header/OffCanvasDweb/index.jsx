@@ -49,10 +49,10 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
       handleOverlayClose();
       return;
     }
-    if (item?.title === "Search") {
-      handleOverlayClose();
-      return;
-    }
+    // if (item?.title === "Search") {
+    //   handleOverlayClose();
+    //   return;
+    // }
     if (item?.title === "About") {
       router.push("/about");
       handleOverlayClose();
@@ -71,7 +71,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
     <Offcanvas
       show={show}
       onHide={handleOverlayClose}
-      className={styles.offCanvasContDweb}
+      className={clickedItem?.title === 'Search' ? styles.offCanvasContDwebSearch : styles.offCanvasContDweb}
       placement={"top"}
     >
       <Offcanvas.Header>
