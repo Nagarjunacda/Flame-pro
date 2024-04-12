@@ -17,7 +17,6 @@ const Search = () => {
     const btnTwoText = 'Close';
 
     const handleSearchClick = () => {
-        // console.log(selectedResult, '!!')
     }
 
     const fetchSuggestions = async (query) => {

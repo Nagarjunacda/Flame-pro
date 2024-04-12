@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
   const isTabScreen = useMediaQuery({ query: "(min-width:600px)" });
-  const applyBorderArr = ['Phone', 'Email'];
+  const applyBorderArr = ['Phone', 'Email', 'ASAP', 'Arrange A Time'];
   const applyBorder = applyBorderArr.includes(text);
   const isSmallBtn = text === 'Add To Quote Basket' && !isTabScreen;
   const buttonStyle = {
