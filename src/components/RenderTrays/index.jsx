@@ -13,6 +13,8 @@ import TitleAndTextCentre from "../ContentBlocks/TitleAndTextCentre";
 import PostContent from "../ResourceHub/PostContent";
 import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
+import ContactUsPageForm from "../ContactUsPageForm";
+import TextAreaBlock from "../ContentBlocks/TextAreaBlock";
 import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
@@ -23,6 +25,14 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageDat
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
   const testimonialExt = additionalDataExt?.testimonial_slider_ext;
+  const formData = [
+    { section1: "Full Name*" },
+    { section1: "Email Address*" },
+    { section1: "Phone Number*" },
+    { section1: "Company Name*" },
+    { section1: "Job Title*" },
+    { section1: "Message" },
+  ];
 
   function getTrays(tray) {
     switch (tray?.acf_fc_layout) {
@@ -66,6 +76,13 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageDat
         return <PostContent trayData={tray} fullPageData={fullPageData} />;
       case "related_products":
         return <RelatedProductsblock trayData={tray} />;
+      case "textarea_block":
+        return <TextAreaBlock trayData={tray} />;
+      case "contact_us_page_form":
+        return <ContactUsPageForm
+          heading={"Enter Your Details"}
+          formFields={formData}
+          heading2={"Contact Me By..."} />;
       default:
         return null;
     }

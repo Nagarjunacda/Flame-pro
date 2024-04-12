@@ -3,7 +3,7 @@ import styles from './editableDiv.module.css';
 
 function EditableDiv({ getProductQuantity }) {
     const [isEditing, setIsEditing] = useState(false);
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
 
     const handleBlur = () => {
         setIsEditing(false);

@@ -1,0 +1,8 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-18) var(--padding-xs-36);
+}

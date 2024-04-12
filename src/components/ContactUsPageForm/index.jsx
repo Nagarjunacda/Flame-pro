@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 // import { BsCalendar } from 'react-icons/bs';
 import 'react-datepicker/dist/react-datepicker.css';
+import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
 import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
@@ -25,9 +27,11 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     const [showToast, setShowToast] = useState(false);
     const [isLoadState, setIsLoadState] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
     const [toastMsg, setToastMsg] = useState("");
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
+    const calendarIcon = '/Images/calendarIcon.svg';
     const phnBtncolor = contactBy === 'Phone' ? "var(--color-primary)" : "var(--color-secondary)";
     const phnBtnTextClr = contactBy === 'Phone' ? "var(--color-secondary)" : "var(--color-primary)";
     const emailBtncolor = contactBy === 'Email' ? "var(--color-primary)" : "var(--color-secondary)";
@@ -335,38 +339,40 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                 </section>
             </section>
             {/* <DatePickerComp /> */}
-            <section className={styles.datePickerCont}>
-                <DatePicker placeholderText="Please select a date"
+            {<section className={styles.datePickerCont}>
+                <DatePicker
+                    placeholderText="Please select a date"
                     selected={selectedDate}
                     minDate={new Date()}
                     dateFormat='dd/MM/yyyy'
-                    showYearDropdown
-                    calendarIcon='calendar'
                     scrollableMonthYearDropdown
                     wrapperClassName={styles.fullWidthDatePicker}
                     className={styles.customDatepicker}
                     calendarClassName={styles.customCalendar}
                     onChange={(date) => { setSelectedDate(date) }} />
-            </section>
-            {/* <section className={styles.submitSec}>
-                <Link href={'/shop-all'} className={styles.btnStyle2}>
+                <section className={styles.calendarIcon}>
+                    <FlameImage src={calendarIcon} alt={'calendar Icon'} />
+                </section>
+            </section>}
+            <section className={styles.submitSec}>
+                {/* <Link href={'/shop-all'} className={styles.btnStyle2}>
                     <ButtonStyleTwo
                         text={"Keep Browsing Products"}
                         textColor={"var( --color-primary)"}
                         btnFunction={handleBrowseAll}
                     // btnIcon={"/Images/deleteIcon.svg"}
                     />
-                </Link>
+                </Link> */}
                 <section className={styles.cta}>
                     <FlameBtn
                         color={btnColor}
-                        text={"Submit Your Quote"}
+                        text={"Submit"}
                         textColor={textColor}
                         isLoadState={isLoadState}
                         btnFunction={handleButtonClick}
                     />
                 </section>
-            </section> */}
+            </section>
         </section>
     </section>
 }

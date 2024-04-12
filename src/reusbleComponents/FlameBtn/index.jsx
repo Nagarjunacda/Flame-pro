@@ -37,14 +37,16 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
   };
 
   return (
-    <Button onClick={handleClick} style={buttonStyle}>
-      <span style={textStyle}>
-        {isLoadState && (
-          <Spinner animation="border" variant="danger" size="sm" />
-        )}
-        {btnText}
-      </span>
-    </Button>
+    <>
+      {text && <Button onClick={handleClick} style={buttonStyle}>
+        <span style={textStyle}>
+          {isLoadState && (
+            <Spinner animation="border" variant="danger" size="sm" />
+          )}
+          {btnText}
+        </span>
+      </Button>}
+    </>
   );
 };
 

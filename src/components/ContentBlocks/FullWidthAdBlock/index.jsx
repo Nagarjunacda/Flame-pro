@@ -1,9 +1,12 @@
+import { useRouter } from "next/router";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import { renderHTML } from "@/utils/htmlString";
 import styles from "./fullWidthAdBlock.module.css";
 
 function FullWidthAdBlock({ trayData }) {
+  const router = useRouter();
+  const isContactUsPage = router?.asPath === '/contact-us';
   const imgSrc = trayData?.image;
   const text = trayData?.text;
   const buttonTitle = trayData?.button_title;
@@ -12,15 +15,15 @@ function FullWidthAdBlock({ trayData }) {
   const btnTextColor = "var(--color-primary)";
   const buttonText = trayData?.button_title;
 
-  const btnClick = () => {};
+  const btnClick = () => { };
 
   return (
     <section className={styles.mainCont}>
       <section className={styles.imageStyles}>
         <FlameImage src={imgSrc} alt="image" />
       </section>
-      <section className={styles.overlay}></section>
-      <section className={styles.form}>
+      <section className={isContactUsPage ? styles.overlayContact : styles.overlay}></section>
+      <section className={isContactUsPage ? styles.formContact : styles.form}>
         <section className={styles.innerSec}>
           <h5 className={styles.title}>{title}</h5>
           <p className={styles.desc}>{renderHTML(text)}</p>
