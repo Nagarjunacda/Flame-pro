@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 import { contactUsFormPageUrl } from '@/utils/urls';
+import CountrySelector from '../CountrySelector';
 // import { BsCalendar } from 'react-icons/bs';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker';
@@ -218,8 +219,8 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                                     name={fieldName?.section1}
                                     className={
                                         fieldName?.section1 === "Area Of Interest*"
-                                            ? styles.areaInterestInput
-                                            : styles.textInput
+                                            ? styles.areaInterestInput : fieldName?.section1 === 'Phone Number*' ? styles.textInputPhoneNum
+                                                : styles.textInput
                                     }
                                     placeholder={fieldName?.section1}
                                     onChange={(e) => handleChange(e, fieldName?.section1)}
@@ -233,6 +234,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                                     {areaOfInt}
                                 </section>
                             )}
+                            {fieldName.section1 === 'Phone Number*' && <CountrySelector />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
                             )}

@@ -1,0 +1,42 @@
+.flagIcon{
+    width: 24px;
+    height: 16px;
+    display: inline-block;
+}
+.maincont{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+    gap: 4px
+}
+.downArr{
+    width: 8px;
+    height: 8px;
+    margin-bottom: 4px;
+}
+.codeBlock{
+    display: inline-block;
+    margin-top: 13px;
+}
+.codeText{
+    font-size:var(--font-size-xs-ext)
+}
+.dropDownCont{
+    position: absolute;
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: none;
+    border-bottom: 1px solid var(--color-secondary);
+    font-size: var(--font-size-xs-ext);
+    font-weight: var(--font-wt-bold);
+    width: 100%;
+    outline: none;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
