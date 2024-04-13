@@ -14,7 +14,8 @@
     align-items: center;
     width: auto;
     height: auto;
-    gap: 4px
+    gap: 4px;
+    cursor: pointer;
 }
 .downArr{
     width: 8px;

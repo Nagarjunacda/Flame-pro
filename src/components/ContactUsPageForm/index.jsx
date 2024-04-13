@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 import { contactUsFormPageUrl } from '@/utils/urls';
@@ -19,6 +19,7 @@ import styles from './contactUsPageForm.module.css';
 function ContactUsPageForm({ heading, formFields, heading2 }) {
     const nonceVal = useContext(NonceContext);
     const router = useRouter();
+    const dropdownRef = useRef(null);
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [contactBy, setContactBy] = useState('Phone')
@@ -48,6 +49,19 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
         : "/Images/downArrowGrey.svg";
     // const isUserDetailForm = formFields[1]?.section1 === "Phone Number*";
     const timeZones = ['6.00 - 8.00', '8.00 - 10.00', '10.00 - 12.00', '12.00 - 14.00', '14.00 - 16.00', '16.00 - 18.00', '18.00 - 20.00', '20.00 - 22.00']
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropDownOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownRef]);
 
     const handleDropdown = () => {
         setIsDropDownOpen(!isDropdownOpen);
@@ -375,7 +389,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                     <FlameImage src={arrowImgSrc} alt="arrow" />
                 </section>
                 {isDropdownOpen &&
-                    <section className={styles.timeZone}>
+                    <section ref={dropdownRef} className={styles.timeZone}>
                         {timeZones.map((time, index) => {
                             return (
                                 <section
