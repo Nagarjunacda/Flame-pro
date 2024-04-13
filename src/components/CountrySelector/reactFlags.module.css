@@ -5,6 +5,7 @@
 }
 .maincont{
     position: absolute;
+    width: 100%;
     left: 0px;
     top: 0px;
     bottom: 18px;
@@ -40,3 +41,15 @@
     padding-bottom: 8px;
     cursor: pointer;
 }
+.dropDown{
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    background-color: var(--color-secondary);
+    overflow: scroll;
+    position: relative;
+    width: 100%;
+    left: -62px;
+    /* top: 44px; */
+    z-index: 5;
+}   

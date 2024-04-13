@@ -1,7 +1,7 @@
 import FlameImage from '@/reusbleComponents/FlameImage';
 import React, { useEffect, useState } from 'react';
-import styles from './reactFlags.module.css'
 import Select from 'react-select';
+import styles from './reactFlags.module.css'
 
 function CountrySelector() {
     const [countryOptions, setCountryOptions] = useState([]);
@@ -14,6 +14,7 @@ function CountrySelector() {
             .then(response => response.json())
             .then(data => {
                 const options = data.map(country => ({
+                    name: country?.name?.common,
                     idd: country.idd,
                     flags: country.flags,
                     value: country.cca2,
@@ -35,6 +36,10 @@ function CountrySelector() {
         setIsDropDownOpen(!isDropdownOpen)
     }
 
+    const handleSelectedItem = (selectedOption) => {
+        setSelectedCountry(selectedOption)
+    }
+
     return (
         <section className={styles.maincont} onClick={handleCountrySel}>
             <section className={styles.flagIcon}>
@@ -45,6 +50,15 @@ function CountrySelector() {
                 <FlameImage src={downArrSrc} alt={'icon'} />
             </section>
             <section className={styles.codeBlock}><h5 className={styles.codeText}>{`${selectedCountry?.idd?.root}${selectedCountry?.idd?.suffixes[0]}`}</h5></section>
+            {isDropdownOpen && <Select
+                value={selectedCountry}
+                onChange={handleSelectedItem}
+                options={countryOptions}
+                isSearchable={true}
+                placeholder="Select a country"
+                menuIsOpen={isDropdownOpen}
+            // onMenuClose={() => setIsDropDownOpen(false)}
+            />}
         </section>
     );
 }
