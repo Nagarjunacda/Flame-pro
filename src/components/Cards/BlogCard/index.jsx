@@ -3,9 +3,10 @@ import Card from "react-bootstrap/Card";
 import styles from "./blogCard.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
-function BlogCard() {
+function BlogCard({ category = '' }) {
   const blogImage = "/Images/blogImg.svg";
   const text = "View All Blocks";
+  const isFireFighting = category === "Firefighting PPE";
   return (
     <Card className={styles.cardCont}>
       <Card.Img variant="top" src={blogImage} className={styles.cardImg} />
@@ -20,7 +21,7 @@ function BlogCard() {
             Hoods …
           </h5>
         </Card.Text>
-        <section className={styles.colorBar}></section>
+        <section className={isFireFighting ? styles.colorBarFire : styles.colorBarDefence}></section>
       </Card.Body>
     </Card>
   );

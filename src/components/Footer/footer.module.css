@@ -151,6 +151,11 @@
   cursor: pointer;
   text-wrap: wrap;
 }
+.contactInfo {
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  text-wrap: wrap;
+}
 .address {
   font-size: var(--font-size-sm);
   white-space: wrap;

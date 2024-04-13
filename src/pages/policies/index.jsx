@@ -4,6 +4,7 @@ import PoliciesBlock from "@/components/ContentBlocks/PoliciesBlock";
 import RenderTrays from "@/components/RenderTrays";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { policiesUrl } from "@/utils/urls";
+
 function Policies({ data }) {
   const trayData = data?.acf?.content_blocks;
   return (

@@ -4,9 +4,9 @@ import BasketMweb from "@/components/Header/BasketMweb";
 import SearchMweb from "@/components/Header/SearchMweb";
 import BlogCard from "@/components/Cards/BlogCard";
 import { useMediaQuery } from "react-responsive";
-import styles from "./fireFighterppe.module.css";
 import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
+import styles from "./fireFighterppe.module.css";
 
 function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
   const heading = selectedNavItem?.title;
@@ -117,7 +117,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
                     handleOverlayClose("item");
                   }}
                 >
-                  <BlogCard />
+                  <BlogCard category={selectedNavItem?.title} />
                 </Link>
               );
             })}

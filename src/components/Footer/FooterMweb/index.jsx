@@ -25,7 +25,15 @@ function FooterMweb({ footerData }) {
             router.push('/about')
             return
         }
-        router.push('/terms-conditions')
+        if (label === 'Policies') {
+            router.push('/policies')
+            return
+        }
+        if (label === 'FAQs') {
+            router.push('/faqs')
+            return
+        }
+        router.push('/policies')
     }
 
     const usefulLinksArr = footerData?.items?.filter(e => e?.title === 'Useful Links');

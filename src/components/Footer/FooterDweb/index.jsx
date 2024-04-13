@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import SignUpForm from "@/components/SignUpForm";
 import CopyRightText from "../CopyRightText";
 import styles from "../footer.module.css";
-import { useState } from "react";
 
 function FooterDweb({ footerData }) {
   const router = useRouter();
@@ -48,21 +48,22 @@ function FooterDweb({ footerData }) {
             return (
               <section key={index} className={styles.navLinks}>
                 <h5>{link?.title}</h5>
-
-
                 <section className={styles.navLinks}>
                   {link?.child_items.map((e, index) => {
                     return (
-                      <Link
-                        href={e?.slug === "distributors" ? '/policies' : `/${e?.slug}`}
-                        // onClick={() => {
-                        //   handleLabelClick(e);
-                        // }}
-                        className={styles.innerLinks}
-                        key={index}
-                      >
-                        {e?.title}
-                      </Link>
+                      link.title === 'Contact' ? (
+                        <div className={styles.contactInfo} key={index}>
+                          {e?.title}
+                        </div>
+                      ) : (
+                        <Link
+                          href={e?.slug === 'distributors' ? '/policies' : `/${e?.slug}`}
+                          className={styles.innerLinks}
+                          key={index}
+                        >
+                          {e?.title}
+                        </Link>
+                      )
                     );
                   })}
                   {link?.title === 'Useful Links' && <div className={styles.socialItems}>
