@@ -378,38 +378,39 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         <FlameImage src={calendarIcon} alt={'calendar Icon'} />
                     </section>
                 </section>}
-            {contactTime === 'Arrange A Time' && contactBy === 'Phone' && <section className={styles.formInput}>
-                <section
-                    className={selTime === 'Please Select A Time' ? styles.areaInterestInput : styles.areaInterestInputSel}
-                    onClick={handleDropdown}
-                >
-                    {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
-                </section>
-                <section className={styles.downArrow} onClick={handleDropdown}>
-                    <FlameImage src={arrowImgSrc} alt="arrow" />
-                </section>
-                {isDropdownOpen &&
-                    <section ref={dropdownRef} className={styles.timeZone}>
-                        {timeZones.map((time, index) => {
-                            return (
-                                <section
-                                    key={index}
-                                    className={
-                                        time === selTime
-                                            ? styles.selectedArea
-                                            : styles.interestOptions
-                                    }
-                                    onClick={() => {
-                                        handleInterestSel(time);
-                                    }}
-                                >
-                                    {`${time} ${timeZoneVal}`}
-                                </section>
-                            );
-                        })}
+            {contactTime === 'Arrange A Time' && contactBy === 'Phone' &&
+                <section className={styles.formInput}>
+                    <section
+                        className={selTime === 'Please Select A Time' ? styles.areaInterestInput : styles.areaInterestInputSel}
+                        onClick={handleDropdown}
+                    >
+                        {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
                     </section>
-                }
-            </section>}
+                    <section className={styles.downArrow} onClick={handleDropdown}>
+                        <FlameImage src={arrowImgSrc} alt="arrow" />
+                    </section>
+                    {isDropdownOpen &&
+                        <section ref={dropdownRef} className={styles.timeZone}>
+                            {timeZones.map((time, index) => {
+                                return (
+                                    <section
+                                        key={index}
+                                        className={
+                                            time === selTime
+                                                ? styles.selectedArea
+                                                : styles.interestOptions
+                                        }
+                                        onClick={() => {
+                                            handleInterestSel(time);
+                                        }}
+                                    >
+                                        {`${time} ${timeZoneVal}`}
+                                    </section>
+                                );
+                            })}
+                        </section>
+                    }
+                </section>}
             <section className={styles.submitSec}>
                 {/* <Link href={'/shop-all'} className={styles.btnStyle2}>
                     <ButtonStyleTwo
