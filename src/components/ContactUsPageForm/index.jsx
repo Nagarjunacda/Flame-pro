@@ -188,7 +188,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
             //     : "Please check all the fields entered.";
             setIsLoadState(false);
             setShowToast(true);
-            setToastMsg(errMsg);
+            setToastMsg(errMsg || "An error occurred during the request. Please try again.");
         }
     };
 
@@ -319,13 +319,6 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                     </div>
                 ))}
             </form>
-            {showToast && (
-                <Toast
-                    showToast={showToast}
-                    setShowToast={setShowToast}
-                    toastMsg={toastMsg}
-                />
-            )}
         </section>
         <section className={styles.formCont}>
             <h5
@@ -411,6 +404,13 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         </section>
                     }
                 </section>}
+            {showToast && (
+                <Toast
+                    showToast={showToast}
+                    setShowToast={setShowToast}
+                    toastMsg={toastMsg}
+                />
+            )}
             <section className={styles.submitSec}>
                 {/* <Link href={'/shop-all'} className={styles.btnStyle2}>
                     <ButtonStyleTwo

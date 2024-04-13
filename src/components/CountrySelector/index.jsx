@@ -34,13 +34,21 @@ function CountrySelector() {
     }, []);
 
     const handleCountrySel = () => {
-        setIsDropDownOpen(!isDropdownOpen)
+        if (isDropdownOpen) {
+            return
+        }
+        setIsDropDownOpen(true)
     }
 
     const handleSelectedItem = (selectedOption) => {
         setSelectedCountry(selectedOption);
         setIsDropDownOpen(false); // Close the dropdown when an option is selected
     };
+
+    const countryRootCode = selectedCountry?.idd?.root || '';
+    const countryId = selectedCountry?.idd?.suffixes.length ? selectedCountry?.idd?.suffixes[0] : '';
+
+    const countryCode = `${countryRootCode}${countryId}`
 
     return (
         <section className={styles.maincont} onClick={handleCountrySel}>
@@ -51,7 +59,7 @@ function CountrySelector() {
             <section className={styles.downArr}>
                 <FlameImage src={downArrSrc} alt={'icon'} />
             </section>
-            <section className={styles.codeBlock}><h5 className={styles.codeText}>{`${selectedCountry?.idd?.root}${selectedCountry?.idd?.suffixes[0]}`}</h5></section>
+            <section className={styles.codeBlock}><h5 className={styles.codeText}>{countryCode}</h5></section>
             {isDropdownOpen &&
                 <section className={styles.countryDropDown}>
                     <Select
