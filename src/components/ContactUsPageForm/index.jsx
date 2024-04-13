@@ -331,7 +331,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         btnFunction={() => { handleContactSel('Email') }} />
                 </section>
             </section>
-            <section className={styles.form2Cont}>
+            {contactBy === 'Phone' && <section className={styles.form2Cont}>
                 <section className={styles.phoneEmail}>
                     <FlameBtn color={phnBtncolor2}
                         text={"ASAP"}
@@ -344,9 +344,9 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         isLoadState={false}
                         btnFunction={() => { handleTimeSel('Arrange A Time') }} />
                 </section>
-            </section>
+            </section>}
             {/* <DatePickerComp /> */}
-            {contactTime === 'Arrange A Time' &&
+            {contactTime === 'Arrange A Time' && contactBy === 'Phone' &&
                 <section className={styles.datePickerCont}>
                     <DatePicker
                         placeholderText="Please select a date"
@@ -362,7 +362,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         <FlameImage src={calendarIcon} alt={'calendar Icon'} />
                     </section>
                 </section>}
-            {contactTime === 'Arrange A Time' && <section className={styles.formInput}>
+            {contactTime === 'Arrange A Time' && contactBy === 'Phone' && <section className={styles.formInput}>
                 <section
                     className={styles.areaInterestInput}
                     onClick={handleDropdown}
