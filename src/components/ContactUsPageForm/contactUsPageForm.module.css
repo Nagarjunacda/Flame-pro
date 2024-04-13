@@ -54,7 +54,7 @@
   @media (min-width: 900px) {
     .formCont {
       /* max-width: 416px; */
-      gap: 48px;
+      gap: 34px;
       justify-content: flex-start;
     }
   }
@@ -256,6 +256,7 @@
     .submitSec{
       width: 100%;
       flex-direction: row;
+      justify-content: flex-end;
     }
   }
   .btnStyle2{
@@ -270,6 +271,9 @@
     }
   }
   .customDatepicker {
+    font-weight: var(--font-wt-bold);
+    font-size: var(--font-size-xs-ext);
+    padding-left: 12px;
   width: 100%;
   border: none;
 }
@@ -294,4 +298,61 @@
 .calendarIcon{
   padding-bottom: 8px;
   display: inline-block;
+}
+.formInput {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.areaInterestInput {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+  font-size: var(--font-size-xs-ext);
+  font-weight: var(--font-wt-bold);
+  width: 100%;
+  outline: none;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  cursor: pointer;
+}
+.downArrow {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  right: 0px;
+  top: 0px;
+}
+.timeZone {
+  position: absolute;
+  width: 100%;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.interestOptions {
+  color: var(--color-primary);
+  padding: 12px;
+  font-weight: var(--font-wt-bold);
+  border-bottom: solid 1px var(--color-primary);
+  cursor: pointer;
+  font-size: var(--font-size-xs-ext-xs-ext);
+}
+.interestOptions:hover {
+  background-color: #000;
+  color: #fff;
+}
+.selectedArea {
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  font-weight: var(--font-wt-bold);
+  border-bottom: solid 1px var(--color-primary);
+  cursor: pointer;
 }

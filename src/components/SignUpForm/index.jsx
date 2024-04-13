@@ -123,9 +123,9 @@ function SignUpForm({ isFromFooter, text, heading, formFields }) {
     setIsLoadState(true);
     const selOption =
       areaOfInt === "Fire Fighting PPE"
-        ? "Fire"
+        ? "firefighting_ppe"
         : areaOfInt === "Defence Procurement"
-          ? "Defence"
+          ? "defence_procurement"
           : null;
     const data = {
       input_5_3: formData["Full Name*"],

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
+import { contactUsFormPageUrl } from '@/utils/urls';
 // import { BsCalendar } from 'react-icons/bs';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker';
@@ -21,14 +22,15 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     const [errors, setErrors] = useState({});
     const [contactBy, setContactBy] = useState('Phone')
     const [contactTime, setContactTime] = useState('ASAP')
-    const [areaOfInt, setAreaOfInt] = useState("Area Of Interest");
     const [isDropdownOpen, setIsDropDownOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [selTime, setSelTime] = useState('Please Select A Time')
     const [showToast, setShowToast] = useState(false);
     const [isLoadState, setIsLoadState] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
     const [toastMsg, setToastMsg] = useState("");
+    const timeZoneVal = 'BST';
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
     const calendarIcon = '/Images/calendarIcon.svg';
@@ -40,7 +42,15 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     const phnBtnTextClr2 = contactTime === 'ASAP' ? "var(--color-secondary)" : "var(--color-primary)";
     const emailBtncolor2 = contactTime === 'Arrange A Time' ? "var(--color-primary)" : "var(--color-secondary)";
     const emailBtnTextClr2 = contactTime === 'Arrange A Time' ? "var(--color-secondary)" : "var(--color-primary)";
+    const arrowImgSrc = isDropdownOpen
+        ? "/Images/upGreyArrow.svg"
+        : "/Images/downArrowGrey.svg";
     // const isUserDetailForm = formFields[1]?.section1 === "Phone Number*";
+    const timeZones = ['6.00 - 8.00', '8.00 - 10.00', '10.00 - 12.00', '12.00 - 14.00', '14.00 - 16.00', '16.00 - 18.00', '18.00 - 20.00', '20.00 - 22.00']
+
+    const handleDropdown = () => {
+        setIsDropDownOpen(!isDropdownOpen);
+    };
 
     const handleChange = async (e, fieldName) => {
         const { name, value } = e.target;
@@ -133,37 +143,25 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                     ? "Defence"
                     : null;
         const userDetailData = {
-            billing_address: {
-                name: formData["Full Name*"],
-                email: formData["Email Address*"],
-                phone: formData["Phone Number*"],
-                company: formData["Company Name*"],
-                postcode: 'SW1A 1AA',
-                address_1: ' ',
-            },
-            shipping_address: {
-                name: formData["Full Name*"],
-                postcode: 'SW1A 1AA',
-                address_1: ' ',
-            },
-            customer_note: `${formData["Message"]}, Contact Me By: ${contactBy}`,
-            create_account: false,
-            payment_method: "cheque",
-            payment_data: [],
-            extensions: {
-                additionalInfo: {
-                    jobTitle: formData["Job Title*"],
-                }
-            }
+            input_1_3: formData["Full Name*"],
+            input_5: formData["Email Address*"],
+            input_6: formData["Phone Number*"],
+            input_8: formData["Company Name*"],
+            input_17: formData["Job Title*"],
+            input_11: contactTime,
+            input_12: contactBy,
+            input_18: formData["Message"],
+            input_14: selectedDate,
+            input_15: selTime
         };
         const customHeaders = { Nonce: nonceVal };
-        const url = checkoutUrl
+        const url = contactUsFormPageUrl
         setIsLoadState(true)
         const res = await handlePostRequests(url, userDetailData, customHeaders);
         if (res?.data) {
             const refNum = res?.data?.order_number
             setIsLoadState(false);
-            router.push(`/thank-you?ref=${refNum}`)
+            // router.push(`/thank-you?ref=${refNum}`)
             // setShowToast(true);
             // setToastMsg("Successfully signedup to our mailing list.");
         }
@@ -192,6 +190,15 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     }
 
     const handleBrowseAll = () => { }
+
+    const handleInterestSel = (area) => {
+        setSelTime(area);
+        setIsDropDownOpen(false);
+        // setErrors((prevErrors) => ({
+        //     ...prevErrors,
+        //     "Area Of Interest*": null,
+        // }));
+    };
 
     return <section className={styles.mainCont}>
         <section className={styles.formCont}>
@@ -339,20 +346,53 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                 </section>
             </section>
             {/* <DatePickerComp /> */}
-            {<section className={styles.datePickerCont}>
-                <DatePicker
-                    placeholderText="Please select a date"
-                    selected={selectedDate}
-                    minDate={new Date()}
-                    dateFormat='dd/MM/yyyy'
-                    scrollableMonthYearDropdown
-                    wrapperClassName={styles.fullWidthDatePicker}
-                    className={styles.customDatepicker}
-                    calendarClassName={styles.customCalendar}
-                    onChange={(date) => { setSelectedDate(date) }} />
-                <section className={styles.calendarIcon}>
-                    <FlameImage src={calendarIcon} alt={'calendar Icon'} />
+            {contactTime === 'Arrange A Time' &&
+                <section className={styles.datePickerCont}>
+                    <DatePicker
+                        placeholderText="Please select a date"
+                        selected={selectedDate}
+                        minDate={new Date()}
+                        dateFormat='dd/MM/yyyy'
+                        scrollableMonthYearDropdown
+                        wrapperClassName={styles.fullWidthDatePicker}
+                        className={styles.customDatepicker}
+                        calendarClassName={styles.customCalendar}
+                        onChange={(date) => { setSelectedDate(date) }} />
+                    <section className={styles.calendarIcon}>
+                        <FlameImage src={calendarIcon} alt={'calendar Icon'} />
+                    </section>
+                </section>}
+            {contactTime === 'Arrange A Time' && <section className={styles.formInput}>
+                <section
+                    className={styles.areaInterestInput}
+                    onClick={handleDropdown}
+                >
+                    {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
                 </section>
+                <section className={styles.downArrow} onClick={handleDropdown}>
+                    <FlameImage src={arrowImgSrc} alt="arrow" />
+                </section>
+                {isDropdownOpen &&
+                    <section className={styles.timeZone}>
+                        {timeZones.map((time, index) => {
+                            return (
+                                <section
+                                    key={index}
+                                    className={
+                                        time === selTime
+                                            ? styles.selectedArea
+                                            : styles.interestOptions
+                                    }
+                                    onClick={() => {
+                                        handleInterestSel(time);
+                                    }}
+                                >
+                                    {`${time} ${timeZoneVal}`}
+                                </section>
+                            );
+                        })}
+                    </section>
+                }
             </section>}
             <section className={styles.submitSec}>
                 {/* <Link href={'/shop-all'} className={styles.btnStyle2}>
