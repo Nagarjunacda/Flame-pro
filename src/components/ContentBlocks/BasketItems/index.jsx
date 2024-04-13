@@ -21,15 +21,23 @@ const BasketItems = () => {
   const { cartData, setTriggerUpdate } = useCartData();
   const [showTextBox, setShowTextBox] = useState(false);
   const [quanityValue, setquanityValue] = useState('');
+  const [showEditedQuantity, setShowEditedQuantity] = useState(false)
   const emptyBasket = {
     title: "Basket Empty",
     button_title: "Shop All",
   };
   function btnFunction() { }
+
   function handleEditQuote() {
     setShowTextBox(!showTextBox);
+    if (!showTextBox) {
+      setShowEditedQuantity(false)
+      return
+    }
   }
-  function quanityInput(event) {
+  function quanityInput(val) {
+    setShowEditedQuantity(true)
+    setquanityValue(val)
   }
 
   const handleRemoveFromCart = async (data) => {
@@ -44,6 +52,7 @@ const BasketItems = () => {
   };
 
   const handleTickMarkClick = () => {
+    console.log(quanityValue, '!!')
   }
 
   return (
@@ -99,8 +108,10 @@ const BasketItems = () => {
                             type="text"
                             aria-label="Quantity"
                             aria-describedby="Quantity"
-                            value={data.quantity}
-                            onChange={quanityInput}
+                            value={showEditedQuantity ? quanityValue : data.quantity}
+                            onChange={(e) => {
+                              quanityInput(e.target.value);
+                            }}
                           />
                           <InputGroup.Text id="btnGroupAddon" onClick={handleTickMarkClick}>
                             &#10004;
