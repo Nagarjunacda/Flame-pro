@@ -31,7 +31,7 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageDat
     { section1: "Phone Number*" },
     { section1: "Company Name*" },
     { section1: "Job Title*" },
-    { section1: "Message" },
+    { section1: "Message*" },
   ];
 
   function getTrays(tray) {
