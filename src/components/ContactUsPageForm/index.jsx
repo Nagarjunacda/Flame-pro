@@ -151,12 +151,12 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
             return;
         }
         setIsLoadState(true);
-        const selOption =
-            areaOfInt === "Fire Fighting Ppe"
-                ? "Fire"
-                : areaOfInt === "Defence Procurement"
-                    ? "Defence"
-                    : null;
+        // const selOption =
+        //     areaOfInt === "Fire Fighting Ppe"
+        //         ? "Fire"
+        //         : areaOfInt === "Defence Procurement"
+        //             ? "Defence"
+        //             : null;
         const userDetailData = {
             input_1_3: formData["Full Name*"],
             input_5: formData["Email Address*"],
@@ -165,7 +165,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
             input_17: formData["Job Title*"],
             input_11: contactBy === 'Phone' ? contactTime : '',
             input_12: contactBy,
-            input_18: formData["Message"],
+            input_18: formData["Message*"],
             input_14: selectedDate,
             input_15: selTime
         };
