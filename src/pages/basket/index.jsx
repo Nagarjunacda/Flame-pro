@@ -4,6 +4,7 @@ import { useCartData } from "@/context/CartContext";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { basketPageUrl } from "@/utils/urls";
 import RenderTrays from "@/components/RenderTrays";
+import Breadcrumbs from "@/components/BreadCrumbs";
 import CheckoutForm from "@/components/CheckoutForm";
 
 const Basket = ({ data }) => {
@@ -16,7 +17,7 @@ const Basket = ({ data }) => {
     { section1: "Phone Number*" },
     { section1: "Company Name*" },
     { section1: "Job Title*" },
-    { section1: "Message" },
+    { section1: "Message*" },
   ];
 
   // return (
@@ -34,6 +35,7 @@ const Basket = ({ data }) => {
   return (
     <>
       <main>
+        <Breadcrumbs isPadding />
         {trayData ? (
           <>
             <RenderTrays trayData={trayData} />

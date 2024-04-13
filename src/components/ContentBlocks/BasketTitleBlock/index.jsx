@@ -1,12 +1,14 @@
 import styles from "./basketTitle.module.css";
+
 const BasketTitleBlock = ({ title, subHeading, description }) => {
+
   return (
     <section className={styles.bastetSection}>
-      <div className={styles.basketcontent}>
-        <h2>{title}</h2>
+      <section className={styles.basketcontent}>
+        <h2 className={styles.title}>{title}</h2>
         {subHeading && <h3>{subHeading}</h3>}
         <p>{description}</p>
-      </div>
+      </section>
     </section>
   );
 };

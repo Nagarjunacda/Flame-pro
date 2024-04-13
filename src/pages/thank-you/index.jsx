@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import BasketTitleBlock from "@/components/ContentBlocks/BasketTitleBlock";
+import Breadcrumbs from "@/components/BreadCrumbs";
 import BasketItems from "@/components/ContentBlocks/BasketItems";
 
 const Basket = () => {
@@ -8,6 +9,7 @@ const Basket = () => {
   const { ref } = query
   return (
     <>
+      <Breadcrumbs isPadding />
       <BasketTitleBlock
         title={"Thank You For Submitting Your Quote"}
         description={

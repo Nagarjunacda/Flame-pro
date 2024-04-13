@@ -2,9 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 24px;
+}
+@media (min-width:1280px){
+  .bastetSection {
+    padding-top: 32px;
+  }
+}
+@media (min-width:1680px){
+  .bastetSection {
+    padding-top: 48px;
+  }
 }
 .bastetSection .basketcontent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   max-width: 1088px;
+}
+@media (min-width:1680px){
+  .bastetSection .basketcontent {
+  max-width: 1280px;
+}
 }
 .bastetSection h2 {
   font-size: var(--font-size-xl);
@@ -17,6 +36,7 @@
 }
 .bastetSection h3 {
   text-align: center;
+  font-size: var(--font-size-lg);
 }
 @media only screen and (max-width: 1140px) {
   .bastetSection {

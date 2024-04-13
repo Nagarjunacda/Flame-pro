@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
-import styles from './checkoutForm.module.css';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
-import Link from 'next/link';
+import styles from './checkoutForm.module.css';
 
 function CheckoutForm({ heading, formFields, heading2 }) {
     const nonceVal = useContext(NonceContext);
@@ -134,7 +134,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                 postcode: 'SW1A 1AA',
                 address_1: ' ',
             },
-            customer_note: `${formData["Message"]}, Contact Me By: ${contactBy}`,
+            customer_note: `${formData["Message*"]}, Contact Me By: ${contactBy}`,
             create_account: false,
             payment_method: "cheque",
             payment_data: [],

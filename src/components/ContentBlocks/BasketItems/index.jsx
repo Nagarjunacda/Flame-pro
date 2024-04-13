@@ -3,6 +3,7 @@ import { useContext } from "react";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
 import Container from "react-bootstrap/Container";
+import { priceFormatter } from "@/utils/priceFormatter";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
@@ -80,7 +81,7 @@ const BasketItems = () => {
                 </Col>
                 <Col lg={10} sm={8} xs={8}>
                   <Row className="">
-                    <Col lg={4} sm={12} xs={12}>
+                    <Col lg={4} sm={12} xs={12} className="d-flex align-items-center pt-lg-1">
                       <h3 className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4">
                         {data.name}
                       </h3>
@@ -89,7 +90,7 @@ const BasketItems = () => {
                       lg={2}
                       sm={12}
                       xs={12}
-                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
+                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 d-flex align-items-center"
                     >
                       {" "}
                       {showTextBox ? (
@@ -106,14 +107,16 @@ const BasketItems = () => {
                           </InputGroup.Text>
                         </InputGroup>
                       ) : (
-                        data.quantity
+                        <>
+                          {priceFormatter(data.quantity)}
+                        </>
                       )}
                     </Col>
                     <Col
                       lg={3}
                       sm={12}
                       xs={12}
-                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4"
+                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 pt-lg-2"
                       onClick={() => { handleRemoveFromCart(data) }}
                     >
                       <ButtonStyleTwo
@@ -123,7 +126,7 @@ const BasketItems = () => {
                         btnIcon={"/Images/deleteIcon.svg"}
                       />
                     </Col>
-                    <Col lg={3} sm={12} xs={12}>
+                    <Col lg={3} sm={12} xs={12} className="pt-lg-2">
                       <ButtonStyleTwo
                         text={showTextBox ? "Cancel" : "Edit Quote"}
                         textColor="var( --color-primary)"

@@ -204,6 +204,7 @@
     height: auto;
   }
   .errorMsg {
+    padding-top: 8px;
     color: var(--color-fire);
     font-size: var(--font-size-xs);
   }

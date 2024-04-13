@@ -163,7 +163,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
             input_6: formData["Phone Number*"],
             input_8: formData["Company Name*"],
             input_17: formData["Job Title*"],
-            input_11: contactTime,
+            input_11: contactBy === 'Phone' ? contactTime : '',
             input_12: contactBy,
             input_18: formData["Message"],
             input_14: selectedDate,
@@ -380,7 +380,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                 </section>}
             {contactTime === 'Arrange A Time' && contactBy === 'Phone' && <section className={styles.formInput}>
                 <section
-                    className={styles.areaInterestInput}
+                    className={selTime === 'Please Select A Time' ? styles.areaInterestInput : styles.areaInterestInputSel}
                     onClick={handleDropdown}
                 >
                     {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
