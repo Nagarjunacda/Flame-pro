@@ -53,3 +53,26 @@
     /* top: 44px; */
     z-index: 5;
 }   
+.countryDropDown{
+    top: 24px;
+    width: 100%;
+    position: absolute;
+    /* width: 100%; */
+    width: 300px;
+    z-index: 10;
+}
+@media (min-width:600px){
+    .countryDropDown{
+        width: 450px;
+    }
+}
+@media (min-width:600px){
+    .countryDropDown{
+        width: 400px;
+    }
+}
+@media (min-width:1680px){
+    .countryDropDown{
+        width: 500px;
+    }
+}

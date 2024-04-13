@@ -22,6 +22,7 @@ function CountrySelector() {
                         <span style={{ marginRight: '8px' }}>{country?.name?.common}</span>
                     ),
                 }));
+                options.sort((a, b) => a.name.localeCompare(b.name))
                 setCountryOptions(options);
                 setSelectedCountry(options.find(option => {
                     return option.value === 'GB'
@@ -37,8 +38,9 @@ function CountrySelector() {
     }
 
     const handleSelectedItem = (selectedOption) => {
-        setSelectedCountry(selectedOption)
-    }
+        setSelectedCountry(selectedOption);
+        setIsDropDownOpen(false); // Close the dropdown when an option is selected
+    };
 
     return (
         <section className={styles.maincont} onClick={handleCountrySel}>
@@ -50,15 +52,18 @@ function CountrySelector() {
                 <FlameImage src={downArrSrc} alt={'icon'} />
             </section>
             <section className={styles.codeBlock}><h5 className={styles.codeText}>{`${selectedCountry?.idd?.root}${selectedCountry?.idd?.suffixes[0]}`}</h5></section>
-            {isDropdownOpen && <Select
-                value={selectedCountry}
-                onChange={handleSelectedItem}
-                options={countryOptions}
-                isSearchable={true}
-                placeholder="Select a country"
-                menuIsOpen={isDropdownOpen}
-            // onMenuClose={() => setIsDropDownOpen(false)}
-            />}
+            {isDropdownOpen &&
+                <section className={styles.countryDropDown}>
+                    <Select
+                        value={selectedCountry}
+                        onChange={handleSelectedItem}
+                        options={countryOptions}
+                        // isSearchable={true}
+                        placeholder="Select a country"
+                        menuIsOpen={isDropdownOpen}
+                    // onMenuClose={() => setIsDropDownOpen(false)}
+                    /> </section>}
+
         </section>
     );
 }
