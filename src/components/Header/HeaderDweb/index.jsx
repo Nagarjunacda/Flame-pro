@@ -17,7 +17,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
   const searchIcon =
     isFromDrawer || relativeHeader
       ? "/Images/blacksearch.png"
-      : "/Images/ic_search_24px.png";
+      : "/Images/searchNew.svg";
   const basketIcon =
     isFromDrawer || relativeHeader
       ? "/Images/basketIcon.svg"
