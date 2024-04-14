@@ -47,12 +47,12 @@ function DetailSliderComp({ data, setSelectedImage }) {
 
     return (
         <section className={styles.sliderCont}>
-            <button
+            {data && data?.length > 3 && <button
                 onClick={handlePrevBtn}
                 className={styles.button}
             >
                 <img src="/Images/leftGreyArrow.svg" alt="prev" />
-            </button>
+            </button>}
             <section className={styles.sliderImg}>
                 <Slider ref={sliderRef} {...settings}>
                     {data?.map((item, index) => {
@@ -66,12 +66,12 @@ function DetailSliderComp({ data, setSelectedImage }) {
                     })}
                 </Slider>
             </section>
-            <button
+            {data && data?.length > 3 && <button
                 onClick={handleNextBtn}
                 className={styles.button}
             >
                 <img src="/Images/rightGreyArrow.svg" alt="next" />
-            </button>
+            </button>}
         </section>
     );
 }

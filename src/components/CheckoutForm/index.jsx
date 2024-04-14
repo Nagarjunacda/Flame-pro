@@ -151,7 +151,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
         if (res?.data) {
             const refNum = res?.data?.order_number
             setIsLoadState(false);
-            router.push(`/thank-you?ref=${refNum}`)
+            router.push(`/order-confirmation?ref=${refNum}`)
             // setShowToast(true);
             // setToastMsg("Successfully signedup to our mailing list.");
         }
@@ -280,13 +280,6 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                     </div>
                 ))}
             </form>
-            {showToast && (
-                <Toast
-                    showToast={showToast}
-                    setShowToast={setShowToast}
-                    toastMsg={toastMsg}
-                />
-            )}
         </section>
         <section className={styles.formCont}>
             <h5
@@ -308,6 +301,13 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                         btnFunction={() => { handleContactSel('Email') }} />
                 </section>
             </section>
+            {showToast && (
+                <Toast
+                    showToast={showToast}
+                    setShowToast={setShowToast}
+                    toastMsg={toastMsg}
+                />
+            )}
             <section className={styles.submitSec}>
                 <Link href={'/shop-all'} className={styles.btnStyle2}>
                     <ButtonStyleTwo

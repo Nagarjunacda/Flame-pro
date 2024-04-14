@@ -3,7 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useMediaQuery } from "react-responsive";
 
 const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
-  const isTabScreen = useMediaQuery({ query: "(min-width:600px)" });
+  const isTabScreen = useMediaQuery({ query: "(min-width: 600px) and (max-width: 899px)" });
   const applyBorderArr = ['Phone', 'Email', 'ASAP', 'Arrange A Time'];
   const applyBorder = applyBorderArr.includes(text);
   const isSmallBtn = text === 'Add To Quote Basket' && !isTabScreen;
@@ -11,7 +11,7 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     backgroundColor: color,
     border: "none",
     color: textColor,
-    padding: isSmallBtn ? '20px' : "var(--padding-btn)",
+    padding: isSmallBtn ? '16px 20px' : "var(--padding-btn)",
     transform: "skew(-20deg)",
     textDecoration: "none",
     transition: "all 0.3s ease",

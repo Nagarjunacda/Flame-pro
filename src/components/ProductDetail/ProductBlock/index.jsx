@@ -49,20 +49,22 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoadin
                 </section>
             </section>
             <section className={styles.descCont}>
-                {isDesktop && <h1 className={styles.title}>{productName}</h1>}
-                <section>{renderHTML(description)}</section>
+                <section className={styles.infoBlock}>
+                    {isDesktop && <h1 className={styles.title}>{productName}</h1>}
+                    <section>{renderHTML(description)}</section>
+                </section>
+                {showToast && (
+                    <Toast
+                        showToast={showToast}
+                        setShowToast={setShowToast}
+                        toastMsg={toastMsg}
+                    />
+                )}
                 <section className={styles.inputAndCta}>
                     <section className={styles.inputBlock}>
                         <h6 className={styles.quantity}>Quantity</h6>
                         <EditableDiv getProductQuantity={getProductQuantity} />
                     </section>
-                    {showToast && (
-                        <Toast
-                            showToast={showToast}
-                            setShowToast={setShowToast}
-                            toastMsg={toastMsg}
-                        />
-                    )}
                     <section className={styles.ctaSection}>
                         <section>
                             <FlameBtn color={btnColor}
