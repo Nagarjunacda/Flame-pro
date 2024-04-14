@@ -9,9 +9,9 @@ import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import InputGroup from "react-bootstrap/InputGroup";
+import Spinner from "react-bootstrap/Spinner";
 import { handlePostRequests } from "@/utils/handlePostCalls";
 import Form from "react-bootstrap/Form";
-import Spinner from "react-bootstrap/Spinner";
 import { updateCustomerUrl } from "@/utils/urls";
 import { removeFromCartUrl } from "@/utils/urls";
 import TitleAndTextCentre from "../TitleAndTextCentre";
@@ -22,7 +22,9 @@ const BasketItems = () => {
   const { cartData, setTriggerUpdate } = useCartData();
   const [showTextBox, setShowTextBox] = useState(false);
   const [quanityValue, setquanityValue] = useState('');
+  const [isRemoveProduct, setIsRemoveProduct] = useState(false);
   const [showEditedQuantity, setShowEditedQuantity] = useState(false)
+  const removeCtaText = isRemoveProduct ? 'Removing Product' : 'Remove Product';
   const emptyBasket = {
     title: "Basket Empty",
     button_title: "Shop All",
@@ -46,6 +48,7 @@ const BasketItems = () => {
   }
 
   const handleRemoveFromCart = async (data) => {
+    setIsRemoveProduct(true)
     const body = {
       key: data?.key
     };
@@ -53,6 +56,10 @@ const BasketItems = () => {
     const res = await handlePostRequests(removeFromCartUrl, body, customHeaders);
     if (res?.data) {
       setTriggerUpdate(true);
+      setIsRemoveProduct(false)
+    }
+    if (res?.error) {
+      setIsRemoveProduct(false)
     }
   };
 
@@ -143,12 +150,17 @@ const BasketItems = () => {
                       className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 pt-lg-2"
                       onClick={() => { handleRemoveFromCart(data) }}
                     >
+                      {isRemoveProduct && <Spinner animation="border" variant="danger" size="sm" />}
                       <ButtonStyleTwo
-                        text={"Remove Product"}
+                        text={removeCtaText}
                         textColor="var( --color-primary)"
                         btnFunction={btnFunction}
-                        btnIcon={"/Images/deleteIcon.svg"}
+                        btnIcon={isRemoveProduct ? '' : "/Images/deleteIcon.svg"}
                       />
+                      {/* <section>
+                        <Spinner animation="border" variant="danger" size="sm" />
+                        <h3>Removing Product</h3>
+                      </section> */}
                     </Col>
                     <Col lg={3} sm={12} xs={12} className="pt-lg-2">
                       <ButtonStyleTwo
