@@ -4,18 +4,19 @@ import DetailSliderComp from '@/reusbleComponents/DetailSliderComp';
 import EditableDiv from '@/components/EditableDiv';
 import { renderHTML } from '@/utils/htmlString';
 import { useMediaQuery } from 'react-responsive';
+import Toast from '@/reusbleComponents/ToastMsg';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import ProductInfoMweb from '../ProductInfoMweb';
 import ProductInfoDweb from '../ProductInfoDweb';
 import styles from '../productDetail.module.css';
 
-function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoading }) {
+function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoading, showToast, toastMsg, setShowToast }) {
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const productName = productData?.name;
     const trayTitle = 'productDetail';
     const imgArr = productData?.images;
-    const initailImage = imgArr[0]?.src;
+    const initailImage = imgArr && imgArr.length && imgArr[0]?.src;
     const [selectedImage, setSelectedImage] = useState(initailImage);
     const magnifierSrc = '/Images/magnifierLogo.svg';
     const description = productData?.description;
@@ -55,6 +56,13 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoadin
                         <h6 className={styles.quantity}>Quantity</h6>
                         <EditableDiv getProductQuantity={getProductQuantity} />
                     </section>
+                    {showToast && (
+                        <Toast
+                            showToast={showToast}
+                            setShowToast={setShowToast}
+                            toastMsg={toastMsg}
+                        />
+                    )}
                     <section className={styles.ctaSection}>
                         <section>
                             <FlameBtn color={btnColor}

@@ -28,7 +28,7 @@ function ProductInfoDweb({ data, productInfo }) {
     return <section className={styles.infoDwebCont}>
         <section className={styles.dwebHeadingCont}>
             {
-                data.map((infoLink, index) => {
+                data?.map((infoLink, index) => {
                     return <section key={index} className={selectedLink === infoLink ? styles.selectedLinkDweb : styles.infoLinksDweb} onClick={() => { handleSelectedLink(infoLink) }}><h5 className={styles.infoText}>{infoLink}</h5></section>
                 })
             }

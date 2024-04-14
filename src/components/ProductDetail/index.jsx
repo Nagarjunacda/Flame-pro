@@ -14,6 +14,8 @@ function ProductDetail({ productData }) {
   const { setTriggerUpdate } = useCartData();
   const [productQuantity, setProductQuantity] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
+  const [showToast, setShowToast] = useState(false);
+  const [toastMsg, setToastMsg] = useState("");
   const nonceVal = useContext(NonceContext);
   const productId = productData?.id;
 
@@ -30,6 +32,12 @@ function ProductDetail({ productData }) {
       setShowPopup(true);
       setIsLoading(false)
     }
+    if (res?.error) {
+      const errMsg = res?.error?.response?.data?.message;
+      setIsLoading(false)
+      setShowToast(true);
+      setToastMsg(errMsg || "An error occurred during the request. Please try again.");
+    }
   };
 
   const getProductQuantity = (quant) => {
@@ -39,7 +47,7 @@ function ProductDetail({ productData }) {
   return (
     <main className={styles.mainCont}>
       <Breadcrumbs />
-      <ProductBlock productData={productData} handleAddCart={handleAddCart} isLoading={isLoading} getProductQuantity={getProductQuantity} />
+      <ProductBlock productData={productData} showToast={showToast} setShowToast={setShowToast} toastMsg={toastMsg} handleAddCart={handleAddCart} isLoading={isLoading} getProductQuantity={getProductQuantity} />
       {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}

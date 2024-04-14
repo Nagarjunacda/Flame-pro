@@ -31,7 +31,7 @@ function ProductInfoMweb({ data, productInfo }) {
 
     return <>
         {
-            data.map((infoLink, index) => {
+            data?.map((infoLink, index) => {
                 return <section className={styles.infoMwebCont} key={index}><h5 key={index} className={selectedLink === infoLink ? styles.selectedLink : styles.infoLinks} onClick={() => { handleSelectedLink(infoLink) }}>{infoLink}</h5>
                     {selectedLink === infoLink && <section className={styles.dataBlock}>{getInfoData(infoLink)}</section>}
                 </section>
