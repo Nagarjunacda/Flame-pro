@@ -27,3 +27,5 @@ export const faqPageUrl = `${baseUrl}/wp/v2/pages/114`;
 export const contactUsUrl = `${baseUrl}/wp/v2/pages/102`;
 export const searchUrl = `${baseUrl}/wp/v2/search`;
 export const contactUsFormPageUrl = `${baseUrl}/gf/v2/forms/7/submissions`;
+export const orderConfirmationUrl = `${baseUrl}/wp/v2/pages/4607`;
+export const updateCustomerUrl = `${baseUrl}/wc/store/v1/cart/update-item`;

@@ -7,11 +7,13 @@
 @media (min-width:1280px){
   .bastetSection {
     padding-top: 32px;
+    padding-bottom: 48px;
   }
 }
 @media (min-width:1680px){
   .bastetSection {
     padding-top: 48px;
+        padding-bottom: 48px;
   }
 }
 .bastetSection .basketcontent {

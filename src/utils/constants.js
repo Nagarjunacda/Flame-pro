@@ -1,1 +1,1 @@
-export const relativeHeaderPaths = ['/basket', '/thank-you', '/shop-all/[slug]/[productId]']
+export const relativeHeaderPaths = ['/basket', '/thank-you', '/shop-all/[slug]/[productId]', '/order-confirmation']

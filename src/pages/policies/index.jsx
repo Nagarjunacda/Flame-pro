@@ -12,7 +12,7 @@ function Policies({ data }) {
       {trayData ? (
         <RenderTrays trayData={trayData} />
       ) : (
-        <p>This Page Under Development</p>
+        <p>!! SomeThing went wrong please reload the page</p>
       )}
     </main>
   );

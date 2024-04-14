@@ -12,6 +12,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { handlePostRequests } from "@/utils/handlePostCalls";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import { updateCustomerUrl } from "@/utils/urls";
 import { removeFromCartUrl } from "@/utils/urls";
 import TitleAndTextCentre from "../TitleAndTextCentre";
 import style from "./basketItems.module.css";
@@ -51,8 +52,16 @@ const BasketItems = () => {
     }
   };
 
-  const handleTickMarkClick = () => {
-    console.log(quanityValue, '!!')
+  const handleTickMarkClick = async (data) => {
+    setShowTextBox(false)
+    const body = {};
+    const key = data?.key;
+    const customHeaders = { Nonce: nonceVal };
+    const url = `${updateCustomerUrl}?key=${key}&quantity=${quanityValue}`;
+    const res = await handlePostRequests(url, body, customHeaders);
+    if (res?.data) {
+      setTriggerUpdate(true);
+    }
   }
 
   return (
@@ -113,7 +122,7 @@ const BasketItems = () => {
                               quanityInput(e.target.value);
                             }}
                           />
-                          <InputGroup.Text id="btnGroupAddon" onClick={handleTickMarkClick}>
+                          <InputGroup.Text id="btnGroupAddon" onClick={() => { handleTickMarkClick(data) }}>
                             &#10004;
                           </InputGroup.Text>
                         </InputGroup>

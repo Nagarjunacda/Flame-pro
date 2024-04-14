@@ -1,12 +1,19 @@
 import { useRouter } from "next/router";
+import { handleServerSideProps } from "@/utils/handleServerSideData";
 import BasketTitleBlock from "@/components/ContentBlocks/BasketTitleBlock";
+import { orderConfirmationUrl } from "@/utils/urls";
 import Breadcrumbs from "@/components/BreadCrumbs";
 import BasketItems from "@/components/ContentBlocks/BasketItems";
+import RenderTrays from "@/components/RenderTrays";
 
-const Basket = () => {
+const OrderConfirmationPage = ({ data }) => {
+  console.log(data, '!!')
   const router = useRouter();
   const { query } = router;
-  const { ref } = query
+  const { ref } = query;
+  const trayData = data?.acf?.content_blocks;
+  const additionalDataExt = data?.acf_fields;
+
   return (
     <>
       <Breadcrumbs isPadding />
@@ -17,8 +24,26 @@ const Basket = () => {
         }
         subHeading={`Reference No. ${ref}`}
       />
+      <RenderTrays trayData={trayData} additionalDataExt={additionalDataExt} />
     </>
   );
 };
 
-export default Basket;
+export default OrderConfirmationPage;
+
+export async function getServerSideProps(context) {
+  const { data, error } = await handleServerSideProps(orderConfirmationUrl);
+  if (error) {
+    return {
+      props: {
+        data: null,
+      },
+    };
+  }
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
