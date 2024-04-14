@@ -27,6 +27,10 @@ const BasketItems = () => {
     title: "Basket Empty",
     button_title: "Shop All",
   };
+  const loadingBasket = {
+    title: 'Loading Basket...',
+    button_title: ''
+  }
   function btnFunction() { }
 
   function handleEditQuote() {
@@ -162,9 +166,9 @@ const BasketItems = () => {
           ))}
           {/* items */}
         </section>
-      ) : (
+      ) : cartData?.items?.length === 0 ? (
         <TitleAndTextCentre trayData={emptyBasket} />
-      )}
+      ) : <TitleAndTextCentre trayData={loadingBasket} />}
     </>
   );
 };

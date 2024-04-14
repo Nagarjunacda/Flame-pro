@@ -7,7 +7,6 @@ import BasketItems from "@/components/ContentBlocks/BasketItems";
 import RenderTrays from "@/components/RenderTrays";
 
 const OrderConfirmationPage = ({ data }) => {
-  console.log(data, '!!')
   const router = useRouter();
   const { query } = router;
   const { ref } = query;
