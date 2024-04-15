@@ -5,21 +5,21 @@ import FlameImage from "@/reusbleComponents/FlameImage";
 import OffCanvasDweb from "../OffCanvasDweb";
 import styles from "../header.module.css";
 
-function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
+function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled }) {
   const router = useRouter();
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [selectedNavItem, setSelectedNavItem] = useState({});
   const navItems = headerData?.items;
   const flameLogo =
-    isFromDrawer || relativeHeader
+    scrolled ? "/Images/flameLogo.svg" : isFromDrawer || relativeHeader
       ? "/Images/flameLogoDark.svg"
       : "/Images/flameLogo.svg";
   const searchIcon =
-    isFromDrawer || relativeHeader
+    scrolled ? "/Images/searchNew.svg" : isFromDrawer || relativeHeader
       ? "/Images/blacksearch.png"
       : "/Images/searchNew.svg";
   const basketIcon =
-    isFromDrawer || relativeHeader
+    scrolled ? "/Images/basketIconWhite.svg" : isFromDrawer || relativeHeader
       ? "/Images/basketIcon.svg"
       : "/Images/basketIconWhite.svg";
 
@@ -72,7 +72,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
   return (
     <header
       className={
-        relativeHeader ? styles.relativeHeaderMainDweb : styles.headerMainDweb
+        scrolled ? styles.scrolledHeaderMainDweb : relativeHeader ? styles.relativeHeaderMainDweb : styles.headerMainDweb
       }
     >
       <section className={styles.subHeader}>
@@ -83,7 +83,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader }) {
         </figure>
         <nav
           className={
-            isFromDrawer || relativeHeader
+            scrolled ? styles.navItems : isFromDrawer || relativeHeader
               ? styles.navItemsDrawer
               : styles.navItems
           }
