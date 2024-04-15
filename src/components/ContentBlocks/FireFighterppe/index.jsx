@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import BasketMweb from "@/components/Header/BasketMweb";
@@ -9,6 +10,7 @@ import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
 
 function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
+  const router = useRouter();
   const heading = selectedNavItem?.title;
   const childItems = selectedNavItem?.child_items;
   const isFireFighting = selectedNavItem?.title === "Firefighting PPE";
@@ -20,6 +22,12 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
   const fireFightingCards = isLargeScreen ? ["item", "item"] : ["item"];
   const nonFireFightingCards = isDesktop ? ["item", "item", "item"] : ["item"];
   const blogCardArr = isFireFighting ? fireFightingCards : nonFireFightingCards;
+
+  const handleHeadingClick = () => {
+    const routeUrl = selectedNavItem?.slug;
+    router.push(`/${routeUrl}`);
+    handleOverlayClose();
+  }
 
   return (
     <section className={styles.container}>
@@ -39,6 +47,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
             className={
               isDefencePro ? styles.headingTextMar : styles.headingText
             }
+            onClick={handleHeadingClick}
           >
             {heading}
           </p>

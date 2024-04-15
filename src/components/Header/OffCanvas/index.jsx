@@ -71,10 +71,10 @@ function OffCanvas({ show, handleClose, headerData }) {
         switch (selectedNavItem?.title) {
             case 'Firefighting PPE':
                 return <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />
-            case 'Defence Procurement':
-                return <DefenceProcurement handleOverlayClose={handleOverlayClose} />
-            case 'Resource Hub':
-                return <ResoureceHub handleOverlayClose={handleOverlayClose} />
+            // case 'Defence Procurement':
+            //     return <DefenceProcurement handleOverlayClose={handleOverlayClose} />
+            // case 'Resource Hub':
+            //     return <ResoureceHub handleOverlayClose={handleOverlayClose} />
             default:
                 return null
         }
