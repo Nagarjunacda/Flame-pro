@@ -24,6 +24,7 @@ const BasketItems = () => {
   const [quanityValue, setquanityValue] = useState('');
   const [isRemoveProduct, setIsRemoveProduct] = useState(false);
   const [showEditedQuantity, setShowEditedQuantity] = useState(false)
+  const [updatingQty, setUpdatingQty] = useState(false);
   const removeCtaText = isRemoveProduct ? 'Removing Product' : 'Remove Product';
   const emptyBasket = {
     title: "Basket Empty",
@@ -65,6 +66,7 @@ const BasketItems = () => {
 
   const handleTickMarkClick = async (data) => {
     setShowTextBox(false)
+    setUpdatingQty(true)
     const body = {};
     const key = data?.key;
     const customHeaders = { Nonce: nonceVal };
@@ -72,7 +74,10 @@ const BasketItems = () => {
     const res = await handlePostRequests(url, body, customHeaders);
     if (res?.data) {
       setTriggerUpdate(true);
+      setUpdatingQty(false);
+      return
     }
+    setUpdatingQty(false);
   }
 
   return (
@@ -133,24 +138,28 @@ const BasketItems = () => {
                               quanityInput(e.target.value);
                             }}
                           />
-                          <InputGroup.Text id="btnGroupAddon" onClick={() => { handleTickMarkClick(data) }}>
+                          <InputGroup.Text id="btnGroupAddon" className={style.tickMark} onClick={() => { handleTickMarkClick(data) }}>
                             &#10004;
                           </InputGroup.Text>
                         </InputGroup>
                       ) : (
-                        <>
+                        <section className={style.priceSpinner}>
                           {priceFormatter(data.quantity)}
-                        </>
+                          {updatingQty && <section className={style.qunatitySpinner}>
+                            <Spinner animation="border" variant="danger" size="sm" />
+                            <h5 className={style.qunatitySpinnerText}>Updating Quantity</h5>
+                          </section>}
+                        </section>
                       )}
                     </Col>
                     <Col
                       lg={3}
                       sm={12}
                       xs={12}
-                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 pt-lg-2"
+                      className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 pt-lg-2 d-flex align-items-center"
                       onClick={() => { handleRemoveFromCart(data) }}
                     >
-                      {isRemoveProduct && <Spinner animation="border" variant="danger" size="sm" />}
+                      {isRemoveProduct && <section className={style.removeSpin}><Spinner animation="border" variant="danger" size="sm" /></section>}
                       <ButtonStyleTwo
                         text={removeCtaText}
                         textColor="var( --color-primary)"

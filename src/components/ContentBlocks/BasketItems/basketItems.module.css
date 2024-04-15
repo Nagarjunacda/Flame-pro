@@ -39,3 +39,23 @@
 .quantityInput{
   padding-bottom: 70px;
 }
+.priceSpinner{
+  display: flex;
+  gap:4px;
+}
+.qunatitySpinner{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.qunatitySpinnerText{
+  font-size: 12px;
+  padding-top: 1px;
+}
+.tickMark{
+  cursor: pointer;
+}
+.removeSpin{
+  padding-right: 2px; 
+}
