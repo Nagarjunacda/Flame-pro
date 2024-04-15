@@ -5,6 +5,7 @@ import NonceContext from "@/context/NonceContext";
 import Toast from '@/reusbleComponents/ToastMsg';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import FlameImage from '@/reusbleComponents/FlameImage';
+import CountrySelector from '../CountrySelector';
 import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
@@ -195,8 +196,8 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                                     name={fieldName?.section1}
                                     className={
                                         fieldName?.section1 === "Area Of Interest*"
-                                            ? styles.areaInterestInput
-                                            : styles.textInput
+                                            ? styles.areaInterestInput : fieldName?.section1 === 'Phone Number*' ? styles.textInputPhoneNum
+                                                : styles.textInput
                                     }
                                     placeholder={fieldName?.section1}
                                     onChange={(e) => handleChange(e, fieldName?.section1)}
@@ -210,6 +211,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                                     {areaOfInt}
                                 </section>
                             )}
+                            {fieldName.section1 === 'Phone Number*' && <CountrySelector />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
                             )}

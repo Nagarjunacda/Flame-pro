@@ -16,7 +16,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled }) {
       : "/Images/flameLogo.svg";
   const searchIcon =
     scrolled ? "/Images/searchNew.svg" : isFromDrawer || relativeHeader
-      ? "/Images/blacksearch.png"
+      ? "/Images/blackSearchIconNew.svg"
       : "/Images/searchNew.svg";
   const basketIcon =
     scrolled ? "/Images/basketIconWhite.svg" : isFromDrawer || relativeHeader

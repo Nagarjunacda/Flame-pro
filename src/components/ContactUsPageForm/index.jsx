@@ -176,6 +176,8 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
         if (res?.data) {
             const refNum = res?.data?.order_number
             setIsLoadState(false);
+            setShowToast(true);
+            setToastMsg('Success! Your form has been submitted. We wll be in touch shortly');
             // router.push(`/thank-you?ref=${refNum}`)
             // setShowToast(true);
             // setToastMsg("Successfully signedup to our mailing list.");
