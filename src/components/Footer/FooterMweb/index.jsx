@@ -4,6 +4,7 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import CopyRightText from '../CopyRightText';
 import SignUpForm from '@/components/SignUpForm';
 import styles from '../footer.module.css';
+import Link from 'next/link';
 
 function FooterMweb({ footerData }) {
     const router = useRouter()
@@ -33,7 +34,11 @@ function FooterMweb({ footerData }) {
             router.push('/faqs')
             return
         }
-        router.push('/policies')
+        if (label === 'Distributors') {
+            router.push('/distributors')
+            return
+        }
+
     }
 
     const usefulLinksArr = footerData?.items?.filter(e => e?.title === 'Useful Links');
@@ -114,6 +119,14 @@ function FooterMweb({ footerData }) {
                                         {e}
                                     </section>
                                 ))}
+                                {link === 'Useful Links' && <div className={styles.socialItems}>
+                                    <Link href={'https://www.linkedin.com/company/flameproltd/'} target="blank" className={styles.socialItem}>
+                                        <FlameImage src={"/Images/linkedin.svg"} />
+                                    </Link>
+                                    <Link href={'https://twitter.com/flameproglobal'} target="blank" className={styles.socialItem}>
+                                        <FlameImage src={"/Images/twitter.svg"} />
+                                    </Link>
+                                </div>}
                             </section>
                         )}
                     </section>

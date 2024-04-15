@@ -57,7 +57,7 @@ function FooterDweb({ footerData }) {
                         </div>
                       ) : (
                         <Link
-                          href={e?.slug === 'distributors' ? '/policies' : `/${e?.slug}`}
+                          href={`/${e?.slug}`}
                           className={styles.innerLinks}
                           key={index}
                         >
@@ -67,10 +67,10 @@ function FooterDweb({ footerData }) {
                     );
                   })}
                   {link?.title === 'Useful Links' && <div className={styles.socialItems}>
-                    <Link href={'https://www.linkedin.com'} target="blank" className={styles.socialItem}>
+                    <Link href={'https://www.linkedin.com/company/flameproltd/'} target="blank" className={styles.socialItem}>
                       <FlameImage src={"/Images/linkedin.svg"} />
                     </Link>
-                    <Link href={'https://twitter.com/'} target="blank" className={styles.socialItem}>
+                    <Link href={'https://twitter.com/flameproglobal'} target="blank" className={styles.socialItem}>
                       <FlameImage src={"/Images/twitter.svg"} />
                     </Link>
                   </div>}

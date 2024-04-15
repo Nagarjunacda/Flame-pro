@@ -44,7 +44,6 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
   };
 
   const handleNavItemClick = (item) => {
-    console.log(item, '!!')
     if (clickedItem?.title === item?.title) {
       router.push(`/${item?.slug}`);
       handleOverlayClose();
