@@ -10,6 +10,7 @@ import styles from "../header.module.css";
 function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
   const router = useRouter();
   const [clickedItem, setClickedItem] = useState({});
+  const [searchData, setSearchData] = useState([]);
   const navItems = headerData?.items;
   const flameLogo = "/Images/flameLogoDark.svg";
   const searchIcon = "/Images/searchIcon.svg";
@@ -20,6 +21,10 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
     setIsOverlayCanvasOpen(false);
     handleClose();
   };
+
+  const getSearchData = (data) => {
+    setSearchData(data);
+  }
 
   useEffect(() => {
     setClickedItem(selectedNavItem);
@@ -45,6 +50,11 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
 
   const handleNavItemClick = (item) => {
     if (clickedItem?.title === item?.title) {
+      if (item?.title === 'Search') {
+        setSearchData([]);
+        handleOverlayClose();
+        return
+      }
       router.push(`/${item?.slug}`);
       handleOverlayClose();
       return
@@ -76,7 +86,8 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
     <Offcanvas
       show={show}
       onHide={handleOverlayClose}
-      className={clickedItem?.title === 'Search' ? styles.offCanvasContDwebSearch : styles.offCanvasContDweb}
+      className={searchData?.length ? styles.offCanvasContDwebSearchRes :
+        clickedItem?.title === 'Search' ? styles.offCanvasContDwebSearch : styles.offCanvasContDweb}
       placement={"top"}
     >
       <Offcanvas.Header>
@@ -109,6 +120,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
       </Offcanvas.Header>
       <Offcanvas.Body className={styles.offCanvasBody}>
         <FireFighterppe
+          getSearchData={getSearchData}
           selectedNavItem={clickedItem}
           handleOverlayClose={handleOverlayClose}
         />

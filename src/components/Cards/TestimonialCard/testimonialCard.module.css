@@ -19,6 +19,9 @@
 .testimonalData {
   padding-right: 30px;
 }
+.testimonalImage {
+  max-width: 250px;
+}
 
 @media only screen and (max-width: 986px) {
   .testimonalRow {
@@ -26,7 +29,8 @@
     flex-direction: column-reverse;
   }
   .testimonalImage {
-    padding: 40px;
+    padding: 4px;
+    min-width: 120px;
   }
   .slider_slideWrapper__7oBiz {
     padding: 0px;
@@ -34,7 +38,4 @@
   .testimonalData {
     padding-right: 0px;
   }
-}
-.testimonalImage {
-  max-width: 250px;
 }

@@ -136,22 +136,38 @@
   padding: 24px 20px;
 }
 .offCanvasContDweb {
-  padding: 32px 32px;
+  padding: 24px 32px 32px 32px;
   height: 90vh !important;
 }
 @media (min-width: 1680px) {
   .offCanvasContDweb {
-    padding: 86px 124px;
+    padding: 32px 124px 32px 124px;
   }
 }
 .offCanvasContDwebSearch{
-    padding: 32px 32px;
+    padding: 24px 32px 32px 32px;
     height: 42vh !important;
+}
+@media (min-width: 1280px) {
+  .offCanvasContDwebSearch {
+    padding: 32px 32px 32px 32px;
+    height: 50vh !important;
+  }
 }
 @media (min-width: 1680px) {
   .offCanvasContDwebSearch {
-    padding: 86px 124px;
+    padding: 32px 124px 32px 124px;
+    height: 32vh !important;
   }
+}
+.offCanvasContDwebSearchRes{
+  padding: 24px 32px 32px 32px;
+  height: 90vh !important;
+}
+@media (min-width: 1680px) {
+.offCanvasContDwebSearchRes {
+  padding: 32px 124px 32px 124px;
+}
 }
 .offCanvasBody {
   display: flex;

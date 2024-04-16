@@ -1,9 +1,10 @@
-import Style from "./testimonialCard.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import { renderHTML } from "@/utils/htmlString";
+import Style from "./testimonialCard.module.css";
+
 const TestimonialCard = ({ data }) => {
   return (
     <section>

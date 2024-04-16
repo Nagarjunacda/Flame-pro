@@ -9,7 +9,7 @@ import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
 
-function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
+function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, setIsSearchLoading, getSearchData }) {
   const router = useRouter();
   const heading = selectedNavItem?.title;
   const childItems = selectedNavItem?.child_items;
@@ -31,7 +31,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose }) {
 
   return (
     <section className={styles.container}>
-      {isSearch && <Search />}
+      {isSearch && <Search getSearchData={getSearchData} handleOverlayClose={handleOverlayClose} />}
       {!isDesktop && !isSearch && (
         <section className={styles.heading}>
           <section
