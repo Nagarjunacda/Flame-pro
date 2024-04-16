@@ -11,7 +11,7 @@ import DefenceProcurement from '@/components/ContentBlocks/DefenceProcurement';
 import ResoureceHub from '@/components/ContentBlocks/ResourceHub';
 import styles from '../header.module.css'
 
-function OffCanvas({ show, handleClose, headerData }) {
+function OffCanvas({ show, handleClose, headerData, postsData }) {
     const router = useRouter()
     const [isOverlayCanvasOpen, setIsOverlayCanvasOpen] = useState(false)
     const [selectedNavItem, setSelectedNavItem] = useState(false)
@@ -116,7 +116,7 @@ function OffCanvas({ show, handleClose, headerData }) {
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className={styles.offCanvasBody}>
-                {selectedNavItem?.title === 'Search' ? <Search getSearchData={getSearchData} handleCloseMwebDrawer={handleOverlayClose} /> : <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />}
+                {selectedNavItem?.title === 'Search' ? <Search getSearchData={getSearchData} handleCloseMwebDrawer={handleOverlayClose} /> : <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} postsData={postsData} />}
             </Offcanvas.Body>
         </Offcanvas>
     </>

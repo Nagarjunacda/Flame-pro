@@ -4,7 +4,7 @@ import FlameImage from "@/reusbleComponents/FlameImage"
 import OffCanvas from "../OffCanvas"
 import styles from '../header.module.css'
 
-function HeaderMweb({ headerData, relativeHeader, scrolled }) {
+function HeaderMweb({ headerData, relativeHeader, scrolled, postsData }) {
     const [isCanvasOpen, setIsCanvasOpen] = useState(false)
     const flameLogo = scrolled ? '/Images/flameLogo.svg' : relativeHeader ? '/Images/flameLogoDark.svg' : '/Images/flameLogo.svg'
     const hamburgerIcon = scrolled ? 'Images/hamburger.svg' : relativeHeader ? '/Images/hamburgerDark.svg' : 'Images/hamburger.svg'
@@ -26,7 +26,7 @@ function HeaderMweb({ headerData, relativeHeader, scrolled }) {
         <figure className={styles.hamburger} onClick={handleOffCanvas}>
             <FlameImage src={hamburgerIcon} alt='hamburger' />
         </figure>
-        <OffCanvas show={isCanvasOpen} handleClose={handleClose} headerData={headerData} />
+        <OffCanvas show={isCanvasOpen} handleClose={handleClose} postsData={postsData} headerData={headerData} />
     </section>
 }
 export default HeaderMweb
