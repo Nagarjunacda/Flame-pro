@@ -13,7 +13,7 @@ function ImageLeftTextRight({ trayData }) {
   const textColor = "var(--color-secondary)";
   const route = trayData?.button1_link;
 
-  const handleBtnClick = () => {};
+  const handleBtnClick = () => { };
 
   return (
     <section className={styles.mainCont}>

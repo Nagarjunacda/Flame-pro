@@ -6,7 +6,6 @@ import Link from "next/link";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function ImageRightTextLeft({ trayData }) {
-  console.log(trayData, "trayDatabtn");
   const imageBanner = trayData?.image;
   const title = trayData?.title;
   const desc = trayData?.text;
@@ -15,14 +14,14 @@ function ImageRightTextLeft({ trayData }) {
   const textColor = "var(--color-secondary)";
   const route = trayData?.button_link;
 
-  const handleBtnClick = () => {};
+  const handleBtnClick = () => { };
 
   return (
     <section className={styles.mainCont}>
       <section className={styles.textBlock}>
         <h5 className={styles.title}>{title}</h5>
         <p className={styles.desc}>{renderHTML(desc)}</p>
-        {buttonText && (
+        {route && buttonText && (
           <section className={styles.btnSection}>
             <Link href={route}>
               <FlameBtn

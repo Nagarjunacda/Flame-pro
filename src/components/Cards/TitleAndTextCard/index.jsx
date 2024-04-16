@@ -5,7 +5,6 @@ import { formatDate } from "@/utils/formatDate";
 import styles from "./TitleAndTextCard.module.css";
 
 function TitleAndTextCard({ data }) {
-  console.log(data, '!!')
   const { title, content, date, featured_image_url, post_type_cat } = data;
   const cardImage = featured_image_url ? featured_image_url : "/Images/blogImg.svg";
   const postTitle = title?.rendered;

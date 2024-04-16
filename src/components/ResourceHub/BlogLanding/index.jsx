@@ -1,12 +1,24 @@
 import RenderTrays from "@/components/RenderTrays";
+import HeaderBannerSlim from "@/components/ContentBlocks/HeaderBannerSlim";
+import PostContent from "../PostContent";
+import Breadcrumbs from "@/components/BreadCrumbs";
 
 function BlogLanding({ pageData }) {
     const trayData = pageData?.acf?.content_blocks;
+    const title = pageData?.title?.rendered;
+    const headerBannerData = { image: "https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/Firefighting-bannerimage.jpg", title: title }
+
     return <main>
-        {trayData ? (
-            <RenderTrays trayData={trayData} fullPageData={pageData} />
+        {!trayData ? (
+            <>
+                <HeaderBannerSlim trayData={headerBannerData} />
+                <Breadcrumbs isPadding />
+                <PostContent trayData={trayData} fullPageData={pageData} />;
+            </>
         ) : (
-            <p>This Page Under Development</p>
+            <>
+                {/* <RenderTrays trayData={trayData} fullPageData={pageData} /> */}
+            </>
         )}
     </main>
 }

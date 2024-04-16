@@ -8,6 +8,7 @@ import FlameBtn from '@/reusbleComponents/FlameBtn';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import { Spinner } from 'react-bootstrap';
 import styles from './search.module.css';
+import { last } from 'lodash';
 
 const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) => {
     const router = useRouter();
@@ -52,6 +53,15 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
         handleOverlayClose();
         if (type === 'product') {
             router.push(`/shop-all/${lastPath}/${id}`);
+            return
+        }
+        if (type === 'post') {
+            router.push(`/resource-hub/${lastPath}/${id}`);
+            return
+        }
+        if (type === 'page') {
+            const path = selectedResult?.title === 'Home' ? '/' : selectedResult?.title === 'Cart' ? '/basket' : `/${lastPath}`
+            router.push(path);
             return
         }
 
@@ -102,6 +112,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
     };
 
     const handleSuggestionClick = (suggestion) => {
+        console.log(suggestion, '!!')
         setSuggestedResult(suggestion)
         setQuery(suggestion.title);
         setSuggestions([]);
