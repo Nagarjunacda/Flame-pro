@@ -5,11 +5,16 @@
 }
 .cardImg{
     border-radius: 0px;
+    min-height: 300px;
+    object-fit: cover;
+    max-height: 300px;
 }
 .text{
     font-size: var(--font-size-canvas);
     font-weight: var(--font-wt-md);
     line-height: 30px;
+    min-height: 48px;
+    max-height: 48px;
 }
 .body{
     padding-top:20px;

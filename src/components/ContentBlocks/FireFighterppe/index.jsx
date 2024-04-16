@@ -140,6 +140,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
                   onClick={() => {
                     handleOverlayClose("item");
                   }}
+                  className={styles.cardAlignment}
                 >
                   <BlogCard category={selectedNavItem?.title} data={e} />
                 </Link>

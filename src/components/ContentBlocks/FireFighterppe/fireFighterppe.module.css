@@ -44,6 +44,7 @@
 @media (min-width: 900px) {
   .subContainer {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 .childHeading {
@@ -97,4 +98,7 @@
 }
 .subContTitle {
   font-size: var(--font-size-headerDrawer);
+}
+.cardAlignment{
+  flex: 1 1 0%;
 }
