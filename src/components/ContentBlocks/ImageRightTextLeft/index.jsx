@@ -3,6 +3,7 @@ import FlameBtn from "@/reusbleComponents/FlameBtn";
 import { renderHTML } from "@/utils/htmlString";
 import styles from "./imageRightTextLeft.module.css";
 import Link from "next/link";
+import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function ImageRightTextLeft({ trayData }) {
   console.log(trayData, "trayDatabtn");
