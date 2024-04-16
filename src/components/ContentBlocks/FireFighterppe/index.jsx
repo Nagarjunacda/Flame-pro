@@ -9,7 +9,13 @@ import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
 
-function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, setIsSearchLoading, getSearchData }) {
+function FireFighterppe({
+  selectedNavItem,
+  handleOverlayClose,
+  isSearchLoading,
+  setIsSearchLoading,
+  getSearchData,
+}) {
   const router = useRouter();
   const heading = selectedNavItem?.title;
   const childItems = selectedNavItem?.child_items;
@@ -22,16 +28,25 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
   const fireFightingCards = isLargeScreen ? ["item", "item"] : ["item"];
   const nonFireFightingCards = isDesktop ? ["item", "item", "item"] : ["item"];
   const blogCardArr = isFireFighting ? fireFightingCards : nonFireFightingCards;
+  const linkStyle = {
+    display: "flex",
+    justifyContent: "center",
+  };
 
   const handleHeadingClick = () => {
     const routeUrl = selectedNavItem?.slug;
     router.push(`/${routeUrl}`);
     handleOverlayClose();
-  }
+  };
 
   return (
     <section className={styles.container}>
-      {isSearch && <Search getSearchData={getSearchData} handleOverlayClose={handleOverlayClose} />}
+      {isSearch && (
+        <Search
+          getSearchData={getSearchData}
+          handleOverlayClose={handleOverlayClose}
+        />
+      )}
       {!isDesktop && !isSearch && (
         <section className={styles.heading}>
           <section
@@ -53,90 +68,100 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
           </p>
         </section>
       )}
-      {!isSearch && <section className={styles.subContainer}>
-        <section
-          className={
-            isFireFighting ? styles.childHeadingPpe : styles.childHeading
-          }
-        >
-          {childItems &&
-            childItems.map((item, index) => {
-              const url =
-                heading === "Defence Procurement"
-                  ? `/${item?.slug}?category=${item?.object_id}`
-                  : heading === "Resource Hub"
+      {!isSearch && (
+        <section className={styles.subContainer}>
+          <section
+            className={
+              isFireFighting ? styles.childHeadingPpe : styles.childHeading
+            }
+          >
+            {childItems &&
+              childItems.map((item, index) => {
+                const url =
+                  heading === "Defence Procurement"
+                    ? `/${item?.slug}?category=${item?.object_id}`
+                    : heading === "Resource Hub"
                     ? "/resource-hub/the-importance-of-fr-base-layers/3480"
                     : "#";
-              return (
-                <section key={index} className={styles.childCont}>
+                return (
+                  <section key={index} className={styles.childCont}>
+                    <Link
+                      href={url}
+                      onClick={() => {
+                        handleOverlayClose("item");
+                      }}
+                    >
+                      <section
+                        className={
+                          isFireFighting && !isDesktop
+                            ? styles.subContTitle
+                            : null
+                        }
+                        key={index}
+                      >
+                        {item?.title}
+                      </section>
+                    </Link>
+                    {item.child_items &&
+                      item.child_items.map((childItem, index) => {
+                        const url =
+                          item?.title === "Products"
+                            ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}`
+                            : `/${childItem?.slug}`;
+                        return (
+                          <Link
+                            key={index}
+                            href={url}
+                            className={styles.innerChild}
+                          >
+                            <section
+                              key={index}
+                              onClick={() => {
+                                handleOverlayClose("item");
+                              }}
+                            >
+                              {childItem?.title}
+                            </section>
+                          </Link>
+                        );
+                      })}
+                  </section>
+                );
+              })}
+          </section>
+          {!isFireFighting && !isDesktop && <BasketMweb />}
+          {!isFireFighting && !isDesktop && <SearchMweb />}
+          <section className={styles.blogCard}>
+            <section className={styles.blogCardInner}>
+              {blogCardArr.map((e, index) => {
+                return (
                   <Link
-                    href={url}
+                    key={index}
+                    href={"/resource-hub/the-importance-of-fr-base-layers/3480"}
                     onClick={() => {
                       handleOverlayClose("item");
                     }}
                   >
-                    <section
-                      className={
-                        isFireFighting && !isDesktop
-                          ? styles.subContTitle
-                          : null
-                      }
-                      key={index}
-                    >
-                      {item?.title}
-                    </section>
+                    <BlogCard category={selectedNavItem?.title} />
                   </Link>
-                  {item.child_items &&
-                    item.child_items.map((childItem, index) => {
-                      const url =
-                        item?.title === "Products"
-                          ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}`
-                          : `/${childItem?.slug}`;
-                      return (
-                        <Link
-                          key={index}
-                          href={url}
-                          className={styles.innerChild}
-                        >
-                          <section
-                            key={index}
-                            onClick={() => {
-                              handleOverlayClose("item");
-                            }}
-                          >
-                            {childItem?.title}
-                          </section>
-                        </Link>
-                      );
-                    })}
-                </section>
-              );
-            })}
-        </section>
-        {!isFireFighting && !isDesktop && <BasketMweb />}
-        {!isFireFighting && !isDesktop && <SearchMweb />}
-        <section className={styles.blogCard}>
-          <section className={styles.blogCardInner}>
-            {blogCardArr.map((e, index) => {
-              return (
-                <Link
-                  key={index}
-                  href={"/resource-hub/the-importance-of-fr-base-layers/3480"}
-                  onClick={() => {
-                    handleOverlayClose("item");
-                  }}
-                >
-                  <BlogCard category={selectedNavItem?.title} />
-                </Link>
-              );
-            })}
+                );
+              })}
+            </section>
+            <Link
+              href={"/resource-hub"}
+              style={linkStyle}
+              onClick={() => {
+                handleOverlayClose("item");
+              }}
+            >
+              <ButtonStyleTwo
+                text={"View All Blogs"}
+                textColor={"var( --color-primary)"}
+              />
+            </Link>
           </section>
-          <ButtonStyleTwo
-            text={"View All Blogs"}
-            textColor={"var( --color-primary)"}
-          />
         </section>
-      </section>}
+      )}
     </section>
   );
 }
