@@ -7,7 +7,7 @@ import FireFighterppe from "@/components/ContentBlocks/FireFighterppe";
 import HeaderDweb from "../HeaderDweb";
 import styles from "../header.module.css";
 
-function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
+function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsData }) {
   const router = useRouter();
   const [clickedItem, setClickedItem] = useState({});
   const [searchData, setSearchData] = useState([]);
@@ -120,6 +120,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem }) {
       </Offcanvas.Header>
       <Offcanvas.Body className={styles.offCanvasBody}>
         <FireFighterppe
+          postsData={postsData}
           getSearchData={getSearchData}
           selectedNavItem={clickedItem}
           handleOverlayClose={handleOverlayClose}

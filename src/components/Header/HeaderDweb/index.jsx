@@ -5,7 +5,7 @@ import FlameImage from "@/reusbleComponents/FlameImage";
 import OffCanvasDweb from "../OffCanvasDweb";
 import styles from "../header.module.css";
 
-function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled }) {
+function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled, postsData }) {
   const router = useRouter();
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [selectedNavItem, setSelectedNavItem] = useState({});
@@ -103,6 +103,7 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled }) {
         </nav>
       </section>
       <OffCanvasDweb
+        postsData={postsData}
         show={isCanvasOpen}
         selectedNavItem={selectedNavItem}
         handleClose={handleClose}
