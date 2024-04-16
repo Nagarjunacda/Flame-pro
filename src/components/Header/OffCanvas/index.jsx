@@ -5,6 +5,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import SearchMweb from '../SearchMweb';
 import BasketMweb from '../BasketMweb';
+import Search from '@/components/Search';
 import FireFighterppe from '@/components/ContentBlocks/FireFighterppe';
 import DefenceProcurement from '@/components/ContentBlocks/DefenceProcurement';
 import ResoureceHub from '@/components/ContentBlocks/ResourceHub';
@@ -20,7 +21,7 @@ function OffCanvas({ show, handleClose, headerData }) {
     const onlyNavItems = navItems?.slice(0, 5);
     const reorderedElem = navItems?.slice(5).reverse();
     const orderedNavItems = navItems && onlyNavItems.concat(reorderedElem);
-    const overlayArr = ['Firefighting PPE', 'Defence Procurement', 'Resource Hub']
+    const overlayArr = ['Firefighting PPE', 'Defence Procurement', 'Resource Hub', 'Search']
 
     const handleOffCanvas = () => {
         setIsOverlayCanvasOpen(true)
@@ -66,6 +67,7 @@ function OffCanvas({ show, handleClose, headerData }) {
             return
         }
     }
+    const getSearchData = () => { }
 
     const getComp = () => {
         switch (selectedNavItem?.title) {
@@ -79,7 +81,7 @@ function OffCanvas({ show, handleClose, headerData }) {
                 return null
         }
     }
-
+    console.log(selectedNavItem?.title, '!!')
     return <>
         <Offcanvas show={show} className={styles.offCanvasCont} placement={'end'}>
             <Offcanvas.Header>
@@ -114,7 +116,7 @@ function OffCanvas({ show, handleClose, headerData }) {
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className={styles.offCanvasBody}>
-                <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />
+                {selectedNavItem?.title === 'Search' ? <Search getSearchData={getSearchData} handleCloseMwebDrawer={handleOverlayClose} /> : <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} />}
             </Offcanvas.Body>
         </Offcanvas>
     </>
