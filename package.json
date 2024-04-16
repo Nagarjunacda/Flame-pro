@@ -13,6 +13,7 @@
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "countries": "^1.0.2",
+    "lodash": "^4.17.21",
     "next": "14.1.0",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18",

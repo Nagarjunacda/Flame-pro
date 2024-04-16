@@ -55,3 +55,46 @@
     font-size: var(--font-size-lg);
     padding-top: 4px;
   }
+  .searchIcon{
+    /* width: 12; */
+    /* height: 12px; */
+    /* padding-bottom: 4px; */
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .innerContMweb{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .heading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .backButton {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 0px;
+  }
+  .backIcon {
+    width: 16px;
+    height: 16px;
+  }
+  .backText {
+    font-size: var(--font-size-xs);
+    letter-spacing: 1px;
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+  }
+  .headingText {
+    font-size: var(--font-size-canvas);
+    font-weight: var(--font-wt-bold);
+  }
