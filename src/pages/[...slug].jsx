@@ -11,8 +11,9 @@ export default CatchAllPage
 
 export async function getServerSideProps(context) {
     const { query, params } = context
+    const { slug } = params
     const { category } = query
-    const url = `${allPageUrl}/${category}`
+    const url = `${allPageUrl}/?slug=airports`;
     const { data, error } = await handleServerSideProps(url);
     if (error) {
         return {

@@ -1,9 +1,11 @@
 import RenderTrays from "../RenderTrays";
+import _ from 'lodash';
 
 function CatchAllBlock({ pageData }) {
   const { data } = pageData;
-  const trayData = data?.acf?.content_blocks;
-  const additionalDataExt = data?.acf_fields;
+  const isNotEmpty = !_.isEmpty(data);
+  const trayData = isNotEmpty && data[0]?.acf?.content_blocks;
+  const additionalDataExt = isNotEmpty && data[0]?.acf_fields;
   const categories = data?.category_info;
 
   return (
