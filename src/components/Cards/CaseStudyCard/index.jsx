@@ -4,11 +4,11 @@ import { useMediaQuery } from "react-responsive";
 import styles from "./caseStudyCard.module.css";
 
 function CaseStudyCard({ data }) {
-  const { title, content, name, post_type_cat } = data;
+  const { title, content, name, post_type_cat, excerpt } = data;
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-  const postContent = content?.rendered;
+  const postContent = excerpt;
   const postTitle = title?.rendered;
-  const postType = post_type_cat ? post_type_cat[0]?.name : 'Fire'
+  const postType = post_type_cat ? post_type_cat[0]?.name : "Fire";
   // const cardImage = isDesktop
   //   ? "/Images/caseStudyImage.svg"
   //   : "/Images/blogImg.svg";
@@ -24,10 +24,14 @@ function CaseStudyCard({ data }) {
         <Card.Title className={styles.title}>
           <h5>{postTitle}</h5>
         </Card.Title>
-        <Card.Text className={styles.text}>
-          {renderHTML(postContent)}
-        </Card.Text>
-        <section className={postType === 'Defence' ? styles.colorBarDefence : styles.colorBarFire}></section>
+        <Card.Text className={styles.text}>{renderHTML(postContent)}</Card.Text>
+        <section
+          className={
+            postType === "Defence"
+              ? styles.colorBarDefence
+              : styles.colorBarFire
+          }
+        ></section>
       </Card.Body>
     </Card>
   );

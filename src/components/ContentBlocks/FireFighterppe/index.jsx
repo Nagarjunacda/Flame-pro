@@ -9,7 +9,14 @@ import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
 
-function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, setIsSearchLoading, getSearchData, postsData }) {
+function FireFighterppe({
+  selectedNavItem,
+  handleOverlayClose,
+  isSearchLoading,
+  setIsSearchLoading,
+  getSearchData,
+  postsData,
+}) {
   const router = useRouter();
   const heading = selectedNavItem?.title;
   const childItems = selectedNavItem?.child_items;
@@ -22,31 +29,58 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
   const fireFightingCards = isLargeScreen ? ["item", "item"] : ["item"];
   const nonFireFightingCards = isDesktop ? ["item", "item", "item"] : ["item"];
   const blogCardArr = isFireFighting ? fireFightingCards : nonFireFightingCards;
-  const fireFightingLarge = (postsData && postsData.filter((e) => {
-    return e?.post_type_cat[0]?.name === 'Fire'
-  }))?.slice(0, 2);
-  const fireFightingSmall = (postsData && postsData.filter((e) => {
-    return e?.post_type_cat[0]?.name === 'Fire'
-  }))?.slice(0, 1);
-  const FireFightingData = isLargeScreen ? fireFightingLarge : fireFightingSmall;
-  const DefenceProcData = isDesktop ? (postsData && postsData.filter((e) => {
-    return e?.post_type_cat[0]?.name === 'Defence'
-  }))?.slice(0, 3) : (postsData && postsData.filter((e) => {
-    return e?.post_type_cat[0]?.name === 'Defence'
-  }))?.slice(0, 1)
-  const resourceHubData = isDesktop ? postsData && postsData?.slice(0, 3) : postsData && postsData?.slice(0, 1);
-  const FinalData = selectedNavItem?.title === "Firefighting PPE" ? FireFightingData : selectedNavItem?.title === "Defence Procurement" ? DefenceProcData : resourceHubData;
+  const fireFightingLarge = (
+    postsData &&
+    postsData.filter((e) => {
+      return e?.post_type_cat[0]?.name === "Fire";
+    })
+  )?.slice(0, 2);
+  const fireFightingSmall = (
+    postsData &&
+    postsData.filter((e) => {
+      return e?.post_type_cat[0]?.name === "Fire";
+    })
+  )?.slice(0, 1);
+  const FireFightingData = isLargeScreen
+    ? fireFightingLarge
+    : fireFightingSmall;
+  const DefenceProcData = isDesktop
+    ? (
+      postsData &&
+      postsData.filter((e) => {
+        return e?.post_type_cat[0]?.name === "Defence";
+      })
+    )?.slice(0, 3)
+    : (
+      postsData &&
+      postsData.filter((e) => {
+        return e?.post_type_cat[0]?.name === "Defence";
+      })
+    )?.slice(0, 1);
+  const resourceHubData = isDesktop
+    ? postsData && postsData?.slice(0, 3)
+    : postsData && postsData?.slice(0, 1);
+  const FinalData =
+    selectedNavItem?.title === "Firefighting PPE"
+      ? FireFightingData
+      : selectedNavItem?.title === "Defence Procurement"
+        ? DefenceProcData
+        : resourceHubData;
 
   const handleHeadingClick = () => {
     const routeUrl = selectedNavItem?.slug;
     router.push(`/${routeUrl}`);
     handleOverlayClose();
-  }
-  console.log(postsData, '!!!')
+  };
 
   return (
     <section className={styles.container}>
-      {isSearch && <Search getSearchData={getSearchData} handleOverlayClose={handleOverlayClose} />}
+      {isSearch && (
+        <Search
+          getSearchData={getSearchData}
+          handleOverlayClose={handleOverlayClose}
+        />
+      )}
       {!isDesktop && !isSearch && (
         <section className={styles.heading}>
           <section
@@ -147,12 +181,21 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
               );
             })}
           </section>
-          <ButtonStyleTwo
-            text={"View All Blogs"}
-            textColor={"var( --color-primary)"}
-          />
+          <Link
+            href={"/resource-hub"}
+            style={linkStyle}
+            onClick={() => {
+              handleOverlayClose("item");
+            }}
+          >
+            <ButtonStyleTwo
+              text={"View All Blogs"}
+              textColor={"var( --color-primary)"}
+            />
+          </Link>
         </section>
-      </section>}
+      </section>
+      }
     </section>
   );
 }
