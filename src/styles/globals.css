@@ -1,28 +1,28 @@
 /* Custom Font Setup */
 @font-face {
   font-family: "CustomFont-Black";
-  src: url("/fonts/black.woff") format("woff");
+  src: url("https://cms.cdastagging.com/fonts/black.woff") format("woff");
   font-weight: 900; /* Adjust weight as needed */
   font-style: normal;
 }
 
 @font-face {
   font-family: "CustomFont-Bold";
-  src: url("/fonts/bold.woff") format("woff");
+  src: url("https://cms.cdastagging.com/fonts/bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CustomFont-Medium";
-  src: url("/fonts/medium.woff") format("woff");
+  src: url("https://cms.cdastagging.com/fonts/medium.woff") format("woff");
   font-weight: 500; /* Adjust weight as needed */
   font-style: normal;
 }
 
 @font-face {
   font-family: "CustomFont-Regular";
-  src: url("/fonts/regular.woff") format("woff");
+  src: url("https://cms.cdastagging.com/fonts/regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
