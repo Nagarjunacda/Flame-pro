@@ -81,7 +81,7 @@ function OffCanvas({ show, handleClose, headerData }) {
                 return null
         }
     }
-    console.log(selectedNavItem?.title, '!!')
+
     return <>
         <Offcanvas show={show} className={styles.offCanvasCont} placement={'end'}>
             <Offcanvas.Header>

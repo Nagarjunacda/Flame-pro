@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import DetailSliderComp from '@/reusbleComponents/DetailSliderComp';
 import EditableDiv from '@/components/EditableDiv';
@@ -12,6 +13,7 @@ import ProductInfoDweb from '../ProductInfoDweb';
 import styles from '../productDetail.module.css';
 
 function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoading, showToast, toastMsg, setShowToast }) {
+    const router = useRouter();
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const productName = productData?.name;
     const trayTitle = 'productDetail';
@@ -31,6 +33,15 @@ function ProductBlock({ productData, handleAddCart, getProductQuantity, isLoadin
     const infoArr = ['Additional Information', 'Jackets', 'Trousers', 'Outer Layers', 'Moisture Barrier', 'Thermal Lining', 'Wear Fit Guide', 'Conforms To']
 
     const handleSpeakToUs = () => { }
+
+    useEffect(() => {
+        // Update the selected image based on the route
+        const imgArr = productData?.images;
+        const initailImage = imgArr && imgArr.length && imgArr[0]?.src;
+        if (initailImage) {
+            setSelectedImage(initailImage);
+        }
+    }, [router.query]);
 
     return <section className={styles.pageContainer}>
         <section className={styles.productBlock}>
