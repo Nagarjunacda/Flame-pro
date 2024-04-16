@@ -78,7 +78,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
             childItems.map((item, index) => {
               const url =
                 heading === "Defence Procurement"
-                  ? `/${item?.slug}?category=${item?.object_id}`
+                  ? `/${item?.slug}`
                   : heading === "Resource Hub"
                     ? "/resource-hub/the-importance-of-fr-base-layers/3480"
                     : "#";

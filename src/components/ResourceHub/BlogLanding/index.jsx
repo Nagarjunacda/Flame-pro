@@ -9,17 +9,11 @@ function BlogLanding({ pageData }) {
     const headerBannerData = { image: "https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/Firefighting-bannerimage.jpg", title: title }
 
     return <main>
-        {!trayData ? (
-            <>
-                <HeaderBannerSlim trayData={headerBannerData} />
-                <Breadcrumbs isPadding />
-                <PostContent trayData={trayData} fullPageData={pageData} />;
-            </>
-        ) : (
-            <>
-                {/* <RenderTrays trayData={trayData} fullPageData={pageData} /> */}
-            </>
-        )}
+        <>
+            <HeaderBannerSlim trayData={headerBannerData} />
+            <Breadcrumbs isPadding />
+            <PostContent trayData={trayData} fullPageData={pageData} />;
+        </>
     </main>
 }
 export default BlogLanding
