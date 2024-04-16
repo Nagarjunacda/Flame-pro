@@ -91,7 +91,7 @@ function FireFighterppe({ selectedNavItem, handleOverlayClose, isSearchLoading, 
                       const url =
                         item?.title === "Products"
                           ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}`
-                          : `/${childItem?.slug}?category=${childItem?.object_id}`;
+                          : `/${childItem?.slug}`;
                       return (
                         <Link
                           key={index}
