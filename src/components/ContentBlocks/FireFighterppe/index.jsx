@@ -67,6 +67,11 @@ function FireFighterppe({
         ? DefenceProcData
         : resourceHubData;
 
+  const linkStyle = {
+    display: "flex",
+    justifyContent: "center",
+  };
+
   const handleHeadingClick = () => {
     const routeUrl = selectedNavItem?.slug;
     router.push(`/${routeUrl}`);
