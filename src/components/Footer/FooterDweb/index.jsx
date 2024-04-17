@@ -9,10 +9,10 @@ import styles from "../footer.module.css";
 function FooterDweb({ footerData }) {
   const router = useRouter();
   const flameImg = "/Images/flameLogo.svg";
-  const formHeading = "Sign Up To Our Mailing";
+  const formHeading = "Sign Up To Our Mailing List";
   const footerLinks = footerData?.items ? footerData?.items : [];
   const data1 = ["Useful Links", "Legal", "Contact"];
-  const [route, setRoute] = useState('/')
+  const [route, setRoute] = useState("/");
 
   const handleLabelClick = (label) => {
     if (label?.title === "About Flame Pro") {
@@ -20,7 +20,7 @@ function FooterDweb({ footerData }) {
       return;
     }
     if (label?.title === "Policies") {
-      setRoute('/Policies')
+      setRoute("/Policies");
       return;
     }
     setRoute("/policies");
@@ -41,16 +41,24 @@ function FooterDweb({ footerData }) {
   const getContactData = (label) => {
     const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
     const emailRegex = /^info@flame-pro.com$/;
-    console.log(phoneNumberRegex.test(label), label, '!!')
+    console.log(phoneNumberRegex.test(label), label, "!!");
     if (phoneNumberRegex.test(label?.title)) {
-      const phoneNumber = label?.title.replace(/\s/g, '');
-      return <a href={`tel:${phoneNumber}`} className={styles.contactInfo}>{label?.title}</a>
+      const phoneNumber = label?.title.replace(/\s/g, "");
+      return (
+        <a href={`tel:${phoneNumber}`} className={styles.contactInfo}>
+          {label?.title}
+        </a>
+      );
     }
     if (emailRegex.test(label?.title)) {
-      return <a href={`mailto:${label?.title}`} className={styles.contactInfo}>{label?.title}</a>
+      return (
+        <a href={`mailto:${label?.title}`} className={styles.contactInfo}>
+          {label?.title}
+        </a>
+      );
     }
-    return <>{label?.title}</>
-  }
+    return <>{label?.title}</>;
+  };
 
   return (
     <section className={styles.dwebCont}>
@@ -65,30 +73,38 @@ function FooterDweb({ footerData }) {
                 <h5>{link?.title}</h5>
                 <section className={styles.navLinks}>
                   {link?.child_items.map((e, index) => {
-                    return (
-                      link.title === 'Contact' ? (
-                        <div className={styles.contactInfo} key={index}>
-                          {getContactData(e)}
-                        </div>
-                      ) : (
-                        <Link
-                          href={`/${e?.slug}`}
-                          className={styles.innerLinks}
-                          key={index}
-                        >
-                          {e?.title}
-                        </Link>
-                      )
+                    return link.title === "Contact" ? (
+                      <div className={styles.contactInfo} key={index}>
+                        {getContactData(e)}
+                      </div>
+                    ) : (
+                      <Link
+                        href={`/${e?.slug}`}
+                        className={styles.innerLinks}
+                        key={index}
+                      >
+                        {e?.title}
+                      </Link>
                     );
                   })}
-                  {link?.title === 'Useful Links' && <div className={styles.socialItems}>
-                    <Link href={'https://www.linkedin.com/company/flameproltd/'} target="blank" className={styles.socialItem}>
-                      <FlameImage src={"/Images/linkedin.svg"} />
-                    </Link>
-                    <Link href={'https://twitter.com/flameproglobal'} target="blank" className={styles.socialItem}>
-                      <FlameImage src={"/Images/twitter.svg"} />
-                    </Link>
-                  </div>}
+                  {link?.title === "Useful Links" && (
+                    <div className={styles.socialItems}>
+                      <Link
+                        href={"https://www.linkedin.com/company/flameproltd/"}
+                        target="blank"
+                        className={styles.socialItem}
+                      >
+                        <FlameImage src={"/Images/linkedin.svg"} />
+                      </Link>
+                      <Link
+                        href={"https://twitter.com/flameproglobal"}
+                        target="blank"
+                        className={styles.socialItem}
+                      >
+                        <FlameImage src={"/Images/twitter.svg"} />
+                      </Link>
+                    </div>
+                  )}
                 </section>
                 {/* {link === "Legal" &&
                   Legal.map((e, index) => {

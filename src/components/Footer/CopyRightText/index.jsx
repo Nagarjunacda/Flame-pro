@@ -4,7 +4,7 @@ function CopyRightText() {
   const currentYear = new Date().getFullYear();
   return (
     <section className={styles.copyRightCont}>
-      <p> © Copyright © {currentYear} - Flame Pro</p>
+      <p> © Copyright {currentYear} - FlamePro</p>
       <p>
         Designed and Developed by <Link href={"https://cda.group/"}>CDA</Link>
       </p>
