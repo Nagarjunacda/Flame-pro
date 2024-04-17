@@ -13,6 +13,7 @@
     background-color: var(--color-footerBackground);
   }
   .sliderCont{
+    position: relative;
     padding-bottom: 0px;
   }
   .slideWrapper{
@@ -22,3 +23,42 @@
   .slideWrapperMweb{
     width: 100%;
   }
+    .button{
+    border: none;
+    background-color: var(--color-secondary);
+  }
+  .leftButton{
+    border: none;
+    background-color: var(--color-secondary);
+    position: absolute;
+    left: -64px;
+    top: 40%;
+  }
+  @media(min-width:900px){
+    .leftButton{
+      top: 50%;
+    }
+  }
+  @media(min-width:900px){
+    .leftButton{
+      top: 40%;
+    }
+  }
+  .rightButton{
+    border: none;
+    background-color: var(--color-secondary);
+    position: absolute;
+    right: -80px;
+    top: 40%;
+  }
+  @media(min-width:900px){
+    .rightButton{
+      top: 50%;
+    }
+  }
+  @media(min-width:900px){
+    .rightButton{
+      top: 40%;
+    }
+  }
+

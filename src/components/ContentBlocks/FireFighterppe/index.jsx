@@ -115,11 +115,12 @@ function FireFighterppe({
         >
           {childItems &&
             childItems.map((item, index) => {
+              console.log(item, '!! item')
               const url =
                 heading === "Defence Procurement"
                   ? `/${item?.slug}`
                   : heading === "Resource Hub"
-                    ? "/resource-hub/the-importance-of-fr-base-layers/3480"
+                    ? `/resource-hub/${item.slug}`
                     : "#";
               return (
                 <section key={index} className={styles.childCont}>

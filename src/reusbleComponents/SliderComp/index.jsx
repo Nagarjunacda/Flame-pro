@@ -19,6 +19,14 @@ function SliderComp({ data, title, slidesToShow }) {
   const isDotsHidden = hideDotsArr.includes(title);
   const noSlidesToShow = slidesToShow;
 
+  const handleNextBtn = () => {
+    sliderRef.current.slickNext()
+  }
+
+  const handlePrevBtn = () => {
+    sliderRef.current.slickPrev()
+  }
+
   const settings = {
     dots: isDesktop || isDotsHidden ? false : true,
     infinite: false,
@@ -60,8 +68,15 @@ function SliderComp({ data, title, slidesToShow }) {
         return <RecentlyViewedCard data={item} />;
     }
   };
+
   return (
     <section className={styles.sliderCont}>
+      {title === "testimonial" && <button
+        onClick={handlePrevBtn}
+        className={styles.leftButton}
+      >
+        <img src="/Images/leftRedArrow.svg" alt="prev" />
+      </button>}
       <Slider ref={sliderRef} {...settings}>
         {data?.map((item, index) => {
           return (
@@ -76,6 +91,12 @@ function SliderComp({ data, title, slidesToShow }) {
           );
         })}
       </Slider>
+      {title === "testimonial" && <button
+        onClick={handleNextBtn}
+        className={styles.rightButton}
+      >
+        <img src="/Images/rightRedArrow.svg" alt="next" />
+      </button>}
     </section>
   );
 }

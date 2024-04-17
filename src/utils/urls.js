@@ -22,6 +22,7 @@ export const checkoutUrl = `${baseUrl}/wc/store/v1/checkout`;
 export const policiesUrl = `${baseUrl}/wp/v2/pages/4190`;
 export const removeFromCartUrl = `${baseUrl}/wc/store/v1/cart/remove-item`;
 export const blogPostsUrl = `${baseUrl}/wp/v2/posts`;
+export const blogPostsCategoryUrl = `${baseUrl}/custom/v1/posts-by-category`;
 export const resourceHubPageUrl = `${baseUrl}/wp/v2/pages/90`;
 export const faqPageUrl = `${baseUrl}/wp/v2/pages/114`;
 export const contactUsUrl = `${baseUrl}/wp/v2/pages/102`;

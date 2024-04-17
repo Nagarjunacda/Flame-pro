@@ -9,7 +9,7 @@ import styles from '../../styles/defaultSlider.module.css'
 function DetailSliderComp({ data, setSelectedImage }) {
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [selImgIndex, setSelImgIndex] = useState(0)
+    const [selImgIndex, setSelImgIndex] = useState(0);
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
 
     const handleItemClick = (item, index) => {
