@@ -9,7 +9,8 @@ function CaseStudyDweb({ data }) {
   const [selectedCategory, setSelectedCategory] = useState(data[0] || []);
   const imgSrc = "/Images/rightRedArrow.svg";
   const selectedArr = selectedCategory?.wordpress_category_taxonomy?.child;
-  const selectedName = selectedArr ? selectedArr[0] : ''
+  const selectedName = selectedArr ? selectedArr[0] : '';
+  const slug = selectedCategory?.slug;
 
 
   const handleCategoryClick = (category) => {
@@ -21,7 +22,7 @@ function CaseStudyDweb({ data }) {
       <section className={styles.headingAndCategory}>
         <section className={styles.heading}>
           <h5 className={styles.title}>Case Studies</h5>
-          <Link href={"/resource-hub/the-importance-of-fr-base-layers/3480"}>
+          <Link href={"/resource-hub/case-studies"}>
             <ButtonStyleTwo
               text={"View All Case Studies"}
               textColor="var( --color-primary)"
@@ -59,7 +60,7 @@ function CaseStudyDweb({ data }) {
         </section>
       </section>
       <section className={styles.cardSection}>
-        <Link href="/resource-hub/the-importance-of-fr-base-layers/3480">
+        <Link href={`/resource-hub/${slug}/${selectedCategory.id}`}>
           <CaseStudyCard data={selectedCategory} />
         </Link>
         {/* </section>
