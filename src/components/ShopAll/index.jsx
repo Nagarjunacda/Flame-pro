@@ -6,7 +6,6 @@ import styles from './shopAll.module.css'
 
 function ShopAll({ productsData }) {
     const router = useRouter()
-    console.log(router, '!!brou')
     const { query } = router;
     const { slug } = query;
     const trayData = { image: "https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/Firefighting-bannerimage.jpg", title: slug ? slug : 'Shop', speak_to_us_button: 'Speak To Us' }

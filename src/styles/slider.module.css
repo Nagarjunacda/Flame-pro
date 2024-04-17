@@ -31,34 +31,46 @@
     border: none;
     background-color: var(--color-secondary);
     position: absolute;
-    left: -64px;
-    top: 40%;
+    left: -24px;
+    top: 10%;
+  }
+  @media(min-width:600px){
+    .leftButton{
+      top: 50%
+    }
   }
   @media(min-width:900px){
     .leftButton{
       top: 50%;
     }
   }
-  @media(min-width:900px){
+  @media(min-width:1280px){
     .leftButton{
       top: 40%;
+      left: -64px;
     }
   }
   .rightButton{
     border: none;
     background-color: var(--color-secondary);
     position: absolute;
-    right: -80px;
-    top: 40%;
+    right: -24px;
+    top: 10%;
+  }
+  @media(min-width:600px){
+    .rightButton{
+      top: 50%
+    }
   }
   @media(min-width:900px){
     .rightButton{
       top: 50%;
     }
   }
-  @media(min-width:900px){
+  @media(min-width:1280px){
     .rightButton{
       top: 40%;
+      right: -80px;
     }
   }
 

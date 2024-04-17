@@ -112,7 +112,6 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
     };
 
     const handleSuggestionClick = (suggestion) => {
-        console.log(suggestion, '!!')
         setSuggestedResult(suggestion)
         setQuery(suggestion.title);
         setSuggestions([]);

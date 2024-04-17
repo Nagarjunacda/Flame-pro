@@ -115,7 +115,6 @@ function FireFighterppe({
         >
           {childItems &&
             childItems.map((item, index) => {
-              console.log(item, '!! item')
               const url =
                 heading === "Defence Procurement"
                   ? `/${item?.slug}`
