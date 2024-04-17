@@ -11,11 +11,12 @@ import Styles from './wrapper.module.css'
 
 function LayoutWrapper({ children }) {
   const router = useRouter()
-  const { route } = router
+  const { route, query } = router
+  const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots'];
   const [headerData, setHeaderData] = useState({});
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);
-  const relativeHeader = relativeHeaderPaths.includes(route)
+  const relativeHeader = relativeHeaderPaths.includes(route) && !arr.includes(query.slug);
 
   useEffect(() => {
     const getData = async () => {

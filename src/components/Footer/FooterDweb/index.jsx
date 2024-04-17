@@ -41,7 +41,6 @@ function FooterDweb({ footerData }) {
   const getContactData = (label) => {
     const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
     const emailRegex = /^info@flame-pro.com$/;
-    console.log(phoneNumberRegex.test(label), label, "!!");
     if (phoneNumberRegex.test(label?.title)) {
       const phoneNumber = label?.title.replace(/\s/g, "");
       return (

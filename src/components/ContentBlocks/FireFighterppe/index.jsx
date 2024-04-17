@@ -144,7 +144,7 @@ function FireFighterppe({
                     item.child_items.map((childItem, index) => {
                       const url =
                         item?.title === "Products"
-                          ? `/shop/${childItem?.slug}?category=${childItem?.object_id}`
+                          ? `/shop/${childItem?.slug}`
                           : `/${item.post_name}/${childItem?.slug}`;
                       return (
                         <Link
