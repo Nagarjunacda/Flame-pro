@@ -12,8 +12,8 @@ import styles from "./productDetail.module.css";
 function ProductDetail({ productData }) {
   const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
-  const [productQuantity, setProductQuantity] = useState(0)
-  const [isLoading, setIsLoading] = useState(false)
+  const [productQuantity, setProductQuantity] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
   const nonceVal = useContext(NonceContext);

@@ -13,7 +13,8 @@ export async function getServerSideProps(context) {
     const { query, params } = context
     const { slug } = params
     const { category } = query
-    const url = `${allPageUrl}/?slug=${slug[0]}`;
+    const isFromFireCategories = slug.length == 2;
+    const url = isFromFireCategories ? `${allPageUrl}/?slug=${slug[1]}` : `${allPageUrl}/?slug=${slug[0]}`;
     const { data, error } = await handleServerSideProps(url);
     if (error) {
         return {

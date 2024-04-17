@@ -5,7 +5,6 @@ import { formatDate } from "@/utils/formatDate";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 
 function BlogCard({ category = '', data }) {
-  console.log(data, '!! data')
   const blogImage = data?.featured_image_url || "/Images/blogImg.svg";
   const text = "View All Blocks";
   const isFireFighting = data?.post_type_cat?.length && data?.post_type_cat[0]?.name === 'Fire'

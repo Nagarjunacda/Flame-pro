@@ -414,7 +414,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                 />
             )}
             <section className={styles.submitSec}>
-                {/* <Link href={'/shop-all'} className={styles.btnStyle2}>
+                {/* <Link href={'/shop'} className={styles.btnStyle2}>
                     <ButtonStyleTwo
                         text={"Keep Browsing Products"}
                         textColor={"var( --color-primary)"}

@@ -8,7 +8,7 @@ function ProductCard({ product }) {
     const slug = product?.slug
     const productId = product?.id
     const isOnSale = product?.on_sale
-    const productUrl = `/shop-all/${slug}/${productId}`
+    const productUrl = `/shop/${slug}`
 
     const handleCardClick = () => {
         if (!localStorage.getItem('recentlyViewed')) {

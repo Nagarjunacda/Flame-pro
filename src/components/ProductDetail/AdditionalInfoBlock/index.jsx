@@ -4,7 +4,7 @@ import styles from './additionalInfoBlock.module.css'
 
 function AdditionalInfoBlock({ productInfo }) {
     const data = productInfo?.filter((e) => e?.title === 'Additional Information');
-    const info = data.length > 0 ? data[0] : {};
+    const info = data?.length && data.length > 0 ? data[0] : {};
     const downloadText = info?.downloads?.download_description;
     const downloadIconSrc = '/Images/downloadIcon.svg';
     const brochureLink = info?.downloads?.download_brochure?.url;

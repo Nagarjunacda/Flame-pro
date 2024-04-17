@@ -14,7 +14,7 @@ const Breadcrumbs = ({ isPadding }) => {
     (str) => str.charAt(0).toUpperCase() + str.slice(1)
   );
   const isShopAllOnly =
-    pathArray.length === 1 && pathArray.includes("shop-all");
+    pathArray.length === 1 && pathArray.includes("shop");
   const isResourceHubOnly =
     pathArray.length === 1 && pathArray.includes("resource-hub");
   const shopAllRoute = isShopAllOnly
@@ -23,7 +23,7 @@ const Breadcrumbs = ({ isPadding }) => {
   const resourceHubRoute = isResourceHubOnly
     ? uppercasedArray
     : uppercasedArray.slice(0, -1);
-  const routeArr = pathArray.includes("shop-all")
+  const routeArr = pathArray.includes("shop")
     ? shopAllRoute
     : pathArray.includes("resource-hub")
       ? resourceHubRoute

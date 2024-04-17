@@ -10,7 +10,7 @@ function RelatedProductsblock({ trayData }) {
     return <section className={styles.mainCont}>
         <section className={styles.headingSec}>
             <h4>Related Products</h4>
-            <Link href={'/shop-all'}>
+            <Link href={'/shop'}>
                 <ButtonStyleTwo
                     text={"Browse All Products"}
                     textColor="var( --color-primary)"

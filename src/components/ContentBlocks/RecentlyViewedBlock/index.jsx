@@ -16,7 +16,7 @@ function RecentlyViewedBlock() {
             <Container fluid>
                 <Row>
                     {data?.map((item, index) => {
-                        const route = `/shop-all/${item?.slug}/${item?.id}`
+                        const route = `/shop/${item?.slug}/${item?.id}`
                         return <Col key={index} md={3} className={styles.col}>
                             <Link href={route}><RecentlyViewedCard data={item} /></Link>
                         </Col>

@@ -7,7 +7,7 @@ import styles from "./title-text-center.module.css";
 const TitleAndTextCentre = ({ trayData }) => {
   const buttonTwoTitle = trayData?.button2_title
   const buttonTwoColor = "var( --color-primary)"
-  const route = trayData?.button_title === 'Shop All' ? '/shop-all' : trayData?.button_title === 'About FlamePro' ? '/about' : trayData?.button_title === 'Why choose FlamePro? ' ? '/about' : trayData?.button_title === 'Why choose FlamePro?' ? '/about' : trayData?.button_title === 'Speak To Us' ? '/contact-us' : '';
+  const route = trayData?.button_title === 'Shop All' ? '/shop' : trayData?.button_title === 'About FlamePro' ? '/about' : trayData?.button_title === 'Why choose FlamePro? ' ? '/about' : trayData?.button_title === 'Why choose FlamePro?' ? '/about' : trayData?.button_title === 'Speak To Us' ? '/contact-us' : '';
 
   function btnFunction() { }
 

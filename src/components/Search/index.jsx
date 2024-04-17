@@ -52,7 +52,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
         const lastPath = extractLastPath(url);
         handleOverlayClose();
         if (type === 'product') {
-            router.push(`/shop-all/${lastPath}/${id}`);
+            router.push(`/shop/${lastPath}/${id}`);
             return
         }
         if (type === 'post') {
@@ -128,7 +128,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
         const lastPath = extractLastPath(url);
         handleCloseMwebDrawer();
         if (type === 'product') {
-            router.push(`/shop-all/${lastPath}/${id}`);
+            router.push(`/shop/${lastPath}/${id}`);
             return
         }
     }

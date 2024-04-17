@@ -32,13 +32,13 @@ function FireFighterppe({
   const fireFightingLarge = (
     postsData &&
     postsData.filter((e) => {
-      return e?.post_type_cat[0]?.name === "Fire";
+      return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Fire";
     })
   )?.slice(0, 2);
   const fireFightingSmall = (
     postsData &&
     postsData.filter((e) => {
-      return e?.post_type_cat[0]?.name === "Fire";
+      return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Fire";
     })
   )?.slice(0, 1);
   const FireFightingData = isLargeScreen
@@ -48,13 +48,13 @@ function FireFighterppe({
     ? (
       postsData &&
       postsData.filter((e) => {
-        return e?.post_type_cat[0]?.name === "Defence";
+        return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence";
       })
     )?.slice(0, 3)
     : (
       postsData &&
       postsData.filter((e) => {
-        return e?.post_type_cat[0]?.name === "Defence";
+        return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence";
       })
     )?.slice(0, 1);
   const resourceHubData = isDesktop
@@ -144,8 +144,8 @@ function FireFighterppe({
                     item.child_items.map((childItem, index) => {
                       const url =
                         item?.title === "Products"
-                          ? `/shop-all/${childItem?.slug}?category=${childItem?.object_id}`
-                          : `/${childItem?.slug}`;
+                          ? `/shop/${childItem?.slug}?category=${childItem?.object_id}`
+                          : `/${item.post_name}/${childItem?.slug}`;
                       return (
                         <Link
                           key={index}
