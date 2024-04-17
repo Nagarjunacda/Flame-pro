@@ -37,6 +37,21 @@ function FooterDweb({ footerData }) {
     { section1: "Email Address*" },
     { section1: "Area Of Interest*" },
   ];
+
+  const getContactData = (label) => {
+    const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
+    const emailRegex = /^info@flame-pro.com$/;
+    console.log(phoneNumberRegex.test(label), label, '!!')
+    if (phoneNumberRegex.test(label?.title)) {
+      const phoneNumber = label?.title.replace(/\s/g, '');
+      return <a href={`tel:${phoneNumber}`} className={styles.contactInfo}>{label?.title}</a>
+    }
+    if (emailRegex.test(label?.title)) {
+      return <a href={`mailto:${label?.title}`} className={styles.contactInfo}>{label?.title}</a>
+    }
+    return <>{label?.title}</>
+  }
+
   return (
     <section className={styles.dwebCont}>
       <section className={styles.dataContDweb}>
@@ -53,7 +68,7 @@ function FooterDweb({ footerData }) {
                     return (
                       link.title === 'Contact' ? (
                         <div className={styles.contactInfo} key={index}>
-                          {e?.title}
+                          {getContactData(e)}
                         </div>
                       ) : (
                         <Link

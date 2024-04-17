@@ -58,7 +58,7 @@ function SliderComp({ data, title, slidesToShow }) {
         return <TestimonialCard data={item} />;
       case "Case Studies":
         return (
-          <Link href="/case-studies">
+          <Link href={`/resource-hub/${item.slug}/${item.id}`}>
             <CaseStudyCard data={item} />
           </Link>
         );

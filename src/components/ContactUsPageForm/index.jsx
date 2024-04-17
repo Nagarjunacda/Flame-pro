@@ -169,10 +169,11 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
             input_14: selectedDate,
             input_15: selTime
         };
-        const customHeaders = { Nonce: nonceVal };
+        const data = JSON.stringify(userDetailData);
+        const customHeaders = { 'Content-Type': 'application/json' };
         const url = contactUsFormPageUrl
         setIsLoadState(true)
-        const res = await handlePostRequests(url, userDetailData, customHeaders);
+        const res = await handlePostRequests(url, data, customHeaders);
         if (res?.data) {
             const refNum = res?.data?.order_number
             setIsLoadState(false);

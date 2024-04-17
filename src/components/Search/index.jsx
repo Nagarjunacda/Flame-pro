@@ -189,7 +189,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
                             onChange={handleInput}
                             className={styles.textInput}
                             autoFocus
-                            placeholder="Search Lorem Ipsum..."
+                            placeholder="Search"
                         />
                         <section className={styles.searchIcon}><FlameImage src={searchIcon} alt={'icon'} /></section>
                         {/* <section className={styles.ctaSection}>
