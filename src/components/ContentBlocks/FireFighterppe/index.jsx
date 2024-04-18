@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useRouter } from "next/router";
+import { useProductCatData } from "@/context/ProductCatContext";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import BasketMweb from "@/components/Header/BasketMweb";
@@ -17,6 +19,7 @@ function FireFighterppe({
   getSearchData,
   postsData,
 }) {
+  const { setProductCatData } = useProductCatData();
   const router = useRouter();
   const heading = selectedNavItem?.title;
   const childItems = selectedNavItem?.child_items;
@@ -77,6 +80,11 @@ function FireFighterppe({
     router.push(`/${routeUrl}`);
     handleOverlayClose();
   };
+
+  const handleLabelClick = (item) => {
+    handleOverlayClose("item");
+    setProductCatData(item);
+  }
 
   return (
     <section className={styles.container}>
@@ -155,7 +163,7 @@ function FireFighterppe({
                           <section
                             key={index}
                             onClick={() => {
-                              handleOverlayClose("item");
+                              handleLabelClick(childItem);
                             }}
                           >
                             {childItem?.title}

@@ -7,13 +7,15 @@ import styles from '../footer.module.css';
 import Link from 'next/link';
 
 function FooterMweb({ footerData }) {
-    const router = useRouter()
+    const router = useRouter();
     const footerLogo = '/Images/footerLogo.svg';
-    const [clickedLink, setClickedLink] = useState('')
-    const [linkData, setLinkData] = useState([])
-    const [accor, setAccor] = useState(false)
-    const plusIcon = '/Images/plusIcon.svg'
-    const formHeading = 'Sign Up To Our Mailing'
+    const [clickedLink, setClickedLink] = useState('');
+    const [linkData, setLinkData] = useState([]);
+    const [accor, setAccor] = useState(false);
+    const plusIcon = '/Images/plusIcon.svg';
+    const formHeading = 'Sign Up To Our Mailing';
+    const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
+    const emailRegex = /^info@flame-pro.com$/;
     const data1 = footerData ? footerData?.items?.map((e) => {
         return e?.title
     }) : []
@@ -89,6 +91,19 @@ function FooterMweb({ footerData }) {
         setAccor(false)
     }
 
+    const getContactData = (label) => {
+        const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
+        const emailRegex = /^info@flame-pro.com$/;
+        if (phoneNumberRegex.test(label)) {
+            const phoneNumber = label.replace(/\s/g, '');
+            return <a href={`tel:${phoneNumber}`} className={styles.contactInfo}>{label}</a>
+        }
+        if (emailRegex.test(label)) {
+            return <a href={`mailto:${label}`} className={styles.contactInfo}>{label}</a>
+        }
+        return <>{label}</>
+    }
+
     return <section className={styles.mwebCont}>
         <section className={styles.footerLogo}>
             <FlameImage src={footerLogo} alt='logo' />
@@ -114,11 +129,11 @@ function FooterMweb({ footerData }) {
                         </section>
                         {accor && link === clickedLink && (
                             <section className={styles.listCont}>
-                                {linkData.map((e, index) => (
-                                    <section onClick={() => { handleLabelClick(e, link) }} key={index} className={styles.listItem}>
-                                        {e}
+                                {linkData.map((e, index) => {
+                                    return <section onClick={() => { handleLabelClick(e, link) }} key={index} className={styles.listItem}>
+                                        {clickedLink === 'Contact' ? getContactData(e) : e}
                                     </section>
-                                ))}
+                                })}
                                 {link === 'Useful Links' && <div className={styles.socialItems}>
                                     <Link href={'https://www.linkedin.com/company/flameproltd/'} target="blank" className={styles.socialItem}>
                                         <FlameImage src={"/Images/linkedin.svg"} />

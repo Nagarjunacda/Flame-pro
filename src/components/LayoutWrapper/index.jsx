@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { headerMenuUrl, footerMenuUrl } from "@/utils/urls"
 import { handleServerSideProps } from "@/utils/handleServerSideData"
 import { CartDataProvider } from "@/context/CartContext"
+import { ProductCatDataProvider } from "@/context/ProductCatContext"
 import { NonceProvider } from "@/context/NonceContext"
 import { relativeHeaderPaths } from "@/utils/constants"
 import Header from "../Header"
@@ -56,13 +57,15 @@ function LayoutWrapper({ children }) {
   return (
     <NonceProvider>
       <CartDataProvider>
-        <main className={Styles.main}>
-          <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
-            <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
-          </section>
-          {children}
-          <Footer footerData={footerData} />
-        </main>
+        <ProductCatDataProvider>
+          <main className={Styles.main}>
+            <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
+              <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
+            </section>
+            {children}
+            <Footer footerData={footerData} />
+          </main>
+        </ProductCatDataProvider>
       </CartDataProvider>
     </NonceProvider>
   )
