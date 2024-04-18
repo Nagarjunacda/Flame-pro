@@ -1,5 +1,6 @@
 import FlameImage from "@/reusbleComponents/FlameImage";
 import styles from "./uspblock.module.css";
+
 const UspBlock = ({ trayData }) => {
   const uspItems = trayData.usp_block_repeater;
   return (

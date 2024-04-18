@@ -9,10 +9,19 @@ const Breadcrumbs = ({ isPadding }) => {
   const { asPath } = router;
   const urlString = asPath.split("?")[0] || "";
   const pathArray = urlString.split("/").filter(Boolean);
-  // const uppercasedArray = pathArray.map((str) => str.toUpperCase())
-  const uppercasedArray = pathArray.map(
-    (str) => str.charAt(0).toUpperCase() + str.slice(1)
-  );
+  const uppercasedArray = pathArray.map((str) => {
+    if (str === "shop") {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    } else if (str === "firefighting-ppe") {
+      return "Firefighting PPE";
+    } else {
+      return str
+        .split("-")
+        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .join(" ");
+    }
+  });
+
   const isShopAllOnly =
     pathArray.length === 1 && pathArray.includes("shop");
   const isResourceHubOnly =
