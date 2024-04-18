@@ -155,7 +155,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
                             onChange={handleInput}
                             className={styles.textInput}
                             autoFocus={true}
-                            placeholder="Search Lorem Ipsum..."
+                            placeholder="Search"
                         />
                         <section className={styles.ctaSection}>
                             <FlameBtn color={btnColor} text={text} textColor={textColor} isLoadState={isLoadState} btnFunction={handleSearchClick} />
