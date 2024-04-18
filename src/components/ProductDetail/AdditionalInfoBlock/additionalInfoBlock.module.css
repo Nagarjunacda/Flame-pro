@@ -1,112 +1,116 @@
-.mainCont{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-@media (min-width:900px){
-    .mainCont{
+@media (min-width: 900px) {
+  .mainCont {
     flex-direction: row;
+  }
 }
+.tableBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
 }
-.tableBlock{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-}
-@media (min-width:900px){
-    .tableBlock{
+@media (min-width: 900px) {
+  .tableBlock {
     width: 55%;
-    }
+  }
 }
-@media (min-width:1280px){
-    .tableBlock{
+@media (min-width: 1280px) {
+  .tableBlock {
     padding-right: 8px;
-    }
+  }
 }
-@media (min-width:1680px){
-    .tableBlock{
+@media (min-width: 1680px) {
+  .tableBlock {
     padding-right: 28px;
-    }
+  }
 }
-.tableItem{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 12px;
-    font-size: 12px;
-    gap: 8px;
+.tableItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 12px;
+  font-size: 12px;
+  gap: 8px;
 }
-@media (min-width:1680px){
-    .tableItem{
-    padding: 30px 12px 30px 44px ;
-    }
+.tableItem:nth-child(even) {
+  /* Your styles for even numbered .tableItem elements */
+  background-color: var(--color-product-back);
 }
-.itemName{
-    font-size: var(--font-size-xs-ext);
-    font-weight: var(--font-wt-thin);
-    min-width: 30%;
+@media (min-width: 1680px) {
+  .tableItem {
+    padding: 30px 12px 30px 44px;
+  }
 }
-.itemVal{
-    width: 100%;
-    font-size: var(--font-size-xs-ext);
-    font-weight: var(--font-wt-thin);
+.itemName {
+  font-size: var(--font-size-xs-ext);
+  font-weight: var(--font-wt-thin);
+  min-width: 30%;
 }
-.tableItemAlt{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 12px;
-    font-size: 12px;
-    gap: 8px;
-    background-color: var(--color-product-back);
+.itemVal {
+  width: 100%;
+  font-size: var(--font-size-xs-ext);
+  font-weight: var(--font-wt-thin);
 }
-@media (min-width:1680px){
-    .tableItemAlt{
-    padding: 30px 12px 30px 44px ;
-    }
+.tableItemAlt {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 12px;
+  font-size: 12px;
+  gap: 8px;
+  background-color: var(--color-product-back);
 }
-.downloadsBlock{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+@media (min-width: 1680px) {
+  .tableItemAlt {
+    padding: 30px 12px 30px 44px;
+  }
 }
-@media (min-width:900px){
-    .downloadsBlock{
+.downloadsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .downloadsBlock {
     width: 45%;
     padding-left: 16px;
     border-left: 1px solid var(--color-primary);
-    }
+  }
 }
-@media (min-width:1280px){
-    .downloadsBlock{
+@media (min-width: 1280px) {
+  .downloadsBlock {
     padding-left: 24px;
-    }
+  }
 }
-@media (min-width:1680px){
-    .downloadsBlock{
+@media (min-width: 1680px) {
+  .downloadsBlock {
     padding-left: 50px;
-    }
+  }
 }
-.donwloadHead{
-    font-size: var(--font-size-lg);
+.donwloadHead {
+  font-size: var(--font-size-lg);
 }
-.downloadText{
-    font-size: var(--font-size-xs-ext);
+.downloadText {
+  font-size: var(--font-size-xs-ext);
 }
-.brochure{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.brochure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.brochureItem{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
+.brochureItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
 }
-.brochureText{
-    font-size: var(--font-size-xs);
+.brochureText {
+  font-size: var(--font-size-xs);
 }

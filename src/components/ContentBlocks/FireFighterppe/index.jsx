@@ -46,17 +46,21 @@ function FireFighterppe({
     : fireFightingSmall;
   const DefenceProcData = isDesktop
     ? (
-      postsData &&
-      postsData.filter((e) => {
-        return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence";
-      })
-    )?.slice(0, 3)
+        postsData &&
+        postsData.filter((e) => {
+          return (
+            e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
+          );
+        })
+      )?.slice(0, 3)
     : (
-      postsData &&
-      postsData.filter((e) => {
-        return e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence";
-      })
-    )?.slice(0, 1);
+        postsData &&
+        postsData.filter((e) => {
+          return (
+            e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
+          );
+        })
+      )?.slice(0, 1);
   const resourceHubData = isDesktop
     ? postsData && postsData?.slice(0, 3)
     : postsData && postsData?.slice(0, 1);
@@ -64,8 +68,8 @@ function FireFighterppe({
     selectedNavItem?.title === "Firefighting PPE"
       ? FireFightingData
       : selectedNavItem?.title === "Defence Procurement"
-        ? DefenceProcData
-        : resourceHubData;
+      ? DefenceProcData
+      : resourceHubData;
 
   const linkStyle = {
     display: "flex",
@@ -107,100 +111,101 @@ function FireFighterppe({
           </p>
         </section>
       )}
-      {!isSearch && <section className={styles.subContainer}>
-        <section
-          className={
-            isFireFighting ? styles.childHeadingPpe : styles.childHeading
-          }
-        >
-          {childItems &&
-            childItems.map((item, index) => {
-              const url =
-                heading === "Defence Procurement"
-                  ? `/${item?.slug}`
-                  : heading === "Resource Hub"
+      {!isSearch && (
+        <section className={styles.subContainer}>
+          <section
+            className={
+              isFireFighting ? styles.childHeadingPpe : styles.childHeading
+            }
+          >
+            {childItems &&
+              childItems.map((item, index) => {
+                const url =
+                  heading === "Defence Procurement"
+                    ? `/${item?.slug}`
+                    : heading === "Resource Hub"
                     ? `/resource-hub/${item.slug}`
                     : "#";
-              return (
-                <section key={index} className={styles.childCont}>
+                return (
+                  <section key={index} className={styles.childCont}>
+                    <Link
+                      href={url}
+                      onClick={() => {
+                        handleOverlayClose("item");
+                      }}
+                    >
+                      <section
+                        className={
+                          isFireFighting && !isDesktop
+                            ? styles.subContTitle
+                            : null
+                        }
+                        key={index}
+                      >
+                        {item?.title}
+                      </section>
+                    </Link>
+                    {item.child_items &&
+                      item.child_items.map((childItem, index) => {
+                        const url =
+                          item?.title === "Products"
+                            ? `/shop/${childItem?.slug}`
+                            : `/${item.post_name}/${childItem?.slug}`;
+                        return (
+                          <Link
+                            key={index}
+                            href={url}
+                            className={styles.innerChild}
+                          >
+                            <section
+                              key={index}
+                              onClick={() => {
+                                handleOverlayClose("item");
+                              }}
+                            >
+                              {childItem?.title}
+                            </section>
+                          </Link>
+                        );
+                      })}
+                  </section>
+                );
+              })}
+          </section>
+          {!isFireFighting && !isDesktop && <BasketMweb />}
+          {!isFireFighting && !isDesktop && <SearchMweb />}
+          <section className={styles.blogCard}>
+            <section className={styles.blogCardInner}>
+              {FinalData.map((e, index) => {
+                return (
                   <Link
-                    href={url}
+                    key={index}
+                    href={`/resource-hub/${e?.slug}/${e.id}`}
                     onClick={() => {
                       handleOverlayClose("item");
                     }}
+                    className={styles.cardAlignment}
                   >
-                    <section
-                      className={
-                        isFireFighting && !isDesktop
-                          ? styles.subContTitle
-                          : null
-                      }
-                      key={index}
-                    >
-                      {item?.title}
-                    </section>
+                    <BlogCard category={selectedNavItem?.title} data={e} />
                   </Link>
-                  {item.child_items &&
-                    item.child_items.map((childItem, index) => {
-                      const url =
-                        item?.title === "Products"
-                          ? `/shop/${childItem?.slug}`
-                          : `/${item.post_name}/${childItem?.slug}`;
-                      return (
-                        <Link
-                          key={index}
-                          href={url}
-                          className={styles.innerChild}
-                        >
-                          <section
-                            key={index}
-                            onClick={() => {
-                              handleOverlayClose("item");
-                            }}
-                          >
-                            {childItem?.title}
-                          </section>
-                        </Link>
-                      );
-                    })}
-                </section>
-              );
-            })}
-        </section>
-        {!isFireFighting && !isDesktop && <BasketMweb />}
-        {!isFireFighting && !isDesktop && <SearchMweb />}
-        <section className={styles.blogCard}>
-          <section className={styles.blogCardInner}>
-            {FinalData.map((e, index) => {
-              return (
-                <Link
-                  key={index}
-                  href={`/resource-hub/${e?.slug}/${e.id}`}
-                  onClick={() => {
-                    handleOverlayClose("item");
-                  }}
-                  className={styles.cardAlignment}
-                >
-                  <BlogCard category={selectedNavItem?.title} data={e} />
-                </Link>
-              );
-            })}
+                );
+              })}
+            </section>
+            <Link
+              href={"/resource-hub"}
+              style={linkStyle}
+              onClick={() => {
+                handleOverlayClose("item");
+              }}
+            >
+              <ButtonStyleTwo
+                text={"View All Blogs"}
+                textColor={"var( --color-primary)"}
+              />
+            </Link>
           </section>
-          <Link
-            href={"/resource-hub"}
-            style={linkStyle}
-            onClick={() => {
-              handleOverlayClose("item");
-            }}
-          >
-            <ButtonStyleTwo
-              text={"View All Blogs"}
-              textColor={"var( --color-primary)"}
-            />
-          </Link>
         </section>
-      </section>
-      }
+      )}
     </section>
   );
 }
