@@ -49,21 +49,21 @@ function FireFighterppe({
     : fireFightingSmall;
   const DefenceProcData = isDesktop
     ? (
-        postsData &&
-        postsData.filter((e) => {
-          return (
-            e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
-          );
-        })
-      )?.slice(0, 3)
+      postsData &&
+      postsData.filter((e) => {
+        return (
+          e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
+        );
+      })
+    )?.slice(0, 3)
     : (
-        postsData &&
-        postsData.filter((e) => {
-          return (
-            e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
-          );
-        })
-      )?.slice(0, 1);
+      postsData &&
+      postsData.filter((e) => {
+        return (
+          e?.post_type_cat?.length && e?.post_type_cat[0]?.name === "Defence"
+        );
+      })
+    )?.slice(0, 1);
   const resourceHubData = isDesktop
     ? postsData && postsData?.slice(0, 3)
     : postsData && postsData?.slice(0, 1);
@@ -71,8 +71,8 @@ function FireFighterppe({
     selectedNavItem?.title === "Firefighting PPE"
       ? FireFightingData
       : selectedNavItem?.title === "Defence Procurement"
-      ? DefenceProcData
-      : resourceHubData;
+        ? DefenceProcData
+        : resourceHubData;
 
   const linkStyle = {
     display: "flex",
@@ -132,15 +132,20 @@ function FireFighterppe({
                   heading === "Defence Procurement"
                     ? `/${item?.slug}`
                     : heading === "Resource Hub"
-                    ? `/resource-hub/${item.slug}`
-                    : "#";
+                      ? `/resource-hub/${item.slug}`
+                      : "#";
                 return (
                   <section key={index} className={styles.childCont}>
                     <Link
                       href={url}
-                      onClick={() => {
-                        handleOverlayClose("item");
+                      onClick={(e) => {
+                        if (url === "#") {
+                          e.preventDefault();
+                        } else {
+                          handleOverlayClose("item");
+                        }
                       }}
+                      style={{ cursor: heading === "Defence Procurement" || heading === "Resource Hub" ? 'pointer' : "auto" }}
                     >
                       <section
                         className={
