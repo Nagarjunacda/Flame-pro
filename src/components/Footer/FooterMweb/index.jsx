@@ -13,7 +13,7 @@ function FooterMweb({ footerData }) {
     const [linkData, setLinkData] = useState([]);
     const [accor, setAccor] = useState(false);
     const plusIcon = '/Images/plusIcon.svg';
-    const formHeading = 'Sign Up To Our Mailing';
+    const formHeading = 'Sign Up To Our Mailing List';
     const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
     const emailRegex = /^info@flame-pro.com$/;
     const data1 = footerData ? footerData?.items?.map((e) => {
