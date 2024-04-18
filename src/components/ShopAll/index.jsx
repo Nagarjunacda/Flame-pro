@@ -4,8 +4,7 @@ import ProductsListing from "./ProductsListing"
 import Breadcrumbs from "../BreadCrumbs"
 import styles from './shopAll.module.css'
 
-function ShopAll({ productsData }) {
-    console.log(productsData, '!!')
+function ShopAll({ productsData, megaMenuData }) {
     const router = useRouter()
     const { query } = router;
     const { slug } = query;
@@ -14,7 +13,7 @@ function ShopAll({ productsData }) {
     return <section className={styles.mainCont}>
         <HeaderBannerSlim trayData={trayData} />
         <section className={styles.breadCrumbs}><Breadcrumbs /></section>
-        <ProductsListing productsData={productsData} />
+        <ProductsListing productsData={productsData} megaMenuData={megaMenuData} />
     </section>
 }
 export default ShopAll

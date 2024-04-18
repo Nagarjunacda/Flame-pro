@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { headerMenuUrl, footerMenuUrl } from "@/utils/urls"
+import { HeaderDataProvider } from "@/context/headerContext"
 import { handleServerSideProps } from "@/utils/handleServerSideData"
 import { CartDataProvider } from "@/context/CartContext"
 import { ProductCatDataProvider } from "@/context/ProductCatContext"
@@ -58,13 +59,15 @@ function LayoutWrapper({ children }) {
     <NonceProvider>
       <CartDataProvider>
         <ProductCatDataProvider>
-          <main className={Styles.main}>
-            <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
-              <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
-            </section>
-            {children}
-            <Footer footerData={footerData} />
-          </main>
+          <HeaderDataProvider>
+            <main className={Styles.main}>
+              <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
+                <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
+              </section>
+              {children}
+              <Footer footerData={footerData} />
+            </main>
+          </HeaderDataProvider>
         </ProductCatDataProvider>
       </CartDataProvider>
     </NonceProvider>

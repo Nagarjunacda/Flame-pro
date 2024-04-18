@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
+import { useHeaderData } from "@/context/headerContext";
 import { productsUrl } from "@/utils/urls";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import ProductCard from "@/components/Cards/ProductCard";
@@ -9,8 +10,23 @@ import { filtersCategoryUrl } from "@/utils/urls";
 import FiltersBlock from "../FiltersBlock";
 import styles from "../shopAll.module.css";
 
-function ProductsListing({ productsData }) {
+function ProductsListing({ productsData, megaMenuData }) {
   const router = useRouter();
+  const { route, query } = router;
+  const isFromShopAll = route === '/shop';
+  const { headerConData } = useHeaderData();
+  const megaMenuProducts = headerConData?.items
+  const megaMenuProductsCat = megaMenuProducts?.filter((e) => {
+    return e?.title === 'Firefighting PPE'
+  })
+  const megaMenuProList = megaMenuProductsCat?.length && megaMenuProductsCat[0]?.child_items.filter((e) => {
+    return e?.title === 'Products'
+  })
+  const megaMenuProductsList = megaMenuProList?.length && megaMenuProList[0]?.child_items;
+  const getProductCategoryitem = megaMenuProductsList?.filter((e) => {
+    return e?.slug === query?.slug
+  })
+  const megaMenuClickedProduct = getProductCategoryitem?.length && getProductCategoryitem[0]?.object_id;
   const category = router?.query?.category;
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
@@ -38,7 +54,7 @@ function ProductsListing({ productsData }) {
   useEffect(() => {
     const getProductData = async () => {
       const categoryurl = `${productsUrl}?category=${category}`;
-      const allProductsUrl = `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`;
+      const allProductsUrl = !isFromShopAll ? `${productsUrl}?category=${megaMenuClickedProduct}&per_page=${itemsNumber}&page=${selectedPageNum}` : `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
       const url = filteredArray.length
         ? filtersUrl
         : category
