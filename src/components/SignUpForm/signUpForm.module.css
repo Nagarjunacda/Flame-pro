@@ -100,12 +100,14 @@
   height: 12px;
   background-color: var(--color-secondary);
   cursor: pointer;
-  margin-bottom: 7px;
+  line-height: normal;
+  margin-top: 2px;
 }
 @media (min-width: 1680px) {
   .checkBox {
-    width: 21px;
-    height: 21px;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
   }
 }
 .checkBoxDark {
@@ -139,7 +141,7 @@
   max-width: 500px;
   display: flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
 }
 .checkBoxAndText {
   width: 100%;
