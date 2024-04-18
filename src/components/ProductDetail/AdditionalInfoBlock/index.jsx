@@ -96,7 +96,9 @@ function AdditionalInfoBlock({ productInfo }) {
                 <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
               </a>
               <a href={ukDeclaration} download={pdf3} target="blank">
-                <h5 className={styles.brochureText}>Download Brochure</h5>
+                <h5 className={styles.brochureText}>
+                  UK Declaration of Conformity
+                </h5>
               </a>
             </section>
           )}
@@ -107,7 +109,7 @@ function AdditionalInfoBlock({ productInfo }) {
               </a>
               <a href={euDeclaration} download={pdf4} target="blank">
                 <h5 className={styles.brochureText}>
-                  Technical Data Sheet Download
+                  EU Declaration-of- Conformity
                 </h5>
               </a>
             </section>
