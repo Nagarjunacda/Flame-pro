@@ -5,6 +5,7 @@ import Breadcrumbs from "../BreadCrumbs"
 import styles from './shopAll.module.css'
 
 function ShopAll({ productsData }) {
+    console.log(productsData, '!!')
     const router = useRouter()
     const { query } = router;
     const { slug } = query;
