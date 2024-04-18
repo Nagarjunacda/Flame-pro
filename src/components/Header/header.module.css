@@ -173,7 +173,24 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width:thin; /* Make the scrollbar slim */
+  scrollbar-color: black transparent;
 }
+.offCanvasBody::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; 
+  -webkit-border-radius:4px;/* Height of the scrollbar */
+}
+
+.offCanvasBody::-webkit-scrollbar-thumb {
+  background-color: red; /* Color of the scrollbar thumb */ /* Border radius of the scrollbar thumb */
+}
+
+.offCanvasBody::-webkit-scrollbar-track {
+  background-color: transparent; /* Background color of the scrollbar track */
+}
+
 .canvasTextItems {
   font-size: var(--font-size-canvas);
   font-weight: var(--font-wt-bold);
