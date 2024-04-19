@@ -23,10 +23,11 @@ const BasketItems = () => {
   const { cartData, setTriggerUpdate } = useCartData();
   const [showTextBox, setShowTextBox] = useState(false);
   const [quanityValue, setquanityValue] = useState('');
+  const [clickedProduct, setClickedProduct] = useState({});
   const [isRemoveProduct, setIsRemoveProduct] = useState(false);
-  const [showEditedQuantity, setShowEditedQuantity] = useState(false)
+  const [showEditedQuantity, setShowEditedQuantity] = useState(false);
   const [updatingQty, setUpdatingQty] = useState(false);
-  const removeCtaText = isRemoveProduct ? 'Removing Product' : 'Remove Product';
+  // const removeCtaText = isRemoveProduct ? 'Removing Product' : 'Remove Product';
   const emptyBasket = {
     title: "Basket Empty",
     button_title: "Shop All",
@@ -37,7 +38,8 @@ const BasketItems = () => {
   }
   function btnFunction() { }
 
-  function handleEditQuote() {
+  function handleEditQuote(data) {
+    setClickedProduct(data);
     setShowTextBox(!showTextBox);
     if (!showTextBox) {
       setShowEditedQuantity(false)
@@ -50,6 +52,7 @@ const BasketItems = () => {
   }
 
   const handleRemoveFromCart = async (data) => {
+    setClickedProduct(data);
     setIsRemoveProduct(true)
     const body = {
       key: data?.key
@@ -135,7 +138,7 @@ const BasketItems = () => {
                       className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 d-flex align-items-center"
                     >
                       {" "}
-                      {showTextBox ? (
+                      {showTextBox && clickedProduct?.name === data?.name ? (
                         <InputGroup>
                           <Form.Control
                             type="text"
@@ -153,7 +156,7 @@ const BasketItems = () => {
                       ) : (
                         <section className={style.priceSpinner}>
                           {priceFormatter(data.quantity)}
-                          {updatingQty && <section className={style.qunatitySpinner}>
+                          {updatingQty && clickedProduct?.name === data?.name && <section className={style.qunatitySpinner}>
                             <Spinner animation="border" variant="danger" size="sm" />
                             <h5 className={style.qunatitySpinnerText}>Updating Quantity</h5>
                           </section>}
@@ -167,12 +170,12 @@ const BasketItems = () => {
                       className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4 pt-lg-2 d-flex align-items-center"
                       onClick={() => { handleRemoveFromCart(data) }}
                     >
-                      {isRemoveProduct && <section className={style.removeSpin}><Spinner animation="border" variant="danger" size="sm" /></section>}
+                      {isRemoveProduct && clickedProduct?.name === data?.name && <section className={style.removeSpin}><Spinner animation="border" variant="danger" size="sm" /></section>}
                       <ButtonStyleTwo
-                        text={removeCtaText}
+                        text={isRemoveProduct && clickedProduct?.name === data?.name ? 'Removing Product' : 'Remove Product'}
                         textColor="var( --color-primary)"
                         btnFunction={btnFunction}
-                        btnIcon={isRemoveProduct ? '' : "/Images/deleteIcon.svg"}
+                        btnIcon={isRemoveProduct && clickedProduct?.name === data?.name ? '' : "/Images/deleteIcon.svg"}
                       />
                       {/* <section>
                         <Spinner animation="border" variant="danger" size="sm" />
@@ -181,9 +184,9 @@ const BasketItems = () => {
                     </Col>
                     <Col lg={3} sm={12} xs={12} className="pt-lg-2">
                       <ButtonStyleTwo
-                        text={showTextBox ? "Cancel" : "Edit Quote"}
+                        text={showTextBox && clickedProduct?.name === data?.name ? "Cancel" : "Edit Quote"}
                         textColor="var( --color-primary)"
-                        btnFunction={handleEditQuote}
+                        btnFunction={() => { handleEditQuote(data) }}
                         btnIcon={"/Images/editIcon.svg"}
                       />
                     </Col>
