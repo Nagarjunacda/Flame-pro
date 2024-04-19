@@ -4,7 +4,6 @@ import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { useMediaQuery } from "react-responsive";
 import RenderTrays from "@/components/RenderTrays";
 import Head from "next/head";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
@@ -24,7 +23,10 @@ export default function Home(props) {
       </Head>
       <main>
         {trayData ? (
-          <RenderTrays trayData={trayData} additionalDataExt={additionalDataExt} />
+          <RenderTrays
+            trayData={trayData}
+            additionalDataExt={additionalDataExt}
+          />
         ) : (
           <p>This Page Under Development</p>
         )}

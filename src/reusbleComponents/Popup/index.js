@@ -6,13 +6,13 @@ import ButtonStyleTwo from "../ButtonStyleTwo";
 import AddedBasketItem from "@/components/AddedBasketItem";
 import Link from "next/link";
 
-function Popup({ show, setShow }) {
+function Popup({ show, setShow, productData }) {
   const handleClose = () => setShow(false);
   const popupStyleDweb = {
     padding: "50px 100px",
   };
 
-  const handleBtnClick = () => { }
+  const handleBtnClick = () => {};
 
   return (
     <>
@@ -30,18 +30,22 @@ function Popup({ show, setShow }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddedBasketItem />
+          <AddedBasketItem productData={productData} />
         </Modal.Body>
         <Modal.Footer>
-          <ButtonStyleTwo
-            text={"Browse More Products"}
-            textColor={"var(--color-primary)"}
-          />
-          <Link href={'/basket'}>
+          <Link href={"/shop"}>
+            {" "}
+            <ButtonStyleTwo
+              text={"Browse More Products"}
+              textColor={"var(--color-primary)"}
+            />
+          </Link>
+          <Link href={"/basket"}>
             <FlameBtn
               text={"View Your Quote Basket"}
               color={"var(--color-primary)"}
               btnFunction={handleBtnClick}
+              textColor={"var(--color-secondary)"}
             />
           </Link>
         </Modal.Footer>

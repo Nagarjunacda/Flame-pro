@@ -64,58 +64,60 @@ function AdditionalInfoBlock({ productInfo }) {
           </section>
         )}
       </section>
-      <section className={styles.downloadsBlock}>
-        <h3 className={styles.donwloadHead}>Downloads</h3>
-        <h5 className={styles.downloadText}>{downloadText}</h5>
-        <section className={styles.brochure}>
-          {brochureLink && (
-            <section className={styles.brochureItem}>
-              <a href={brochureLink} download={pdf1} target="blank">
-                <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
-              </a>
-              <a href={brochureLink} download={pdf1} target="blank">
-                <h5 className={styles.brochureText}>Download Brochure</h5>
-              </a>
-            </section>
-          )}
-          {techDataLink && (
-            <section className={styles.brochureItem}>
-              <a href={techDataLink} download={pdf2} target="blank">
-                <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
-              </a>
-              <a href={techDataLink} download={pdf2} target="blank">
-                <h5 className={styles.brochureText}>
-                  Technical Data Sheet Download
-                </h5>
-              </a>
-            </section>
-          )}
-          {ukDeclaration && (
-            <section className={styles.brochureItem}>
-              <a href={ukDeclaration} download={pdf3} target="blank">
-                <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
-              </a>
-              <a href={ukDeclaration} download={pdf3} target="blank">
-                <h5 className={styles.brochureText}>
-                  UK Declaration of Conformity
-                </h5>
-              </a>
-            </section>
-          )}
-          {euDeclaration && (
-            <section className={styles.brochureItem}>
-              <a href={euDeclaration} download={pdf4} target="blank">
-                <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
-              </a>
-              <a href={euDeclaration} download={pdf4} target="blank">
-                <h5 className={styles.brochureText}>
-                  EU Declaration-of- Conformity
-                </h5>
-              </a>
-            </section>
-          )}
+      {(brochureLink || techDataLink || ukDeclaration || euDeclaration) && (
+        <section className={styles.downloadsBlock}>
+          <h3 className={styles.donwloadHead}>Downloads</h3>
+          <h5 className={styles.downloadText}>{downloadText}</h5>
+          <section className={styles.brochure}>
+            {brochureLink && (
+              <section className={styles.brochureItem}>
+                <a href={brochureLink} download={pdf1} target="blank">
+                  <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
+                </a>
+                <a href={brochureLink} download={pdf1} target="blank">
+                  <h5 className={styles.brochureText}>Download Brochure</h5>
+                </a>
+              </section>
+            )}
+            {techDataLink && (
+              <section className={styles.brochureItem}>
+                <a href={techDataLink} download={pdf2} target="blank">
+                  <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
+                </a>
+                <a href={techDataLink} download={pdf2} target="blank">
+                  <h5 className={styles.brochureText}>
+                    Technical Data Sheet Download
+                  </h5>
+                </a>
+              </section>
+            )}
+            {ukDeclaration && (
+              <section className={styles.brochureItem}>
+                <a href={ukDeclaration} download={pdf3} target="blank">
+                  <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
+                </a>
+                <a href={ukDeclaration} download={pdf3} target="blank">
+                  <h5 className={styles.brochureText}>
+                    UK Declaration of Conformity
+                  </h5>
+                </a>
+              </section>
+            )}
+            {euDeclaration && (
+              <section className={styles.brochureItem}>
+                <a href={euDeclaration} download={pdf4} target="blank">
+                  <FlameImage src={downloadIconSrc} alt={"downloadIcon"} />
+                </a>
+                <a href={euDeclaration} download={pdf4} target="blank">
+                  <h5 className={styles.brochureText}>
+                    EU Declaration-of- Conformity
+                  </h5>
+                </a>
+              </section>
+            )}
+          </section>
         </section>
-      </section>
+      )}
     </section>
   );
 }
