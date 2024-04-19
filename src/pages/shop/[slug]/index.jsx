@@ -23,7 +23,7 @@ function ProductDetailPage(props) {
     const isProducts = arr.includes(slug);
 
     useEffect(() => {
-        const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots'];
+        const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'consumables', 'flash-hoods'];
         const isProducts = arr.includes(slug);
         setIsFromMenu({ isFromMenu: true, category: objectId })
         // const objectId = prductCatData?.object_id;
