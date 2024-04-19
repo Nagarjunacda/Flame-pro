@@ -24,6 +24,7 @@ function ProductBlock({
 }) {
   const router = useRouter();
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
+  const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
   const productName = productData?.name;
   const trayTitle = "productDetail";
   const imgArr = productData?.images;
@@ -50,7 +51,7 @@ function ProductBlock({
     "Conforms To",
   ];
 
-  const handleSpeakToUs = () => {};
+  const handleSpeakToUs = () => { };
 
   useEffect(() => {
     // Update the selected image based on the route
@@ -106,6 +107,7 @@ function ProductBlock({
                   textColor={textColor}
                   isLoadState={isLoading}
                   btnFunction={handleAddCart}
+                  isSmallBtn={isLargeScr ? false : true}
                 />
               </section>
               <section className={styles.btnStyle2}>

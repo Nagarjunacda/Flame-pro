@@ -3,20 +3,20 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useMediaQuery } from "react-responsive";
 
-const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
+const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction, isSmallBtn, isFromContactForm }) => {
   const [isHovered, setIsHovered] = useState(false);
   const isTabScreen = useMediaQuery({
     query: "(min-width: 600px) and (max-width: 899px)",
   });
   const applyBorderArr = ["Phone", "Email", "ASAP", "Arrange A Time"];
   const applyBorder = applyBorderArr.includes(text);
-  const isSmallBtn = text === "Add To Quote Basket" && !isTabScreen;
+  // const isSmallBtn = text === "Add To Quote Basket" && !isTabScreen;
 
   const buttonStyle = {
     backgroundColor: isHovered ? textColor : color,
     color: isHovered ? color : textColor,
-    border: `solid 1px ${color}`,
-    padding: isSmallBtn ? "16px 20px" : "var(--padding-btn)",
+    border: isFromContactForm ? `solid 1px ${textColor}` : `solid 1px ${color}`,
+    padding: isSmallBtn ? "16px 32px" : "var(--padding-btn)",
     transform: "skew(-20deg)",
     textDecoration: "none",
     transition: "all 0.3s ease",
@@ -42,14 +42,28 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction }) => {
     btnFunction();
   };
 
+  const handleMouseEnter = () => {
+    if (isFromContactForm) {
+      return;
+    }
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    if (isFromContactForm) {
+      return;
+    }
+    setIsHovered(false)
+  }
+
   return (
     <>
       {text && (
         <Button
           onClick={handleClick}
           style={buttonStyle}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <span style={textStyle}>
             {isLoadState && (
