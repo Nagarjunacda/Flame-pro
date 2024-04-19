@@ -43,22 +43,24 @@ const Breadcrumbs = ({ isPadding }) => {
     <section
       className={isPadding ? styles.mainContwithPadding : styles.mainCont}
     >
-      <Link href="/">Home</Link>
-      {routeArr.map((segment, index) => (
-        <span key={index}>
-          {" / "}
-          {routeArr.length === index + 1 ? (
-            <span className={styles.fontBold}>{segment}</span>
-          ) : (
-            <Link
-              href={`/${pathArray.slice(0, index + 1).join("/")}`}
-              className={styles.fontNormal}
-            >
-              {segment}
-            </Link>
-          )}
-        </span>
-      ))}
+      <section className={styles.flexCont}>
+        <Link href="/">Home</Link>
+        {routeArr.map((segment, index) => (
+          <span key={index}>
+            {" > "}
+            {routeArr.length === index + 1 ? (
+              <span className={styles.fontBold}>{segment}</span>
+            ) : (
+              <Link
+                href={`/${pathArray.slice(0, index + 1).join("/")}`}
+                className={styles.fontNormal}
+              >
+                {segment}
+              </Link>
+            )}
+          </span>
+        ))}
+      </section>
     </section>
   );
 };

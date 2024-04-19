@@ -3,6 +3,10 @@
   font-size: var(--font-size-crumbs);
   padding: var(--padding-16) 0px;
 }
+.flexCont{
+  display: inline;
+  border-bottom: 1px solid;
+}
 .fontBold {
   font-weight: var(--font-wt-bold);
   font-family: "CustomFont-Medium", sans-serif;

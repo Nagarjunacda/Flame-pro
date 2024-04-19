@@ -41,18 +41,18 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
         }
     }, []);
 
-    const handleSearchClick = () => {
-        if (isEmpty(selectedResult)) {
+    const handleSearchClick = (suggestion) => {
+        if (!suggestion) {
             return
         }
-        const res = selectedResult;
+        const res = suggestion;
         const type = res?.subtype;
         const id = res?.id
         const url = res?.url
         const lastPath = extractLastPath(url);
         handleOverlayClose();
         if (type === 'product') {
-            router.push(`/shop/${lastPath}/${id}`);
+            router.push(`/shop/${lastPath}`);
             return
         }
         if (type === 'post') {
@@ -114,6 +114,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
     const handleSuggestionClick = (suggestion) => {
         setSuggestedResult(suggestion)
         setQuery(suggestion.title);
+        handleSearchClick(suggestion);
         setSuggestions([]);
         setShowNoRes(false);
         getSearchData([]);
@@ -128,7 +129,16 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
         const lastPath = extractLastPath(url);
         handleCloseMwebDrawer();
         if (type === 'product') {
-            router.push(`/shop/${lastPath}/${id}`);
+            router.push(`/shop/${lastPath}`);
+            return
+        }
+        if (type === 'post') {
+            router.push(`/resource-hub/${lastPath}/${id}`);
+            return
+        }
+        if (type === 'page') {
+            const path = selectedResult?.title === 'Home' ? '/' : selectedResult?.title === 'Cart' ? '/basket' : `/${lastPath}`
+            router.push(path);
             return
         }
     }
@@ -145,7 +155,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
                             onChange={handleInput}
                             className={styles.textInput}
                             autoFocus={true}
-                            placeholder="Search Lorem Ipsum..."
+                            placeholder="Search"
                         />
                         <section className={styles.ctaSection}>
                             <FlameBtn color={btnColor} text={text} textColor={textColor} isLoadState={isLoadState} btnFunction={handleSearchClick} />
