@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
+import Link from "next/link";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
 import Container from "react-bootstrap/Container";
@@ -80,6 +81,11 @@ const BasketItems = () => {
     setUpdatingQty(false);
   }
 
+  function extractLastPath(url) {
+    const urlParts = url.split('/');
+    return urlParts[urlParts.length - 2]; // Get the second last part
+  }
+
   return (
     <>
       {cartData?.items?.length ? (
@@ -109,16 +115,18 @@ const BasketItems = () => {
             <div key={index}>
               <Row className={style.BasketItemsRow}>
                 <Col lg={2} sm={4} xs={4}>
-                  <figure className={style.productImage}>
+                  <Link className={style.productImage} href={`/shop/${extractLastPath(data?.permalink)}`}>
                     <FlameImage src={data.images[0].src} alt={"Product"} />
-                  </figure>
+                  </Link>
                 </Col>
                 <Col lg={10} sm={8} xs={8}>
                   <Row className="">
                     <Col lg={4} sm={12} xs={12} className="d-flex align-items-center pt-lg-1">
-                      <h3 className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4">
-                        {data.name}
-                      </h3>
+                      <Link href={`/shop/${extractLastPath(data?.permalink)}`}>
+                        <h3 className="mb-xs-4 mb-sm-4 mb-4 mb-lg-0 mb-md-4">
+                          {data.name}
+                        </h3>
+                      </Link>
                     </Col>
                     <Col
                       lg={2}
