@@ -21,3 +21,7 @@
       grid-gap: 20px;
     }
   }
+  .filterCont{
+    width: 100%;
+    height: auto;
+  }
