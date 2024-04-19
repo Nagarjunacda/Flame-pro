@@ -12,19 +12,19 @@ const TitleAndTextCentre = ({ trayData }) => {
     trayData?.button_title === "Shop All"
       ? "/shop"
       : trayData?.button_title === "About FlamePro"
-      ? "/about"
-      : trayData?.button_title === "Why choose FlamePro? "
-      ? "/about"
-      : trayData?.button_title === "Why choose FlamePro?"
-      ? "/about"
-      : trayData?.button_title === "Speak To Us"
-      ? "/contact-us"
-      : "";
+        ? "/about"
+        : trayData?.button_title === "Why choose FlamePro? "
+          ? "/about"
+          : trayData?.button_title === "Why choose FlamePro?"
+            ? "/about"
+            : trayData?.button_title === "Speak To Us"
+              ? "/contact-us"
+              : "";
 
-  function btnFunction() {}
+  function btnFunction() { }
 
-  function btnTwoFunction() {}
-  console.log(trayData, "ppe");
+  function btnTwoFunction() { }
+
   return (
     <section className={styles.titletextcentre}>
       <div>
@@ -41,14 +41,14 @@ const TitleAndTextCentre = ({ trayData }) => {
               />
             </Link>
 
-            <Link href={buttonTwoRoute}>
+            {buttonTwoRoute && <Link href={buttonTwoRoute}>
               <ButtonStyleTwo
                 text={buttonTwoTitle}
                 textColor={buttonTwoColor}
                 isLoadState={false}
                 btnFunction={btnTwoFunction}
               />
-            </Link>
+            </Link>}
           </section>
         )}
       </div>
