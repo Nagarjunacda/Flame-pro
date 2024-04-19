@@ -66,7 +66,7 @@ function ProductsListing({ productsData, megaMenuData }) {
       setTotalPages(totalNoOfPages);
     };
     getProductData();
-  }, [itemsNumber, selectedPageNum, filteredArray]);
+  }, [itemsNumber, selectedPageNum, filteredArray, megaMenuClickedProduct]);
 
   const handleBottomBtn = () => {
     setShowDropdown(!showDropdown);
