@@ -14,7 +14,7 @@ import Styles from './wrapper.module.css'
 function LayoutWrapper({ children }) {
   const router = useRouter()
   const { route, query } = router
-  const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions'];
+  const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions', 'consumables', 'flash-hoods'];
   const [headerData, setHeaderData] = useState({});
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);

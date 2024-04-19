@@ -19,7 +19,7 @@ function ProductDetailPage(props) {
     const { data } = props;
     const productData = data && data[0];
     const objectId = prductCatData?.object_id;
-    const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions'];
+    const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions', 'consumables', 'flash-hoods'];
     const isProducts = arr.includes(slug);
 
     useEffect(() => {
