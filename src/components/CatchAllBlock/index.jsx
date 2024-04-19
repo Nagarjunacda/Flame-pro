@@ -13,7 +13,7 @@ function CatchAllBlock({ pageData }) {
       {trayData ? (
         <RenderTrays trayData={trayData} categories={categories} additionalDataExt={additionalDataExt} />
       ) : (
-        <p>This Page Under Development</p>
+        <p>404 Page Not Found</p>
       )}
     </main>
   );
