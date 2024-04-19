@@ -6,6 +6,7 @@ import styles from "./title-text-center.module.css";
 
 const TitleAndTextCentre = ({ trayData }) => {
   const buttonTwoTitle = trayData?.button2_title;
+  const buttonTwoRoute = trayData?.button2_link;
   const buttonTwoColor = "var( --color-primary)";
   const route =
     trayData?.button_title === "Shop All"
@@ -40,12 +41,14 @@ const TitleAndTextCentre = ({ trayData }) => {
               />
             </Link>
 
-            <ButtonStyleTwo
-              text={buttonTwoTitle}
-              textColor={buttonTwoColor}
-              isLoadState={false}
-              btnFunction={btnTwoFunction}
-            />
+            <Link href={buttonTwoRoute}>
+              <ButtonStyleTwo
+                text={buttonTwoTitle}
+                textColor={buttonTwoColor}
+                isLoadState={false}
+                btnFunction={btnTwoFunction}
+              />
+            </Link>
           </section>
         )}
       </div>
