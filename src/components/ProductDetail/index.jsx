@@ -22,38 +22,52 @@ function ProductDetail({ productData }) {
   const handleAddCart = async () => {
     const data = {
       id: productId,
-      quantity: productQuantity
+      quantity: productQuantity,
     };
-    setIsLoading(true)
+    setIsLoading(true);
     const customHeaders = { Nonce: nonceVal };
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);
     if (res?.data) {
       setTriggerUpdate(true);
       setShowPopup(true);
-      setIsLoading(false)
+      setIsLoading(false);
     }
     if (res?.error) {
       const errMsg = res?.error?.response?.data?.message;
-      setIsLoading(false)
+      setIsLoading(false);
       setShowToast(true);
-      setToastMsg(errMsg || "An error occurred during the request. Please try again.");
+      setToastMsg(
+        errMsg || "An error occurred during the request. Please try again."
+      );
     }
   };
 
   const getProductQuantity = (quant) => {
-    setProductQuantity(quant)
-  }
+    setProductQuantity(quant);
+  };
 
   return (
     <main className={styles.mainCont}>
       <Breadcrumbs />
-      <ProductBlock productData={productData} showToast={showToast} setShowToast={setShowToast} toastMsg={toastMsg} handleAddCart={handleAddCart} isLoading={isLoading} getProductQuantity={getProductQuantity} />
+      <ProductBlock
+        productData={productData}
+        showToast={showToast}
+        setShowToast={setShowToast}
+        toastMsg={toastMsg}
+        handleAddCart={handleAddCart}
+        isLoading={isLoading}
+        getProductQuantity={getProductQuantity}
+      />
       {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
         btnFunction={handleAddCart}
       /> */}
-      <Popup show={showPopup} setShow={setShowPopup} />
+      <Popup
+        show={showPopup}
+        setShow={setShowPopup}
+        productData={productData}
+      />
     </main>
   );
 }

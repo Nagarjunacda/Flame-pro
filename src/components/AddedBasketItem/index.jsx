@@ -5,23 +5,24 @@ import RecentlyViewedBlock from "../ContentBlocks/RecentlyViewedBlock";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import Link from "next/link";
 
-function AddedBasketItem() {
-  const handleBtnclick = () => { }
+function AddedBasketItem(productData) {
+  const handleBtnclick = () => {};
+  const popupImage = productData?.productData?.images[0]?.src;
+  const popupProductTitle = productData?.productData.name;
+  console.log(productData?.productData, "popupImage");
   return (
     <>
       <Row>
         <Col>
           <figure>
-            <FlameImage src={"/Images/FlameCartImagePlaceholder.svg"} />
+            <FlameImage src={popupImage} alt={"product image"} />
           </figure>
         </Col>
         <Col xs={6}>
-          <h2>
-            770/775 Valiant Fire-Fighters Suit Lorem Ipsum Dolor Sit Amet,{" "}
-          </h2>
+          <h2>{popupProductTitle}</h2>
         </Col>
         <Col>
-          <Link href={'/basket'}>
+          <Link href={"/basket"}>
             <FlameBtn
               text={"View Your Quote Basket"}
               textColor={"var(--color-secondary)"}

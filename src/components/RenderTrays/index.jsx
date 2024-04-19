@@ -20,11 +20,18 @@ import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 import FaqItem from "../FaqItem";
 import RelatedProductsblock from "../ContentBlocks/RelatedProductsBlock";
+import AboutTeamBlock from "../AboutTeamBlock";
 
-function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageData = {} }) {
+function RenderTrays({
+  trayData,
+  categories = {},
+  additionalDataExt,
+  fullPageData = {},
+}) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
   const testimonialExt = additionalDataExt?.testimonial_slider_ext;
+  const aboutusTeamExt = additionalDataExt?.team_ext;
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -78,11 +85,16 @@ function RenderTrays({ trayData, categories = {}, additionalDataExt, fullPageDat
         return <RelatedProductsblock trayData={tray} />;
       case "textarea_block":
         return <TextAreaBlock trayData={tray} />;
+      case "team_block":
+        return <AboutTeamBlock trayData={tray} aboutExt={aboutusTeamExt} />;
       case "contact_us_page_form":
-        return <ContactUsPageForm
-          heading={"Enter Your Details"}
-          formFields={formData}
-          heading2={"Contact Me By..."} />;
+        return (
+          <ContactUsPageForm
+            heading={"Enter Your Details"}
+            formFields={formData}
+            heading2={"Contact Me By..."}
+          />
+        );
       default:
         return null;
     }

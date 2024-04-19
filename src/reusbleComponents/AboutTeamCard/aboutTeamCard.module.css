@@ -1,0 +1,52 @@
+.teamCardContainer {
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover entire parent container horizontally */
+  height: 100%; /* Cover entire parent container vertically */
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay background color */
+  color: white; /* Text color */
+  display: flex; /* Use flexbox to center content */
+  justify-content: flex-start; /* Center horizontally */
+  align-items: flex-end; /* Center vertically */
+  padding: 20px; /* Adjust padding as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Add transition effect */
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.overlay.visible {
+  opacity: 1; /* Show overlay */
+}
+
+.teamInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+.teamButton {
+  margin-top: 30px;
+}
+.teamName {
+  margin-bottom: 30px;
+}
+.teamPic {
+  height: 432px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .overlay {
+    padding-left: 30px;
+    padding-bottom: 30px;
+  }
+}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const FlameImage = ({ src, alt }) => {
+const FlameImage = ({ src, alt, imageFit }) => {
   return (
     <Image
       src={src}
@@ -10,7 +10,7 @@ const FlameImage = ({ src, alt }) => {
       sizes="100vw"
       // objectFit="cover"
       className="h-100 w-100"
-      style={{ objectFit: 'cover' }}
+      style={{ objectFit: imageFit ? "contain" : "cover" }}
     />
   );
 };

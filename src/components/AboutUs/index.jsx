@@ -5,11 +5,16 @@ function AboutUs({ pageData }) {
   const trayData = data?.acf?.content_blocks;
   const additionalDataExt = data?.acf_fields;
   const categories = data?.category_info;
+  console.log(trayData, "aboutus");
 
   return (
     <main>
       {trayData ? (
-        <RenderTrays trayData={trayData} categories={categories} additionalDataExt={additionalDataExt} />
+        <RenderTrays
+          trayData={trayData}
+          categories={categories}
+          additionalDataExt={additionalDataExt}
+        />
       ) : (
         <p>This Page Under Development</p>
       )}
