@@ -1,5 +1,6 @@
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "@/components/ContentBlocks/PoliciesBlock/policies.module.css";
+import Link from "next/link";
 
 function PoliciesBlock({ trayData }) {
   const policies = trayData?.policies;
@@ -11,10 +12,12 @@ function PoliciesBlock({ trayData }) {
             return (
               <li className={styles.policesLists} key={index}>
                 <h3>{item.post_title}</h3>
-                <ButtonStyleTwo
-                  text={"Read More"}
-                  textColor={"var(--color-primary)"}
-                />
+                <Link href={`/policies/${item?.post_name}`}>
+                  <ButtonStyleTwo
+                    text={"Read More"}
+                    textColor={"var(--color-primary)"}
+                  />
+                </Link>
               </li>
             );
           })}
