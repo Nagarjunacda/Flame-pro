@@ -18,6 +18,13 @@
     gap: 8px;
     cursor: pointer;
 }
+@media(min-width:900px){
+    .headBtnSec{
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+}
 .heading{
     font-size: var(--font-size-lg);
 }
@@ -40,11 +47,42 @@
     justify-content: space-between;
     gap: 52px;
 }
+@media(min-width:900px){
+    .filterList{
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
+@media(min-width:1280px){
+    .filterList{
+        gap: 40px;
+    }
+}
+@media(min-width:1740px){
+    .filterList{
+        gap: 64px;
+    }
+}
 .fireDefFilter{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media(min-width:900px){
+    .fireDefFilter{
+        justify-content: flex-start;
+        max-width: 220px;
+        margin-left: 12px;
+    }
+}
+@media(min-width:1280px){
+    .fireDefFilter{
+        justify-content: flex-start;
+        max-width: 360px;
+        margin-left: 12px;
+    }
 }
 .allCatFilterSec{
     display: flex;
@@ -52,6 +90,11 @@
     align-items: center;
     flex-direction: column;
     gap: 28px;
+}
+@media(min-width:900px){
+    .allCatFilterSec{
+        flex-direction: row;
+    }
 }
 .filterDropDown{
     position: relative;
@@ -62,6 +105,30 @@
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 8px;
 }
+@media(min-width:900px){
+    .filterDropDown{
+        min-width: 120px;
+        max-width: 120px;
+    }
+  }
+  @media(min-width:1280px){
+    .filterDropDown{
+        min-width: 160px;
+        max-width: 160px;
+    }
+  }
+  @media(min-width:1680px){
+    .filterDropDown{
+        min-width: 240px;
+        max-width: 240px;
+    }
+  }
+  @media(min-width:1740px){
+    .filterDropDown{
+        min-width: 260px;
+        max-width: 260px;
+    }
+  }
 .downArrow {
     cursor: pointer;
     width: 16px;
@@ -69,6 +136,11 @@
   }
   .mainCatText{
     font-size: 18px;
+  }
+  @media(min-width:900px){
+    .mainCatText{
+        font-size: 14px;
+    }
   }
   .dropDownBlock{
     position: relative;

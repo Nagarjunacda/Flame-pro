@@ -11,6 +11,7 @@ function ResourceFilters() {
     const [selectedFilterArr, setSelectedFilterArr] = useState([]);
     const [isFireOrDefence, setIsFireOrDefence] = useState('')
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
+    const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
     const closeBtnSrc = '/Images/offCanvasclose.svg';
     const fireBtncolor = mainCatFilter === 'Fire' ? "var(--color-primary)" : "var(--color-secondary)";
     const fireTextClr = mainCatFilter === 'Fire' ? "var(--color-secondary)" : "var(--color-primary)";
@@ -58,12 +59,12 @@ function ResourceFilters() {
     return <section className={styles.mainCont}>
         <section className={styles.headSection}>
             <h3 className={styles.heading}>Filter By</h3>
-            <section className={styles.headBtnSec} onClick={handleClearSelections}>
+            {!isDesktop && <section className={styles.headBtnSec} onClick={handleClearSelections}>
                 <section className={styles.iconSty}>
                     <FlameImage src={closeBtnSrc} alt='clear' />
                 </section>
-                <p className={styles.clearTxt}>clear</p>
-            </section>
+                <p className={styles.clearTxt}>clear Filters</p>
+            </section>}
         </section>
         <section className={styles.filterList}>
             <section className={styles.fireDefFilter}>
@@ -73,7 +74,7 @@ function ResourceFilters() {
                     isLoadState={false}
                     btnFunction={() => { handleMainCatSel('Fire') }}
                     isFromContactForm
-                    isSmallBtn={isDesktop ? false : true}
+                    isSmallBtn={isLargeScr ? false : true}
                 />
                 <FlameBtn color={defenceBtncolor}
                     text={"Defence"}
@@ -81,7 +82,7 @@ function ResourceFilters() {
                     isLoadState={false}
                     btnFunction={() => { handleMainCatSel('Defence') }}
                     isFromContactForm
-                    isSmallBtn={isDesktop ? false : true}
+                    isSmallBtn={isLargeScr ? false : true}
                 />
             </section>
             <section className={styles.allCatFilterSec}>
@@ -105,6 +106,12 @@ function ResourceFilters() {
                     );
                 })}
             </section>
+            {isDesktop && <section className={styles.headBtnSec} onClick={handleClearSelections}>
+                <section className={styles.iconSty}>
+                    <FlameImage src={closeBtnSrc} alt='clear' />
+                </section>
+                <p className={styles.clearTxt}>clear Filters</p>
+            </section>}
         </section>
     </section>
 }
