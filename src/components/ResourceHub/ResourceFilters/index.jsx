@@ -9,6 +9,7 @@ function ResourceFilters() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState({});
     const [selectedFilterArr, setSelectedFilterArr] = useState([]);
+    const [isFireOrDefence, setIsFireOrDefence] = useState('')
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const closeBtnSrc = '/Images/offCanvasclose.svg';
     const fireBtncolor = mainCatFilter === 'Fire' ? "var(--color-primary)" : "var(--color-secondary)";
@@ -51,10 +52,15 @@ function ResourceFilters() {
         setSelectedFilterArr((prev) => [...prev, obj]);
     };
 
+    const handleClearSelections = () => {
+        setMainCatFilter('');
+        setSelectedFilterArr([])
+    }
+
     return <section className={styles.mainCont}>
         <section className={styles.headSection}>
             <h3 className={styles.heading}>Filter By</h3>
-            <section className={styles.headBtnSec}>
+            <section className={styles.headBtnSec} onClick={handleClearSelections}>
                 <section className={styles.iconSty}>
                     <FlameImage src={closeBtnSrc} alt='clear' />
                 </section>
