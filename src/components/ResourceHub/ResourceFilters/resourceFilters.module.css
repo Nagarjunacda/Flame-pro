@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 .heading{
     font-size: var(--font-size-lg);

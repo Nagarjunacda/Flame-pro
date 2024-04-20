@@ -25,7 +25,6 @@ function ResourceFilters() {
     }
 
     const handleSelectedCategory = (selectedCat) => {
-        console.log('!! cat')
         if (selectedCategory?.name === selectedCat?.name) {
             setIsDropdownOpen(false);
             setSelectedCategory({});
@@ -36,7 +35,6 @@ function ResourceFilters() {
     }
 
     const handleFilterSelect = (filterName, selectedItem) => {
-        console.log('!! filt')
         setIsDropdownOpen(false)
         const isItemAdded = selectedFilterArr.some((e) => {
             return e?.name === filterName?.name
