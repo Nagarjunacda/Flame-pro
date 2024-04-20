@@ -7,7 +7,8 @@ import styles from './resourceFilters.module.css';
 function ResourceFilters() {
     const [mainCatFilter, setMainCatFilter] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState({})
+    const [selectedCategory, setSelectedCategory] = useState({});
+    const [selectedFilterArr, setSelectedFilterArr] = useState([]);
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const closeBtnSrc = '/Images/offCanvasclose.svg';
     const fireBtncolor = mainCatFilter === 'Fire' ? "var(--color-primary)" : "var(--color-secondary)";
@@ -31,6 +32,22 @@ function ResourceFilters() {
         setIsDropdownOpen(true);
         setSelectedCategory(selectedCat);
     }
+
+    const handleFilterSelect = (filterName, selectedItem) => {
+        setIsDropdownOpen(false)
+        const isItemAdded = selectedFilterArr.some((e) => {
+            return e?.name === filterName?.name
+        })
+        const obj = { name: filterName?.name, type: selectedItem }
+        if (isItemAdded) {
+            const filterArr = selectedFilterArr.filter((e) => {
+                return e?.name !== filterName?.name
+            });
+            setSelectedFilterArr([...filterArr, obj]);
+            return;
+        }
+        setSelectedFilterArr((prev) => [...prev, obj]);
+    };
 
     return <section className={styles.mainCont}>
         <section className={styles.headSection}>
@@ -65,14 +82,14 @@ function ResourceFilters() {
                 {filterData?.map((mainCat) => (
                     <section className={styles.categoryAndDropdown}>
                         <section className={styles.filterDropDown} onClick={() => { handleSelectedCategory(mainCat) }}>
-                            <h3 className={styles.mainCatText}>{mainCat?.name}</h3>
+                            <h3 className={styles.mainCatText}>{mainCat}</h3>
                             <section className={styles.downArrow}>
                                 <FlameImage src={selectedCategory?.name === mainCat?.name ? upArrow : downArrow} alt="arrow" />
                             </section>
                         </section>
                         {isDropdownOpen && selectedCategory?.name === mainCat?.name && <section className={styles.dropDownBlock}>
                             {mainCat?.filterList.map((cat) => {
-                                return <h4 className={styles.innerCatSec}>{cat}</h4>
+                                return <h4 className={styles.innerCatSec} onClick={() => { handleFilterSelect(mainCat, cat) }}>{cat}</h4>
                             })}
                         </section>}
                     </section>
