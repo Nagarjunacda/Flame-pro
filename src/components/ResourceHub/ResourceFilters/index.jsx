@@ -24,6 +24,7 @@ function ResourceFilters() {
     }
 
     const handleSelectedCategory = (selectedCat) => {
+        console.log('!! cat')
         if (selectedCategory?.name === selectedCat?.name) {
             setIsDropdownOpen(false);
             setSelectedCategory({});
@@ -34,6 +35,7 @@ function ResourceFilters() {
     }
 
     const handleFilterSelect = (filterName, selectedItem) => {
+        console.log('!! filt')
         setIsDropdownOpen(false)
         const isItemAdded = selectedFilterArr.some((e) => {
             return e?.name === filterName?.name
@@ -79,21 +81,25 @@ function ResourceFilters() {
                 />
             </section>
             <section className={styles.allCatFilterSec}>
-                {filterData?.map((mainCat) => (
-                    <section className={styles.categoryAndDropdown}>
-                        <section className={styles.filterDropDown} onClick={() => { handleSelectedCategory(mainCat) }}>
-                            <h3 className={styles.mainCatText}>{mainCat}</h3>
-                            <section className={styles.downArrow}>
-                                <FlameImage src={selectedCategory?.name === mainCat?.name ? upArrow : downArrow} alt="arrow" />
+                {filterData?.map((mainCat) => {
+                    const selectedFilter = selectedFilterArr.find((filter) => filter.name === mainCat.name);
+                    const displayText = selectedFilter ? selectedFilter.type : mainCat.name;
+                    return (
+                        <section className={styles.categoryAndDropdown} onClick={() => { handleSelectedCategory(mainCat) }}>
+                            <section className={styles.filterDropDown}>
+                                <h3 className={styles.mainCatText}>{displayText}</h3>
+                                <section className={styles.downArrow}>
+                                    <FlameImage src={selectedCategory?.name === mainCat?.name ? upArrow : downArrow} alt="arrow" />
+                                </section>
                             </section>
+                            {isDropdownOpen && selectedCategory?.name === mainCat?.name && <section className={styles.dropDownBlock}>
+                                {mainCat?.filterList.map((cat) => {
+                                    return <h4 className={styles.innerCatSec} onClick={() => { handleFilterSelect(mainCat, cat) }}>{cat}</h4>
+                                })}
+                            </section>}
                         </section>
-                        {isDropdownOpen && selectedCategory?.name === mainCat?.name && <section className={styles.dropDownBlock}>
-                            {mainCat?.filterList.map((cat) => {
-                                return <h4 className={styles.innerCatSec} onClick={() => { handleFilterSelect(mainCat, cat) }}>{cat}</h4>
-                            })}
-                        </section>}
-                    </section>
-                ))}
+                    );
+                })}
             </section>
         </section>
     </section>
