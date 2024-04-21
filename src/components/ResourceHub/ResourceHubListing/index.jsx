@@ -6,6 +6,7 @@ import TitleAndTextCard from '@/components/Cards/TitleAndTextCard';
 import ResourceFilters from '../ResourceFilters';
 import { blogPostsUrl } from '@/utils/urls';
 import { resourceFiltersUrl } from '@/utils/urls';
+import _isEmpty from 'lodash/isEmpty';
 import styles from '../resourceHub.module.css';
 
 function ResourceHubListing({ listingData }) {
@@ -27,6 +28,7 @@ function ResourceHubListing({ listingData }) {
         (_, index) => index + 1
     );
     const numberArr = [10, 20, 30, 40, 50];
+    const isPostsEmpty = _isEmpty(posts);
 
     useEffect(() => {
         setPosts(listingData);
@@ -103,7 +105,7 @@ function ResourceHubListing({ listingData }) {
         <section className={styles.filterCont}>
             <ResourceFilters mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section>
-        <section className={styles.pagesCont}>
+        {!isPostsEmpty && <section className={styles.pagesCont}>
             <section
                 className={styles.showBlock}
                 onClick={handleBottomBtn}
@@ -180,13 +182,13 @@ function ResourceHubListing({ listingData }) {
                     </section>
                 )}
             </section>
-        </section>
-        <section className={styles.products}>
+        </section>}
+        {isPostsEmpty ? <h3>No Posts Found</h3> : <section className={styles.products}>
             {posts?.map((product, index) => {
                 return <TitleAndTextCard key={index} data={product} />
             })}
-        </section>
-        <section className={styles.pagesCont}>
+        </section>}
+        {!isPostsEmpty && <section className={styles.pagesCont}>
             <section className={styles.showBlock} onClick={handleBottomBtn2}>
                 <section className={styles.showText}>
                     <p className={styles.show}>Show:</p>
@@ -257,7 +259,7 @@ function ResourceHubListing({ listingData }) {
                     </section>
                 )}
             </section>
-        </section>
+        </section>}
     </section>
 }
 export default ResourceHubListing
