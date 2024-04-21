@@ -2,24 +2,28 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
+import { resourceFiltersUrl } from '@/utils/urls';
 import styles from './resourceFilters.module.css';
+import { set } from 'lodash';
 
-function ResourceFilters() {
-    const [mainCatFilter, setMainCatFilter] = useState('');
+function ResourceFilters({ mainCatFilter, setMainCatFilter, selectedFilterArr, setSelectedFilterArr }) {
+    // const [mainCatFilter, setMainCatFilter] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState({});
-    const [selectedFilterArr, setSelectedFilterArr] = useState([]);
+    // const [selectedFilterArr, setSelectedFilterArr] = useState([]);
     const [isFireOrDefence, setIsFireOrDefence] = useState('')
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
     const closeBtnSrc = '/Images/offCanvasclose.svg';
-    const fireBtncolor = mainCatFilter === 'Fire' ? "var(--color-primary)" : "var(--color-secondary)";
-    const fireTextClr = mainCatFilter === 'Fire' ? "var(--color-secondary)" : "var(--color-primary)";
-    const defenceBtncolor = mainCatFilter === 'Defence' ? "var(--color-primary)" : "var(--color-secondary)";
-    const defenceTextClr = mainCatFilter === 'Defence' ? "var(--color-secondary)" : "var(--color-primary)";
+    const fireBtncolor = mainCatFilter === 'fire' ? "var(--color-primary)" : "var(--color-secondary)";
+    const fireTextClr = mainCatFilter === 'fire' ? "var(--color-secondary)" : "var(--color-primary)";
+    const defenceBtncolor = mainCatFilter === 'defence' ? "var(--color-primary)" : "var(--color-secondary)";
+    const defenceTextClr = mainCatFilter === 'defence' ? "var(--color-secondary)" : "var(--color-primary)";
     const upArrow = "/Images/upGreyArrow.svg";
     const downArrow = "/Images/downArrowGrey.svg";
-    const filterData = [{ name: 'Select Type', filterList: ['Blogs', 'Videos', 'Downloads', 'Case Studies'] }, { name: 'Select Application', filterList: ['HVP', 'Structural', 'Technical Rescue', 'Wild Fire'] }, { name: 'Select Industry', filterList: ['HVP', 'Structural', 'Technical Rescue', 'Wild Fire'] }];
+    const fireFilters = [{ name: 'Select Type', filterList: ['Blogs', 'Videos', 'Downloads', 'Case Studies'] }, { name: 'Select Application', filterList: ['HVP', 'Structural', 'Technical Rescue', 'Wild Fire'] }, { name: 'Select Industry', filterList: ['Airports', 'State Brigade', 'Marine', 'Petrochemical'] }];
+    const defenceFilters = [{ name: 'Select Type', filterList: ['Blogs', 'Videos', 'Downloads', 'Case Studies'] }, { name: 'Select Category', filterList: ['Uniform', 'PPE and Load Carry', 'Medical Equipment', 'Real Life Support'] }]
+    const filterData = mainCatFilter === 'defence' ? defenceFilters : fireFilters;
 
     const handleMainCatSel = (selectedCat) => {
         setMainCatFilter(selectedCat);
@@ -72,7 +76,7 @@ function ResourceFilters() {
                     text={"Fire"}
                     textColor={fireTextClr}
                     isLoadState={false}
-                    btnFunction={() => { handleMainCatSel('Fire') }}
+                    btnFunction={() => { handleMainCatSel('fire') }}
                     isFromContactForm
                     isSmallBtn={isLargeScr ? false : true}
                 />
@@ -80,7 +84,7 @@ function ResourceFilters() {
                     text={"Defence"}
                     textColor={defenceTextClr}
                     isLoadState={false}
-                    btnFunction={() => { handleMainCatSel('Defence') }}
+                    btnFunction={() => { handleMainCatSel('defence') }}
                     isFromContactForm
                     isSmallBtn={isLargeScr ? false : true}
                 />

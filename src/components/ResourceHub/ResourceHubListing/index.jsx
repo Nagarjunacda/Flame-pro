@@ -5,14 +5,18 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import TitleAndTextCard from '@/components/Cards/TitleAndTextCard';
 import ResourceFilters from '../ResourceFilters';
 import { blogPostsUrl } from '@/utils/urls';
+import { resourceFiltersUrl } from '@/utils/urls';
 import styles from '../resourceHub.module.css';
 
 function ResourceHubListing({ listingData }) {
+    const [mainCatFilter, setMainCatFilter] = useState('');
+    const [selectedFilterArr, setSelectedFilterArr] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
     const [itemsNumber, setItemsNumbers] = useState(10);
     const [selectedPageNum, setSelectedPageNum] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
-    const [showDropdown2, setShowDropdown2] = useState(false)
+    const [showDropdown2, setShowDropdown2] = useState(false);
+    const [filtersUrl, setFiltersUrl] = useState('')
     const [posts, setPosts] = useState([]);
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const arrowSrc = "/Images/bottomGreyArrow.svg";
@@ -30,7 +34,16 @@ function ResourceHubListing({ listingData }) {
 
     useEffect(() => {
         const getPostsData = async () => {
+            const isCategory = selectedFilterArr?.length ? selectedFilterArr.filter((e) => e?.name === 'Select Type')[0]?.type : false;
+            const isApplication = selectedFilterArr?.length ? selectedFilterArr.filter((e) => e?.name === 'Select Application')[0]?.type : false;
+            const isIndustry = selectedFilterArr?.length ? selectedFilterArr.filter((e) => e?.name === 'Select Industry')[0]?.type : false;
+            const typeCatParam = mainCatFilter ? `&type_cat=${mainCatFilter}` : ''
+            const categoryParam = isCategory ? `&category=${isCategory}` : '';
+            const applicationParam = isApplication ? `&application=${isApplication}` : '';
+            const industryParam = isIndustry ? `&application=${isIndustry}` : '';
+            const isFiltersApplied = mainCatFilter || isCategory || isApplication || isIndustry;
             const allProductsUrl = `${blogPostsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`;
+            const url = isFiltersApplied ? `${resourceFiltersUrl}?per_page=${itemsNumber}&page=${selectedPageNum}${typeCatParam}${categoryParam}${applicationParam}${industryParam}` : allProductsUrl;
             // const categoryurl = `${productsUrl}?category=${category}`;
             // const allProductsUrl = !isFromShopAll ? `${productsUrl}?category=${megaMenuClickedProduct}&per_page=${itemsNumber}&page=${selectedPageNum}` : `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
             // const url = filteredArray.length
@@ -42,14 +55,14 @@ function ResourceHubListing({ listingData }) {
             // const totalNoOfPages = headers["x-wp-totalpages"];
             // setProducts(data);
             // setTotalPages(totalNoOfPages);
-            const { data, error, headers } = await handleServerSideProps(allProductsUrl);
+            const { data, error, headers } = await handleServerSideProps(url);
             const totalNoOfPages = headers["x-wp-totalpages"];
             setPosts(data);
             setTotalPages(totalNoOfPages);
 
         };
         getPostsData();
-    }, [itemsNumber, selectedPageNum]);
+    }, [itemsNumber, selectedPageNum, mainCatFilter, selectedFilterArr]);
 
     const handlePageSelection = (number) => {
         if (number === "left") {
@@ -88,7 +101,7 @@ function ResourceHubListing({ listingData }) {
 
     return <section className={styles.mainCont}>
         <section className={styles.filterCont}>
-            <ResourceFilters />
+            <ResourceFilters mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section>
         <section className={styles.pagesCont}>
             <section
