@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { handleServerSideProps } from '@/utils/handleServerSideData';
 import FlameImage from '@/reusbleComponents/FlameImage';
@@ -10,6 +10,7 @@ import _isEmpty from 'lodash/isEmpty';
 import styles from '../resourceHub.module.css';
 
 function ResourceHubListing({ listingData }) {
+    const showNoOfItemsRef = useRef(null);
     const [mainCatFilter, setMainCatFilter] = useState('');
     const [selectedFilterArr, setSelectedFilterArr] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
@@ -33,6 +34,20 @@ function ResourceHubListing({ listingData }) {
     useEffect(() => {
         setPosts(listingData);
     }, [listingData]);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (showNoOfItemsRef.current && !showNoOfItemsRef.current.contains(event.target)) {
+                setShowDropdown(false)
+                setShowDropdown2(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [showNoOfItemsRef]);
 
     useEffect(() => {
         const getPostsData = async () => {
@@ -121,7 +136,7 @@ function ResourceHubListing({ listingData }) {
                     <FlameImage src={arrowSrc} alt="icon" />
                 </section>
                 {showDropdown && (
-                    <section className={styles.dropDown}>
+                    <section ref={showNoOfItemsRef} className={styles.dropDown}>
                         {numberArr.map((e, index) => {
                             return (
                                 <section
@@ -198,7 +213,7 @@ function ResourceHubListing({ listingData }) {
                     <FlameImage src={arrowSrc} alt="icon" />
                 </section>
                 {showDropdown2 && (
-                    <section className={styles.dropDown}>
+                    <section ref={showNoOfItemsRef} className={styles.dropDown}>
                         {numberArr.map((e, index) => {
                             return (
                                 <section

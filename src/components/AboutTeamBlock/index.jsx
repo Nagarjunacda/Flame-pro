@@ -3,7 +3,6 @@ import Col from "react-bootstrap/Col";
 import AboutTeamCard from "@/reusbleComponents/AboutTeamCard";
 import styles from "./aboutTeamBlock.module.css";
 function AboutTeamBlock({ trayData, aboutExt }) {
-  console.log(trayData?.select_team_memers, "select_team_memers");
   return (
     <section>
       <div className={styles.aboutBlockDiv}>

@@ -6,10 +6,10 @@ import FlameBtn from "@/reusbleComponents/FlameBtn";
 import Link from "next/link";
 
 function AddedBasketItem(productData) {
-  const handleBtnclick = () => {};
+  const handleBtnclick = () => { };
   const popupImage = productData?.productData?.images[0]?.src;
   const popupProductTitle = productData?.productData.name;
-  console.log(productData?.productData, "popupImage");
+
   return (
     <>
       <Row>

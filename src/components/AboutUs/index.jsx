@@ -5,7 +5,6 @@ function AboutUs({ pageData }) {
   const trayData = data?.acf?.content_blocks;
   const additionalDataExt = data?.acf_fields;
   const categories = data?.category_info;
-  console.log(trayData, "aboutus");
 
   return (
     <main>
