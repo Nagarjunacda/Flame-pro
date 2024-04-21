@@ -7,7 +7,9 @@ function PolicesContent({ trayData }) {
   const backArrowSrc = "/Images/leftGreyArrow.svg";
   const pageContent =
     trayData && trayData.length && trayData[0]?.content?.rendered;
+
   const btnFunction = () => { };
+
   return (
     <section className={styles.mainCont}>
       <section className={styles.btnShareSec}>

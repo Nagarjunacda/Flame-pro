@@ -124,9 +124,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 8px;
-    padding-top: 10px;
-  
     width: 100%;
     left: 0px;
     top: 49px;
@@ -139,10 +136,15 @@
     cursor: pointer;
     width: 100%;
     align-items: center;
-    padding: 5px;
+    padding: 8px;
     align-items: center;
     justify-content: center;
+    border-bottom: solid 1px var(--color-primary);
   }
+  .showItems:hover {
+  background-color: #000;
+  color: #fff;
+}
   .pageNum {
     display: flex;
     justify-content: center;
