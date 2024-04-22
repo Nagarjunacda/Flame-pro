@@ -118,7 +118,7 @@ function ResourceHubListing({ listingData }) {
 
     return <section className={styles.mainCont}>
         <section className={styles.filterCont}>
-            <ResourceFilters mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
+            <ResourceFilters mainCatFilter={mainCatFilter} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section>
         {!isPostsEmpty && <section className={styles.pagesCont}>
             <section

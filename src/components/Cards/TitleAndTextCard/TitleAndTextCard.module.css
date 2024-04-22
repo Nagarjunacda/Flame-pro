@@ -5,6 +5,15 @@
 }
 .cardImg{
     border-radius: 0px;
+    min-height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+}
+@media(min-width:900px){
+    .cardImg{
+        min-height: 420px;
+        max-height: 420px; 
+    }
 }
 .text{
     font-size: var(--font-size-sm);

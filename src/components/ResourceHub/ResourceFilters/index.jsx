@@ -5,7 +5,7 @@ import FlameBtn from '@/reusbleComponents/FlameBtn';
 import { resourceFiltersUrl } from '@/utils/urls';
 import styles from './resourceFilters.module.css';
 
-function ResourceFilters({ mainCatFilter, setMainCatFilter, selectedFilterArr, setSelectedFilterArr }) {
+function ResourceFilters({ mainCatFilter, setMainCatFilter, setSelectedPageNum, setItemsNumbers, selectedFilterArr, setSelectedFilterArr }) {
     // const [mainCatFilter, setMainCatFilter] = useState('');
     const filterDropdownRef = useRef(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,6 +40,8 @@ function ResourceFilters({ mainCatFilter, setMainCatFilter, selectedFilterArr, s
     }, [filterDropdownRef]);
 
     const handleMainCatSel = (selectedCat) => {
+        setSelectedPageNum(1);
+        setItemsNumbers(10);
         setMainCatFilter(selectedCat);
     }
 
@@ -67,11 +69,15 @@ function ResourceFilters({ mainCatFilter, setMainCatFilter, selectedFilterArr, s
             return;
         }
         setSelectedFilterArr((prev) => [...prev, obj]);
+        setItemsNumbers(10);
+        setSelectedPageNum(1);
     };
 
     const handleClearSelections = () => {
         setMainCatFilter('');
-        setSelectedFilterArr([])
+        setSelectedFilterArr([]);
+        setItemsNumbers(10);
+        setSelectedPageNum(1);
     }
 
     return <section className={styles.mainCont}>
