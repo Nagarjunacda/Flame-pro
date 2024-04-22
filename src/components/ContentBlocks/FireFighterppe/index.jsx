@@ -193,7 +193,7 @@ function FireFighterppe({
                 return (
                   <Link
                     key={index}
-                    href={`/resource-hub/${e?.slug}/${e.id}`}
+                    href={`/resource-hub/${e?.slug}`}
                     onClick={() => {
                       handleOverlayClose("item");
                     }}
