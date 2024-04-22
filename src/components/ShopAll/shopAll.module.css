@@ -99,11 +99,11 @@
   padding-bottom: 3px;
   gap: 12px;
   border: solid 2px var(--color-primary);
+  padding: var(--padding-8) var(--padding-16);
   cursor: pointer;
 }
 @media (min-width: 900px) {
   .showBlock {
-    padding: var(--padding-8) var(--padding-16);
     gap: 28px;
   }
 }
@@ -222,13 +222,14 @@
   width: 18px;
   height: 18px;
 }
-.showItems:hover {
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
-}
 @media (min-width: 900px) {
   .arrows {
     width: 25px;
     height: 30px;
   }
+}
+
+.showItems:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }

@@ -9,7 +9,7 @@ function TitleAndTextCard({ data }) {
   const cardImage = featured_image_url ? featured_image_url : "/Images/blogImg.svg";
   const postTitle = title?.rendered;
   const postContent = data?.excerpt?.rendered || data?.excerpt;
-  const postType = post_type_cat ? post_type_cat[0]?.name : 'Fire'
+  const postType = post_type_cat ? post_type_cat[0]?.name : data?.type_cat ? data?.type_cat : 'Fire';
   const formattedDate = formatDate(date);
   const url = `resource-hub/${data?.slug}/${data?.id}`
 

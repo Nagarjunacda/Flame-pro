@@ -1,0 +1,201 @@
+.mainCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+@media(min-width:900px){
+    .mainCont{
+        margin-bottom:36px
+    }
+}
+@media(min-width:1280px){
+    .mainCont{
+        margin-bottom:48px
+    }
+}
+@media(min-width:1680px){
+    .mainCont{
+        margin-bottom:64px
+    }
+}
+.headSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headBtnSec{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+@media(min-width:900px){
+    .headBtnSec{
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+}
+.heading{
+    font-size: var(--font-size-lg);
+}
+.iconSty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+}
+.clearTxt{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 1px;
+    border-bottom: 1px solid black;
+}
+.filterList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 52px;
+}
+@media(min-width:900px){
+    .filterList{
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
+@media(min-width:1280px){
+    .filterList{
+        gap: 40px;
+    }
+}
+@media(min-width:1740px){
+    .filterList{
+        gap: 64px;
+    }
+}
+.fireDefFilter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media(min-width:900px){
+    .fireDefFilter{
+        justify-content: flex-start;
+        max-width: 220px;
+        margin-left: 12px;
+    }
+}
+@media(min-width:1280px){
+    .fireDefFilter{
+        justify-content: flex-start;
+        max-width: 360px;
+        margin-left: 12px;
+    }
+}
+.allCatFilterSec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 28px;
+}
+@media(min-width:900px){
+    .allCatFilterSec{
+        flex-direction: row;
+    }
+}
+.filterDropDown{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 8px;
+}
+@media(min-width:900px){
+    .filterDropDown{
+        min-width: 120px;
+        max-width: 120px;
+    }
+  }
+  @media(min-width:1280px){
+    .filterDropDown{
+        min-width: 160px;
+        max-width: 160px;
+    }
+  }
+  @media(min-width:1680px){
+    .filterDropDown{
+        min-width: 240px;
+        max-width: 240px;
+    }
+  }
+  @media(min-width:1740px){
+    .filterDropDown{
+        min-width: 260px;
+        max-width: 260px;
+    }
+  }
+.downArrow {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+  }
+  .mainCatText{
+    font-size: 18px;
+  }
+  @media(min-width:900px){
+    .mainCatText{
+        font-size: 14px;
+    }
+  }
+  .dropDownBlock{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media(min-width:900px){
+    .dropDownBlock{
+        position: absolute;
+        top: 28px;
+        background-color: var(--color-secondary);
+        left: 0px;
+        z-index: 10;
+    }
+  }
+  .categoryAndDropdown{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  @media(min-width:900px){
+    .categoryAndDropdown{
+        position: relative;
+    }
+  }
+  .innerCatSec{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 18px;
+    padding: 20px 0px 20px 16px;
+    cursor: pointer;
+    border-bottom: solid 1px var(--color-primary);
+  }
+  .innerCatSec:hover {
+    background-color: #000;
+    color: #fff;
+  }

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 import { contactUsFormPageUrl } from '@/utils/urls';
 import CountrySelector from '../CountrySelector';
+import { useMediaQuery } from 'react-responsive';
 // import { BsCalendar } from 'react-icons/bs';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker';
@@ -32,6 +33,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
     const [toastMsg, setToastMsg] = useState("");
+    const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const timeZoneVal = 'BST';
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
@@ -335,12 +337,16 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         text={"Phone"}
                         textColor={phnBtnTextClr}
                         isLoadState={false}
-                        btnFunction={() => { handleContactSel('Phone') }} />
+                        btnFunction={() => { handleContactSel('Phone') }}
+                        isFromContactForm
+                        isSmallBtn={isDesktop ? false : true} />
                     <FlameBtn color={emailBtncolor}
                         text={"Email"}
                         textColor={emailBtnTextClr}
                         isLoadState={false}
-                        btnFunction={() => { handleContactSel('Email') }} />
+                        btnFunction={() => { handleContactSel('Email') }}
+                        isFromContactForm
+                        isSmallBtn={isDesktop ? false : true} />
                 </section>
             </section>
             {contactBy === 'Phone' && <section className={styles.form2Cont}>
@@ -349,12 +355,17 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
                         text={"ASAP"}
                         textColor={phnBtnTextClr2}
                         isLoadState={false}
-                        btnFunction={() => { handleTimeSel('ASAP') }} />
+                        btnFunction={() => { handleTimeSel('ASAP') }}
+                        isFromContactForm
+                        isSmallBtn={isDesktop ? false : true}
+                    />
                     <FlameBtn color={emailBtncolor2}
                         text={"Arrange A Time"}
                         textColor={emailBtnTextClr2}
                         isLoadState={false}
-                        btnFunction={() => { handleTimeSel('Arrange A Time') }} />
+                        btnFunction={() => { handleTimeSel('Arrange A Time') }}
+                        isFromContactForm
+                        isSmallBtn={isDesktop ? false : true} />
                 </section>
             </section>}
             {/* <DatePickerComp /> */}

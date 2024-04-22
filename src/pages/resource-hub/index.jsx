@@ -17,8 +17,8 @@ export async function getServerSideProps(context) {
             },
         };
     }
-
-    const { data: blogPostsData, error: blogPostsError } = await handleServerSideProps(blogPostsUrl);
+    const url = `${blogPostsUrl}?per_page=10&page=1`
+    const { data: blogPostsData, error: blogPostsError } = await handleServerSideProps(url);
     if (blogPostsError) {
         return {
             props: {
