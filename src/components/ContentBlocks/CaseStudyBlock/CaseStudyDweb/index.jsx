@@ -60,7 +60,7 @@ function CaseStudyDweb({ data }) {
         </section>
       </section>
       <section className={styles.cardSection}>
-        <Link href={`/resource-hub/${slug}/${selectedCategory.id}`}>
+        <Link href={`/resource-hub/case-studies/${slug}`}>
           <CaseStudyCard data={selectedCategory} />
         </Link>
         {/* </section>
