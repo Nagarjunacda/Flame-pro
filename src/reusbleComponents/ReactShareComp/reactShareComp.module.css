@@ -1,0 +1,28 @@
+.mainCont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.iconCont{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+@media(min-width:900px){
+    .iconCont{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.innerCont{
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
+}
+.iconText{
+    font-size: var(--font-size-md);
+    margin-top: 6px;
+}

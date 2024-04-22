@@ -1,11 +1,14 @@
+import { useState } from 'react';
+import Link from 'next/link';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 import { renderHTML } from '@/utils/htmlString';
+import ReactShareComp from '@/reusbleComponents/ReactShareComp';
 import styles from './postContent.module.css';
-import Link from 'next/link';
 
 function PostContent({ trayData, fullPageData }) {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const backArrowSrc = '/Images/leftGreyArrow.svg';
     const facebookIcon = '/Images/facebookIcon.svg';
     const twitterIcon = '/Images/twitterBlack.svg';
@@ -23,6 +26,14 @@ function PostContent({ trayData, fullPageData }) {
 
     const handleBtnClick = () => { }
 
+    const handlePlusIconClick = () => {
+        setIsPopupOpen(true);
+    }
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    }
+
     return <section className={styles.mainCont}>
         <section className={styles.btnShareSec}>
             <Link href={'/resource-hub'}>
@@ -37,7 +48,7 @@ function PostContent({ trayData, fullPageData }) {
                 <h6>Share This Article</h6>
                 <section className={styles.iconSec}>
                     {logoArr.map((e, index) => {
-                        return <a href={`${e?.url}${encodeURIComponent(postLink)}`} target="_blank" rel="noopener noreferrer" className={styles.imgSec} key={index}>
+                        return e?.name === 'plus' ? <section className={styles.imgSec} key={index} onClick={handlePlusIconClick}><FlameImage src={e?.src} alt={'logo'} /></section> : <a href={`${e?.url}${encodeURIComponent(postLink)}`} target="_blank" rel="noopener noreferrer" className={styles.imgSec} key={index}>
                             <FlameImage src={e?.src} alt={'logo'} />
                         </a>
                     })}
@@ -52,6 +63,14 @@ function PostContent({ trayData, fullPageData }) {
                 <FlameBtn color={btnColor} text={'Next Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} />
             </section>
         </section>
+        {isPopupOpen && (
+            <div className={styles.popupBackground} onClick={closePopup}>
+                <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+                    {/* Your popup content here */}
+                    <ReactShareComp postLink={postLink} />
+                </div>
+            </div>
+        )}
     </section>
 }
 export default PostContent
