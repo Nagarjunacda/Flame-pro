@@ -2,7 +2,9 @@ import { useState } from "react";
 import FlameImage from "../FlameImage";
 import FlameBtn from "../FlameBtn";
 import styles from "./aboutTeamCard.module.css";
-import Popup from "@/reusbleComponents/Popup";
+import AboutPopup from "../AboutPopup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function AboutTeamCard({ teamInfo, aboutExt }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -36,7 +38,7 @@ function AboutTeamCard({ teamInfo, aboutExt }) {
           </div>
         </div>
       </div>
-      <Popup show={showPopup} setShow={setShowPopup} />
+      <AboutPopup show={showPopup} setShow={setShowPopup} teamInfo={teamInfo} />
     </section>
   );
 }
