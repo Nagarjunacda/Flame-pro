@@ -1,7 +1,8 @@
 import RenderTrays from "../RenderTrays";
 import ResourceHubListing from "./ResourceHubListing";
+import ResourceHubListingWithFilter from "./ResourceHubListingWithFilter";
 
-function ResourceHub({ data }) {
+function ResourceHub({ data, shouldShowListing }) {
     const trayData = data?.acf?.content_blocks;
     const listingData = data?.blogPosts;
 
@@ -9,7 +10,7 @@ function ResourceHub({ data }) {
         {trayData ? (
             <>
                 <RenderTrays trayData={trayData} />
-                <ResourceHubListing listingData={listingData} />
+                {shouldShowListing ? <ResourceHubListingWithFilter listingData={listingData} /> : <ResourceHubListing listingData={listingData} />}
             </>
         ) : (
             <p>This Page Under Development</p>
