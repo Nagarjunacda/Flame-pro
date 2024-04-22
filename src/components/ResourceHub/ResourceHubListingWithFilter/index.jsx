@@ -10,7 +10,7 @@ import { resourceFiltersUrl } from '@/utils/urls';
 import _isEmpty from 'lodash/isEmpty';
 import styles from '../resourceHub.module.css';
 
-function ResourceHubListingWithFilter({ listingData }) {
+function ResourceHubListingWithFilter({ listingData, shouldShowListing }) {
     const router = useRouter();
     const { query } = router;
     const { slug } = query;
@@ -41,6 +41,11 @@ function ResourceHubListingWithFilter({ listingData }) {
     // useEffect(() => {
     //     setPosts(listingData);
     // }, [listingData]);
+
+    useEffect(() => {
+        const obj = { name: 'Select Type', type: finalResult }
+        setSelectedFilterArr([obj])
+    }, [slug])
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -207,7 +212,7 @@ function ResourceHubListingWithFilter({ listingData }) {
         </section>}
         {isPostsEmpty ? <h3>No Posts Found</h3> : <section className={styles.products}>
             {posts?.map((product, index) => {
-                return <TitleAndTextCard key={index} data={product} />
+                return <TitleAndTextCard key={index} data={product} shouldShowListing={shouldShowListing} />
             })}
         </section>}
         {!isPostsEmpty && <section className={styles.pagesCont}>

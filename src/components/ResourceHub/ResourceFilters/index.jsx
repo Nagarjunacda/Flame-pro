@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
@@ -7,6 +8,7 @@ import styles from './resourceFilters.module.css';
 
 function ResourceFilters({ mainCatFilter, setMainCatFilter, setSelectedPageNum, setItemsNumbers, selectedFilterArr, setSelectedFilterArr }) {
     // const [mainCatFilter, setMainCatFilter] = useState('');
+    const router = useRouter();
     const filterDropdownRef = useRef(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState({});
@@ -56,6 +58,18 @@ function ResourceFilters({ mainCatFilter, setMainCatFilter, setSelectedPageNum, 
     }
 
     const handleFilterSelect = (filterName, selectedItem) => {
+        if (filterName?.name === 'Select Type') {
+            const selStr = selectedItem;
+            let resStr;
+
+            if (selStr.includes(' ')) {
+                resStr = selStr.toLowerCase().replace(/\s+/g, '-');
+            } else {
+                resStr = selStr.charAt(0).toLowerCase() + selStr.slice(1);
+            }
+            // router.push(`/resource-hub/${resStr}`)
+            router.push(`/resource-hub/${resStr}`, undefined, { shallow: true });
+        }
         setIsDropdownOpen(false)
         const isItemAdded = selectedFilterArr.some((e) => {
             return e?.name === filterName?.name

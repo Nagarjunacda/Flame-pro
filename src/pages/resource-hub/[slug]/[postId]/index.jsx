@@ -10,7 +10,7 @@ export default BlogLandingPage
 export async function getServerSideProps(context) {
     const { params } = context
     const { postId } = params
-    const url = `${blogPostsUrl}/${postId}`
+    const url = `${blogPostsUrl}/?slug=${postId}`
     const { data, error } = await handleServerSideProps(url);
     if (error) {
         return {
