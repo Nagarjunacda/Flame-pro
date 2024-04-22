@@ -3,7 +3,15 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useMediaQuery } from "react-responsive";
 
-const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction, isSmallBtn, isFromContactForm }) => {
+const FlameBtn = ({
+  color,
+  text,
+  textColor,
+  isLoadState,
+  btnFunction,
+  isSmallBtn,
+  isFromContactForm,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const isTabScreen = useMediaQuery({
     query: "(min-width: 600px) and (max-width: 899px)",
@@ -15,7 +23,7 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction, isSmallBtn
   const buttonStyle = {
     backgroundColor: isHovered ? textColor : color,
     color: isHovered ? color : textColor,
-    border: isFromContactForm ? `solid 1px ${textColor}` : `solid 1px ${color}`,
+    border: `solid 1px var(--color-primary)`,
     padding: isSmallBtn ? "16px 32px" : "var(--padding-btn)",
     transform: "skew(-20deg)",
     textDecoration: "none",
@@ -46,15 +54,15 @@ const FlameBtn = ({ color, text, textColor, isLoadState, btnFunction, isSmallBtn
     if (isFromContactForm) {
       return;
     }
-    setIsHovered(true)
-  }
+    setIsHovered(true);
+  };
 
   const handleMouseLeave = () => {
     if (isFromContactForm) {
       return;
     }
-    setIsHovered(false)
-  }
+    setIsHovered(false);
+  };
 
   return (
     <>
