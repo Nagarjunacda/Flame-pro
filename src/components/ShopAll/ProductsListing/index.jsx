@@ -104,6 +104,8 @@ function ProductsListing({ productsData, megaMenuData }) {
   };
 
   const getFilteredProducts = (data) => {
+    setItemsNumbers(10);
+    setSelectedPageNum(1);
     setFilteredArray(data);
     let arr = [];
     data.map((e) => {
