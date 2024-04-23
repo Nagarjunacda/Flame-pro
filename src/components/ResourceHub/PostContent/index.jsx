@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import FlameImage from '@/reusbleComponents/FlameImage';
@@ -8,6 +9,8 @@ import ReactShareComp from '@/reusbleComponents/ReactShareComp';
 import styles from './postContent.module.css';
 
 function PostContent({ trayData, fullPageData }) {
+    const router = useRouter();
+    const { query } = router;
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const backArrowSrc = '/Images/leftGreyArrow.svg';
     const facebookIcon = '/Images/facebookIcon.svg';
@@ -21,6 +24,10 @@ function PostContent({ trayData, fullPageData }) {
     const btnColor = 'var(--color-primary)';
     const textColor = 'var(--color-secondary)';
     const postLink = fullPageData?.link;
+    const isPrevPost = fullPageData?.prev_post_slug;
+    const isNextPost = fullPageData?.next_post_slug;
+    const prevPostLink = query?.postId ? `/resource-hub/${query?.slug}/${isPrevPost}` : `/resource-hub/${isPrevPost}`;
+    const nextPostLink = query?.postId ? `/resource-hub/${query?.slug}/${isNextPost}` : `/resource-hub/${isNextPost}`;
 
     const btnFunction = () => { }
 
@@ -59,8 +66,8 @@ function PostContent({ trayData, fullPageData }) {
             <h3>{contentHeading}</h3>
             <p>{renderHTML(pageContent)}</p>
             <section className={styles.btnSection}>
-                <FlameBtn color={btnColor} text={'Previous Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} />
-                <FlameBtn color={btnColor} text={'Next Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} />
+                {isPrevPost && <Link href={prevPostLink}><FlameBtn color={btnColor} text={'Previous Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} /></Link>}
+                {isNextPost && <Link href={nextPostLink}><FlameBtn color={btnColor} text={'Next Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} /></Link>}
             </section>
         </section>
         {isPopupOpen && (

@@ -3,7 +3,8 @@ import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { blogPostsUrl } from "@/utils/urls";
 
 function BlogLandingPage({ data }) {
-    const pageData = data && data?.length ? data[0] : data
+    const pageData = data && data?.length ? data[0] : data;
+
     return <BlogLanding pageData={pageData} />
 }
 export default BlogLandingPage
