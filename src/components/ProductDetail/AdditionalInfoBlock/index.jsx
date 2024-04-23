@@ -93,6 +93,12 @@ function AdditionalInfoBlock({ productInfo }) {
             <h6 className={styles.itemVal}>{info?.helmet_size}</h6>
           </section>
         )}
+        {info?.sizes && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Size</h6>
+            <h6 className={styles.itemVal}>{info?.sizes}</h6>
+          </section>
+        )}
       </section>
       {(brochureLink || techDataLink || ukDeclaration || euDeclaration) && (
         <section className={styles.downloadsBlock}>
