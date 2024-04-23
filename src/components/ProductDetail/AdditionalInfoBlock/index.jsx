@@ -17,7 +17,7 @@ function AdditionalInfoBlock({ productInfo }) {
   const pdf3 = info?.downloads?.uk_declaration_of_conformity?.filename;
   const pdf4 = info?.downloads?.eu_declaration_of_conformity?.filename;
   const techDataLink = info?.downloads?.technical_data_sheet_download?.url;
-
+  console.log(info, "info");
   return (
     <section className={styles.mainCont}>
       <section className={styles.tableBlock}>
@@ -37,6 +37,18 @@ function AdditionalInfoBlock({ productInfo }) {
           <section className={styles.tableItem}>
             <h6 className={styles.itemName}>Colour</h6>
             <h6 className={styles.itemVal}>{info?.colour}</h6>
+          </section>
+        )}
+        {info?.coverall_size && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Coverall Size</h6>
+            <h6 className={styles.itemVal}>{info?.coverall_size}</h6>
+          </section>
+        )}
+        {info?.coverall_length && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Coverall Length</h6>
+            <h6 className={styles.itemVal}>{info?.coverall_length}</h6>
           </section>
         )}
         {info?.jacket_size && (
@@ -61,6 +73,24 @@ function AdditionalInfoBlock({ productInfo }) {
           <section className={styles.tableItem}>
             <h6 className={styles.itemName}>Trouser Length</h6>
             <h6 className={styles.itemVal}>{info?.trouser_length}</h6>
+          </section>
+        )}
+        {info?.gloves_size && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Gloves Size</h6>
+            <h6 className={styles.itemVal}>{info?.gloves_size}</h6>
+          </section>
+        )}
+        {info?.boots_size && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Boots Size</h6>
+            <h6 className={styles.itemVal}>{info?.boots_size}</h6>
+          </section>
+        )}
+        {info?.helmet_size && (
+          <section className={styles.tableItem}>
+            <h6 className={styles.itemName}>Helmet Size</h6>
+            <h6 className={styles.itemVal}>{info?.helmet_size}</h6>
           </section>
         )}
       </section>
