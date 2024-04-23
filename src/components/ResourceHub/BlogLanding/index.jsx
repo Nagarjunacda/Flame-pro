@@ -7,19 +7,20 @@ import Breadcrumbs from "@/components/BreadCrumbs";
 import styles from '../../../styles/blogLanding.module.css'
 
 function BlogLanding({ pageData }) {
+    console.log(pageData, '!!')
     const router = useRouter();
     const trayData = pageData?.acf?.content_blocks;
     const title = pageData?.title?.rendered;
     const headerBannerData = { image: "https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/Firefighting-bannerimage.jpg", title: title }
 
     useEffect(() => {
-        if (!pageData?.length) {
+        if (!pageData) {
             router.push('/resource-hub');
         }
     }, [])
 
     return <main>
-        {pageData?.length ? <>
+        {pageData ? <>
             <HeaderBannerSlim trayData={headerBannerData} />
             <Breadcrumbs isPadding />
             <PostContent trayData={trayData} fullPageData={pageData} />
