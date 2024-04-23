@@ -51,8 +51,7 @@ function ProductBlock({
     "Conforms To",
   ];
 
-  const handleSpeakToUs = () => {
-  };
+  const handleSpeakToUs = () => { };
 
   useEffect(() => {
     // Update the selected image based on the route
