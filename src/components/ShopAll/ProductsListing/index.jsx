@@ -104,6 +104,9 @@ function ProductsListing({ productsData, megaMenuData }) {
   };
 
   const getFilteredProducts = (data) => {
+    console.log('!! trigg')
+    setItemsNumbers(10);
+    setSelectedPageNum(1);
     setFilteredArray(data);
     let arr = [];
     data.map((e) => {
@@ -119,7 +122,11 @@ function ProductsListing({ productsData, megaMenuData }) {
     const url =
       arr.length >= 1 ? arr.join("&") : arr.length === 1 ? arr[0] : "";
     const completeUrl = `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`;
-    setFiltersUrl(completeUrl);
+    setFiltersUrl((prevFiltersUrl) => {
+      const url =
+        arr.length >= 1 ? arr.join("&") : arr.length === 1 ? arr[0] : "";
+      return `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`;
+    });
   };
 
   return (
@@ -127,6 +134,9 @@ function ProductsListing({ productsData, megaMenuData }) {
       <FiltersBlock
         getFilteredProducts={getFilteredProducts}
         products={products}
+        setItemsNumbers={setItemsNumbers}
+        setSelectedPageNum={setSelectedPageNum}
+
       />
       <section className={styles.productsCont}>
         <section className={styles.pagesCont}>

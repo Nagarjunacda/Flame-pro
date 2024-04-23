@@ -6,7 +6,7 @@ import FiltersDweb from "./FiltersDweb"
 import FiltersMweb from "./FiltersMweb"
 
 
-function FiltersBlock({ getFilteredProducts, products }) {
+function FiltersBlock({ getFilteredProducts, products, setItemsNumbers, setSelectedPageNum }) {
     const [filtersData, setFiltersData] = useState([])
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const availableFilters = ['industry', 'application', 'standard--certification']
@@ -22,6 +22,6 @@ function FiltersBlock({ getFilteredProducts, products }) {
         getFilterData()
     }, [])
 
-    return <>{isDesktop ? <FiltersDweb products={products} filtersData={filtersData} getFilteredProducts={getFilteredProducts} /> : <FiltersMweb filtersData={filtersData} getFilteredProducts={getFilteredProducts} />}</>
+    return <>{isDesktop ? <FiltersDweb products={products} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={filtersData} getFilteredProducts={getFilteredProducts} /> : <FiltersMweb filtersData={filtersData} getFilteredProducts={getFilteredProducts} />}</>
 }
 export default FiltersBlock

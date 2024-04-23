@@ -44,3 +44,34 @@
     justify-content: space-between;
     width: 100%;
 }
+.headSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headBtnSec{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+@media(min-width:900px){
+    .headBtnSec{
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+}
+.iconSty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+}
+.clearTxt{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 1px;
+    border-bottom: 1px solid black;
+}

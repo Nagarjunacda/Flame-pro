@@ -36,6 +36,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
 
     const handleApplyBtn = () => {
         getFilteredProducts(itemsArray);
+        setShowFilters(false);
     }
 
     return <section className={styles.mainCont}>

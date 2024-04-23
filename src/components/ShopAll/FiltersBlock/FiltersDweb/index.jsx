@@ -3,15 +3,18 @@ import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText'
 import FlameImage from '@/reusbleComponents/FlameImage'
 import styles from '../filters.module.css'
 
-function FiltersDweb({ filtersData, getFilteredProducts, products }) {
+function FiltersDweb({ filtersData, getFilteredProducts, products, setSelectedPageNum, setItemsNumbers }) {
     const [isChecked, setIsChecked] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
     const [itemsArray, setItemsArray] = useState([]);
     const [categoryArr, setCategoryArr] = useState([]);
     const downArrowSrc = '/Images/bottomGreyArrow.svg';
     const upArrowSrc = '/Images/upGreyArrow.svg';
+    const closeBtnSrc = '/Images/offCanvasclose.svg';
 
     const handleItemClick = async (item) => {
+        setSelectedItem(10);
+        setSelectedPageNum(1);
         const isFilterUnchecked = itemsArray.some(filter => filter?.title === item?.title);
         let updatedArray;
 
@@ -35,8 +38,29 @@ function FiltersDweb({ filtersData, getFilteredProducts, products }) {
         setCategoryArr((prev) => [...prev, category?.taxonomy]);
     }
 
+    const handleClearSelections = () => {
+        setItemsArray([]);
+        setCategoryArr([]);
+        getFilteredProducts([]);
+        setSelectedPageNum(1);
+        setItemsNumbers(10);
+        // setMainCatFilter('');
+        // setSelectedFilterArr([]);
+        // setItemsNumbers(10);
+        // setSelectedPageNum(1);
+    }
+
     return <section className={styles.mainCont}>
-        <h3 className={styles.filterHeading}>Filters</h3>
+        {/* <h3 className={styles.filterHeading}>Filters</h3> */}
+        <section className={styles.headSection}>
+            <h3 className={styles.filterHeading}>Filter By</h3>
+            <section className={styles.headBtnSec} onClick={handleClearSelections}>
+                <section className={styles.iconSty}>
+                    <FlameImage src={closeBtnSrc} alt='clear' />
+                </section>
+                <p className={styles.clearTxt}>clear Filters</p>
+            </section>
+        </section>
         <section className={styles.filtersCont}>
             {filtersData.map((category, index) => {
                 const isCategorysel = categoryArr.includes(category?.taxonomy);
