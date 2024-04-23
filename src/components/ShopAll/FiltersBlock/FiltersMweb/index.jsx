@@ -10,6 +10,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
     const [isChecked, setIsChecked] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState([]);
     const [itemsArray, setItemsArray] = useState([]);
+    const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const downArrowSrc = '/Images/downWhiteArrow.svg';
     const upArrowSrc = '/Images/upWhiteArrow.svg';
     const btnColor = 'var(--color-primary)';
@@ -38,6 +39,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
     const handleApplyBtn = () => {
         getFilteredProducts(itemsArray);
         setShowFilters(false);
+        scrollToTop.scrollIntoView({ behavior: "smooth" });
     }
 
 
@@ -45,12 +47,14 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
         setShowFilters(false);
         setItemsArray([]);
         getFilteredProducts([]);
+        scrollToTop.scrollIntoView({ behavior: "smooth" });
     };
 
     return <section className={styles.mainCont}>
         <section
             className={styles.heading}
             onClick={handleFilterWindow}
+            id="scrollId"
         >
             <h5 className={styles.filter}>Filters</h5>
             <section className={styles.img}>
