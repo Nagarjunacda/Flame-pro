@@ -1,5 +1,5 @@
-import Style from "./testimonial.module.css";
 import SliderComp from "@/reusbleComponents/SliderComp";
+import Style from "./testimonial.module.css";
 
 function Testimonial({ trayData, testimonialExt }) {
   const testimonialData = trayData?.testimonial_slider;

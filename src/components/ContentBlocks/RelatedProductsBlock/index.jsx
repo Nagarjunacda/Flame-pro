@@ -6,7 +6,7 @@ import styles from './relatedProductsblock.module.css';
 
 function RelatedProductsblock({ trayData }) {
     // const sliderData = trayData?.products_select
-    const sliderData = [{ featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }]
+    const sliderData = [{ featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }]
     return <section className={styles.mainCont}>
         <section className={styles.headingSec}>
             <h4>Related Products</h4>
@@ -20,7 +20,7 @@ function RelatedProductsblock({ trayData }) {
             </Link>
         </section>
         <section>
-            <SliderComp data={sliderData} title={'four_category_blocks'} slidesToShow={3} />
+            <SliderComp data={sliderData} title={'Recently Viewed'} slidesToShow={3} />
         </section>
     </section>
 }

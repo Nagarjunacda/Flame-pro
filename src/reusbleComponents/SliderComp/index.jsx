@@ -15,16 +15,17 @@ function SliderComp({ data, title, slidesToShow }) {
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-  const hideDotsArr = ["testimonial"];
+  const hideDotsArr = ["testimonial", "Recently Viewed"];
   const isDotsHidden = hideDotsArr.includes(title);
   const noSlidesToShow = slidesToShow;
+  const showArrows = title === "testimonial" || title === 'Recently Viewed';
 
   const handleNextBtn = () => {
-    sliderRef.current.slickNext()
+    sliderRef.current.slickNext();
   }
 
   const handlePrevBtn = () => {
-    sliderRef.current.slickPrev()
+    sliderRef.current.slickPrev();
   }
 
   const settings = {
@@ -71,9 +72,9 @@ function SliderComp({ data, title, slidesToShow }) {
 
   return (
     <section className={styles.sliderCont}>
-      {title === "testimonial" && <button
+      {showArrows && <button
         onClick={handlePrevBtn}
-        className={styles.leftButton}
+        className={title === 'testimonial' ? styles.leftButton : styles.leftButtonRecentPro}
       >
         <img src="/Images/leftRedArrow.svg" alt="prev" />
       </button>}
@@ -91,9 +92,9 @@ function SliderComp({ data, title, slidesToShow }) {
           );
         })}
       </Slider>
-      {title === "testimonial" && <button
+      {showArrows && <button
         onClick={handleNextBtn}
-        className={styles.rightButton}
+        className={title === 'testimonial' ? styles.rightButton : styles.rightButtonRecentPro}
       >
         <img src="/Images/rightRedArrow.svg" alt="next" />
       </button>}

@@ -73,4 +73,53 @@
       right: -80px;
     }
   }
+  .leftButtonRecentPro{
+    border: none;
+    background-color: var(--color-secondary);
+    position: absolute;
+    z-index: 5;
+  }
+  @media(min-width:900px){
+    .leftButtonRecentPro{
+      top:-62px;
+      left: 75%
+    }
+  }
+  @media(min-width:1200px){
+    .leftButtonRecentPro{
+      top:-62px;
+      left: 81%
+    }
+  }
+  @media(min-width:1680px){
+    .leftButtonRecentPro{
+      top:-62px;
+      left: 83%
+    }
+  }
+
+  .rightButtonRecentPro{
+    border: none;
+    background-color: var(--color-secondary);
+    position: absolute;
+    z-index: 5;
+  }
+  @media(min-width:900px){
+    .rightButtonRecentPro{
+      top:-62px;
+      left: 80%
+    }
+  }
+  @media(min-width:1200px){
+    .rightButtonRecentPro{
+      top:-62px;
+      left: 85%
+    }
+  }
+  @media(min-width:1680px){
+    .rightButtonRecentPro{
+      top:-62px;
+      left: 86%
+    }
+  }
 
