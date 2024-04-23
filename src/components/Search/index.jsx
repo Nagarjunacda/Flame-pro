@@ -56,7 +56,7 @@ const Search = ({ getSearchData, handleOverlayClose, handleCloseMwebDrawer }) =>
             return
         }
         if (type === 'post') {
-            router.push(`/resource-hub/${lastPath}/${id}`);
+            router.push(`/resource-hub/${lastPath}`);
             return
         }
         if (type === 'page') {

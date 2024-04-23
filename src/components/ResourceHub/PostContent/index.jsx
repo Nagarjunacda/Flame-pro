@@ -18,7 +18,7 @@ function PostContent({ trayData, fullPageData }) {
     const youtubeIcon = '/Images/youtubeIcon.svg';
     const linkedInIcon = '/Images/linkedinBlack.svg';
     const plusIcon = '/Images/plusIconBlack.svg';
-    const logoArr = [{ name: 'facebook', src: facebookIcon, url: 'https://www.facebook.com/sharer/sharer.php?u=' }, { name: 'twitter', src: twitterIcon, url: 'https://twitter.com/intent/tweet?url=&text=' }, { name: 'linkedin', src: linkedInIcon, url: 'https://www.linkedin.com/shareArticle?url=' }, { name: 'youtube', src: youtubeIcon, url: 'https://www.youtube.com/watch?v=' }, { name: 'plus', src: plusIcon, url: '' }];
+    const logoArr = [{ name: 'facebook', src: facebookIcon, url: 'https://www.facebook.com/sharer/sharer.php?u=' }, { name: 'twitter', src: twitterIcon, url: 'https://twitter.com/intent/tweet?url=&text=' }, { name: 'linkedin', src: linkedInIcon, url: 'https://www.linkedin.com/shareArticle?url=' }, { name: 'plus', src: plusIcon, url: '' }];
     const contentHeading = fullPageData?.title?.rendered;
     const pageContent = fullPageData?.content?.rendered;
     const btnColor = 'var(--color-primary)';
