@@ -63,7 +63,7 @@ function FooterDweb({ footerData }) {
     <section className={styles.dwebCont}>
       <section className={styles.dataContDweb}>
         <Link href={"/"} className={styles.flameImg}>
-          <FlameImage src={flameImg} alt="logo" />
+          <FlameImage src={flameImg} alt="logo" imageFit />
         </Link>
         <section className={styles.linkListCont}>
           {footerLinks.map((link, index) => {
