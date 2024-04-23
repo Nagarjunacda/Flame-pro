@@ -23,6 +23,8 @@ function LayoutWrapper({ children }) {
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);
   const relativeHeader = relativeHeaderPaths.includes(route) && !arr.includes(query.slug);
+  const isProductDetailPage = route === "/shop/[slug]" && !arr.includes(query.slug);
+  console.log(isProductDetailPage, '!! pro')
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -44,7 +46,7 @@ function LayoutWrapper({ children }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
+      const isScrolled = isProductDetailPage ? window.scrollY > 650 : window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
@@ -55,7 +57,7 @@ function LayoutWrapper({ children }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrolled]);
+  }, [scrolled, isProductDetailPage]);
 
   useEffect(() => {
     const getData = async () => {

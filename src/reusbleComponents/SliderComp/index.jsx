@@ -19,6 +19,8 @@ function SliderComp({ data, title, slidesToShow }) {
   const isDotsHidden = hideDotsArr.includes(title);
   const noSlidesToShow = slidesToShow;
   const showArrows = title === "testimonial" || title === 'Recently Viewed';
+  const leftArrowSrc = title === "testimonial" ? "/Images/leftRedArrow.svg" : "/Images/leftGreyArrow.svg";
+  const rightArrowSrc = title === "testimonial" ? "/Images/rightRedArrow.svg" : "/Images/rightGreyArrow.svg";
 
   const handleNextBtn = () => {
     sliderRef.current.slickNext();
@@ -76,7 +78,7 @@ function SliderComp({ data, title, slidesToShow }) {
         onClick={handlePrevBtn}
         className={title === 'testimonial' ? styles.leftButton : styles.leftButtonRecentPro}
       >
-        <img src="/Images/leftRedArrow.svg" alt="prev" />
+        <img src={leftArrowSrc} alt="prev" />
       </button>}
       <Slider ref={sliderRef} {...settings}>
         {data?.map((item, index) => {
@@ -96,7 +98,7 @@ function SliderComp({ data, title, slidesToShow }) {
         onClick={handleNextBtn}
         className={title === 'testimonial' ? styles.rightButton : styles.rightButtonRecentPro}
       >
-        <img src="/Images/rightRedArrow.svg" alt="next" />
+        <img src={rightArrowSrc} alt="next" />
       </button>}
     </section>
   );
