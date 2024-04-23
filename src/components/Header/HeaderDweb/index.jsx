@@ -5,23 +5,32 @@ import FlameImage from "@/reusbleComponents/FlameImage";
 import OffCanvasDweb from "../OffCanvasDweb";
 import styles from "../header.module.css";
 
-function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled, postsData }) {
+function HeaderDweb({
+  headerData,
+  isFromDrawer,
+  relativeHeader,
+  scrolled,
+  postsData,
+}) {
   const router = useRouter();
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [selectedNavItem, setSelectedNavItem] = useState({});
   const navItems = headerData?.items;
-  const flameLogo =
-    scrolled ? "/Images/flameLogo.svg" : isFromDrawer || relativeHeader
-      ? "/Images/flameLogoDark.svg"
-      : "/Images/flameLogo.svg";
-  const searchIcon =
-    scrolled ? "/Images/searchNew.svg" : isFromDrawer || relativeHeader
-      ? "/Images/blackSearchIconNew.svg"
-      : "/Images/searchNew.svg";
-  const basketIcon =
-    scrolled ? "/Images/basketIconWhite.svg" : isFromDrawer || relativeHeader
-      ? "/Images/basketIcon.svg"
-      : "/Images/basketIconWhite.svg";
+  const flameLogo = scrolled
+    ? "/Images/flameLogo.svg"
+    : isFromDrawer || relativeHeader
+    ? "/Images/flameLogoDark.svg"
+    : "/Images/flameLogo.svg";
+  const searchIcon = scrolled
+    ? "/Images/searchNew.svg"
+    : isFromDrawer || relativeHeader
+    ? "/Images/blackSearchIconNew.svg"
+    : "/Images/searchNew.svg";
+  const basketIcon = scrolled
+    ? "/Images/basketIconWhite.svg"
+    : isFromDrawer || relativeHeader
+    ? "/Images/basketIcon.svg"
+    : "/Images/basketIconWhite.svg";
 
   const getNavItem = (item) => {
     if (item?.title === "Cart") {
@@ -72,18 +81,24 @@ function HeaderDweb({ headerData, isFromDrawer, relativeHeader, scrolled, postsD
   return (
     <header
       className={
-        scrolled ? styles.scrolledHeaderMainDweb : relativeHeader ? styles.relativeHeaderMainDweb : styles.headerMainDweb
+        scrolled
+          ? styles.scrolledHeaderMainDweb
+          : relativeHeader
+          ? styles.relativeHeaderMainDweb
+          : styles.headerMainDweb
       }
     >
       <section className={styles.subHeader}>
         <figure className={styles.headerLogo}>
           <Link href={"/"}>
-            <FlameImage src={flameLogo} alt="flameLogo" />
+            <FlameImage src={flameLogo} alt="flameLogo" imageFit />
           </Link>
         </figure>
         <nav
           className={
-            scrolled ? styles.navItems : isFromDrawer || relativeHeader
+            scrolled
+              ? styles.navItems
+              : isFromDrawer || relativeHeader
               ? styles.navItemsDrawer
               : styles.navItems
           }
