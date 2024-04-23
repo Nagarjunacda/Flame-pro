@@ -12,7 +12,8 @@ function BlogLanding({ pageData }) {
         <>
             <HeaderBannerSlim trayData={headerBannerData} />
             <Breadcrumbs isPadding />
-            <PostContent trayData={trayData} fullPageData={pageData} />;
+            <PostContent trayData={trayData} fullPageData={pageData} />
+            <RenderTrays trayData={trayData} />
         </>
     </main>
 }
