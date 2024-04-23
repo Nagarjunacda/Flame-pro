@@ -17,7 +17,7 @@ import { checkoutUrl } from '@/utils/urls';
 import { handlePostRequests } from '@/utils/handlePostCalls';
 import styles from './contactUsPageForm.module.css';
 
-function ContactUsPageForm({ heading, formFields, heading2 }) {
+function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const nonceVal = useContext(NonceContext);
     const router = useRouter();
     const dropdownRef = useRef(null);
@@ -220,10 +220,10 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
         // }));
     };
 
-    return <section className={styles.mainCont}>
+    return <section className={isFromPopup ? styles.mainContPopup : styles.mainCont}>
         <section className={styles.formCont}>
             <h5
-                className={styles.headingTextBlock}
+                className={isFromPopup ? styles.headingTextBlockPopup : styles.headingTextBlock}
             >
                 {heading}
             </h5>
@@ -327,7 +327,7 @@ function ContactUsPageForm({ heading, formFields, heading2 }) {
         </section>
         <section className={styles.formCont}>
             <h5
-                className={styles.headingTextBlock}
+                className={isFromPopup ? styles.headingTextBlockPopup : styles.headingTextBlock}
             >
                 {heading2}
             </h5>

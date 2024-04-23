@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import FlameImage from "../FlameImage";
+import { useSpeakToPopupState } from "@/context/SpeakToPopupContext";
 
 const ButtonStyleTwo = ({
   text,
@@ -36,9 +37,13 @@ const ButtonStyleTwo = ({
     borderWidth: "0 0 1px 0", // Optional: Specify individual border widths if needed
     borderStyle: "solid",
   };
+  const { setIsSpeakPopupOpen } = useSpeakToPopupState();
   const btnText = isLoadState ? "Loading..." : text;
 
   const handleClick = () => {
+    if (text === "Speak To Us") {
+      setIsSpeakPopupOpen(true);
+    }
     if (btnFunction) {
       btnFunction();
     }

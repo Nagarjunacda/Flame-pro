@@ -90,6 +90,7 @@ function RenderTrays({
       case "contact_us_page_form":
         return (
           <ContactUsPageForm
+            isFromPopup={false}
             heading={"Enter Your Details"}
             formFields={formData}
             heading2={"Contact Me By..."}

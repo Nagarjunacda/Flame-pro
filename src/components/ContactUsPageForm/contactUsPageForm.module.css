@@ -27,6 +27,34 @@
      padding: var(--padding-xs-44) var(--padding-xs-36);
     }
 }
+.mainContPopup{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  gap:48px;
+}
+@media (min-width: 900px) {
+  .mainContPopup {
+     flex-direction: row;
+     gap: 32px;
+    }
+}
+@media (min-width: 1280px) {
+.mainContPopup {
+   flex-direction: row;
+   gap: 54px;
+   /* padding: var(--padding-xs-44) 80px; */
+  }
+}
+@media (min-width: 1680px) {
+.mainContPopup {
+   gap: 90px;
+   /* padding: var(--padding-xs-44) var(--padding-xs-36); */
+  }
+}
 .phoneEmail{
     display: flex;
     padding-left: 16px;
@@ -76,6 +104,11 @@
   .headingTextBlock {
     width: 100%;
     font-size: var(--font-size-lg);
+    color: var(--color-primary);
+  }
+  .headingTextBlockPopup {
+    width: 100%;
+    font-size: var(--font-size-md);
     color: var(--color-primary);
   }
   .textInput {

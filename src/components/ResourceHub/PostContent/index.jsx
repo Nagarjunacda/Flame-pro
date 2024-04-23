@@ -73,7 +73,6 @@ function PostContent({ trayData, fullPageData }) {
         {isPopupOpen && (
             <div className={styles.popupBackground} onClick={closePopup}>
                 <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
-                    {/* Your popup content here */}
                     <ReactShareComp postLink={postLink} />
                 </div>
             </div>

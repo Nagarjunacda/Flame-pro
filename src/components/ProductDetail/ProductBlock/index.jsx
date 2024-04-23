@@ -51,7 +51,8 @@ function ProductBlock({
     "Conforms To",
   ];
 
-  const handleSpeakToUs = () => { };
+  const handleSpeakToUs = () => {
+  };
 
   useEffect(() => {
     // Update the selected image based on the route
@@ -70,9 +71,9 @@ function ProductBlock({
           <section className={styles.imageBlock}>
             <section className={styles.mainImg}>
               <FlameImage src={selectedImage} alt={"productImg"}></FlameImage>
-              <section className={styles.magnifier}>
+              {/* <section className={styles.magnifier}>
                 <FlameImage src={magnifierSrc} alt={"magnifier"}></FlameImage>
-              </section>
+              </section> */}
             </section>
             <section className={styles.sliderSection}>
               <DetailSliderComp
@@ -111,14 +112,12 @@ function ProductBlock({
                 />
               </section>
               <section className={styles.btnStyle2}>
-                <Link href={"/contact-us"}>
-                  <ButtonStyleTwo
-                    text={"Speak To Us"}
-                    textColor={"var( --color-primary)"}
-                    btnFunction={handleSpeakToUs}
-                    isLoadState={false}
-                  />
-                </Link>
+                <ButtonStyleTwo
+                  text={"Speak To Us"}
+                  textColor={"var( --color-primary)"}
+                  btnFunction={handleSpeakToUs}
+                  isLoadState={false}
+                />
               </section>
             </section>
           </section>
