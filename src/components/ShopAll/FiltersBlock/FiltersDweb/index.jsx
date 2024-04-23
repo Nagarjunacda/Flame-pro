@@ -13,8 +13,6 @@ function FiltersDweb({ filtersData, getFilteredProducts, products, setSelectedPa
     const closeBtnSrc = '/Images/offCanvasclose.svg';
 
     const handleItemClick = async (item) => {
-        setSelectedItem(10);
-        setSelectedPageNum(1);
         const isFilterUnchecked = itemsArray.some(filter => filter?.title === item?.title);
         let updatedArray;
 

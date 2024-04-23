@@ -56,7 +56,7 @@ function ProductsListing({ productsData, megaMenuData }) {
       const categoryurl = `${productsUrl}?category=${category}`;
       const allProductsUrl = !isFromShopAll ? `${productsUrl}?category=${megaMenuClickedProduct}&per_page=${itemsNumber}&page=${selectedPageNum}` : `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
       const url = filteredArray.length
-        ? filtersUrl
+        ? `${filtersUrl}&per_page=${itemsNumber}&page=${selectedPageNum}`
         : category
           ? categoryurl
           : allProductsUrl;
@@ -104,8 +104,6 @@ function ProductsListing({ productsData, megaMenuData }) {
   };
 
   const getFilteredProducts = (data) => {
-    setItemsNumbers(10);
-    setSelectedPageNum(1);
     setFilteredArray(data);
     let arr = [];
     data.map((e) => {
@@ -120,12 +118,13 @@ function ProductsListing({ productsData, megaMenuData }) {
     });
     const url =
       arr.length >= 1 ? arr.join("&") : arr.length === 1 ? arr[0] : "";
-    const completeUrl = `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`;
-    setFiltersUrl((prevFiltersUrl) => {
-      const url =
-        arr.length >= 1 ? arr.join("&") : arr.length === 1 ? arr[0] : "";
-      return `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`;
-    });
+    const completeUrl = `${filtersCategoryUrl}?${url}`;
+    // setFiltersUrl((prevFiltersUrl) => {
+    //   const url =
+    //     arr.length >= 1 ? arr.join("&") : arr.length === 1 ? arr[0] : "";
+    //   return `${filtersCategoryUrl}?${url}&per_page=${itemsNumber}&page=${selectedPageNum}`;
+    // });
+    setFiltersUrl(completeUrl);
   };
 
   return (

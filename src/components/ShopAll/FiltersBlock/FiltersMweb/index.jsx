@@ -42,10 +42,9 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
 
 
     const handleClearSelections = () => {
-        // setMainCatFilter("");
-        // setSelectedFilterArr([]);
-        // setItemsNumbers(10);
-        // setSelectedPageNum(1);
+        setShowFilters(false);
+        setItemsArray([]);
+        getFilteredProducts([]);
     };
 
     return <section className={styles.mainCont}>
