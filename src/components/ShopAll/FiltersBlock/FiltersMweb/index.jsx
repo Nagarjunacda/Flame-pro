@@ -7,14 +7,15 @@ import styles from './filtersMweb.module.css';
 function FiltersMweb({ filtersData, getFilteredProducts }) {
     const [showFilters, setShowFilters] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
-    const [isChecked, setIsChecked] = useState(false)
+    const [isChecked, setIsChecked] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState([]);
-    const [itemsArray, setItemsArray] = useState([])
+    const [itemsArray, setItemsArray] = useState([]);
     const downArrowSrc = '/Images/downWhiteArrow.svg';
     const upArrowSrc = '/Images/upWhiteArrow.svg';
-    const btnColor = 'var(--color-primary)'
-    const textColor = 'var(--color-secondary)'
-    const btnText = 'Apply Filters'
+    const btnColor = 'var(--color-primary)';
+    const textColor = 'var(--color-secondary)';
+    const btnText = 'Apply Filters';
+    const closeBtnSrc = "/Images/offCanvasclose.svg";
 
     const handleFilterWindow = () => {
         setShowFilters(!showFilters)
@@ -38,6 +39,14 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
         getFilteredProducts(itemsArray);
         setShowFilters(false);
     }
+
+
+    const handleClearSelections = () => {
+        // setMainCatFilter("");
+        // setSelectedFilterArr([]);
+        // setItemsNumbers(10);
+        // setSelectedPageNum(1);
+    };
 
     return <section className={styles.mainCont}>
         <section
@@ -64,9 +73,18 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
                 })}
             </section>
         )}
-        {showFilters && <section className={styles.btnStyle}>
+        {showFilters && <section className={styles.submitSec}><section className={styles.btnStyle}>
             <FlameBtn color={btnColor} text={btnText} textColor={textColor} isLoadState={false} btnFunction={handleApplyBtn} />
-        </section>}
+        </section>
+            <section
+                className={styles.headBtnSec}
+                onClick={handleClearSelections}
+            >
+                <section className={styles.iconSty}>
+                    <FlameImage src={closeBtnSrc} alt="clear" />
+                </section>
+                <p className={styles.clearTxt}>clear Filters</p>
+            </section></section>}
     </section>
 }
 export default FiltersMweb

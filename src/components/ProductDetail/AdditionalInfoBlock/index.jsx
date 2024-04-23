@@ -17,7 +17,7 @@ function AdditionalInfoBlock({ productInfo }) {
   const pdf3 = info?.downloads?.uk_declaration_of_conformity?.filename;
   const pdf4 = info?.downloads?.eu_declaration_of_conformity?.filename;
   const techDataLink = info?.downloads?.technical_data_sheet_download?.url;
-  console.log(info, "info");
+
   return (
     <section className={styles.mainCont}>
       <section className={styles.tableBlock}>

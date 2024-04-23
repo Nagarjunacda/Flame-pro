@@ -76,8 +76,39 @@ gap: 16px;
 }
 .btnStyle{
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+    height: 48px;
+}
+.submitSec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.headBtnSec{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+@media(min-width:900px){
+    .headBtnSec{
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+}
+.iconSty{
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 48px;
+    width: 12px;
+    height: 12px;
+}
+.clearTxt{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 1px;
+    border-bottom: 1px solid black;
 }

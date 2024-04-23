@@ -104,7 +104,6 @@ function ProductsListing({ productsData, megaMenuData }) {
   };
 
   const getFilteredProducts = (data) => {
-    console.log('!! trigg')
     setItemsNumbers(10);
     setSelectedPageNum(1);
     setFilteredArray(data);
