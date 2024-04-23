@@ -7,7 +7,6 @@ import Breadcrumbs from "@/components/BreadCrumbs";
 import styles from '../../../styles/blogLanding.module.css'
 
 function BlogLanding({ pageData }) {
-    console.log(pageData, '!!')
     const router = useRouter();
     const trayData = pageData?.acf?.content_blocks;
     const title = pageData?.title?.rendered;
