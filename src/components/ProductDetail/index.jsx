@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
 import ProductBlock from "./ProductBlock";
@@ -10,6 +11,7 @@ import Popup from "@/reusbleComponents/Popup";
 import styles from "./productDetail.module.css";
 
 function ProductDetail({ productData }) {
+  const router = useRouter();
   const [showPopup, setShowPopup] = useState(false);
   const { setTriggerUpdate } = useCartData();
   const [productQuantity, setProductQuantity] = useState(0);
@@ -18,6 +20,12 @@ function ProductDetail({ productData }) {
   const [toastMsg, setToastMsg] = useState("");
   const nonceVal = useContext(NonceContext);
   const productId = productData?.id;
+
+  useEffect(() => {
+    if (!productData) {
+      router.push('/shop')
+    }
+  }, [])
 
   const handleAddCart = async () => {
     const data = {
@@ -47,28 +55,30 @@ function ProductDetail({ productData }) {
   };
 
   return (
-    <main className={styles.mainCont}>
-      <Breadcrumbs />
-      <ProductBlock
-        productData={productData}
-        showToast={showToast}
-        setShowToast={setShowToast}
-        toastMsg={toastMsg}
-        handleAddCart={handleAddCart}
-        isLoading={isLoading}
-        getProductQuantity={getProductQuantity}
-      />
-      {/* <ButtonStyleTwo
+    <>
+      {productData ? <main className={styles.mainCont}>
+        <Breadcrumbs />
+        <ProductBlock
+          productData={productData}
+          showToast={showToast}
+          setShowToast={setShowToast}
+          toastMsg={toastMsg}
+          handleAddCart={handleAddCart}
+          isLoading={isLoading}
+          getProductQuantity={getProductQuantity}
+        />
+        {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
         btnFunction={handleAddCart}
       /> */}
-      <Popup
-        show={showPopup}
-        setShow={setShowPopup}
-        productData={productData}
-      />
-    </main>
+        <Popup
+          show={showPopup}
+          setShow={setShowPopup}
+          productData={productData}
+        />
+      </main> : <h2 className={styles.errorText}>No Product Data Found Redirecting To Shop Page </h2>}
+    </>
   );
 }
 export default ProductDetail;

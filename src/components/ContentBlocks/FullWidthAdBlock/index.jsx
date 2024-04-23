@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
@@ -14,8 +15,11 @@ function FullWidthAdBlock({ trayData }) {
   const buttonColor = "var(--color-secondary)";
   const btnTextColor = "var(--color-primary)";
   const buttonText = trayData?.button_title;
+  const buttonLink = trayData?.button_link
 
-  const btnClick = () => { };
+  const btnClick = () => {
+
+  };
 
   return (
     <section className={styles.mainCont}>
@@ -28,7 +32,7 @@ function FullWidthAdBlock({ trayData }) {
           <h5 className={styles.title}>{title}</h5>
           <p className={styles.desc}>{renderHTML(text)}</p>
         </section>
-        <section className={styles.btnSection}>
+        <Link className={styles.btnSection} href={buttonLink}>
           <FlameBtn
             color={buttonColor}
             text={buttonText}
@@ -36,7 +40,7 @@ function FullWidthAdBlock({ trayData }) {
             isLoadState={false}
             btnFunction={btnClick}
           />
-        </section>
+        </Link>
       </section>
     </section>
   );

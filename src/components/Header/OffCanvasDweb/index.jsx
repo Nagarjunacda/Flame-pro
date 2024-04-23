@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Scrollbars } from 'react-custom-scrollbars-2';
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FireFighterppe from "@/components/ContentBlocks/FireFighterppe";
@@ -118,14 +119,19 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
           </section>
         </header>
       </Offcanvas.Header>
-      <Offcanvas.Body className={styles.offCanvasBody}>
-        <FireFighterppe
-          postsData={postsData}
-          getSearchData={getSearchData}
-          selectedNavItem={clickedItem}
-          handleOverlayClose={handleOverlayClose}
-        />
-      </Offcanvas.Body>
+      <Scrollbars
+        renderTrackVertical={props => <div {...props} style={{ backgroundColor: 'white', width: 8, right: 0, bottom: 0, top: 0, position: 'absolute', borderRadius: 4 }} />}
+        renderThumbVertical={props => <div {...props} style={{ backgroundColor: 'black', width: 8, right: 0, bottom: 0, top: 0, position: 'absolute', borderRadius: 4 }} />}>
+        <Offcanvas.Body className={styles.offCanvasBody}>
+          <FireFighterppe
+            postsData={postsData}
+            getSearchData={getSearchData}
+            selectedNavItem={clickedItem}
+            handleOverlayClose={handleOverlayClose}
+          />
+        </Offcanvas.Body>
+      </Scrollbars>
+
     </Offcanvas>
   );
 }
