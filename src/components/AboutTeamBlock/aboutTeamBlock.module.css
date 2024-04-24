@@ -39,7 +39,7 @@
     overflow-y: scroll;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1001; /* Ensure the popup content is above the background */
+    z-index: 1001;
 }
 @media(min-width:600px){
     .popupContent{
@@ -83,13 +83,13 @@
   justify-content: space-between;
   gap: 20px;
   height: auto;
-  max-height: 320px;
 }
 @media(min-width:900px){
   .personInfo{
     flex-direction: row;
     justify-content: flex-start;
     gap: 32px;
+    max-height: 320px;
   }
 }
 @media(min-width:1680px){
