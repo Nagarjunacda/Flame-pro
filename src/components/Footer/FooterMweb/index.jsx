@@ -25,8 +25,8 @@ function FooterMweb({ footerData, footerContextData }) {
   const emailRegex = /^info@flame-pro.com$/;
   const data1 = footerData
     ? footerData?.items?.map((e) => {
-        return e?.title;
-      })
+      return e?.title;
+    })
     : [];
 
   const handleLabelClick = (label, link) => {

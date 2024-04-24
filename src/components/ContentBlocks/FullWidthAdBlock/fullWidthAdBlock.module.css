@@ -111,7 +111,7 @@
 .desc{
     font-size: var(--font-size-sm);
     color: var(--color-secondary);
-    font-weight: var(--font-wt-normal);
+    line-height: 28px;
 }
 .btnSection{
     margin-left: 16px;
@@ -132,3 +132,32 @@
         width: 50%;
     }
 }
+.descSection{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+}
+.socialItems {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.socialItem {
+  width: 16px;
+  height: 16px;
+}
+.infoSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+    gap: 12px;
+}
+.contactInfo {
+    font-size: var(--font-size-sm);
+    /* white-space: nowrap;
+    text-wrap: wrap; */
+    color: var(--color-secondary);
+  }

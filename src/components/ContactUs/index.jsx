@@ -4,6 +4,7 @@ import RenderTrays from "../RenderTrays";
 function ContactUs({ pageData }) {
     const { data } = pageData;
     const trayData = data?.acf?.content_blocks;
+    console.log(trayData, '!!')
 
     return <main>
         {trayData ? (
