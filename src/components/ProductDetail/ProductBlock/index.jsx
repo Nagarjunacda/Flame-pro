@@ -68,7 +68,7 @@ function ProductBlock({
           {!isDesktop && <h1 className={styles.title}>{productName}</h1>}
           <section className={styles.imageBlock}>
             <section className={styles.mainImg}>
-              <FlameImage src={selectedImage} alt={"productImg"} imageFit></FlameImage>
+              <FlameImage src={selectedImage ? selectedImage : initailImage} alt={"productImg"} imageFit></FlameImage>
               {/* <section className={styles.magnifier}>
                 <FlameImage src={magnifierSrc} alt={"magnifier"}></FlameImage>
               </section> */}
