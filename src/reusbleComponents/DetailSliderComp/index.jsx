@@ -47,7 +47,7 @@ function DetailSliderComp({ data, setSelectedImage }) {
 
     return (
         <section className={styles.sliderCont}>
-            {data && data?.length > 3 && <button
+            {currentSlide > 0 && <button
                 onClick={handlePrevBtn}
                 className={styles.button}
             >
@@ -66,7 +66,7 @@ function DetailSliderComp({ data, setSelectedImage }) {
                     })}
                 </Slider>
             </section>
-            {data && data?.length > 3 && <button
+            {currentSlide < data.length - 3 && <button
                 onClick={handleNextBtn}
                 className={styles.button}
             >

@@ -11,7 +11,6 @@ import FlameBtn from "@/reusbleComponents/FlameBtn";
 import ProductInfoMweb from "../ProductInfoMweb";
 import ProductInfoDweb from "../ProductInfoDweb";
 import styles from "../productDetail.module.css";
-import Link from "next/link";
 
 function ProductBlock({
   productData,
@@ -69,7 +68,7 @@ function ProductBlock({
           {!isDesktop && <h1 className={styles.title}>{productName}</h1>}
           <section className={styles.imageBlock}>
             <section className={styles.mainImg}>
-              <FlameImage src={selectedImage} alt={"productImg"}></FlameImage>
+              <FlameImage src={selectedImage} alt={"productImg"} imageFit></FlameImage>
               {/* <section className={styles.magnifier}>
                 <FlameImage src={magnifierSrc} alt={"magnifier"}></FlameImage>
               </section> */}
