@@ -2,9 +2,6 @@ import { useState } from "react";
 import FlameImage from "../FlameImage";
 import FlameBtn from "../FlameBtn";
 import styles from "./aboutTeamCard.module.css";
-import AboutPopup from "../AboutPopup";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 function AboutTeamCard({ teamInfo, aboutExt }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -22,7 +19,7 @@ function AboutTeamCard({ teamInfo, aboutExt }) {
         onMouseLeave={() => setIsHovered(false)}
       >
         <figure className={styles.teamPic}>
-          <FlameImage src={teamInfo?.featured_image_url} />
+          <FlameImage src={teamInfo?.featured_image_url} alt={'teamPic'} />
         </figure>
         <div className={`${styles.overlay} ${isHovered ? styles.visible : ""}`}>
           <div className={styles.teamInfoDiv}>
@@ -34,11 +31,11 @@ function AboutTeamCard({ teamInfo, aboutExt }) {
               textColor={"var(--color-primary)"}
               className={styles.teamButton}
               btnFunction={openPopup}
+              isSmallBtn
             />
           </div>
         </div>
       </div>
-      <AboutPopup show={showPopup} setShow={setShowPopup} teamInfo={teamInfo} />
     </section>
   );
 }

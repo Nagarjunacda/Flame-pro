@@ -3,6 +3,11 @@
   padding: 50px;
   margin: 0px var(--padding-xs-36);
 }
+@media(min-width:1680px){
+  .aboutBlockDiv{
+    padding: 100px;
+  }
+}
 .aboutBlockTitle {
   margin-bottom: 30px;
 }

@@ -41,8 +41,27 @@
   margin-bottom: 30px;
 }
 .teamPic {
-  height: 432px;
-  overflow: hidden;
+  height: 320px;
+}
+@media(min-width:900px){
+  .teamPic{
+    height: 420px;
+  }
+}
+@media(min-width:992px){
+  .teamPic{
+    height: 320px;
+  }
+}
+@media(min-width:1440px){
+  .teamPic{
+    min-height: 420px;
+  }
+}
+@media(min-width:1680px){
+  .teamPic{
+    min-height: 440px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .overlay {
