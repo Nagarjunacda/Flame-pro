@@ -1,48 +1,48 @@
 .custom-dot {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: var(--color-slickDot);
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 24px;
-    top: 0px;
-  }
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-slickDot);
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 24px;
+  top: 0px;
+}
 
-  .active {
-    background-color: var(--color-footerBackground);
-  }
-  .sliderCont{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 0px;
-    gap: 12px;
-  }
-  .slideWrapper{
-    width: 100%;
-    padding:2px;
-    cursor: pointer;
-  }
-  .imageCont{
-    width: 100%;
-    height: auto;
-  }
-  .selectedImgCont{
-    width: 100%;
-    height: auto;
-    border: solid 1px var(--color-primary);
-  }
-  .sliderImg{
-    width: 80%;
-    max-width: 80%;
-  }
-  .button{
-    border: none;
-    background-color: var(--color-secondary);
-  }
-  .hideButton{
-    visibility: hidden;
-  }
+.active {
+  background-color: var(--color-footerBackground);
+}
+.sliderCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0px;
+  gap: 12px;
+}
+.slideWrapper {
+  width: 100%;
+  padding: 2px;
+  cursor: pointer;
+}
+.imageCont {
+  width: 80%;
+  height: auto;
+}
+.selectedImgCont {
+  width: 80%;
+  height: auto;
+  border: solid 1px var(--color-primary);
+}
+.sliderImg {
+  width: 80%;
+  max-width: 80%;
+}
+.button {
+  border: none;
+  background-color: var(--color-secondary);
+}
+.hideButton {
+  visibility: hidden;
+}

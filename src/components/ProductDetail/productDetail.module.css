@@ -47,7 +47,7 @@
 .imageBlock {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
 }
 .mainImg {
   position: relative;
@@ -262,7 +262,7 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-.errorText{
+.errorText {
   display: flex;
   align-items: center;
   justify-content: center;
