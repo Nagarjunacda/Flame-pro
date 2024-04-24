@@ -105,10 +105,31 @@
   background-color: var(--color-primary);
   width: 100%;
   justify-content:flex-start;
+  padding: 24px;
   align-items: flex-start;
+  gap: 28px;
 }
 .helpText{
   color: var(--color-secondary);
   font-size: var(--font-size-md);
-  padding: 24px;
+}
+.contactBlock{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contactInfo {
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  text-wrap: wrap;
+  color: var(--color-secondary);
+}
+.socialItems {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.socialItem {
+  width: 16px;
+  height: 16px;
 }

@@ -1,30 +1,36 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import FlameImage from "@/reusbleComponents/FlameImage";
 import { headerMenuUrl, footerMenuUrl } from "@/utils/urls";
+import { useFooterContextData } from "@/context/FooterDataContext";
 import { useSpeakToPopupState } from "@/context/SpeakToPopupContext";
 import { HeaderDataProvider } from "@/context/headerContext";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { CartDataProvider } from "@/context/CartContext";
 import { ProductCatDataProvider } from "@/context/ProductCatContext";
 import { NonceProvider } from "@/context/NonceContext";
-import { FooterContextDataProvider } from "@/context/FooterDataContext";
 import { relativeHeaderPaths } from "@/utils/constants";
 import ContactUsPageForm from "../ContactUsPageForm";
 import Header from "../Header";
 import Footer from "../Footer";
 import Styles from './wrapper.module.css';
-import Scrollbars from "react-custom-scrollbars-2";
 
 function LayoutWrapper({ children }) {
   const router = useRouter()
   const { route, query } = router
   const { isSpeakPopupOpen, setIsSpeakPopupOpen } = useSpeakToPopupState();
+  const { footerContextData } = useFooterContextData();
   const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions', 'consumables', 'flash-hoods'];
   const [headerData, setHeaderData] = useState({});
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);
   const relativeHeader = relativeHeaderPaths.includes(route) && !arr.includes(query.slug);
   const isProductDetailPage = route === "/shop/[slug]" && !arr.includes(query.slug);
+  const contactEmail = footerContextData?.acf?.contact_email;
+  const phone = footerContextData?.acf?.phone_no;
+  const socialIcons = footerContextData?.acf?.social_icon_and_link;
+
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -75,41 +81,58 @@ function LayoutWrapper({ children }) {
 
   return (
     <NonceProvider>
-      <FooterContextDataProvider>
-        <CartDataProvider>
-          <ProductCatDataProvider>
-            <HeaderDataProvider>
-              <main className={Styles.main}>
-                <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
-                  <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
-                </section>
-                {children}
-                <Footer footerData={footerData} />
-                {isSpeakPopupOpen && (
-                  <div className={Styles.popupBackground} onClick={closePopup}>
-                    <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
-                      <section className={Styles.popupCont}>
-                        <h3 className={Styles.headingText}>Speak To</h3>
-                        <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                        <ContactUsPageForm
-                          isFromPopup
-                          heading={"Enter Your Details"}
-                          formFields={formData}
-                          heading2={"Contact Me By..."}
-                        />
-                        <section className={Styles.infoBlock}>
-                          <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
+      <CartDataProvider>
+        <ProductCatDataProvider>
+          <HeaderDataProvider>
+            <main className={Styles.main}>
+              <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
+                <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
+              </section>
+              {children}
+              <Footer footerData={footerData} />
+              {isSpeakPopupOpen && (
+                <div className={Styles.popupBackground} onClick={closePopup}>
+                  <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
+                    <section className={Styles.popupCont}>
+                      <h3 className={Styles.headingText}>Speak To</h3>
+                      <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                      <ContactUsPageForm
+                        isFromPopup
+                        heading={"Enter Your Details"}
+                        formFields={formData}
+                        heading2={"Contact Me By..."}
+                      />
+                      <section className={Styles.infoBlock}>
+                        <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
+                        <section className={Styles.contactBlock}>
+                          <a href={`mailto:${contactEmail}`}>
+                            <h5 className={Styles.contactInfo}>{contactEmail}</h5>
+                          </a>
+                          <a href={`tel:${phone}`} >
+                            <h5 className={Styles.contactInfo}>{phone}</h5>
+                          </a>
+                          <div className={Styles.socialItems}>
+                            {socialIcons?.map((e) => {
+                              return <Link
+                                href={e?.link}
+                                target="blank"
+                                className={Styles.socialItem}
+                              >
+                                <FlameImage src={e?.image} />
+                              </Link>
+                            })}
+                          </div>
                         </section>
                       </section>
-                    </div>
+                    </section>
                   </div>
-                )}
-              </main>
-            </HeaderDataProvider>
-          </ProductCatDataProvider>
-        </CartDataProvider>
-      </FooterContextDataProvider>
+                </div>
+              )}
+            </main>
+          </HeaderDataProvider>
+        </ProductCatDataProvider>
+      </CartDataProvider>
     </NonceProvider>
   )
 }
