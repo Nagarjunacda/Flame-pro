@@ -3,12 +3,12 @@ import FlameImage from "../FlameImage";
 import FlameBtn from "../FlameBtn";
 import styles from "./aboutTeamCard.module.css";
 
-function AboutTeamCard({ teamInfo, aboutExt }) {
-  const [showPopup, setShowPopup] = useState(false);
+function AboutTeamCard({ teamInfo, aboutExt, setShowPopup, setSelectedMember }) {
   const [isHovered, setIsHovered] = useState(false);
 
   function openPopup() {
     setShowPopup(true);
+    setSelectedMember(teamInfo);
   }
 
   return (

@@ -3,7 +3,6 @@ import RenderTrays from "../RenderTrays";
 function AboutUs({ pageData }) {
   const { data } = pageData;
   const trayData = data?.acf?.content_blocks;
-  console.log(trayData, '!!')
   const additionalDataExt = data?.acf_fields;
   const categories = data?.category_info;
 
