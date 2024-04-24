@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import CopyRightText from '../CopyRightText';
 import SignUpForm from '@/components/SignUpForm';
+import { renderHTML } from '@/utils/htmlString';
 import styles from '../footer.module.css';
-import Link from 'next/link';
 
-function FooterMweb({ footerData }) {
+function FooterMweb({ footerData, footerContextData }) {
     const router = useRouter();
-    const footerLogo = '/Images/footerLogo.svg';
     const [clickedLink, setClickedLink] = useState('');
     const [linkData, setLinkData] = useState([]);
     const [accor, setAccor] = useState(false);
+    const additionalFooterData = footerContextData && footerContextData?.acf;
+    const footerLogo = additionalFooterData?.footer_logo || '/Images/footerLogo.svg';
+    const socialIcons = additionalFooterData?.social_icon_and_link;
+    const contactTitle = additionalFooterData?.footer_contact_title;
+    const contactAdd = additionalFooterData?.footer_contact_address;
     const plusIcon = '/Images/plusIcon.svg';
-    const formHeading = 'Sign Up To Our Mailing List';
+    const formHeading = additionalFooterData?.footer_signup_title || 'Sign Up To Our Mailing List';
     const phoneNumberRegex = /^\+\d{2} \(\d\)\d{4} \d{6}$/;
     const emailRegex = /^info@flame-pro.com$/;
     const data1 = footerData ? footerData?.items?.map((e) => {
@@ -116,7 +121,7 @@ function FooterMweb({ footerData }) {
                             className={styles.linkBlock}
                             key={index}
                         >
-                            <section>{link}</section>
+                            <section>{contactTitle === link ? contactTitle : link}</section>
                             {accor && link === clickedLink ? (
                                 <div onClick={handleClose}>
                                     -
@@ -129,18 +134,17 @@ function FooterMweb({ footerData }) {
                         </section>
                         {accor && link === clickedLink && (
                             <section className={styles.listCont}>
-                                {linkData.map((e, index) => {
+                                {clickedLink === contactTitle ? <section className={styles.listItem}>{renderHTML(contactAdd)}</section> : linkData.map((e, index) => {
                                     return <section onClick={() => { handleLabelClick(e, link) }} key={index} className={styles.listItem}>
-                                        {clickedLink === 'Contact' ? getContactData(e) : e}
+                                        {e}
                                     </section>
                                 })}
                                 {link === 'Useful Links' && <div className={styles.socialItems}>
-                                    <Link href={'https://www.linkedin.com/company/flameproltd/'} target="blank" className={styles.socialItem}>
-                                        <FlameImage src={"/Images/linkedin.svg"} />
-                                    </Link>
-                                    <Link href={'https://twitter.com/flameproglobal'} target="blank" className={styles.socialItem}>
-                                        <FlameImage src={"/Images/twitter.svg"} />
-                                    </Link>
+                                    {socialIcons?.map((e) => {
+                                        return <Link href={e?.link} target="blank" className={styles.socialItem}>
+                                            <FlameImage src={e?.image} />
+                                        </Link>
+                                    })}
                                 </div>}
                             </section>
                         )}
@@ -149,7 +153,7 @@ function FooterMweb({ footerData }) {
             })}
         </section>
         <SignUpForm isFromFooter heading={formHeading} formFields={formData} />
-        <section className={styles.copyRightCont}><CopyRightText /></section>
+        <section className={styles.copyRightCont}><CopyRightText additionalFooterData={additionalFooterData} /></section>
     </section>
 }
 export default FooterMweb
