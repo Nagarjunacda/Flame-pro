@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
+import { Scrollbar } from 'smooth-scrollbar-react';
 import { headerMenuUrl, footerMenuUrl } from "@/utils/urls";
 import { useFooterContextData } from "@/context/FooterDataContext";
 import { useSpeakToPopupState } from "@/context/SpeakToPopupContext";
@@ -92,48 +93,57 @@ function LayoutWrapper({ children }) {
               <Footer footerData={footerData} />
               {isSpeakPopupOpen && (
                 <div className={Styles.popupBackground} onClick={closePopup}>
-                  <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
-                    <section className={Styles.popupCont}>
-                      <h3 className={Styles.headingText}>Speak To</h3>
-                      <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                      <ContactUsPageForm
-                        isFromPopup
-                        heading={"Enter Your Details"}
-                        formFields={formData}
-                        heading2={"Contact Me By..."}
-                      />
-                      <section className={Styles.infoBlock}>
-                        <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
-                        <section className={Styles.contactBlock}>
-                          <a href={`mailto:${contactEmail}`}>
-                            <h5 className={Styles.contactInfo}>{contactEmail}</h5>
-                          </a>
-                          <a href={`tel:${phone}`} >
-                            <h5 className={Styles.contactInfo}>{phone}</h5>
-                          </a>
-                          <div className={Styles.socialItems}>
-                            {socialIcons?.map((e) => {
-                              return <Link
-                                href={e?.link}
-                                target="blank"
-                                className={Styles.socialItem}
-                              >
-                                <FlameImage src={e?.image} />
-                              </Link>
-                            })}
-                          </div>
+                  <Scrollbar
+                    alwaysShowTracks
+                    damping={0.1}
+                    plugins={{
+                      overscroll: {
+                        effect: 'bounce',
+                      },
+                    }}>
+                    <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
+                      <section className={Styles.popupCont}>
+                        <h3 className={Styles.headingText}>Speak To</h3>
+                        <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                        <ContactUsPageForm
+                          isFromPopup
+                          heading={"Enter Your Details"}
+                          formFields={formData}
+                          heading2={"Contact Me By..."}
+                        />
+                        <section className={Styles.infoBlock}>
+                          <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
+                          <section className={Styles.contactBlock}>
+                            <a href={`mailto:${contactEmail}`}>
+                              <h5 className={Styles.contactInfo}>{contactEmail}</h5>
+                            </a>
+                            <a href={`tel:${phone}`} >
+                              <h5 className={Styles.contactInfo}>{phone}</h5>
+                            </a>
+                            <div className={Styles.socialItems}>
+                              {socialIcons?.map((e) => {
+                                return <Link
+                                  href={e?.link}
+                                  target="blank"
+                                  className={Styles.socialItem}
+                                >
+                                  <FlameImage src={e?.image} />
+                                </Link>
+                              })}
+                            </div>
+                          </section>
                         </section>
                       </section>
-                    </section>
-                  </div>
+                    </div>
+                  </Scrollbar>
                 </div>
               )}
             </main>
           </HeaderDataProvider>
         </ProductCatDataProvider>
       </CartDataProvider>
-    </NonceProvider>
+    </NonceProvider >
   )
 }
 export default LayoutWrapper

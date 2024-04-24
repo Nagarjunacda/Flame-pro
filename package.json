@@ -27,7 +27,9 @@
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
     "react-time-picker": "^6.6.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "smooth-scrollbar": "^8.8.4",
+    "smooth-scrollbar-react": "^2.4.1"
   },
   "devDependencies": {
     "eslint": "^8",
