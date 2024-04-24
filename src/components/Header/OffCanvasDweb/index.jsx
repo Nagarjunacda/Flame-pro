@@ -120,6 +120,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
         </header>
       </Offcanvas.Header>
       <Scrollbars
+        thumbSize={200}
         renderTrackVertical={props => <div {...props} style={{ backgroundColor: 'white', width: 8, right: 0, bottom: 0, top: 0, position: 'absolute', borderRadius: 4 }} />}
         renderThumbVertical={props => <div {...props} style={{ backgroundColor: 'black', width: 8, right: 0, bottom: 0, top: 0, position: 'absolute', borderRadius: 4 }} />}>
         <Offcanvas.Body className={styles.offCanvasBody}>
@@ -131,7 +132,6 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
           />
         </Offcanvas.Body>
       </Scrollbars>
-
     </Offcanvas>
   );
 }
