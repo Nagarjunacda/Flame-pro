@@ -33,4 +33,5 @@ export const updateCustomerUrl = `${baseUrl}/wc/store/v1/cart/update-item`;
 export const distributorsUrl = `${baseUrl}/wp/v2/pages/112`;
 export const productsCategoryCustomUrl = `${baseUrl}/custom/v1/products`;
 export const resourceFiltersUrl = `${baseUrl}/custom/v2/posts`;
+export const footerContextUrl = `${baseUrl}/acf/v3/options/options`;
 

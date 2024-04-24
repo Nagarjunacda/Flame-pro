@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
-import { headerMenuUrl, footerMenuUrl } from "@/utils/urls"
-import { useSpeakToPopupState } from "@/context/SpeakToPopupContext"
-import { HeaderDataProvider } from "@/context/headerContext"
-import { handleServerSideProps } from "@/utils/handleServerSideData"
-import { CartDataProvider } from "@/context/CartContext"
-import { ProductCatDataProvider } from "@/context/ProductCatContext"
-import { NonceProvider } from "@/context/NonceContext"
-import { relativeHeaderPaths } from "@/utils/constants"
-import ContactUsPageForm from "../ContactUsPageForm"
-import Header from "../Header"
-import Footer from "../Footer"
-import Styles from './wrapper.module.css'
-import Scrollbars from "react-custom-scrollbars-2"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { headerMenuUrl, footerMenuUrl } from "@/utils/urls";
+import { useSpeakToPopupState } from "@/context/SpeakToPopupContext";
+import { HeaderDataProvider } from "@/context/headerContext";
+import { handleServerSideProps } from "@/utils/handleServerSideData";
+import { CartDataProvider } from "@/context/CartContext";
+import { ProductCatDataProvider } from "@/context/ProductCatContext";
+import { NonceProvider } from "@/context/NonceContext";
+import { FooterContextDataProvider } from "@/context/FooterDataContext";
+import { relativeHeaderPaths } from "@/utils/constants";
+import ContactUsPageForm from "../ContactUsPageForm";
+import Header from "../Header";
+import Footer from "../Footer";
+import Styles from './wrapper.module.css';
+import Scrollbars from "react-custom-scrollbars-2";
 
 function LayoutWrapper({ children }) {
   const router = useRouter()
@@ -24,7 +25,6 @@ function LayoutWrapper({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const relativeHeader = relativeHeaderPaths.includes(route) && !arr.includes(query.slug);
   const isProductDetailPage = route === "/shop/[slug]" && !arr.includes(query.slug);
-  console.log(isProductDetailPage, '!! pro')
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -75,39 +75,41 @@ function LayoutWrapper({ children }) {
 
   return (
     <NonceProvider>
-      <CartDataProvider>
-        <ProductCatDataProvider>
-          <HeaderDataProvider>
-            <main className={Styles.main}>
-              <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
-                <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
-              </section>
-              {children}
-              <Footer footerData={footerData} />
-              {isSpeakPopupOpen && (
-                <div className={Styles.popupBackground} onClick={closePopup}>
-                  <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
-                    <section className={Styles.popupCont}>
-                      <h3 className={Styles.headingText}>Speak To</h3>
-                      <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                      <ContactUsPageForm
-                        isFromPopup
-                        heading={"Enter Your Details"}
-                        formFields={formData}
-                        heading2={"Contact Me By..."}
-                      />
-                      <section className={Styles.infoBlock}>
-                        <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
+      <FooterContextDataProvider>
+        <CartDataProvider>
+          <ProductCatDataProvider>
+            <HeaderDataProvider>
+              <main className={Styles.main}>
+                <section className={scrolled ? Styles.stickyHeader : relativeHeader ? Styles.relativeHeader : Styles.header}>
+                  <Header scrolled={scrolled} headerData={headerData} relativeHeader={relativeHeader} />
+                </section>
+                {children}
+                <Footer footerData={footerData} />
+                {isSpeakPopupOpen && (
+                  <div className={Styles.popupBackground} onClick={closePopup}>
+                    <div className={Styles.popupContent} onClick={(e) => e.stopPropagation()}>
+                      <section className={Styles.popupCont}>
+                        <h3 className={Styles.headingText}>Speak To</h3>
+                        <p className={Styles.popupText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                        <ContactUsPageForm
+                          isFromPopup
+                          heading={"Enter Your Details"}
+                          formFields={formData}
+                          heading2={"Contact Me By..."}
+                        />
+                        <section className={Styles.infoBlock}>
+                          <h5 className={Styles.helpText}>Or Call Us Now To Discuss How We Can Help…</h5>
+                        </section>
                       </section>
-                    </section>
+                    </div>
                   </div>
-                </div>
-              )}
-            </main>
-          </HeaderDataProvider>
-        </ProductCatDataProvider>
-      </CartDataProvider>
+                )}
+              </main>
+            </HeaderDataProvider>
+          </ProductCatDataProvider>
+        </CartDataProvider>
+      </FooterContextDataProvider>
     </NonceProvider>
   )
 }

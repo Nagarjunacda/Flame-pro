@@ -1,37 +1,20 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import SignUpForm from "@/components/SignUpForm";
 import CopyRightText from "../CopyRightText";
+import { renderHTML } from "@/utils/htmlString";
 import styles from "../footer.module.css";
 
-function FooterDweb({ footerData }) {
-  const router = useRouter();
-  const flameImg = "/Images/flameLogo.svg";
-  const formHeading = "Sign Up To Our Mailing List";
+function FooterDweb({ footerData, footerContextData }) {
   const footerLinks = footerData?.items ? footerData?.items : [];
-  const data1 = ["Useful Links", "Legal", "Contact"];
-  const [route, setRoute] = useState("/");
+  const additionalFooterData = footerContextData && footerContextData?.acf;
+  const footerLogo = additionalFooterData?.footer_logo;
+  const socialIcons = additionalFooterData?.social_icon_and_link;
+  const signupTitle = additionalFooterData?.footer_signup_title;
+  const contactTitle = additionalFooterData?.footer_contact_title;
+  const contactAddress = additionalFooterData?.footer_contact_address;
 
-  const handleLabelClick = (label) => {
-    if (label?.title === "About Flame Pro") {
-      setRoute("/about");
-      return;
-    }
-    if (label?.title === "Policies") {
-      setRoute("/Policies");
-      return;
-    }
-    setRoute("/policies");
-  };
-  const usefulLinks = ["Distributors", "About Flame Pro", "FAQs"];
-  const Legal = ["Terms & Conditions", "Privacy Policy", "Cookies"];
-  const contact = [
-    "FlamePro Global Ltd Unit 2, Dianthus Business Park, Common Lane, Newport,Brough, East Yorkshire,HU15 2FT",
-    "info@flame-pro.com",
-    "+44 (0)1332 325783",
-  ];
+
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -63,18 +46,19 @@ function FooterDweb({ footerData }) {
     <section className={styles.dwebCont}>
       <section className={styles.dataContDweb}>
         <Link href={"/"} className={styles.flameImg}>
-          <FlameImage src={flameImg} alt="logo" imageFit />
+          <FlameImage src={footerLogo} alt="logo" imageFit />
         </Link>
         <section className={styles.linkListCont}>
           {footerLinks.map((link, index) => {
             return (
               <section key={index} className={styles.navLinks}>
-                <h5>{link?.title}</h5>
+                <h5>{link?.title === contactTitle ? contactTitle : link?.title}</h5>
                 <section className={styles.navLinks}>
                   {link?.child_items.map((e, index) => {
-                    return link.title === "Contact" ? (
+                    return link.title === contactTitle ? (
+                      index === 1 &&
                       <div className={styles.contactInfo} key={index}>
-                        {getContactData(e)}
+                        {renderHTML(contactAddress)}
                       </div>
                     ) : (
                       <Link
@@ -88,53 +72,26 @@ function FooterDweb({ footerData }) {
                   })}
                   {link?.title === "Useful Links" && (
                     <div className={styles.socialItems}>
-                      <Link
-                        href={"https://www.linkedin.com/company/flameproltd/"}
-                        target="blank"
-                        className={styles.socialItem}
-                      >
-                        <FlameImage src={"/Images/linkedin.svg"} />
-                      </Link>
-                      <Link
-                        href={"https://twitter.com/flameproglobal"}
-                        target="blank"
-                        className={styles.socialItem}
-                      >
-                        <FlameImage src={"/Images/twitter.svg"} />
-                      </Link>
+                      {socialIcons?.map((e) => {
+                        return <Link
+                          href={e?.link}
+                          target="blank"
+                          className={styles.socialItem}
+                        >
+                          <FlameImage src={e?.image} />
+                        </Link>
+                      })}
                     </div>
                   )}
                 </section>
-                {/* {link === "Legal" &&
-                  Legal.map((e, index) => {
-                    return (
-                      <section
-                        onClick={() => {
-                          handleLabelClick(e);
-                        }}
-                        className={styles.innerLinks}
-                        key={index}
-                      >
-                        {e}
-                      </section>
-                    );
-                  })} */}
-                {/* {link === "Contact" &&
-                  contact.map((e, index) => {
-                    return (
-                      <section className={styles.address} key={index}>
-                        {e}
-                      </section>
-                    );
-                  })} */}
               </section>
             );
           })}
         </section>
-        <SignUpForm isFromFooter heading={formHeading} formFields={formData} />
+        <SignUpForm isFromFooter heading={signupTitle} formFields={formData} />
       </section>
       <section className={styles.copyRight}>
-        <CopyRightText />
+        <CopyRightText additionalFooterData={additionalFooterData} />
       </section>
     </section>
   );

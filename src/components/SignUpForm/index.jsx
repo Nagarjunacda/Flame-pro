@@ -9,7 +9,7 @@ import { userDetailsFormUrl } from "@/utils/urls";
 import { newsLettersignUpUrl } from "@/utils/urls";
 import styles from "./signUpForm.module.css";
 
-function SignUpForm({ isFromFooter, text, heading, formFields }) {
+function SignUpForm({ isFromFooter, text, heading, formFields, signupTitle }) {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const [areaOfInt, setAreaOfInt] = useState("Area Of Interest");
