@@ -14,7 +14,6 @@ function FooterDweb({ footerData, footerContextData }) {
   const contactTitle = additionalFooterData?.footer_contact_title;
   const contactAddress = additionalFooterData?.footer_contact_address;
 
-
   const formData = [
     { section1: "Full Name*" },
     { section1: "Email Address*" },
@@ -52,14 +51,17 @@ function FooterDweb({ footerData, footerContextData }) {
           {footerLinks.map((link, index) => {
             return (
               <section key={index} className={styles.navLinks}>
-                <h5>{link?.title === contactTitle ? contactTitle : link?.title}</h5>
+                <h5>
+                  {link?.title === contactTitle ? contactTitle : link?.title}
+                </h5>
                 <section className={styles.navLinks}>
                   {link?.child_items.map((e, index) => {
                     return link.title === contactTitle ? (
-                      index === 1 &&
-                      <div className={styles.contactInfo} key={index}>
-                        {renderHTML(contactAddress)}
-                      </div>
+                      index === 1 && (
+                        <div className={styles.contactInfo} key={index}>
+                          {renderHTML(contactAddress)}
+                        </div>
+                      )
                     ) : (
                       <Link
                         href={`/${e?.slug}`}
@@ -72,14 +74,17 @@ function FooterDweb({ footerData, footerContextData }) {
                   })}
                   {link?.title === "Useful Links" && (
                     <div className={styles.socialItems}>
-                      {socialIcons?.map((e) => {
-                        return <Link
-                          href={e?.link}
-                          target="blank"
-                          className={styles.socialItem}
-                        >
-                          <FlameImage src={e?.image} />
-                        </Link>
+                      {socialIcons?.map((e, index) => {
+                        return (
+                          <Link
+                            key={index}
+                            href={e?.link}
+                            target="blank"
+                            className={styles.socialItem}
+                          >
+                            <FlameImage src={e?.image} />
+                          </Link>
+                        );
                       })}
                     </div>
                   )}
