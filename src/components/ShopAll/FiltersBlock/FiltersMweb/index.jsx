@@ -116,7 +116,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
               btnFunction={handleApplyBtn}
             />
           </section>
-          <section
+          {itemsArray?.length ? <section
             className={styles.headBtnSec}
             onClick={handleClearSelections}
           >
@@ -124,7 +124,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
               <FlameImage src={closeBtnSrc} alt="clear" />
             </section>
             <p className={styles.clearTxt}>clear Filters</p>
-          </section>
+          </section> : null}
         </section>
       )}
     </section>

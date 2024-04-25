@@ -63,12 +63,12 @@ function FiltersDweb({
       {/* <h3 className={styles.filterHeading}>Filters</h3> */}
       <section className={styles.headSection}>
         <h3 className={styles.filterHeading}>Filter By</h3>
-        <section className={styles.headBtnSec} onClick={handleClearSelections}>
+        {itemsArray?.length ? <section className={styles.headBtnSec} onClick={handleClearSelections}>
           <section className={styles.iconSty}>
             <FlameImage src={closeBtnSrc} alt="clear" />
           </section>
           <p className={styles.clearTxt}>clear Filters</p>
-        </section>
+        </section> : null}
       </section>
       <section className={styles.filtersCont}>
         {filtersData.map((category, index) => {
