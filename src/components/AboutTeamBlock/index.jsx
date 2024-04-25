@@ -64,13 +64,11 @@ function AboutTeamBlock({ trayData, aboutExt }) {
               <p className={styles.desc}>{description}</p>
             </section>
           </section>
-          <section>
-            <TeamBlockContactForm
-              isFromPopup={false}
-              heading={`Contact Person's Name`}
-              formFields={formData}
-              heading2={""} />
-          </section>
+          <TeamBlockContactForm
+            isFromPopup={false}
+            heading={`Contact Person's Name`}
+            formFields={formData}
+            heading2={""} />
         </div>
       </div>}
     </section>

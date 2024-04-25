@@ -76,6 +76,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
 .personInfo{
   display: flex;
@@ -83,6 +84,7 @@
   justify-content: space-between;
   gap: 20px;
   height: auto;
+  margin-bottom: 20px;
 }
 @media(min-width:900px){
   .personInfo{
@@ -90,12 +92,14 @@
     justify-content: flex-start;
     gap: 32px;
     max-height: 320px;
+    margin-bottom: 40px;
   }
 }
 @media(min-width:1680px){
   .personInfo{
     flex-direction: row;
     gap: 48px;
+    margin-bottom: 80px;
   }
 }
 .imageSection{
