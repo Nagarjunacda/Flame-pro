@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Scrollbars } from 'react-custom-scrollbars-2';
-import { Scrollbar } from 'smooth-scrollbar-react';
+import { Scrollbars } from "react-custom-scrollbars-2";
+import { Scrollbar } from "smooth-scrollbar-react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FireFighterppe from "@/components/ContentBlocks/FireFighterppe";
 import HeaderDweb from "../HeaderDweb";
 import styles from "../header.module.css";
 
-function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsData }) {
+function OffCanvasDweb({
+  show,
+  handleClose,
+  headerData,
+  selectedNavItem,
+  postsData,
+}) {
   const router = useRouter();
   const [clickedItem, setClickedItem] = useState({});
   const [searchData, setSearchData] = useState([]);
@@ -26,7 +32,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
 
   const getSearchData = (data) => {
     setSearchData(data);
-  }
+  };
 
   useEffect(() => {
     setClickedItem(selectedNavItem);
@@ -52,14 +58,14 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
 
   const handleNavItemClick = (item) => {
     if (clickedItem?.title === item?.title) {
-      if (item?.title === 'Search') {
+      if (item?.title === "Search") {
         setSearchData([]);
         handleOverlayClose();
-        return
+        return;
       }
       router.push(`/${item?.slug}`);
       handleOverlayClose();
-      return
+      return;
     }
     if (item?.title === "Cart") {
       router.push("/basket");
@@ -88,8 +94,13 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
     <Offcanvas
       show={show}
       onHide={handleOverlayClose}
-      className={searchData?.length ? styles.offCanvasContDwebSearchRes :
-        clickedItem?.title === 'Search' ? styles.offCanvasContDwebSearch : styles.offCanvasContDweb}
+      className={
+        searchData?.length
+          ? styles.offCanvasContDwebSearchRes
+          : clickedItem?.title === "Search"
+          ? styles.offCanvasContDwebSearch
+          : styles.offCanvasContDweb
+      }
       placement={"top"}
     >
       <Offcanvas.Header>
@@ -97,7 +108,7 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
           <section className={styles.subHeader}>
             <figure className={styles.headerLogo} onClick={handleOverlayClose}>
               <Link href={"/"}>
-                <FlameImage src={flameLogo} alt="flameLogo" />
+                <FlameImage src={flameLogo} alt="flameLogo" imageFit />
               </Link>
             </figure>
             <nav className={styles.navItemsDrawer}>
@@ -129,9 +140,10 @@ function OffCanvasDweb({ show, handleClose, headerData, selectedNavItem, postsDa
         damping={0.1}
         plugins={{
           overscroll: {
-            effect: 'bounce',
+            effect: "bounce",
           },
-        }}>
+        }}
+      >
         <Offcanvas.Body className={styles.offCanvasBody}>
           <FireFighterppe
             postsData={postsData}
