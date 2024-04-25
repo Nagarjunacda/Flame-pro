@@ -76,11 +76,11 @@ function OffCanvasDweb({
     //   handleOverlayClose();
     //   return;
     // }
-    if (item?.title === "About") {
-      router.push("/about");
-      handleOverlayClose();
-      return;
-    }
+    // if (item?.title === "About") {
+    //   router.push("/about");
+    //   handleOverlayClose();
+    //   return;
+    // }
     if (item?.title === "Contact Us") {
       router.push("/contact-us");
       handleOverlayClose();
@@ -98,8 +98,8 @@ function OffCanvasDweb({
         searchData?.length
           ? styles.offCanvasContDwebSearchRes
           : clickedItem?.title === "Search"
-          ? styles.offCanvasContDwebSearch
-          : styles.offCanvasContDweb
+            ? styles.offCanvasContDwebSearch
+            : styles.offCanvasContDweb
       }
       placement={"top"}
     >

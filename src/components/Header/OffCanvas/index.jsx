@@ -21,7 +21,7 @@ function OffCanvas({ show, handleClose, headerData, postsData }) {
     const onlyNavItems = navItems?.slice(0, 5);
     const reorderedElem = navItems?.slice(5).reverse();
     const orderedNavItems = navItems && onlyNavItems.concat(reorderedElem);
-    const overlayArr = ['Firefighting PPE', 'Defence Procurement', 'Resource Hub', 'Search']
+    const overlayArr = ['Firefighting PPE', 'Defence Procurement', 'Resource Hub', 'Search', 'About']
 
     const handleOffCanvas = () => {
         setIsOverlayCanvasOpen(true)
@@ -47,11 +47,11 @@ function OffCanvas({ show, handleClose, headerData, postsData }) {
 
     const handleItemClick = (item) => {
         setSelectedNavItem(item)
-        if (item?.title === 'About') {
-            router.push('/about')
-            handleClose()
-            return
-        }
+        // if (item?.title === 'About') {
+        //     router.push('/about')
+        //     handleClose()
+        //     return
+        // }
         if (item?.title === 'Contact Us') {
             router.push('/contact-us')
             handleClose()

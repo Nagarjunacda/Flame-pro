@@ -22,7 +22,6 @@ function ProductBlock({
   toastMsg,
   setShowToast,
 }) {
-  console.log(productData, '!!')
   const router = useRouter();
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });

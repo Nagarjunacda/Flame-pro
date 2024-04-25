@@ -19,18 +19,18 @@ function HeaderDweb({
   const flameLogo = scrolled
     ? "/Images/flameLogo.svg"
     : isFromDrawer || relativeHeader
-    ? "/Images/flameLogoDark.svg"
-    : "/Images/flameLogo.svg";
+      ? "/Images/flameLogoDark.svg"
+      : "/Images/flameLogo.svg";
   const searchIcon = scrolled
     ? "/Images/searchNew.svg"
     : isFromDrawer || relativeHeader
-    ? "/Images/blackSearchIconNew.svg"
-    : "/Images/searchNew.svg";
+      ? "/Images/blackSearchIconNew.svg"
+      : "/Images/searchNew.svg";
   const basketIcon = scrolled
     ? "/Images/basketIconWhite.svg"
     : isFromDrawer || relativeHeader
-    ? "/Images/basketIcon.svg"
-    : "/Images/basketIconWhite.svg";
+      ? "/Images/basketIcon.svg"
+      : "/Images/basketIconWhite.svg";
 
   const getNavItem = (item) => {
     if (item?.title === "Cart") {
@@ -63,10 +63,10 @@ function HeaderDweb({
     // if (item?.title === "Search") {
     //   return;
     // }
-    if (item?.title === "About") {
-      router.push("/about");
-      return;
-    }
+    // if (item?.title === "About") {
+    //   router.push("/about");
+    //   return;
+    // }
     if (item?.title === "Contact Us") {
       router.push("/contact-us");
       return;
@@ -84,8 +84,8 @@ function HeaderDweb({
         scrolled
           ? styles.scrolledHeaderMainDweb
           : relativeHeader
-          ? styles.relativeHeaderMainDweb
-          : styles.headerMainDweb
+            ? styles.relativeHeaderMainDweb
+            : styles.headerMainDweb
       }
     >
       <section className={styles.subHeader}>
@@ -99,8 +99,8 @@ function HeaderDweb({
             scrolled
               ? styles.navItems
               : isFromDrawer || relativeHeader
-              ? styles.navItemsDrawer
-              : styles.navItems
+                ? styles.navItemsDrawer
+                : styles.navItems
           }
         >
           {navItems?.map((item, index) => {
