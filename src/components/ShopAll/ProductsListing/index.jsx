@@ -14,7 +14,6 @@ function ProductsListing({ productsData, megaMenuData }) {
   const router = useRouter();
   const { route, query } = router;
   const { slug } = query;
-  console.log(slug, '!!')
   const isFromShopAll = route === '/shop';
   const { headerConData } = useHeaderData();
   const megaMenuProducts = headerConData?.items

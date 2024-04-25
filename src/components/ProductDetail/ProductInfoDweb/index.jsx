@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AdditionalInfoBlock from '../AdditionalInfoBlock';
+import WearFitGuideBlock from '../WearFitGuideBlock';
 import ConformsToBlock from '../ConformsToBlock';
 import OuterLayerBlock from '../OuterLayerBlock';
 import CommonInfoBlock from '../CommonInfoBlock';
@@ -20,6 +21,8 @@ function ProductInfoDweb({ data, productInfo }) {
                 return <ConformsToBlock productInfo={productInfo} />
             case 'Outer Layers':
                 return <OuterLayerBlock productInfo={productInfo} />
+            case 'Wear Fit Guide':
+                return <WearFitGuideBlock productInfo={productInfo} />
             default:
                 return <CommonInfoBlock productInfo={productInfo} selectedLink={selectedLink} />
         }
