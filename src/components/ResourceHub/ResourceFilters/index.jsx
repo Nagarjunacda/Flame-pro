@@ -23,7 +23,7 @@ function ResourceFilters({
   const [isFireOrDefence, setIsFireOrDefence] = useState("");
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
-  const closeBtnSrc = "/Images/offCanvasclose.svg";
+  const closeBtnSrc = "/Images/closeImg.png";
   const fireBtncolor =
     mainCatFilter === "fire"
       ? "var(--color-primary)"
