@@ -27,13 +27,24 @@
   cursor: pointer;
 }
 .imageCont {
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 .selectedImgCont {
-  width: 80%;
+  width: 100%;
   height: auto;
   border: solid 1px var(--color-primary);
+}
+@media (min-width: 1280px) {
+  .imageCont {
+    width: 80%;
+    height: auto;
+  }
+  .selectedImgCont {
+    width: 80%;
+    height: auto;
+    border: solid 1px var(--color-primary);
+  }
 }
 .sliderImg {
   width: 80%;
