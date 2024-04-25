@@ -47,7 +47,7 @@
 .imageBlock {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
 }
 .mainImg {
   position: relative;
@@ -268,4 +268,11 @@
   justify-content: center;
   width: 100%;
   padding-top: 30px;
+}
+@media (min-width: 900px) {
+  .imageBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 }
