@@ -10,6 +10,7 @@ import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import ProductInfoMweb from "../ProductInfoMweb";
 import ProductInfoDweb from "../ProductInfoDweb";
+import UspBlock from "@/components/ContentBlocks/UspBlock";
 import styles from "../productDetail.module.css";
 
 function ProductBlock({
@@ -21,6 +22,7 @@ function ProductBlock({
   toastMsg,
   setShowToast,
 }) {
+  console.log(productData, '!!')
   const router = useRouter();
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
@@ -35,6 +37,8 @@ function ProductBlock({
   const textColor = "var(--color-secondary)";
   const btnText = "Add To Quote Basket";
   const productInfo = productData?.acf?.product__data;
+  const uspDataArry = productData?.acf?.content_blocks?.length;
+  const uspData = uspDataArry ? productData?.acf?.content_blocks[0] : {}
   const productInfoCategories = productInfo?.map((e) => {
     return e?.title;
   });
@@ -119,6 +123,7 @@ function ProductBlock({
               </section>
             </section>
           </section>
+          <UspBlock trayData={uspData} />
         </section>
       </section>
       <section className={styles.productInfoCont}>

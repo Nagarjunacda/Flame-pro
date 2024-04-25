@@ -4,7 +4,8 @@ import { useMediaQuery } from "react-responsive";
 import styles from "./uspblock.module.css";
 
 const UspBlock = ({ trayData }) => {
-  const uspItems = trayData.usp_block_repeater;
+  console.log(trayData, '!! tr')
+  const uspItems = trayData?.usp_block_repeater;
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
 
   return (
