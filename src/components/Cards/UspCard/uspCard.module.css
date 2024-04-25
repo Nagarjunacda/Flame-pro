@@ -1,0 +1,15 @@
+.mainCont{
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 26px;
+}
+.innerBlock{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.boldText{
+    font-weight: var(--font-wt-bold);
+}

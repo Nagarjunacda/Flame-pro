@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import UspCard from "@/components/Cards/UspCard";
 import TitleAndTextCard from "@/components/Cards/TitleAndTextCard";
 import CaseStudyCard from "@/components/Cards/CaseStudyCard";
 import TestimonialCard from "@/components/Cards/TestimonialCard";
@@ -15,7 +16,7 @@ function SliderComp({ data, title, slidesToShow }) {
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
-  const hideDotsArr = ["testimonial", "Recently Viewed"];
+  const hideDotsArr = ["testimonial", "Recently Viewed", "Usp Block"];
   const isDotsHidden = hideDotsArr.includes(title);
   const noSlidesToShow = slidesToShow;
   const showArrows = title === "testimonial" || title === 'Recently Viewed';
@@ -32,11 +33,13 @@ function SliderComp({ data, title, slidesToShow }) {
 
   const settings = {
     dots: isDesktop || isDotsHidden ? false : true,
-    infinite: false,
+    infinite: title === 'Usp Block' ? true : false,
     speed: 500,
     slidesToShow: isDesktop ? noSlidesToShow : 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: title === 'Usp Block' ? true : false,
+    autoplaySpeed: 3000,
     customPaging: (i) => (
       <span
         className={`${styles["custom-dot"]} ${i === currentSlide ? styles.active : ""
@@ -67,6 +70,8 @@ function SliderComp({ data, title, slidesToShow }) {
         );
       case "four_category_blocks":
         return <FourCategoryCard data={item} />;
+      case "Usp Block":
+        return <UspCard data={item} />;
       case "Recently Viewed":
         return <RecentlyViewedCard data={item} />;
     }
