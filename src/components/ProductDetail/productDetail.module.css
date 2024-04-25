@@ -52,8 +52,16 @@
 .mainImg {
   position: relative;
   width: 100%;
-  /* height: auto; */
-  max-height: 340px;
+  height: auto;
+  /* max-height: 340px; */
+}
+@media (min-width: 900px) {
+  .mainImg {
+    position: relative;
+    width: 100%;
+    /* height: auto; */
+    max-height: 340px;
+  }
 }
 .magnifier {
   position: absolute;
