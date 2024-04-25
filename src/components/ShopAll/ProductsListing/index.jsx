@@ -13,6 +13,8 @@ import styles from "../shopAll.module.css";
 function ProductsListing({ productsData, megaMenuData }) {
   const router = useRouter();
   const { route, query } = router;
+  const { slug } = query;
+  console.log(slug, '!!')
   const isFromShopAll = route === '/shop';
   const { headerConData } = useHeaderData();
   const megaMenuProducts = headerConData?.items
@@ -55,11 +57,12 @@ function ProductsListing({ productsData, megaMenuData }) {
     const getProductData = async () => {
       const categoryurl = `${productsUrl}?category=${category}`;
       const allProductsUrl = !isFromShopAll ? `${productsUrl}?category=${megaMenuClickedProduct}&per_page=${itemsNumber}&page=${selectedPageNum}` : `${productsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`
-      const url = filteredArray.length
-        ? `${filtersUrl}&per_page=${itemsNumber}&page=${selectedPageNum}`
-        : category
-          ? categoryurl
-          : allProductsUrl;
+      const url = !isFromShopAll && filteredArray.length ? `${filtersUrl}&product_cat=${slug}&per_page=${itemsNumber}&page=${selectedPageNum}` :
+        filteredArray.length
+          ? `${filtersUrl}&per_page=${itemsNumber}&page=${selectedPageNum}`
+          : category
+            ? categoryurl
+            : allProductsUrl;
       const { data, error, headers } = await handleServerSideProps(url);
       const totalNoOfPages = headers["x-wp-totalpages"];
       setProducts(data);
