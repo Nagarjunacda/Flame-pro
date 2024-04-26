@@ -11,8 +11,8 @@
 }
 @media(min-width:900px){
     .cardImg{
-        min-height: 420px;
-        max-height: 420px; 
+        min-height: 280px;
+        max-height: 280px; 
     }
 }
 .text{

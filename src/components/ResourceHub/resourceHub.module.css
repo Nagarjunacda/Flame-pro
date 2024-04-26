@@ -7,6 +7,11 @@
   width: 100%;
   gap: 32px;
 }
+@media(min-width:900px){
+  .mainCont{
+    flex-direction: row;
+  }
+}
 .products {
     width: 100%;
     height: auto;
@@ -183,4 +188,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 3px;
+  }
+  .listingCont{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  @media(min-width:1280px){
+    .listingCont{
+      gap: 48px;
+    }
   }
