@@ -19,7 +19,6 @@ function ResourceHubFiltersDweb({
     const closeBtnSrc = "/Images/closeImg.png";
 
     const handleItemClick = async (item) => {
-        console.log(item, itemsArray, '!! ite')
         const isFilterUnchecked = itemsArray.some(
             (filter) => filter?.name === item?.name
         );
