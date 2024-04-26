@@ -19,8 +19,7 @@ function ResourceHubFilters({ setItemsNumbers, setSelectedPageNum }) {
                 for (let key in data) {
                     filteredData.push({ name: key, data: data[key] });
                 }
-                console.log(filteredData, '!!')
-                setResourceFiltersData(filteredData)
+                setResourceFiltersData(filteredData);
             }
         }
         getFilterData()

@@ -19,7 +19,7 @@ function ResourceHubListing({ listingData }) {
     const [selectedPageNum, setSelectedPageNum] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDropdown2, setShowDropdown2] = useState(false);
-    const [filtersUrl, setFiltersUrl] = useState('')
+    const [filtersUrl, setFiltersUrl] = useState('');
     const [posts, setPosts] = useState([]);
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const arrowSrc = "/Images/bottomGreyArrow.svg";
@@ -118,167 +118,168 @@ function ResourceHubListing({ listingData }) {
     };
 
     return <section className={styles.mainCont}>
-        <ResourceHubFilters setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} />
         {/* <section className={styles.filterCont}>
             <ResourceFilters mainCatFilter={mainCatFilter} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section> */}
-        <section className={styles.listingCont}>
-            {!isPostsEmpty && <section className={styles.pagesCont}>
-                <section
-                    className={styles.showBlock}
-                    onClick={handleBottomBtn}
-                    role="button"
-                    tabIndex="0"
-                    id="scrollId"
-                >
-                    <section className={styles.showText}>
-                        <p className={styles.show}>Show:</p>
-                        <p className={styles.itemNum}>{itemsNumber}</p>
-                    </section>
-                    <section className={styles.downArrow}>
-                        <FlameImage src={arrowSrc} alt="icon" />
-                    </section>
-                    {showDropdown && (
-                        <section ref={showNoOfItemsRef} className={styles.dropDown}>
-                            {numberArr.map((e, index) => {
-                                return (
-                                    <section
-                                        key={index}
-                                        className={styles.showItems}
-                                        onClick={() => {
-                                            handleNoOfProducts(e);
-                                        }}
-                                    >
-                                        {e} items
-                                    </section>
-                                );
-                            })}
-                        </section>
-                    )}
+        {!isPostsEmpty && <section className={styles.pagesCont}>
+            <section
+                className={styles.showBlock}
+                onClick={handleBottomBtn}
+                role="button"
+                tabIndex="0"
+                id="scrollId"
+            >
+                <section className={styles.showText}>
+                    <p className={styles.show}>Show:</p>
+                    <p className={styles.itemNum}>{itemsNumber}</p>
                 </section>
-                <section className={styles.pageNumCont}>
-                    {totalPages != 1 && (
-                        <section
-                            className={styles.arrows}
-                            onClick={() => {
-                                handlePageSelection("left");
-                            }}
-                        >
-                            <FlameImage src={leftArrowSrc} alt="icon" />
-                        </section>
-                    )}
-                    {pageNumbers?.map((num, index) => {
-                        return (
-                            <section
-                                key={index}
-                                className={
-                                    selectedPageNum === index + 1
-                                        ? styles.pageNumHighlighted
-                                        : styles.pageNum
-                                }
-                            >
-                                <span
-                                    className={styles.numText}
+                <section className={styles.downArrow}>
+                    <FlameImage src={arrowSrc} alt="icon" />
+                </section>
+                {showDropdown && (
+                    <section ref={showNoOfItemsRef} className={styles.dropDown}>
+                        {numberArr.map((e, index) => {
+                            return (
+                                <section
                                     key={index}
+                                    className={styles.showItems}
                                     onClick={() => {
-                                        handlePageSelection(num);
+                                        handleNoOfProducts(e);
                                     }}
                                 >
-                                    {num}
-                                </span>
-                            </section>
-                        );
-                    })}
-                    {selectedPageNum != totalPages && (
+                                    {e} items
+                                </section>
+                            );
+                        })}
+                    </section>
+                )}
+            </section>
+            <section className={styles.pageNumCont}>
+                {totalPages != 1 && (
+                    <section
+                        className={styles.arrows}
+                        onClick={() => {
+                            handlePageSelection("left");
+                        }}
+                    >
+                        <FlameImage src={leftArrowSrc} alt="icon" />
+                    </section>
+                )}
+                {pageNumbers?.map((num, index) => {
+                    return (
                         <section
-                            className={styles.arrows}
-                            onClick={() => {
-                                handlePageSelection("right");
-                            }}
+                            key={index}
+                            className={
+                                selectedPageNum === index + 1
+                                    ? styles.pageNumHighlighted
+                                    : styles.pageNum
+                            }
                         >
-                            <FlameImage src={rightArrowSrc} alt="icon" />
+                            <span
+                                className={styles.numText}
+                                key={index}
+                                onClick={() => {
+                                    handlePageSelection(num);
+                                }}
+                            >
+                                {num}
+                            </span>
                         </section>
-                    )}
-                </section>
-            </section>}
+                    );
+                })}
+                {selectedPageNum != totalPages && (
+                    <section
+                        className={styles.arrows}
+                        onClick={() => {
+                            handlePageSelection("right");
+                        }}
+                    >
+                        <FlameImage src={rightArrowSrc} alt="icon" />
+                    </section>
+                )}
+            </section>
+        </section>}
+        <section className={styles.listingCont}>
+            <ResourceHubFilters setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} />
             {isPostsEmpty ? <h3>No Posts Found</h3> : <section className={styles.products}>
                 {posts?.map((product, index) => {
                     return <TitleAndTextCard key={index} data={product} />
                 })}
             </section>}
-            {!isPostsEmpty && <section className={styles.pagesCont}>
-                <section className={styles.showBlock} onClick={handleBottomBtn2}>
-                    <section className={styles.showText}>
-                        <p className={styles.show}>Show:</p>
-                        <p className={styles.itemNum}>{itemsNumber}</p>
-                    </section>
-                    <section className={styles.downArrow}>
-                        <FlameImage src={arrowSrc} alt="icon" />
-                    </section>
-                    {showDropdown2 && (
-                        <section ref={showNoOfItemsRef} className={styles.dropDown}>
-                            {numberArr.map((e, index) => {
-                                return (
-                                    <section
-                                        key={index}
-                                        className={styles.showItems}
-                                        onClick={() => {
-                                            handleNoOfProducts(e);
-                                        }}
-                                    >
-                                        {e} items
-                                    </section>
-                                );
-                            })}
-                        </section>
-                    )}
+
+        </section>
+        {!isPostsEmpty && <section className={styles.pagesCont}>
+            <section className={styles.showBlock} onClick={handleBottomBtn2}>
+                <section className={styles.showText}>
+                    <p className={styles.show}>Show:</p>
+                    <p className={styles.itemNum}>{itemsNumber}</p>
                 </section>
-                <section className={styles.pageNumCont}>
-                    {totalPages != 1 && (
-                        <section
-                            className={styles.arrows}
-                            onClick={() => {
-                                handlePageSelection("left");
-                            }}
-                        >
-                            <FlameImage src={leftArrowSrc} alt="icon" />
-                        </section>
-                    )}
-                    {pageNumbers?.map((num, index) => {
-                        return (
-                            <section
-                                key={index}
-                                className={
-                                    selectedPageNum === index + 1
-                                        ? styles.pageNumHighlighted
-                                        : styles.pageNum
-                                }
-                            >
-                                <span
-                                    className={styles.numText}
+                <section className={styles.downArrow}>
+                    <FlameImage src={arrowSrc} alt="icon" />
+                </section>
+                {showDropdown2 && (
+                    <section ref={showNoOfItemsRef} className={styles.dropDown}>
+                        {numberArr.map((e, index) => {
+                            return (
+                                <section
                                     key={index}
+                                    className={styles.showItems}
                                     onClick={() => {
-                                        handlePageSelection(num);
+                                        handleNoOfProducts(e);
                                     }}
                                 >
-                                    {num}
-                                </span>
-                            </section>
-                        );
-                    })}
-                    {selectedPageNum != totalPages && (
+                                    {e} items
+                                </section>
+                            );
+                        })}
+                    </section>
+                )}
+            </section>
+            <section className={styles.pageNumCont}>
+                {totalPages != 1 && (
+                    <section
+                        className={styles.arrows}
+                        onClick={() => {
+                            handlePageSelection("left");
+                        }}
+                    >
+                        <FlameImage src={leftArrowSrc} alt="icon" />
+                    </section>
+                )}
+                {pageNumbers?.map((num, index) => {
+                    return (
                         <section
-                            className={styles.arrows}
-                            onClick={() => {
-                                handlePageSelection("right");
-                            }}
+                            key={index}
+                            className={
+                                selectedPageNum === index + 1
+                                    ? styles.pageNumHighlighted
+                                    : styles.pageNum
+                            }
                         >
-                            <FlameImage src={rightArrowSrc} alt="icon" />
+                            <span
+                                className={styles.numText}
+                                key={index}
+                                onClick={() => {
+                                    handlePageSelection(num);
+                                }}
+                            >
+                                {num}
+                            </span>
                         </section>
-                    )}
-                </section>
-            </section>}
-        </section>
+                    );
+                })}
+                {selectedPageNum != totalPages && (
+                    <section
+                        className={styles.arrows}
+                        onClick={() => {
+                            handlePageSelection("right");
+                        }}
+                    >
+                        <FlameImage src={rightArrowSrc} alt="icon" />
+                    </section>
+                )}
+            </section>
+        </section>}
     </section>
 }
 export default ResourceHubListing

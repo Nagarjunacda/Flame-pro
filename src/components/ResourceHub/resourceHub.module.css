@@ -7,11 +7,6 @@
   width: 100%;
   gap: 32px;
 }
-@media(min-width:900px){
-  .mainCont{
-    flex-direction: row;
-  }
-}
 .products {
     width: 100%;
     height: auto;
@@ -193,6 +188,12 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+  }
+  @media(min-width:900px){
+    .listingCont{
+      gap: 48px;
+      flex-direction: row;
+    }
   }
   @media(min-width:1280px){
     .listingCont{
