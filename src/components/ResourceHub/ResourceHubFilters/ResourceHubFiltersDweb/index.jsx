@@ -9,6 +9,8 @@ function ResourceHubFiltersDweb({
     setSelectedFilterArr,
     setSelectedPageNum,
     setItemsNumbers,
+    mainCatFilter,
+    setMainCatFilter
 }) {
     const [isChecked, setIsChecked] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
@@ -19,6 +21,14 @@ function ResourceHubFiltersDweb({
     const closeBtnSrc = "/Images/closeImg.png";
 
     const handleItemClick = async (item) => {
+        if (item?.slug === 'fire' || item?.slug === 'defence') {
+            if (mainCatFilter === item?.slug) {
+                setMainCatFilter('');
+                return;
+            }
+            setMainCatFilter(item?.slug)
+            return
+        }
         const isFilterUnchecked = itemsArray.some(
             (filter) => filter?.name === item?.name
         );
@@ -97,7 +107,7 @@ function ResourceHubFiltersDweb({
                                     {category?.data?.map((categoryTitle, index) => {
                                         const isItemChecked = itemsArray?.some(
                                             (item) => item.name === categoryTitle?.name
-                                        );
+                                        ) || categoryTitle?.slug === mainCatFilter;
                                         return (
                                             <section
                                                 key={index}
