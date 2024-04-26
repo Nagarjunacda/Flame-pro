@@ -24,7 +24,7 @@ function ResourceHubFilters({ setItemsNumbers, setSelectedPageNum, mainCatFilter
         }
         getFilterData()
     }, [])
-    return <>{isDesktop ? <ResourceHubFiltersDweb setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} /> : <ResourceHubFiltersMweb setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} />}</>
+    return <>{isDesktop ? <ResourceHubFiltersDweb setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} /> : <ResourceHubFiltersMweb setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedFilterArr={setSelectedFilterArr} />}</>
 
     // return <>{isDesktop ? <ResourceHubFiltersDweb products={products} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} getFilteredProducts={getFilteredProducts} /> : <ResourceHubFiltersMweb filtersData={resourceFiltersData} getFilteredProducts={getFilteredProducts} />}</>
 }

@@ -4,7 +4,7 @@ import FlameBtn from "@/reusbleComponents/FlameBtn";
 import CheckBoxWithText from "@/components/SignUpForm/CheckBoxWithText";
 import styles from './resourceHubFiltersMweb.module.css';
 
-function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, setItemsNumbers, setSelectedPageNum }) {
+function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, mainCatFilter, setMainCatFilter, setItemsNumbers, setSelectedPageNum }) {
     const [showFilters, setShowFilters] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
     const [isChecked, setIsChecked] = useState(false);
@@ -24,6 +24,14 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, setItemsNum
     };
 
     const handleItemClick = async (item) => {
+        if (item?.slug === 'fire' || item?.slug === 'defence') {
+            if (mainCatFilter === item?.slug) {
+                setMainCatFilter('');
+                return;
+            }
+            setMainCatFilter(item?.slug)
+            return
+        }
         const isFilterUnchecked = itemsArray.some(
             (filter) => filter?.slug === item?.slug
         );
@@ -84,7 +92,7 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, setItemsNum
                                     {category?.data?.map((categoryTitle, index) => {
                                         const isItemChecked = itemsArray?.some(
                                             (item) => item.slug === categoryTitle?.slug
-                                        );
+                                        ) || categoryTitle?.slug === mainCatFilter;
                                         return (
                                             <section
                                                 key={index}
