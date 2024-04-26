@@ -6,6 +6,7 @@ import styles from '../resourceHubFilters.module.css';
 function ResourceHubFiltersDweb({
     filtersData,
     // getFilteredProducts,
+    setSelectedFilterArr,
     setSelectedPageNum,
     setItemsNumbers,
 }) {
@@ -18,21 +19,25 @@ function ResourceHubFiltersDweb({
     const closeBtnSrc = "/Images/closeImg.png";
 
     const handleItemClick = async (item) => {
+        console.log(item, itemsArray, '!! ite')
         const isFilterUnchecked = itemsArray.some(
-            (filter) => filter?.title === item?.name
+            (filter) => filter?.name === item?.name
         );
         let updatedArray;
 
         if (isFilterUnchecked) {
             updatedArray = itemsArray.filter(
-                (filter) => filter?.title !== item?.name
+                (filter) => filter?.name !== item?.name
             );
         } else {
             updatedArray = [...itemsArray, item];
         }
         setItemsArray(updatedArray);
-        getFilteredProducts(updatedArray);
+        // getFilteredProducts(updatedArray);
+        setSelectedFilterArr(updatedArray);
         setSelectedItem(item);
+        setSelectedPageNum(1);
+        setItemsNumbers(10);
     };
 
     const handleAccorClick = (category) => {
@@ -92,7 +97,7 @@ function ResourceHubFiltersDweb({
                                 <section className={styles.categorySection}>
                                     {category?.data?.map((categoryTitle, index) => {
                                         const isItemChecked = itemsArray?.some(
-                                            (item) => item.title === categoryTitle?.name
+                                            (item) => item.name === categoryTitle?.name
                                         );
                                         return (
                                             <section
