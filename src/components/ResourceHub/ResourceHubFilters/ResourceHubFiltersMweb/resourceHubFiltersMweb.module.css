@@ -1,0 +1,115 @@
+.mainCont{
+display: flex;
+height: auto;
+width: 100%;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 16px;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    gap: 8px;
+    background-color: var(--color-primary);
+    transform: skew(-20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 0px;
+}
+.filter{
+    color: var(--color-secondary);
+    transform: skew(20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+    letter-spacing: 1px;
+}
+.img{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    transform: skew(20deg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.filterSec{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.filtersCategory{
+    display: flex;
+    gap:28px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--color-navItemBorder);
+    padding-top: 24px;
+}
+.filterTitle{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.categorySection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+.btnStyle{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 12px;
+    width: 60%;
+    height: 48px;
+}
+.submitSec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.headBtnSec{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+@media(min-width:900px){
+    .headBtnSec{
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+}
+.iconSty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+}
+.clearTxt{
+    font-size: var(--font-size-xs-ext);
+    letter-spacing: 1px;
+    border-bottom: 1px solid black;
+}

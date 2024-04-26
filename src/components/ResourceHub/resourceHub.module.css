@@ -2,9 +2,15 @@
   padding: var(--padding-18) var(--padding-xs-36);
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
   width: 100%;
   gap: 32px;
+}
+@media(min-width:900px){
+  .mainCont{
+    flex-direction: row;
+  }
 }
 .products {
     width: 100%;

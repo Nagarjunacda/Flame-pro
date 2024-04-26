@@ -52,7 +52,7 @@ function ResourceHubFiltersDweb({
     const handleClearSelections = () => {
         setItemsArray([]);
         setCategoryArr([]);
-        getFilteredProducts([]);
+        setSelectedFilterArr([]);
         setSelectedPageNum(1);
         setItemsNumbers(10);
         // setMainCatFilter('');

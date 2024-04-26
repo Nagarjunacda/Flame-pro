@@ -24,7 +24,7 @@ function ResourceHubFilters({ setItemsNumbers, setSelectedPageNum, setSelectedFi
         }
         getFilterData()
     }, [])
-    return <ResourceHubFiltersDweb setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} />
+    return <>{isDesktop ? <ResourceHubFiltersDweb setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} /> : <ResourceHubFiltersMweb setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} setSelectedFilterArr={setSelectedFilterArr} />}</>
 
     // return <>{isDesktop ? <ResourceHubFiltersDweb products={products} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} filtersData={resourceFiltersData} getFilteredProducts={getFilteredProducts} /> : <ResourceHubFiltersMweb filtersData={resourceFiltersData} getFilteredProducts={getFilteredProducts} />}</>
 }
