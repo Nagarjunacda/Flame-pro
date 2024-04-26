@@ -10,6 +10,7 @@ import { useMediaQuery } from "react-responsive";
 import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
+import { head } from "lodash";
 
 function FireFighterppe({
   selectedNavItem,
@@ -132,8 +133,8 @@ function FireFighterppe({
                   heading === "Defence Procurement"
                     ? `/${item?.slug}`
                     : heading === "Resource Hub"
-                      ? `/resource-hub/${item.slug}`
-                      : "#";
+                      ? `/resource-hub/${item.slug}` : heading === 'About' ? `/about/${item.slug}`
+                        : "#";
                 return (
                   <section key={index} className={styles.childCont}>
                     <Link
