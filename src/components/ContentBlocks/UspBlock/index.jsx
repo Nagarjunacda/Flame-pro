@@ -3,14 +3,14 @@ import SliderComp from "@/reusbleComponents/SliderComp";
 import { useMediaQuery } from "react-responsive";
 import styles from "./uspblock.module.css";
 
-const UspBlock = ({ trayData }) => {
+const UspBlock = ({ trayData, isFromProductPage }) => {
   const uspItems = trayData?.usp_block_repeater;
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
 
   return (
     <>
       {isDesktop ? <section className={styles.usbpblockMain}>
-        <div className={styles.uspblock}>
+        <div className={isFromProductPage ? styles.uspblockPdpPage : styles.uspblock}>
           {uspItems?.map((item, index) => (
             <div
               key={index}

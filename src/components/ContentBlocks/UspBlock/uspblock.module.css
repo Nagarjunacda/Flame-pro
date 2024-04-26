@@ -16,6 +16,30 @@
   height: 34px;
   padding-right: 35px;
 }
+.uspblockPdpPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  overflow-x: auto; /* Horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+}
+.uspblockPdpPage p {
+  font-size: var(--font-size-xs-ext);
+  margin-bottom: 0;
+  font-family: "CustomFont-Regular", sans-serif;
+  text-wrap: wrap;
+}
+.uspblockPdpPage img {
+  width: 20px;
+  height: 20px;
+  padding-right: 16px;
+}
+@media(min-width:900px){
+  .uspblockPdpPage{
+    padding-right: 20px;
+  }
+}
 .boldText {
   font-family: "CustomFont-Black", sans-serif;
 }

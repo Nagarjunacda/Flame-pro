@@ -122,7 +122,7 @@ function ProductBlock({
               </section>
             </section>
           </section>
-          <UspBlock trayData={uspData} />
+          <UspBlock trayData={uspData} isFromProductPage />
         </section>
       </section>
       <section className={styles.productInfoCont}>
