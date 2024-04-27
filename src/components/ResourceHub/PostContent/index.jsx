@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ReactPlayer from 'react-player'
@@ -13,6 +13,7 @@ function PostContent({ trayData, fullPageData }) {
     const router = useRouter();
     const { query } = router;
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [showControls, setShowControls] = useState(true);
     const [playing, setPlaying] = useState(false);
     const backArrowSrc = '/Images/leftGreyArrow.svg';
     const facebookIcon = '/Images/facebookIcon.svg';
@@ -21,6 +22,8 @@ function PostContent({ trayData, fullPageData }) {
     const linkedInIcon = '/Images/linkedinBlack.svg';
     const plusIcon = '/Images/plusIconBlack.svg';
     const playBtnSrc = '/Images/playIcon.svg';
+    const pauseBtnSrc = '/Images/pauseIcon.svg';
+    const videoUrl = fullPageData?.acf?.video_post_url ? fullPageData?.acf?.video_post_url : 'https://vimeo.com/910793857';
     const logoArr = [{ name: 'facebook', src: facebookIcon, url: 'https://www.facebook.com/sharer/sharer.php?u=' }, { name: 'twitter', src: twitterIcon, url: 'https://twitter.com/intent/tweet?url=&text=' }, { name: 'linkedin', src: linkedInIcon, url: 'https://www.linkedin.com/shareArticle?url=' }, { name: 'plus', src: plusIcon, url: '' }];
     const contentHeading = fullPageData?.title?.rendered;
     const pageContent = fullPageData?.content?.rendered;
@@ -43,6 +46,42 @@ function PostContent({ trayData, fullPageData }) {
     const closePopup = () => {
         setIsPopupOpen(false);
     }
+
+    useEffect(() => {
+        let timeout;
+        if (playing && showControls) {
+            timeout = setTimeout(() => {
+                setShowControls(false);
+            }, 3000);
+        }
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [playing, showControls]);
+
+    const handleMouseMove = () => {
+        if (!showControls) {
+            setShowControls(true);
+        }
+        if (playing) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                setShowControls(false);
+            }, 3000);
+        }
+    };
+
+    let timeout;
+    const handlePlayPause = () => {
+        setPlaying(!playing);
+        if (!showControls) {
+            setShowControls(true);
+        }
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            setShowControls(false);
+        }, 3000);
+    };
 
     return <section className={styles.mainCont}>
         <section className={styles.btnShareSec}>
@@ -67,18 +106,22 @@ function PostContent({ trayData, fullPageData }) {
         </section>
         <section className={styles.contentSection}>
             <h3>{contentHeading}</h3>
-            <section className={styles.playerSec}>
+            <section className={styles.playerSec} onMouseMove={handleMouseMove}>
                 <section className={styles.videoWrapper}>
-                    <ReactPlayer url='https://www.youtube.com/watch?v=tRBjFmt3sV8&modestbranding=1'
+                    <ReactPlayer url={videoUrl}
                         controls={false}
                         width="100%"
                         height='100%'
                         playing={playing}
                     />
                 </section>
-                {/* <section className={styles.videoIcon} onClick={() => { setPlaying(!playing) }}>
-                    <FlameImage src={playBtnSrc} alt='play' />
-                </section> */}
+                {showControls && (
+                    <section className={styles.playPauseBorder} onClick={handlePlayPause}>
+                        <section className={styles.videoIcon}>
+                            <FlameImage src={playing ? pauseBtnSrc : playBtnSrc} alt='play' />
+                        </section>
+                    </section>
+                )}
             </section>
             <p>{renderHTML(pageContent)}</p>
             <section className={styles.btnSection}>

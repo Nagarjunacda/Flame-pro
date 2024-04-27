@@ -104,6 +104,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
 }
 .videoWrapper {
     position: relative;
@@ -118,4 +120,29 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+  .playPauseBorder{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: solid 2px var(--color-secondary);
+  }
+  @media(min-width:600px){
+    .playPauseBorder{
+        width: 60px;
+        height: 60px;
+    }
+  }
+  @media(min-width:1680px){
+    .playPauseBorder{
+        width: 84px;
+        height: 84px;
+    }
   }
