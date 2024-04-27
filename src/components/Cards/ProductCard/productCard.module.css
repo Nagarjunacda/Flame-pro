@@ -6,6 +6,9 @@
 }
 .cardImg{
     border-radius: 0px;
+    min-height: 280px;
+    max-height: 280px;
+    object-fit: contain;
 }
 .cardBody{
     display: flex;
