@@ -59,7 +59,7 @@ function ResourceHubListing({ listingData }) {
             const typeCatParam = mainCatFilter ? `&type_cat=${mainCatFilter}` : ''
             const categoryParam = isCategory ? `&category=${isCategory}` : '';
             const applicationParam = isApplication ? `&application=${isApplication}` : '';
-            const industryParam = isIndustry ? `&application=${isIndustry}` : '';
+            const industryParam = isIndustry ? `&industry=${isIndustry}` : '';
             const isFiltersApplied = mainCatFilter || isCategory || isApplication || isIndustry;
             const allProductsUrl = `${blogPostsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`;
             const url = isFiltersApplied ? `${resourceFiltersUrl}?per_page=${itemsNumber}&page=${selectedPageNum}${typeCatParam}${categoryParam}${applicationParam}${industryParam}` : allProductsUrl;
@@ -202,7 +202,7 @@ function ResourceHubListing({ listingData }) {
                     )}
                 </section>
             </section>}
-            {isPostsEmpty ? <h3>No Posts Found</h3> : <section className={styles.products}>
+            {isPostsEmpty ? <h3 className={styles.noPostText}>No Posts Found</h3> : <section className={styles.products}>
                 {posts?.map((product, index) => {
                     return <TitleAndTextCard key={index} data={product} />
                 })}
