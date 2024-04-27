@@ -18,7 +18,8 @@ function TitleAndTextCard({ data }) {
   const postType = post_type_cat ? post_type_cat[0]?.name : data?.type_cat ? data?.type_cat : 'Fire';
   const formattedDate = formatDate(date);
   // const url = `resource-hub/${data?.slug}`
-  const url = isFromCategory ? `/resource-hub/${slug}/${data?.title?.slug}` : `resource-hub/${data?.slug}`;
+  const mainSlug = data?.title?.slug || data?.slug;
+  const url = isFromCategory ? `/resource-hub/${slug}/${mainSlug}` : `resource-hub/${mainSlug}`;
 
   return (
     <Card className={styles.cardCont}>
