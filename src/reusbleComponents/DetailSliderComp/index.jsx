@@ -6,7 +6,7 @@ import FourCategoryCard from '@/components/Cards/FourCategoryCard'
 import { useMediaQuery } from 'react-responsive'
 import styles from '../../styles/defaultSlider.module.css'
 
-function DetailSliderComp({ data, setSelectedImage }) {
+function DetailSliderComp({ data, setSelectedImage, isFromResourceHub }) {
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [selImgIndex, setSelImgIndex] = useState(0);
@@ -59,7 +59,7 @@ function DetailSliderComp({ data, setSelectedImage }) {
                         return (
                             <section key={index} className={styles.slideWrapper} onClick={() => { handleItemClick(item, index) }}>
                                 <section className={index === selImgIndex ? styles.selectedImgCont : styles.imageCont}>
-                                    <FourCategoryCard data={item} blockTitle />
+                                    <FourCategoryCard data={item} blockTitle isFromResourceHub={isFromResourceHub} />
                                 </section>
                             </section>
                         );

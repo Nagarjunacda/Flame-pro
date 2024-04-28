@@ -30,7 +30,7 @@ function ProductDetailPage(props) {
     const fireFighterSlugs = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.map((e) => {
         return e?.slug
     })
-    const isProducts = fireFighterSlugs.includes(slug);
+    const isProducts = fireFighterSlugs?.includes(slug);
 
     useEffect(() => {
         setIsFromMenu({ isFromMenu: true, category: objectId })
