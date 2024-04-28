@@ -10,7 +10,6 @@ import { useMediaQuery } from "react-responsive";
 import Search from "@/components/Search";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import styles from "./fireFighterppe.module.css";
-import { head } from "lodash";
 
 function FireFighterppe({
   selectedNavItem,
@@ -146,7 +145,7 @@ function FireFighterppe({
                           handleOverlayClose("item");
                         }
                       }}
-                      style={{ cursor: heading === "Defence Procurement" || heading === "Resource Hub" ? 'pointer' : "auto" }}
+                      style={{ cursor: heading === "Defence Procurement" || heading === "Resource Hub" || heading === 'About' ? 'pointer' : "auto" }}
                     >
                       <section
                         className={

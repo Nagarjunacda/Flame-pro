@@ -86,6 +86,12 @@
   font-size: var(--font-size-xs-ext);
   font-weight: var(--font-wt-normal);
 }
+@media(min-width:900px){
+  .innerChild{
+    text-wrap: wrap;
+    max-width: 110px;
+  }
+}
 .blogCard {
   display: flex;
   flex-direction: column;
