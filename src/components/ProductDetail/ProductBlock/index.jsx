@@ -28,6 +28,7 @@ function ProductBlock({
   const productName = productData?.name;
   const trayTitle = "productDetail";
   const imgArr = productData?.images;
+  console.log(imgArr, '!! img')
   const initailImage = imgArr && imgArr.length && imgArr[0]?.src;
   const [selectedImage, setSelectedImage] = useState(initailImage);
   const magnifierSrc = "/Images/magnifierLogo.svg";

@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 import ButtonStyleTwo from '@/reusbleComponents/ButtonStyleTwo';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
+import DetailSliderComp from '@/reusbleComponents/DetailSliderComp';
 import { renderHTML } from '@/utils/htmlString';
 import ReactShareComp from '@/reusbleComponents/ReactShareComp';
 import styles from './postContent.module.css';
@@ -14,6 +15,9 @@ function PostContent({ trayData, fullPageData }) {
     const { query } = router;
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [showControls, setShowControls] = useState(true);
+    const imgArr = [{ name: '640/645 Challenger Firefighter Suit Front', src: "https://cms.cdastagging.com/wp-content/uploads/2024/04/640_645_Full-Suit_GOL_FrontAngle.webp" }, { name: "640/645 Challenger Firefighter Suit Back", src: "https://cms.cdastagging.com/wp-content/uploads/2024/04/640_645_Full-Suit_GOL_Back.webp" }, { name: "640 Challenger Firefighter Jacket Front", src: "https://cms.cdastagging.com/wp-content/uploads/2024/04/640-VA1-AN1-GOL_FrontAngle.webp" }, { name: "640 Challenger Firefighter Jacket Back", src: "https://cms.cdastagging.com/wp-content/uploads/2024/04/640-VA1-AN1-GOL_BackAngle.webp" }, { name: "645 Challenger Firefighter Trousers Front", src: "https://cms.cdastagging.com/wp-content/uploads/2024/04/645-VA1-AN1-GOL_Trousers_FrontAngle.webp" }]
+    const initailImage = imgArr && imgArr.length && imgArr[0]?.src;
+    const [selectedImage, setSelectedImage] = useState(initailImage);
     const [playing, setPlaying] = useState(false);
     const backArrowSrc = '/Images/leftGreyArrow.svg';
     const facebookIcon = '/Images/facebookIcon.svg';
@@ -106,6 +110,23 @@ function PostContent({ trayData, fullPageData }) {
         </section>
         <section className={styles.contentSection}>
             <h3>{contentHeading}</h3>
+            <p>{renderHTML(pageContent)}</p>
+            <section className={styles.imageAndText}>
+                <section className={styles.imageBlock}>
+                    <section className={styles.mainImg}>
+                        <FlameImage src={selectedImage ? selectedImage : initailImage} alt={"productImg"} imageFit></FlameImage>
+                        {/* <section className={styles.magnifier}>
+                <FlameImage src={magnifierSrc} alt={"magnifier"}></FlameImage>
+              </section> */}
+                    </section>
+                    <section className={styles.sliderSection}>
+                        <DetailSliderComp
+                            data={imgArr}
+                            setSelectedImage={setSelectedImage}
+                        />
+                    </section>
+                </section>
+            </section>
             <section className={styles.playerSec} onMouseMove={handleMouseMove}>
                 <section className={styles.videoWrapper}>
                     <ReactPlayer url={videoUrl}
@@ -123,7 +144,6 @@ function PostContent({ trayData, fullPageData }) {
                     </section>
                 )}
             </section>
-            <p>{renderHTML(pageContent)}</p>
             <section className={styles.btnSection}>
                 {isPrevPost && <Link href={prevPostLink}><FlameBtn color={btnColor} text={'Previous Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} /></Link>}
                 {isNextPost && <Link href={nextPostLink}><FlameBtn color={btnColor} text={'Next Article'} textColor={textColor} isLoadState={false} btnFunction={handleBtnClick} /></Link>}
