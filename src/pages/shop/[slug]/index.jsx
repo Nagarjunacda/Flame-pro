@@ -4,6 +4,7 @@ import { useProductCatData } from "@/context/ProductCatContext";
 import ProductDetail from "@/components/ProductDetail";
 import { productDetailUrl } from "@/utils/urls";
 import { productsUrl } from "@/utils/urls";
+import { useHeaderData } from "@/context/headerContext";
 import { handleGetReqAuth } from "@/utils/handleServerSideData";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { productsCategoryCustomUrl } from "@/utils/urls";
@@ -13,18 +14,25 @@ const ShopAll = dynamic(() => import("@/components/ShopAll"));
 
 function ProductDetailPage(props) {
     const { prductCatData } = useProductCatData();
+    const { headerConData } = useHeaderData();
     const { slug } = props;
     const [listingData, setListingData] = useState([]);
     const [isFromMenu, setIsFromMenu] = useState({})
     const { data } = props;
     const productData = data && data[0];
     const objectId = prductCatData?.object_id;
-    const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'full-solutions', 'consumables', 'flash-hoods'];
-    const isProducts = arr.includes(slug);
+    const fireFighterArr = headerConData?.items?.filter((navItems) => {
+        return navItems?.slug === 'firefighting-ppe'
+    })
+    const fireFighterProducts = fireFighterArr && fireFighterArr.length && fireFighterArr[0]?.child_items?.filter((e) => {
+        return e?.title === "Products"
+    })
+    const fireFighterSlugs = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.map((e) => {
+        return e?.slug
+    })
+    const isProducts = fireFighterSlugs.includes(slug);
 
     useEffect(() => {
-        const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots', 'consumables', 'flash-hoods', 'full-solutions'];
-        const isProducts = arr.includes(slug);
         setIsFromMenu({ isFromMenu: true, category: objectId })
         // const objectId = prductCatData?.object_id;
         // const url = `${productsUrl}/?category=${objectId}`

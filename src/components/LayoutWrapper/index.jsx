@@ -22,25 +22,23 @@ function LayoutWrapper({ children }) {
   const { route, query } = router;
   const { isSpeakPopupOpen, setIsSpeakPopupOpen } = useSpeakToPopupState();
   const { footerContextData } = useFooterContextData();
-  const arr = [
-    "accessory-bundles",
-    "coveralls",
-    "jackets-trousers",
-    "gloves",
-    "full-suits-suits",
-    "helmets",
-    "boots",
-    "full-solutions",
-    "consumables",
-    "flash-hoods",
-  ];
   const [headerData, setHeaderData] = useState({});
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);
+
+  const fireFighterArr = headerData?.items?.filter((navItems) => {
+    return navItems?.slug === 'firefighting-ppe'
+  })
+  const fireFighterProducts = fireFighterArr && fireFighterArr.length && fireFighterArr[0]?.child_items?.filter((e) => {
+    return e?.title === "Products"
+  })
+  const fireFighterSlugs = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.map((e) => {
+    return e?.slug
+  })
   const relativeHeader =
-    relativeHeaderPaths.includes(route) && !arr.includes(query.slug);
+    relativeHeaderPaths.includes(route) && !fireFighterSlugs?.includes(query.slug);
   const isProductDetailPage =
-    route === "/shop/[slug]" && !arr.includes(query.slug);
+    route === "/shop/[slug]" && !fireFighterSlugs?.includes(query.slug);
   const contactEmail = footerContextData?.acf?.contact_email;
   const phone = footerContextData?.acf?.phone_no;
   const socialIcons = footerContextData?.acf?.social_icon_and_link;
@@ -106,8 +104,8 @@ function LayoutWrapper({ children }) {
                   scrolled
                     ? Styles.stickyHeader
                     : relativeHeader
-                    ? Styles.relativeHeader
-                    : Styles.header
+                      ? Styles.relativeHeader
+                      : Styles.header
                 }
               >
                 <Header
