@@ -3,7 +3,7 @@ import RenderTrays from "../RenderTrays";
 function AboutusCategory({ pageData }) {
     const { data } = pageData;
     const trayData = data && data?.length && data[0]?.acf?.content_blocks;
-    const additionalDataExt = data?.acf_fields;
+    const additionalDataExt = data && data?.length && data[0]?.acf_fields;
 
     return (
         <main>

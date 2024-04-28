@@ -40,7 +40,7 @@ function AboutTeamBlock({ trayData, aboutExt }) {
       <div className={styles.aboutBlockDiv}>
         <h3 className={styles.aboutBlockTitle}>{trayData?.title}</h3>
         <Row className="gx-3 gy-3 gx-lg-4 gx-xl-5 gy-xl-5">
-          {aboutExt.map((teamData, index) => (
+          {aboutExt?.map((teamData, index) => (
             <Col sm={6} lg={4} key={index}>
               <AboutTeamCard teamInfo={teamData} aboutExt={aboutExt} setShowPopup={setShowPopup} setSelectedMember={setSelectedMember} />
             </Col>

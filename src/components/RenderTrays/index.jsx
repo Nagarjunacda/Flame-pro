@@ -82,7 +82,7 @@ function RenderTrays({
       case "post_description":
         return <PostContent trayData={tray} fullPageData={fullPageData} />;
       case "related_products":
-        return <RelatedProductsblock trayData={tray} />;
+        return <RelatedProductsblock trayData={tray} additionalDataExt={additionalDataExt} />;
       case "textarea_block":
         return <TextAreaBlock trayData={tray} />;
       case "team_block":

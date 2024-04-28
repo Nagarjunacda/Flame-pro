@@ -4,8 +4,9 @@ import DetailSliderComp from '@/reusbleComponents/DetailSliderComp';
 import SliderComp from '@/reusbleComponents/SliderComp';
 import styles from './relatedProductsblock.module.css';
 
-function RelatedProductsblock({ trayData }) {
+function RelatedProductsblock({ trayData, additionalDataExt }) {
     // const sliderData = trayData?.products_select
+    const productsData = additionalDataExt?.products_select_ext;
     const sliderData = [{ featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }, { featured_image_url: "/Images/blogImg.svg", name: 'Fire Fighting Kit' }]
     return <section className={styles.mainCont}>
         <section className={styles.headingSec}>
@@ -20,7 +21,7 @@ function RelatedProductsblock({ trayData }) {
             </Link>
         </section>
         <section>
-            <SliderComp data={sliderData} title={'Recently Viewed'} slidesToShow={3} />
+            <SliderComp data={productsData} title={'Recently Viewed'} slidesToShow={3} />
         </section>
     </section>
 }
