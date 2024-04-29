@@ -21,6 +21,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const nonceVal = useContext(NonceContext);
     const router = useRouter();
     const dropdownRef = useRef(null);
+    const countryRef = useRef(null);
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [contactBy, setContactBy] = useState('Phone')
@@ -35,6 +36,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const [dateError, setDateError] = useState(false);
     const [timeError, setTimeError] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
+    const [countryDropdown, setCountryDropdown] = useState(false)
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const timeZoneVal = 'BST';
     const btnColor = "var(--color-primary)";
@@ -59,13 +61,16 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsDropDownOpen(false);
             }
+            if (countryRef.current && !countryRef.current.contains(event.target)) {
+                setCountryDropdown(false);
+            }
         }
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [dropdownRef]);
+    }, [dropdownRef, countryRef]);
 
     const handleDropdown = () => {
         setIsDropDownOpen(!isDropdownOpen);
@@ -269,7 +274,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                                     {areaOfInt}
                                 </section>
                             )}
-                            {fieldName.section1 === 'Phone Number*' && <CountrySelector />}
+                            {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} countryRef={countryRef} />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
                             )}

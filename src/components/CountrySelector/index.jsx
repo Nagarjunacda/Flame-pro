@@ -1,12 +1,12 @@
-import FlameImage from '@/reusbleComponents/FlameImage';
 import React, { useEffect, useState } from 'react';
+import FlameImage from '@/reusbleComponents/FlameImage';
 import Select from 'react-select';
 import styles from './reactFlags.module.css'
 
-function CountrySelector() {
+function CountrySelector({ countryDropdown, setCountryDropdown, countryRef }) {
     const [countryOptions, setCountryOptions] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
-    const [isDropdownOpen, setIsDropDownOpen] = useState(false);
+    // const [countryDropdown, setCountryDropdown] = useState(false);
     const downArrSrc = '/Images/flagArrow.svg';
 
     useEffect(() => {
@@ -34,15 +34,15 @@ function CountrySelector() {
     }, []);
 
     const handleCountrySel = () => {
-        if (isDropdownOpen) {
+        if (countryDropdown) {
             return
         }
-        setIsDropDownOpen(true)
+        setCountryDropdown(true)
     }
 
     const handleSelectedItem = (selectedOption) => {
         setSelectedCountry(selectedOption);
-        setIsDropDownOpen(false); // Close the dropdown when an option is selected
+        setCountryDropdown(false);
     };
 
     const countryRootCode = selectedCountry?.idd?.root || '';
@@ -60,16 +60,16 @@ function CountrySelector() {
                 <FlameImage src={downArrSrc} alt={'icon'} />
             </section>
             <section className={styles.codeBlock}><h5 className={styles.codeText}>{countryCode}</h5></section>
-            {isDropdownOpen &&
-                <section className={styles.countryDropDown}>
+            {countryDropdown &&
+                <section ref={countryRef} className={styles.countryDropDown}>
                     <Select
                         value={selectedCountry}
                         onChange={handleSelectedItem}
                         options={countryOptions}
                         // isSearchable={true}
                         placeholder="Select a country"
-                        menuIsOpen={isDropdownOpen}
-                    // onMenuClose={() => setIsDropDownOpen(false)}
+                        menuIsOpen={countryDropdown}
+                    // onMenuClose={() => setCountryDropdown(false)}
                     /> </section>}
 
         </section>
