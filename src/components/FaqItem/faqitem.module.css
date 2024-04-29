@@ -1,10 +1,18 @@
 .faqContentBlock {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
   padding: var(--padding-18) var(--padding-xs-36);
   width: 100%;
-  gap: 120px;
+ gap: 54px;
+}
+@media(min-width:900px){
+  .faqContentBlock{
+    flex-direction: row;
+    gap: 120px;
+    align-items: flex-start;
+  }
 }
 .accordion{
   width: 100%;
