@@ -357,6 +357,7 @@
 .calendarIcon{
   padding-bottom: 8px;
   display: inline-block;
+  cursor: pointer;
 }
 .formInput {
   position: relative;
