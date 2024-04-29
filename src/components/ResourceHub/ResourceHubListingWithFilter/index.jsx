@@ -26,6 +26,7 @@ function ResourceHubListingWithFilter({ listingData }) {
     const [selectedPageNum, setSelectedPageNum] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDropdown2, setShowDropdown2] = useState(false);
+    const [clearSelections, setClearSelections] = useState(false)
     const [filtersUrl, setFiltersUrl] = useState('');
     const [posts, setPosts] = useState([]);
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
@@ -43,10 +44,10 @@ function ResourceHubListingWithFilter({ listingData }) {
     //     setPosts(listingData);
     // }, [listingData]);
 
-    useEffect(() => {
-        const obj = { taxonomy: 'category', slug: finalResult }
-        setSelectedFilterArr([obj])
-    }, [slug])
+    // useEffect(() => {
+    //     const obj = { taxonomy: 'category', slug: finalResult }
+    //     setSelectedFilterArr([obj])
+    // }, [slug])
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -74,7 +75,7 @@ function ResourceHubListingWithFilter({ listingData }) {
             const industryParam = isIndustry ? `&industry=${isIndustry}` : '';
             const isFiltersApplied = mainCatFilter || isCategory || isApplication || isIndustry;
             const allProductsUrl = `${blogPostsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`;
-            if (!isFiltersApplied) {
+            if (!isFiltersApplied && !clearSelections) {
                 return
             }
             const url = isFiltersApplied ? `${resourceFiltersUrl}?per_page=${itemsNumber}&page=${selectedPageNum}${typeCatParam}${categoryParam}${applicationParam}${industryParam}` : allProductsUrl;
@@ -134,7 +135,7 @@ function ResourceHubListingWithFilter({ listingData }) {
     };
 
     return <section className={styles.mainCont}>
-        <ResourceHubFilters setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} setSelectedFilterArr={setSelectedFilterArr} />
+        <ResourceHubFilters setClearSelections={setClearSelections} setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} setSelectedFilterArr={setSelectedFilterArr} />
         {/* <section className={styles.filterCont}>
             <ResourceFilters mainCatFilter={mainCatFilter} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section> */}

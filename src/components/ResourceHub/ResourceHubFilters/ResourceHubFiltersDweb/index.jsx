@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import CheckBoxWithText from '@/components/SignUpForm/CheckBoxWithText';
 import styles from '../resourceHubFilters.module.css';
@@ -10,8 +11,11 @@ function ResourceHubFiltersDweb({
     setSelectedPageNum,
     setItemsNumbers,
     mainCatFilter,
-    setMainCatFilter
+    setMainCatFilter,
+    setClearSelections
 }) {
+    const router = useRouter();
+    const slug = router?.query?.slug;
     const [isChecked, setIsChecked] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
     const [itemsArray, setItemsArray] = useState([]);
@@ -59,12 +63,28 @@ function ResourceHubFiltersDweb({
         setCategoryArr((prev) => [...prev, category?.name]);
     };
 
+    useEffect(() => {
+        if (slug) {
+            const str = slug;
+            const result = str.includes('-') ? str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : str;
+            const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+            const obj = { name: finalResult, taxonomy: 'category', slug: str }
+            setItemsArray([obj])
+            setCategoryArr(['Categories'])
+            setSelectedFilterArr([obj]);
+        }
+    }, [slug])
+
     const handleClearSelections = () => {
         setItemsArray([]);
         setCategoryArr([]);
         setSelectedFilterArr([]);
         setSelectedPageNum(1);
         setItemsNumbers(10);
+        setMainCatFilter('');
+        if (slug) {
+            setClearSelections(true)
+        }
         // setMainCatFilter('');
         // setSelectedFilterArr([]);
         // setItemsNumbers(10);
