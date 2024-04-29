@@ -134,7 +134,7 @@ function ResourceHubListingWithFilter({ listingData }) {
     };
 
     return <section className={styles.mainCont}>
-        <ResourceHubFilters setClearSelections={setClearSelections} setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} setSelectedFilterArr={setSelectedFilterArr} />
+        <ResourceHubFilters setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} setSelectedFilterArr={setSelectedFilterArr} />
         {/* <section className={styles.filterCont}>
             <ResourceFilters mainCatFilter={mainCatFilter} setItemsNumbers={setItemsNumbers} setSelectedPageNum={setSelectedPageNum} setMainCatFilter={setMainCatFilter} selectedFilterArr={selectedFilterArr} setSelectedFilterArr={setSelectedFilterArr} />
         </section> */}
