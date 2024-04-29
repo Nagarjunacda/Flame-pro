@@ -41,6 +41,7 @@ function ProductsListing({ productsData, megaMenuData }) {
   const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
   const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
   const arrowSrc = "/Images/bottomGreyArrow.svg";
+  const topArrSrc = "/Images/upGreyArrow.svg";
   const leftArrowSrc = "/Images/leftGreyArrow.svg";
   const rightArrowSrc = "/Images/rightGreyArrow.svg";
   const pageNumbers = Array.from(
@@ -155,7 +156,7 @@ function ProductsListing({ productsData, megaMenuData }) {
               <p className={styles.itemNum}>{itemsNumber}</p>
             </section>
             <section className={styles.downArrow}>
-              <FlameImage src={arrowSrc} alt="icon" />
+              <FlameImage src={showDropdown ? topArrSrc : arrowSrc} alt="icon" />
             </section>
             {showDropdown && (
               <section className={styles.dropDown}>
@@ -232,7 +233,7 @@ function ProductsListing({ productsData, megaMenuData }) {
               <p className={styles.itemNum}>{itemsNumber}</p>
             </section>
             <section className={styles.downArrow}>
-              <FlameImage src={arrowSrc} alt="icon" />
+              <FlameImage src={showDropdown2 ? topArrSrc : arrowSrc} alt="icon" />
             </section>
             {showDropdown2 && (
               <section className={styles.dropDown}>

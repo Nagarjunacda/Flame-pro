@@ -23,6 +23,7 @@ function ResourceHubListing({ listingData }) {
     const [posts, setPosts] = useState([]);
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const arrowSrc = "/Images/bottomGreyArrow.svg";
+    const topArrSrc = "/Images/upGreyArrow.svg";
     const leftArrowSrc = "/Images/leftGreyArrow.svg";
     const rightArrowSrc = "/Images/rightGreyArrow.svg";
     const pageNumbers = Array.from(
@@ -137,7 +138,7 @@ function ResourceHubListing({ listingData }) {
                         <p className={styles.itemNum}>{itemsNumber}</p>
                     </section>
                     <section className={styles.downArrow}>
-                        <FlameImage src={arrowSrc} alt="icon" />
+                        <FlameImage src={showDropdown ? topArrSrc : arrowSrc} alt="icon" />
                     </section>
                     {showDropdown && (
                         <section ref={showNoOfItemsRef} className={styles.dropDown}>
@@ -214,7 +215,7 @@ function ResourceHubListing({ listingData }) {
                         <p className={styles.itemNum}>{itemsNumber}</p>
                     </section>
                     <section className={styles.downArrow}>
-                        <FlameImage src={arrowSrc} alt="icon" />
+                        <FlameImage src={showDropdown2 ? topArrSrc : arrowSrc} alt="icon" />
                     </section>
                     {showDropdown2 && (
                         <section ref={showNoOfItemsRef} className={styles.dropDown}>
