@@ -9,6 +9,7 @@ import FlameImage from "@/reusbleComponents/FlameImage";
 import { filtersCategoryUrl } from "@/utils/urls";
 import FiltersBlock from "../FiltersBlock";
 import styles from "../shopAll.module.css";
+import ProductCardDesc from "@/components/Cards/ProductCardDesc";
 
 function ProductsListing({ productsData, megaMenuData }) {
   const router = useRouter();
@@ -221,7 +222,7 @@ function ProductsListing({ productsData, megaMenuData }) {
         </section>
         <section className={styles.products}>
           {products?.map((product, index) => {
-            return <ProductCard key={index} product={product} />;
+            return index === 5 ? <ProductCardDesc /> : <ProductCard key={index} product={product} />;
           })}
         </section>
         <section className={styles.pagesCont}>
