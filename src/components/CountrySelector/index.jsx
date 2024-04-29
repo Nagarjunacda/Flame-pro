@@ -3,7 +3,7 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import Select from 'react-select';
 import styles from './reactFlags.module.css'
 
-function CountrySelector({ countryDropdown, setCountryDropdown, countryRef }) {
+function CountrySelector({ countryDropdown, setCountryDropdown, countryRef, isError }) {
     const [countryOptions, setCountryOptions] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     // const [countryDropdown, setCountryDropdown] = useState(false);
@@ -51,7 +51,7 @@ function CountrySelector({ countryDropdown, setCountryDropdown, countryRef }) {
     const countryCode = `${countryRootCode}${countryId}`
 
     return (
-        <section className={styles.maincont} onClick={handleCountrySel}>
+        <section className={isError ? styles.maincontError : styles.maincont} onClick={handleCountrySel}>
             <section className={styles.flagIcon}>
                 <FlameImage src={selectedCountry?.flags.svg} alt={'icon'} />
             </section>

@@ -276,6 +276,7 @@
   .errorMsg {
     color: var(--color-fire);
     font-size: var(--font-size-xs);
+    padding-top: 12px;
   }
   .areaOfInt {
     position: absolute;

@@ -274,7 +274,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                                     {areaOfInt}
                                 </section>
                             )}
-                            {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} countryRef={countryRef} />}
+                            {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
                             )}
