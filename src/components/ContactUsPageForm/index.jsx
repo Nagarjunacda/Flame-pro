@@ -33,6 +33,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
     const [dateError, setDateError] = useState(false);
+    const [timeError, setTimeError] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const timeZoneVal = 'BST';
@@ -149,9 +150,13 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
             }
         });
         const dateNotSel = contactTime === 'Arrange A Time' && contactBy === 'Phone' && !selectedDate;
-        if (!formValid || dateNotSel) {
+        const timeNotSel = contactTime === 'Arrange A Time' && contactBy === 'Phone' && (!selTime || selTime === 'Please Select A Time');
+        if (!formValid || dateNotSel || timeNotSel) {
             if (dateNotSel) {
                 setDateError('Please select a date to contact');
+            }
+            if (timeNotSel) {
+                setTimeError('Please select a time to contact')
             }
             setShowToast(true);
             setToastMsg("Please enter all the required fields.");
@@ -219,6 +224,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const handleInterestSel = (area) => {
         setSelTime(area);
         setIsDropDownOpen(false);
+        setTimeError('')
         // setErrors((prevErrors) => ({
         //     ...prevErrors,
         //     "Area Of Interest*": null,
@@ -400,37 +406,40 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                 </section>
             }
             {contactTime === 'Arrange A Time' && contactBy === 'Phone' &&
-                <section className={styles.formInput}>
-                    <section
-                        className={selTime === 'Please Select A Time' ? styles.areaInterestInput : styles.areaInterestInputSel}
-                        onClick={handleDropdown}
-                    >
-                        {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
-                    </section>
-                    <section className={styles.downArrow} onClick={handleDropdown}>
-                        <FlameImage src={arrowImgSrc} alt="arrow" />
-                    </section>
-                    {isDropdownOpen &&
-                        <section ref={dropdownRef} className={styles.timeZone}>
-                            {timeZones.map((time, index) => {
-                                return (
-                                    <section
-                                        key={index}
-                                        className={
-                                            time === selTime
-                                                ? styles.selectedArea
-                                                : styles.interestOptions
-                                        }
-                                        onClick={() => {
-                                            handleInterestSel(time);
-                                        }}
-                                    >
-                                        {`${time} ${timeZoneVal}`}
-                                    </section>
-                                );
-                            })}
+                <section className={styles.datePickerMain}>
+                    <section className={styles.formInput}>
+                        <section
+                            className={selTime === 'Please Select A Time' ? styles.areaInterestInput : styles.areaInterestInputSel}
+                            onClick={handleDropdown}
+                        >
+                            {selTime === 'Please Select A Time' ? selTime : `${selTime} ${timeZoneVal}`}
                         </section>
-                    }
+                        <section className={styles.downArrow} onClick={handleDropdown}>
+                            <FlameImage src={arrowImgSrc} alt="arrow" />
+                        </section>
+                        {isDropdownOpen &&
+                            <section ref={dropdownRef} className={styles.timeZone}>
+                                {timeZones.map((time, index) => {
+                                    return (
+                                        <section
+                                            key={index}
+                                            className={
+                                                time === selTime
+                                                    ? styles.selectedArea
+                                                    : styles.interestOptions
+                                            }
+                                            onClick={() => {
+                                                handleInterestSel(time);
+                                            }}
+                                        >
+                                            {`${time} ${timeZoneVal}`}
+                                        </section>
+                                    );
+                                })}
+                            </section>
+                        }
+                    </section>
+                    {timeError && <p className={styles.errorMsg}>{timeError}</p>}
                 </section>}
             {showToast && (
                 <Toast
