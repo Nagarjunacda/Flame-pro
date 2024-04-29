@@ -32,6 +32,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const [isLoadState, setIsLoadState] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
+    const [dateError, setDateError] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const timeZoneVal = 'BST';
@@ -147,7 +148,11 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                 formValid = false;
             }
         });
-        if (!formValid) {
+        const dateNotSel = contactTime === 'Arrange A Time' && contactBy === 'Phone' && !selectedDate;
+        if (!formValid || dateNotSel) {
+            if (dateNotSel) {
+                setDateError('Please select a date to contact');
+            }
             setShowToast(true);
             setToastMsg("Please enter all the required fields.");
             return;
@@ -219,6 +224,11 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
         //     "Area Of Interest*": null,
         // }));
     };
+
+    const handleDateSel = (date) => {
+        setSelectedDate(date);
+        setDateError('')
+    }
 
     return <section className={isFromPopup ? styles.mainContPopup : styles.mainCont}>
         <section className={styles.formCont}>
@@ -370,21 +380,25 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
             </section>}
             {/* <DatePickerComp /> */}
             {contactTime === 'Arrange A Time' && contactBy === 'Phone' &&
-                <section className={styles.datePickerCont}>
-                    <DatePicker
-                        placeholderText="Please select a date"
-                        selected={selectedDate}
-                        minDate={new Date()}
-                        dateFormat='dd/MM/yyyy'
-                        scrollableMonthYearDropdown
-                        wrapperClassName={styles.fullWidthDatePicker}
-                        className={styles.customDatepicker}
-                        calendarClassName={styles.customCalendar}
-                        onChange={(date) => { setSelectedDate(date) }} />
-                    <section className={styles.calendarIcon}>
-                        <FlameImage src={calendarIcon} alt={'calendar Icon'} />
+                <section className={styles.datePickerMain}>
+                    <section className={styles.datePickerCont}>
+                        <DatePicker
+                            placeholderText="Please select a date"
+                            selected={selectedDate}
+                            minDate={new Date()}
+                            dateFormat='dd/MM/yyyy'
+                            scrollableMonthYearDropdown
+                            wrapperClassName={styles.fullWidthDatePicker}
+                            className={styles.customDatepicker}
+                            calendarClassName={styles.customCalendar}
+                            onChange={(date) => { handleDateSel(date) }} />
+                        <section className={styles.calendarIcon}>
+                            <FlameImage src={calendarIcon} alt={'calendar Icon'} />
+                        </section>
                     </section>
-                </section>}
+                    {dateError && <p className={styles.errorMsg}>{dateError}</p>}
+                </section>
+            }
             {contactTime === 'Arrange A Time' && contactBy === 'Phone' &&
                 <section className={styles.formInput}>
                     <section
