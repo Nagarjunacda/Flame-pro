@@ -1,6 +1,7 @@
 import Accordion from "react-bootstrap/Accordion";
 import styles from "./faqitem.module.css";
 function FaqItem({ trayData }) {
+  console.log(trayData, '!! tr')
   return (
     <section className={styles.faqContentBlock}>
       <Accordion defaultActiveKey="0" flush>

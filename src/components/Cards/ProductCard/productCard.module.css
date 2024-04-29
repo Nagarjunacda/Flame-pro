@@ -9,7 +9,18 @@
     min-height: 280px;
     max-height: 280px;
     object-fit: contain;
+    transition: 1s;
 }
+.cardImg:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.cardImg:not(:hover) {
+    transform: scale(1);
+    transition: transform 1s;
+}
+
 .cardBody{
     display: flex;
     align-items: center;
