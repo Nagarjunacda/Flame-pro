@@ -26,7 +26,6 @@ function ResourceHubListingWithFilter({ listingData }) {
     const [selectedPageNum, setSelectedPageNum] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDropdown2, setShowDropdown2] = useState(false);
-    const [clearSelections, setClearSelections] = useState(false)
     const [filtersUrl, setFiltersUrl] = useState('');
     const [posts, setPosts] = useState([]);
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
@@ -75,7 +74,7 @@ function ResourceHubListingWithFilter({ listingData }) {
             const industryParam = isIndustry ? `&industry=${isIndustry}` : '';
             const isFiltersApplied = mainCatFilter || isCategory || isApplication || isIndustry;
             const allProductsUrl = `${blogPostsUrl}?per_page=${itemsNumber}&page=${selectedPageNum}`;
-            if (!isFiltersApplied && !clearSelections) {
+            if (!isFiltersApplied) {
                 return
             }
             const url = isFiltersApplied ? `${resourceFiltersUrl}?per_page=${itemsNumber}&page=${selectedPageNum}${typeCatParam}${categoryParam}${applicationParam}${industryParam}` : allProductsUrl;

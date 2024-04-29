@@ -11,8 +11,7 @@ function ResourceHubFiltersDweb({
     setSelectedPageNum,
     setItemsNumbers,
     mainCatFilter,
-    setMainCatFilter,
-    setClearSelections
+    setMainCatFilter
 }) {
     const router = useRouter();
     const slug = router?.query?.slug;
@@ -82,9 +81,6 @@ function ResourceHubFiltersDweb({
         setSelectedPageNum(1);
         setItemsNumbers(10);
         setMainCatFilter('');
-        if (slug) {
-            setClearSelections(true)
-        }
         // setMainCatFilter('');
         // setSelectedFilterArr([]);
         // setItemsNumbers(10);
