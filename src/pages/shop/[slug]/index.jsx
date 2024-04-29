@@ -59,16 +59,6 @@ export async function getServerSideProps(context) {
     const { params } = context
     const { slug } = params
     const url = `${productDetailUrl}/?slug=${slug}`;
-    const fireFighterArr = headerConData?.items?.filter((navItems) => {
-        return navItems?.slug === 'firefighting-ppe'
-    })
-    const fireFighterProducts = fireFighterArr && fireFighterArr.length && fireFighterArr[0]?.child_items?.filter((e) => {
-        return e?.title === "Products"
-    })
-    const filterByslug = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.filter((e) => {
-        return e?.slug === slug
-    })
-    const id = filterByslug && filterByslug?.length && filterByslug[0]?.object_id;
     const { data, error } = await handleGetReqAuth(url);
     if (error) {
         return {
