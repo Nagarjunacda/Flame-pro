@@ -78,7 +78,7 @@ function RenderTrays({
       case "policies_select":
         return <PoliciesBlock trayData={tray} />;
       case "faq_block":
-        return <FaqItem trayData={tray} />;
+        return <FaqItem trayData={tray} additionalDataExt={additionalDataExt} />;
       case "post_description":
         return <PostContent trayData={tray} fullPageData={fullPageData} />;
       case "related_products":

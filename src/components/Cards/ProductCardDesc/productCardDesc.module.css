@@ -46,6 +46,7 @@ max-width: 254px;
     max-height: 360px;
     object-fit: contain;
     transition: 1s;
+    max-width: 254px;
 }
 @media(min-width:600px){
     .cardImg{

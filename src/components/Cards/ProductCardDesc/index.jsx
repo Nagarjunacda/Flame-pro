@@ -1,15 +1,26 @@
+import { useRouter } from 'next/router';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
+import { renderHTML } from '@/utils/htmlString';
 import styles from './productCardDesc.module.css';
 import FlameBtn from '@/reusbleComponents/FlameBtn';
 
-function ProductCardDesc() {
-    const cardImage = 'https://cms.cdastagging.com/wp-content/uploads/2024/04/171-VA1-NNF-GLD_1-1.jpg';
-    const btnText = 'Discover Now';
+function ProductCardDesc({ product }) {
+    const router = useRouter();
+    const cardImage = product?.images?.length && product?.images[0]?.src;
+    const heading = product?.name;
+    const desc = product?.description;
+    const ctaData = product?.attributes;
+    const ctaTextData = ctaData?.length && ctaData.filter((item) => item?.name === "Button Name");
+    const btnText = ctaTextData?.length && ctaTextData[0]?.terms?.length && ctaTextData[0]?.terms[0]?.name;
+    const btnLinkData = ctaData?.length && ctaData.filter((item) => item?.name === "Button Link");
+    const btnLink = btnLinkData?.length && btnLinkData[0]?.terms?.length && btnLinkData[0]?.terms[0]?.name;
     const btnTextClr = 'var(--color-primary)';
     const btnColor = 'var(--color-secondary)';
 
-    const handleBtnClick = () => { }
+    const handleBtnClick = () => {
+        router.push(btnLink);
+    }
 
     return <Card className={styles?.cardCont}>
         <Card.Img variant="top" src={cardImage} className={styles.cardImg} />
@@ -18,8 +29,8 @@ function ProductCardDesc() {
             <Card.Title className={styles.cardTitle}>{cardTitle}</Card.Title>
         </Card.Body> */}
         <section className={styles.overlayCont}>
-            <h3 className={styles.overlayHeading}>We Create Custom Orders</h3>
-            <p className={styles.overlayText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <h3 className={styles.overlayHeading}>{heading}</h3>
+            <p className={styles.overlayText}>{renderHTML(desc)}</p>
             <FlameBtn color={btnColor}
                 text={btnText}
                 textColor={btnTextClr}

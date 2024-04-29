@@ -222,7 +222,7 @@ function ProductsListing({ productsData, megaMenuData }) {
         </section>
         <section className={styles.products}>
           {products?.map((product, index) => {
-            return index === 5 ? <ProductCardDesc /> : <ProductCard key={index} product={product} />;
+            return product?.type === "add_block" ? <ProductCardDesc product={product} /> : <ProductCard key={index} product={product} />;
           })}
         </section>
         <section className={styles.pagesCont}>
