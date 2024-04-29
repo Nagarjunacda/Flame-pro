@@ -20,10 +20,10 @@ function ShopAll({ productsData, megaMenuData, trays }) {
     // </section >
     return (
         <main>
-            {trayData ? (
+            {trayData && (
                 <RenderTrays trayData={trayData} productsData={productsData} megaMenuData={megaMenuData} additionalDataExt={additionalDataExt} />
-            ) : (
-                <p>This Page Under Development</p>
+                // ) : (
+                //     <p>This Page Under Development</p>
             )}
         </main>
     );

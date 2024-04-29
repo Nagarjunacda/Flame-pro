@@ -17,7 +17,8 @@ function ProductDetailPage(props) {
     const { headerConData } = useHeaderData();
     const { slug } = props;
     const [listingData, setListingData] = useState([]);
-    const [isFromMenu, setIsFromMenu] = useState({})
+    const [isFromMenu, setIsFromMenu] = useState({});
+    const [trayData, setTrayData] = useState({});
     const { data } = props;
     const productData = data && data[0];
     const objectId = prductCatData?.object_id;
@@ -30,31 +31,44 @@ function ProductDetailPage(props) {
     const fireFighterSlugs = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.map((e) => {
         return e?.slug
     })
+    const filterByslug = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.filter((e) => {
+        return e?.slug === slug
+    })
+    const id = filterByslug && filterByslug?.length && filterByslug[0]?.object_id;
     const isProducts = fireFighterSlugs?.includes(slug);
 
     useEffect(() => {
         setIsFromMenu({ isFromMenu: true, category: objectId })
-        // const objectId = prductCatData?.object_id;
-        // const url = `${productsUrl}/?category=${objectId}`
-        // const getData = async () => {
-        //     const { data, error } = await handleServerSideProps(url);
-        //     setListingData(data)
-        // }
-        // getData()
-    }, [prductCatData])
-    // return <>{data && data?.length > 1 ? <ShopAll productsData={data} /> : data && data?.length == 1 ? <ProductDetail productData={productData} /> : null}</>
-    return isProducts ? <ShopAll productData={listingData} megaMenuData={isFromMenu} /> : <ProductDetail productData={productData} />
+        const trayUrl = `${productDetailUrl}/categories/${id}`;
+        const getData = async () => {
+            const { data, error } = await handleGetReqAuth(trayUrl);
+            if (data) {
+                setTrayData(data);
+            }
+            if (error) {
+                setTrayData({});
+            }
+        }
+        getData();
+    }, [prductCatData, slug])
+    return isProducts ? <ShopAll productData={listingData} megaMenuData={isFromMenu} trays={trayData} /> : <ProductDetail productData={productData} />
 }
 export default ProductDetailPage
 
 export async function getServerSideProps(context) {
     const { params } = context
     const { slug } = params
-    const { productId } = params
-    // const arr = ['accessory-bundles', 'coveralls', 'jackets-trousers', 'gloves', 'full-suits-suits', 'helmets', 'boots'];
-    // const isProducts = arr.includes(slug);
-    // const url = isProducts ? `${productDetailUrl}/?categories=${slug}` : `${productDetailUrl}/?slug=${slug}`;
     const url = `${productDetailUrl}/?slug=${slug}`;
+    const fireFighterArr = headerConData?.items?.filter((navItems) => {
+        return navItems?.slug === 'firefighting-ppe'
+    })
+    const fireFighterProducts = fireFighterArr && fireFighterArr.length && fireFighterArr[0]?.child_items?.filter((e) => {
+        return e?.title === "Products"
+    })
+    const filterByslug = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.filter((e) => {
+        return e?.slug === slug
+    })
+    const id = filterByslug && filterByslug?.length && filterByslug[0]?.object_id;
     const { data, error } = await handleGetReqAuth(url);
     if (error) {
         return {
