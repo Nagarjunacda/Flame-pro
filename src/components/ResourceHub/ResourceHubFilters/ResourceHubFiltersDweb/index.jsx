@@ -15,6 +15,10 @@ function ResourceHubFiltersDweb({
 }) {
     const router = useRouter();
     const slug = router?.query?.slug;
+    const str = slug ? slug : '';
+    const result = str.includes('-') ? str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : str;
+    const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+    const obj = { name: finalResult, taxonomy: 'category', slug: str }
     const [isChecked, setIsChecked] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
     const [itemsArray, setItemsArray] = useState([]);
@@ -22,8 +26,12 @@ function ResourceHubFiltersDweb({
     const downArrowSrc = "/Images/bottomGreyArrow.svg";
     const upArrowSrc = "/Images/upGreyArrow.svg";
     const closeBtnSrc = "/Images/closeImg.png";
+    const showClearSel = slug ? itemsArray?.length > 1 : itemsArray?.length ? itemsArray?.length : mainCatFilter === 'fire' || mainCatFilter === 'defence';
 
     const handleItemClick = async (item) => {
+        if (slug && item?.taxonomy === 'category') {
+            return
+        }
         if (item?.slug === 'fire' || item?.slug === 'defence') {
             if (mainCatFilter === item?.slug) {
                 setMainCatFilter('');
@@ -64,10 +72,6 @@ function ResourceHubFiltersDweb({
 
     useEffect(() => {
         if (slug) {
-            const str = slug;
-            const result = str.includes('-') ? str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : str;
-            const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
-            const obj = { name: finalResult, taxonomy: 'category', slug: str }
             setItemsArray([obj])
             setCategoryArr(['Categories'])
             setSelectedFilterArr([obj]);
@@ -75,6 +79,12 @@ function ResourceHubFiltersDweb({
     }, [slug])
 
     const handleClearSelections = () => {
+        if (slug) {
+            setItemsArray([obj])
+            setCategoryArr(['Categories'])
+            setSelectedFilterArr([obj]);
+            return
+        }
         setItemsArray([]);
         setCategoryArr([]);
         setSelectedFilterArr([]);
@@ -92,7 +102,7 @@ function ResourceHubFiltersDweb({
             {/* <h3 className={styles.filterHeading}>Filters</h3> */}
             <section className={styles.headSection}>
                 <h3 className={styles.filterHeading}>Filter By</h3>
-                {itemsArray?.length ? <section className={styles.headBtnSec} onClick={handleClearSelections}>
+                {showClearSel ? <section className={styles.headBtnSec} onClick={handleClearSelections}>
                     <section className={styles.iconSty}>
                         <FlameImage src={closeBtnSrc} alt="clear" />
                     </section>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 import FlameImage from "@/reusbleComponents/FlameImage";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import CheckBoxWithText from "@/components/SignUpForm/CheckBoxWithText";
@@ -10,6 +11,12 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, mainCatFilt
     const [isChecked, setIsChecked] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState([]);
     const [itemsArray, setItemsArray] = useState([]);
+    const router = useRouter();
+    const slug = router?.query?.slug;
+    const str = slug ? slug : '';
+    const result = str.includes('-') ? str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : str;
+    const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+    const obj = { name: finalResult, taxonomy: 'category', slug: str }
     const scrollToTop =
         typeof window !== "undefined" && document.getElementById("scrollId");
     const downArrowSrc = "/Images/downWhiteArrow.svg";
@@ -18,12 +25,16 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, mainCatFilt
     const textColor = "var(--color-secondary)";
     const btnText = "Apply Filters";
     const closeBtnSrc = "/Images/closeImg.png";
+    const showClearSel = slug ? itemsArray?.length > 1 : itemsArray?.length ? itemsArray?.length : mainCatFilter === 'fire' || mainCatFilter === 'defence';
 
     const handleFilterWindow = () => {
         setShowFilters(!showFilters);
     };
 
     const handleItemClick = async (item) => {
+        if (slug && item?.taxonomy === 'category') {
+            return
+        }
         if (item?.slug === 'fire' || item?.slug === 'defence') {
             if (mainCatFilter === item?.slug) {
                 setMainCatFilter('');
@@ -56,11 +67,26 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, mainCatFilt
         scrollToTop.scrollIntoView({ behavior: "smooth" });
     };
 
+    useEffect(() => {
+        if (slug) {
+            setItemsArray([obj])
+            // setCategoryArr(['Categories'])
+            setSelectedFilterArr([obj]);
+        }
+    }, [slug])
+
     const handleClearSelections = () => {
+        if (slug) {
+            setItemsArray([obj])
+            // setCategoryArr(['Categories'])
+            setSelectedFilterArr([obj]);
+            return
+        }
         setItemsNumbers(10);
         setSelectedPageNum(1)
         setShowFilters(false);
         setItemsArray([]);
+        setMainCatFilter('');
         setSelectedFilterArr([]);
         scrollToTop.scrollIntoView({ behavior: "smooth" });
     };
@@ -128,7 +154,7 @@ function ResourceHubFiltersMweb({ filtersData, setSelectedFilterArr, mainCatFilt
                             isSmallBtn
                         />
                     </section>
-                    {itemsArray?.length ? <section
+                    {showClearSel ? <section
                         className={styles.headBtnSec}
                         onClick={handleClearSelections}
                     >
