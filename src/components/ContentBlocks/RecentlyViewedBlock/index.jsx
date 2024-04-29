@@ -7,7 +7,6 @@ import styles from "./recentlyViewedBlock.module.css";
 
 function RecentlyViewedBlock() {
     const data = JSON.parse(localStorage.getItem('recentlyViewed'));
-    console.log(data, '!! dat')
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const blockTitle = 'Recently Viewed';
 
