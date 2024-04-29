@@ -1,29 +1,24 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import FlameBtn from "@/reusbleComponents/FlameBtn";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import { renderHTML } from "@/utils/htmlString";
 import styles from "./title-text-center.module.css";
 
 const TitleAndTextCentre = ({ trayData }) => {
+  const router = useRouter();
   const buttonTwoTitle = trayData?.button2_title;
   const buttonTwoRoute = trayData?.button2_link;
   const buttonTwoColor = "var( --color-primary)";
-  const route =
-    trayData?.button_title === "Shop All"
-      ? "/shop"
-      : trayData?.button_title === "About FlamePro"
-        ? "/about"
-        : trayData?.button_title === "Why choose FlamePro? "
-          ? "/about"
-          : trayData?.button_title === "Why choose FlamePro?"
-            ? "/about"
-            : trayData?.button_title === "Speak To Us"
-              ? "/contact-us"
-              : "";
 
   function btnFunction() { }
 
-  function btnTwoFunction() { }
+  function btnTwoFunction() {
+    if (buttonTwoTitle === "Speak To Us") {
+      return
+    }
+    router.push(buttonTwoRoute)
+  }
 
   return (
     <section className={styles.titletextcentre}>
@@ -32,7 +27,7 @@ const TitleAndTextCentre = ({ trayData }) => {
         <p>{renderHTML(trayData?.text)}</p>
         {trayData?.button_title && (
           <section className={styles.btnSection}>
-            <Link href={route}>
+            <Link href={trayData?.button_link}>
               <FlameBtn
                 text={trayData?.button_title}
                 textColor="var( --color-secondary)"
@@ -41,14 +36,13 @@ const TitleAndTextCentre = ({ trayData }) => {
               />
             </Link>
 
-            {buttonTwoRoute && <Link href={buttonTwoRoute}>
+            {buttonTwoRoute &&
               <ButtonStyleTwo
                 text={buttonTwoTitle}
                 textColor={buttonTwoColor}
                 isLoadState={false}
                 btnFunction={btnTwoFunction}
-              />
-            </Link>}
+              />}
           </section>
         )}
       </div>

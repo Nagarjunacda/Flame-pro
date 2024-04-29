@@ -58,4 +58,8 @@
 }
 .btnSection{
     margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
 }

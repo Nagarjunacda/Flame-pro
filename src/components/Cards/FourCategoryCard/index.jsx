@@ -10,7 +10,7 @@ function FourCategoryCard({ data, blockTitle, isFromResourceHub }) {
       {cardTitle && !blockTitle && (
         <Card.Body className={styles.cardBody}>
           <Card.Title className={styles.cardTitle}>
-            <h5>{cardTitle}</h5>
+            <h5 className={styles.cardTytle}>{cardTitle}</h5>
           </Card.Title>
         </Card.Body>
       )}

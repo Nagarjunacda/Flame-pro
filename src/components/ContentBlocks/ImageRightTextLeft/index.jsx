@@ -12,7 +12,9 @@ function ImageRightTextLeft({ trayData }) {
   const buttonText = trayData?.button1_text;
   const buttonColor = "var(--color-primary)";
   const textColor = "var(--color-secondary)";
-  const route = trayData?.button_link;
+  const route = trayData?.button1_link;
+  const btnTwoText = trayData?.button2_text;
+  const btnTwoLink = trayData?.button2_link;
 
   const handleBtnClick = () => { };
 
@@ -32,6 +34,14 @@ function ImageRightTextLeft({ trayData }) {
                 btnFunction={handleBtnClick}
               />
             </Link>
+            {btnTwoText && btnTwoLink && <Link href={btnTwoLink} className={styles.btnStyle2}>
+              <ButtonStyleTwo
+                text={btnTwoText}
+                textColor={"var( --color-primary)"}
+              // btnFunction={handleBrowseAll}
+              // btnIcon={"/Images/deleteIcon.svg"}
+              />
+            </Link>}
           </section>
         )}
       </section>

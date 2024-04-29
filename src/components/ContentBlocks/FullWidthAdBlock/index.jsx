@@ -7,7 +7,6 @@ import { renderHTML } from "@/utils/htmlString";
 import styles from "./fullWidthAdBlock.module.css";
 
 function FullWidthAdBlock({ trayData }) {
-  console.log(trayData, '!!')
   const router = useRouter();
   const { footerContextData } = useFooterContextData();
   const globalAddress = footerContextData?.acf?.footer_contact_address;
