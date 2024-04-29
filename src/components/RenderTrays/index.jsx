@@ -15,6 +15,7 @@ import Breadcrumbs from "../BreadCrumbs";
 import TwoAddBlockNew from "../ContentBlocks/TwoAddBlockNew";
 import ContactUsPageForm from "../ContactUsPageForm";
 import TextAreaBlock from "../ContentBlocks/TextAreaBlock";
+import ProductsListing from "../ShopAll/ProductsListing";
 import UspBlock from "../ContentBlocks/UspBlock";
 import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
@@ -27,6 +28,8 @@ function RenderTrays({
   categories = {},
   additionalDataExt,
   fullPageData = {},
+  productsData,
+  megaMenuData
 }) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
@@ -87,6 +90,8 @@ function RenderTrays({
         return <TextAreaBlock trayData={tray} />;
       case "team_block":
         return <AboutTeamBlock trayData={tray} aboutExt={aboutusTeamExt} />;
+      case "product_lists_with_filters":
+        return <ProductsListing productsData={productsData} megaMenuData={megaMenuData} />;
       case "contact_us_page_form":
         return (
           <ContactUsPageForm
