@@ -12,7 +12,7 @@ function Popup({ show, setShow, productData }) {
     padding: "50px 100px",
   };
 
-  const handleBtnClick = () => {};
+  const handleBtnClick = () => { };
 
   return (
     <>
