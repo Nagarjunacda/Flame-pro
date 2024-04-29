@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { useState, useEffect, useContext, useRef } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import DatePicker from 'react-datepicker';
 import { contactUsFormPageUrl } from '@/utils/urls';
@@ -22,6 +22,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const router = useRouter();
     const dropdownRef = useRef(null);
     const countryRef = useRef(null);
+    const datePickerRef = useRef(null);
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [contactBy, setContactBy] = useState('Phone')
@@ -241,6 +242,12 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
         setDateError('')
     }
 
+    const openDatePicker = () => {
+        if (datePickerRef.current) {
+            datePickerRef.current.setOpen(true);
+        }
+    };
+
     return <section className={isFromPopup ? styles.mainContPopup : styles.mainCont}>
         <section className={styles.formCont}>
             <h5
@@ -394,6 +401,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                 <section className={styles.datePickerMain}>
                     <section className={styles.datePickerCont}>
                         <DatePicker
+                            ref={datePickerRef}
                             placeholderText="Please select a date"
                             selected={selectedDate}
                             minDate={new Date()}
@@ -403,7 +411,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                             className={styles.customDatepicker}
                             calendarClassName={styles.customCalendar}
                             onChange={(date) => { handleDateSel(date) }} />
-                        <section className={styles.calendarIcon}>
+                        <section className={styles.calendarIcon} onClick={openDatePicker}>
                             <FlameImage src={calendarIcon} alt={'calendar Icon'} />
                         </section>
                     </section>
