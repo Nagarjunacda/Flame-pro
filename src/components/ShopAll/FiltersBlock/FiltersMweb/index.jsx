@@ -64,7 +64,7 @@ function FiltersMweb({ filtersData, getFilteredProducts }) {
         <h5 className={styles.filter}>Filters</h5>
         <section className={styles.img}>
           <FlameImage
-            src={showFilters ? downArrowSrc : upArrowSrc}
+            src={showFilters ? upArrowSrc : downArrowSrc}
             alt={"downArrow"}
           />
         </section>

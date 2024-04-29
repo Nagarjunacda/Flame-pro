@@ -12,7 +12,7 @@ gap: 16px;
     align-items: center;
     justify-content: space-between;
     padding: 20px 48px;
-    gap: 8px;
+    gap: 16px;
     background-color: var(--color-primary);
     transform: skew(-20deg);
     text-decoration: none;
