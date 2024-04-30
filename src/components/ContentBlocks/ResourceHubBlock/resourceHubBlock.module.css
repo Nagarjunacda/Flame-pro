@@ -1,14 +1,24 @@
 .mainCont{
     width: 100%;
     height: auto;
-    padding: var(--padding-xs-48) 24px 0px 24px;
+    padding: var(--padding-xs-48) 24px 50px 24px;
     display: flex;
     flex-direction: column;
     gap:26px
 }
 @media (min-width: 900px) {
     .mainCont {
-        padding: var(--padding-xs-48) var(--padding-xs-26) 0px var(--padding-xs-26);
+        padding: var(--padding-xs-48) 64px 50px 64px;
+    }
+}
+@media (min-width: 1280px) {
+    .mainCont {
+        padding: var(--padding-xs-48) 64px 60px 64px;
+    }
+}
+@media (min-width: 1680px) {
+    .mainCont {
+        padding: var(--padding-xs-48) 136px 80px 136px;
     }
 }
 .heading{

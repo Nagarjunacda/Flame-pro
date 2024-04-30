@@ -15,6 +15,18 @@
         max-height: 220px; 
     }
 }
+@media(min-width:1280px){
+    .cardImg{
+        min-height: 380px;
+        max-height: 380px; 
+    }
+}
+@media(min-width:1680px){
+    .cardImg{
+        min-height: 480px;
+        max-height: 480px; 
+    }
+}
 .text{
     font-size: var(--font-size-sm);
     font-weight: var(--font-wt-md);

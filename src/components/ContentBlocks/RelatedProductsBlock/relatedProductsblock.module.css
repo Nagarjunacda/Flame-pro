@@ -4,8 +4,23 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    padding: var(--padding-18) var(--padding-xs-36);
+    padding: 0px 36px 50px 36px;
     gap: 32px;
+}
+@media(min-width:900px){
+    .mainCont{
+        padding: 0px 64px 50px 64px;
+    }
+}
+@media(min-width:1280px){
+    .mainCont{
+        padding: 0px 64px 60px 64px;
+    }
+}
+@media(min-width:1680px){
+    .mainCont{
+        padding: 0px 136px 80px 136px;
+    }
 }
 .headingSec{
     position: relative;

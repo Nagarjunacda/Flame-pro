@@ -9,7 +9,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 48px;
-  margin-top: 52px;
 }
 .footerLogo {
   width: 157px;
@@ -82,7 +81,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 48px;
-  margin-top: 84px;
 }
 .dataContDweb {
   width: 100%;
