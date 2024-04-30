@@ -8,6 +8,7 @@
     gap:48px;
     background-color: var(--color-mwebSearch);
     padding: var(--padding-xs-44) var(--padding-xs-36);
+    margin-bottom: 50px;
 }
 @media (min-width: 900px) {
     .mainCont {
@@ -15,9 +16,15 @@
        gap: 32px;
       }
 }
+@media (min-width: 900px) {
+  .mainCont {
+      margin-bottom: 60px;
+    }
+}
 @media (min-width: 1680px) {
   .mainCont {
      gap: 90px;
+     margin-bottom: 80px;
     }
 }
 .phoneEmail{

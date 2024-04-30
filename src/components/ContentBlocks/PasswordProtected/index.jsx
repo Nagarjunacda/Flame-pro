@@ -3,7 +3,7 @@ import { useState } from 'react'
 const PasswordProtection = ({ children }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
+    const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
     const correctUsername = 'client'; // Replace 'your_username' with the actual username
     const correctPassword = 'letmeinplease123'; // Replace 'your_password' with the actual password
 

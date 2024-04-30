@@ -23,7 +23,7 @@ function RecentlyViewedBlockMain() {
             </Link>
         </section>
         <section>
-            <SliderComp data={data} title={blockTitle} slidesToShow={3} />
+            <SliderComp data={data} title={blockTitle} slidesToShow={4} />
         </section>
     </section>
 }

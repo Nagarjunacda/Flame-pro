@@ -4,7 +4,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    padding: var(--padding-18) var(--padding-xs-36);
+    padding: 0px var(--padding-xs-36) 50px var(--padding-xs-36);
     gap: 32px;
 }
 .headingSec{
