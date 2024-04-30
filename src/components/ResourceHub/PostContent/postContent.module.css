@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: var(--padding-18) var(--padding-xs-36);
+    padding: 0px var(--padding-xs-36) 50px var(--padding-xs-36) ;
     gap: 60px;
 }
 @media (min-width:900px){
@@ -11,6 +11,20 @@
         flex-direction: row;
         align-items: flex-start;
     }
+}
+@media (min-width:1280px){
+  .mainCont{
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px var(--padding-xs-36) 60px var(--padding-xs-36) ;
+  }
+}
+@media (min-width:1680px){
+  .mainCont{
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px var(--padding-xs-36) 80px var(--padding-xs-36) ;
+  }
 }
 .btnShareSec{
     display: flex;

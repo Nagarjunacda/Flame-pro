@@ -6,6 +6,7 @@ import RenderTrays from "../RenderTrays"
 import styles from './shopAll.module.css'
 
 function ShopAll({ productsData, megaMenuData, trays }) {
+    console.log(trays, '!!')
     const router = useRouter();
     const { query } = router;
     const { slug } = query;

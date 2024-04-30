@@ -171,10 +171,23 @@
 .productInfoCont {
   width: 100%;
   height: auto;
+  padding-bottom: 50px;
 }
 @media (min-width: 900px) {
   .productInfoCont {
     display: flex;
+  }
+}
+@media (min-width: 1280px) {
+  .productInfoCont {
+    display: flex;
+    padding-bottom: 60px;
+  }
+}
+@media (min-width: 1680px) {
+  .productInfoCont {
+    display: flex;
+    padding-bottom: 80px;
   }
 }
 .infoLinks {
