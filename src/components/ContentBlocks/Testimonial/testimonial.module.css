@@ -1,6 +1,17 @@
 .testimonalMain {
   background-color: var(--color-primary);
   padding: var(--padding-xs-50) var(--padding-xs-36);
+  margin-bottom: 50px;
+}
+@media(min-width:1280px){
+  .testimonalMain{
+    margin-bottom: 60px;
+  }
+}
+@media(min-width:1680px){
+  .testimonalMain{
+    margin-bottom: 80px;
+  }
 }
 .sliderBlock {
   background-color: var(--color-secondary);

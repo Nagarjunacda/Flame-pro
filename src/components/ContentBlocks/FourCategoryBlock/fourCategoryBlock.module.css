@@ -7,6 +7,17 @@
     align-items: flex-start; */
     /* flex-direction: column; */
     /* justify-content: center; */
+    margin-bottom: 50px;
+}
+@media (min-width: 1280px) {
+    .mainCont {
+        margin-bottom: 60px;
+    }
+}
+@media (min-width: 1680px) {
+    .mainCont {
+        margin-bottom: 80px;
+    }
 }
 .title{
     font-size: var(--font-size-lg);
