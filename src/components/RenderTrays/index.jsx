@@ -21,6 +21,7 @@ import BasketItems from "../ContentBlocks/BasketItems";
 import PoliciesBlock from "../ContentBlocks/PoliciesBlock";
 import FaqItem from "../FaqItem";
 import RelatedProductsblock from "../ContentBlocks/RelatedProductsBlock";
+import RecentlyViewedBlockMain from "../ContentBlocks/RecentlyViewedBlockMain";
 import AboutTeamBlock from "../AboutTeamBlock";
 
 function RenderTrays({
@@ -92,6 +93,8 @@ function RenderTrays({
         return <AboutTeamBlock trayData={tray} aboutExt={aboutusTeamExt} />;
       case "product_lists_with_filters":
         return <ProductsListing productsData={productsData} megaMenuData={megaMenuData} />;
+      case "recently_viewed":
+        return <RecentlyViewedBlockMain />;
       case "contact_us_page_form":
         return (
           <ContactUsPageForm

@@ -12,7 +12,8 @@ function RecentlyViewedBlock() {
 
     return <section className={styles.mainCont}>
         {blockTitle && <p className={styles.title}>{blockTitle}</p>}
-        {!isDesktop ? <section className={styles.slider}><SliderComp data={data} title={blockTitle} slidesToShow={4} /></section> :
+        {!isDesktop ? <section className={styles.slider}>
+            <SliderComp data={data} title={blockTitle} slidesToShow={4} /></section> :
             <Container fluid>
                 <Row>
                     {data?.map((item, index) => {
