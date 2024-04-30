@@ -5,7 +5,7 @@
 .listingPage {
   width: 100%;
   height: auto;
-  padding: var(--padding-18) var(--padding-xs-36);
+  padding: 0px var(--padding-xs-36) 50px var(--padding-xs-36);
   display: flex;
   flex-direction: column;
   gap: 36px;
@@ -18,11 +18,13 @@
 @media (min-width: 1280px) {
   .listingPage {
     gap: 54px;
+    padding: 0px var(--padding-xs-36) 60px var(--padding-xs-36);
   }
 }
 @media (min-width: 1680px) {
   .listingPage {
     gap: 72px;
+    padding: 0px var(--padding-xs-36) 80px var(--padding-xs-36);
   }
 }
 .breadCrumbs {
