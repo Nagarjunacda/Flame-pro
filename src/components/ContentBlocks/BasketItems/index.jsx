@@ -30,8 +30,8 @@ const BasketItems = () => {
   // const removeCtaText = isRemoveProduct ? 'Removing Product' : 'Remove Product';
   const emptyBasket = {
     title: "Basket Empty",
-    button_title: "Shop All",
-    button_link: '/shop'
+    // button_title: "Shop All",
+    // button_link: '/shop'
   };
   const loadingBasket = {
     title: 'Loading Basket...',
