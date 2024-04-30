@@ -31,6 +31,7 @@ const BasketItems = () => {
   const emptyBasket = {
     title: "Basket Empty",
     button_title: "Shop All",
+    button_link: '/shop'
   };
   const loadingBasket = {
     title: 'Loading Basket...',
