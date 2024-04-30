@@ -27,9 +27,9 @@ function ProductDetail({ productData }) {
 
   useEffect(() => {
     if (!productData) {
-      router.push('/shop')
+      router.push("/shop");
     }
-  }, [])
+  }, []);
 
   const handleAddCart = async () => {
     const data = {
@@ -45,12 +45,10 @@ function ProductDetail({ productData }) {
       setIsLoading(false);
     }
     if (res?.error) {
-      const errMsg = 'Something went wrong!'
+      const errMsg = "Something went wrong!";
       setIsLoading(false);
       setShowToast(true);
-      setToastMsg(
-        errMsg || "An error occurred during the request. Please try again."
-      );
+      setToastMsg("Something went wrong!");
     }
   };
 
@@ -60,29 +58,35 @@ function ProductDetail({ productData }) {
 
   return (
     <>
-      {productData ? <main className={styles.mainCont}>
-        <Breadcrumbs />
-        <ProductBlock
-          productData={productData}
-          showToast={showToast}
-          setShowToast={setShowToast}
-          toastMsg={toastMsg}
-          handleAddCart={handleAddCart}
-          isLoading={isLoading}
-          getProductQuantity={getProductQuantity}
-        />
-        {/* <RenderTrays trayData={trays} /> */}
-        {/* <ButtonStyleTwo
+      {productData ? (
+        <main className={styles.mainCont}>
+          <Breadcrumbs />
+          <ProductBlock
+            productData={productData}
+            showToast={showToast}
+            setShowToast={setShowToast}
+            toastMsg={toastMsg}
+            handleAddCart={handleAddCart}
+            isLoading={isLoading}
+            getProductQuantity={getProductQuantity}
+          />
+          {/* <RenderTrays trayData={trays} /> */}
+          {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
         btnFunction={handleAddCart}
       /> */}
-        <Popup
-          show={showPopup}
-          setShow={setShowPopup}
-          productData={productData}
-        />
-      </main> : <h2 className={styles.errorText}>No Product Data Found Redirecting To Shop Page </h2>}
+          <Popup
+            show={showPopup}
+            setShow={setShowPopup}
+            productData={productData}
+          />
+        </main>
+      ) : (
+        <h2 className={styles.errorText}>
+          No Product Data Found Redirecting To Shop Page{" "}
+        </h2>
+      )}
     </>
   );
 }
