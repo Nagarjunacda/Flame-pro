@@ -19,7 +19,7 @@ function RelatedProductsblock({ trayData, additionalDataExt }) {
             </Link>
         </section>
         <section>
-            <SliderComp data={productsData} title={'Recently Viewed'} slidesToShow={3} />
+            <SliderComp data={productsData} title={'Recently Viewed'} slidesToShow={4} />
         </section>
     </section>
 }

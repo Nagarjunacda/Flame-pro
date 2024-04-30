@@ -1,7 +1,17 @@
 .mainCont {
   width: auto;
   font-size: var(--font-size-crumbs);
-  padding: var(--padding-16) 0px;
+  padding: 20px 0px 50px 0px;
+}
+@media(min-width:1280px){
+  .mainCont{
+    padding: 20px 0px 60px 0px;
+  }
+}
+@media(min-width:1680px){
+  .mainCont{
+    padding: 20px 0px 80px 0px;
+  }
 }
 .flexCont{
   display: inline;
@@ -16,5 +26,15 @@
   font-family: "CustomFont-Regular", sans-serif;
 }
 .mainContwithPadding {
-  padding: var(--padding-18) var(--padding-xs-36);
+  padding: 20px var(--padding-xs-36) 50px var(--padding-xs-36) ;
+}
+@media(min-width:1280px){
+  .mainContwithPadding{
+    padding: 20px var(--padding-xs-36) 60px var(--padding-xs-36) ;
+  }
+}
+@media(min-width:1680px){
+  .mainContwithPadding{
+    padding: 20px var(--padding-xs-36) 80px var(--padding-xs-36) ;
+  }
 }
