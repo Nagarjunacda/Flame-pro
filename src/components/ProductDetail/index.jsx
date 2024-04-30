@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NonceContext from "@/context/NonceContext";
 import { useCartData } from "@/context/CartContext";
+import { useFooterContextData } from "@/context/FooterDataContext";
 import ProductBlock from "./ProductBlock";
 import { handlePostRequests } from "@/utils/handlePostCalls";
 import { addToCartUrl } from "@/utils/urls";
+import RenderTrays from "../RenderTrays";
 import Breadcrumbs from "../BreadCrumbs";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import Popup from "@/reusbleComponents/Popup";
@@ -13,6 +15,8 @@ import styles from "./productDetail.module.css";
 function ProductDetail({ productData }) {
   const router = useRouter();
   const [showPopup, setShowPopup] = useState(false);
+  const { footerContextData } = useFooterContextData();
+  const trays = footerContextData?.acf?.content_blocks;
   const { setTriggerUpdate } = useCartData();
   const [productQuantity, setProductQuantity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +45,7 @@ function ProductDetail({ productData }) {
       setIsLoading(false);
     }
     if (res?.error) {
-      const errMsg = res?.error?.response?.data?.message;
+      const errMsg = 'Something went wrong!'
       setIsLoading(false);
       setShowToast(true);
       setToastMsg(
@@ -67,6 +71,7 @@ function ProductDetail({ productData }) {
           isLoading={isLoading}
           getProductQuantity={getProductQuantity}
         />
+        {/* <RenderTrays trayData={trays} /> */}
         {/* <ButtonStyleTwo
         textColor={"#000"}
         text={"ADD TO BASKET"}
