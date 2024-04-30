@@ -1,7 +1,7 @@
 .mainCont {
   width: 100%;
   height: auto;
-  padding: var(--padding-xs-48) 24px;
+  padding: 0px 24px 50px 24px;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -30,7 +30,22 @@
   justify-content: space-between;
   gap: 48px;
   align-items: flex-start;
-  padding: var(--padding-xs-48) var(--padding-xs-36);
+  padding: 0px 24px 50px 24px;
+}
+@media(min-width:900px){
+  .dwebCont{
+    padding: 0px 64px 50px 64px;
+  }
+}
+@media(min-width:1280px){
+  .dwebCont{
+    padding: 0px 64px 60px 64px;
+  }
+}
+@media(min-width:1680px){
+  .dwebCont{
+    padding: 0px 136px 80px 136px;
+  }
 }
 .headingAndCategory {
   width: 100%;

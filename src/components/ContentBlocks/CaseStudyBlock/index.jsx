@@ -1,9 +1,9 @@
 import SliderComp from "@/reusbleComponents/SliderComp";
 import { useMediaQuery } from "react-responsive";
 import CaseStudyDweb from "./CaseStudyDweb";
-import styles from "./caseStudyBlock.module.css";
 import ButtonStyleTwo from "@/reusbleComponents/ButtonStyleTwo";
 import Link from "next/link";
+import styles from "./caseStudyBlock.module.css";
 
 function CaseStudyBlock({ trayData, caseStudyExt }) {
   const { title, button_title } = trayData;

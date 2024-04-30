@@ -3,7 +3,22 @@
   justify-items: center;
   align-items: center;
   flex-direction: column;
-  padding: var(--padding-text-center-block);
+  padding: 0px 36px 50px 36px
+}
+@media(min-width:900px){
+  .titletextcentre{
+    padding: 0px 64px 50px 64px;
+  }
+}
+@media(min-width:1280px){
+  .titletextcentre{
+    padding: 0px 64px 60px 64px;
+  }
+}
+@media(min-width:1680px){
+  .titletextcentre{
+    padding: 0px 64px 80px 64px;
+  }
 }
 .titletextcentre div {
   max-width: 1088px;
