@@ -3,10 +3,10 @@ import HeaderBannerSlim from "../ContentBlocks/HeaderBannerSlim"
 import ProductsListing from "./ProductsListing"
 import Breadcrumbs from "../BreadCrumbs"
 import RenderTrays from "../RenderTrays"
+import LoaderComponent from "../LoaderComponent"
 import styles from './shopAll.module.css'
 
 function ShopAll({ productsData, megaMenuData, trays }) {
-    console.log(trays, '!!')
     const router = useRouter();
     const { query } = router;
     const { slug } = query;
@@ -21,11 +21,11 @@ function ShopAll({ productsData, megaMenuData, trays }) {
     // </section >
     return (
         <main>
-            {trayData && (
+            {trayData ?
                 <RenderTrays trayData={trayData} productsData={productsData} megaMenuData={megaMenuData} additionalDataExt={additionalDataExt} />
                 // ) : (
                 //     <p>This Page Under Development</p>
-            )}
+                : <LoaderComponent />}
         </main>
     );
 }

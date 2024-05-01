@@ -1,5 +1,6 @@
-import RenderTrays from "../RenderTrays";
 import _ from 'lodash';
+import LoaderComponent from "../LoaderComponent";
+import RenderTrays from "../RenderTrays";
 
 function CatchAllBlock({ pageData }) {
   const { data } = pageData;
@@ -10,11 +11,11 @@ function CatchAllBlock({ pageData }) {
 
   return (
     <main>
-      {trayData ? (
+      {isNotEmpty ?
         <RenderTrays trayData={trayData} categories={categories} additionalDataExt={additionalDataExt} />
-      ) : (
-        <p>404 Page Not Found</p>
-      )}
+        :
+        <LoaderComponent />
+      }
     </main>
   );
 }

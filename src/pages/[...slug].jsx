@@ -1,8 +1,9 @@
 import dynamic from "next/dynamic";
-import { handleServerSideProps } from "@/utils/handleServerSideData"
+import { handleServerSideProps } from "@/utils/handleServerSideData";
+import CatchAllBlock from "@/components/CatchAllBlock";
 import { allPageUrl } from "@/utils/urls"
 
-const CatchAllBlock = dynamic(() => import("@/components/CatchAllBlock"));
+// const CatchAllBlock = dynamic(() => import("@/components/CatchAllBlock"));
 
 function CatchAllPage(props) {
     return <CatchAllBlock pageData={props} />
