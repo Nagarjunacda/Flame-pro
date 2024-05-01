@@ -5,7 +5,11 @@ import SliderComp from '@/reusbleComponents/SliderComp';
 import styles from './recentlyViewedBlockMain.module.css';
 
 function RecentlyViewedBlockMain() {
-    const data = JSON.parse(localStorage.getItem('recentlyViewed'));
+    let data = [];
+    if (typeof window !== 'undefined') {
+        // Check if window object is defined (i.e., if the code is running in the browser)
+        data = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+    }
     // const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const blockTitle = 'Recently Viewed';
     // const productsData = additionalDataExt?.products_select_ext;
