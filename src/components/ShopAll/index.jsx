@@ -6,7 +6,7 @@ import RenderTrays from "../RenderTrays"
 import LoaderComponent from "../LoaderComponent"
 import styles from './shopAll.module.css'
 
-function ShopAll({ productsData, megaMenuData, trays }) {
+function ShopAll({ productsData, trays }) {
     const router = useRouter();
     const { query } = router;
     const { slug } = query;
@@ -22,7 +22,7 @@ function ShopAll({ productsData, megaMenuData, trays }) {
     return (
         <main>
             {trayData ?
-                <RenderTrays trayData={trayData} productsData={productsData} megaMenuData={megaMenuData} additionalDataExt={additionalDataExt} />
+                <RenderTrays trayData={trayData} productsData={productsData} additionalDataExt={additionalDataExt} />
                 // ) : (
                 //     <p>This Page Under Development</p>
                 : <LoaderComponent />}

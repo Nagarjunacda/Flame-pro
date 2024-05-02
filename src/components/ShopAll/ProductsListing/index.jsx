@@ -11,7 +11,7 @@ import FiltersBlock from "../FiltersBlock";
 import styles from "../shopAll.module.css";
 import ProductCardDesc from "@/components/Cards/ProductCardDesc";
 
-function ProductsListing({ productsData, megaMenuData }) {
+function ProductsListing({ productsData }) {
   const router = useRouter();
   const { route, query } = router;
   const { slug } = query;

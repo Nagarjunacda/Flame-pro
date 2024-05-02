@@ -30,7 +30,6 @@ function RenderTrays({
   additionalDataExt,
   fullPageData = {},
   productsData,
-  megaMenuData
 }) {
   const caseStudyExt = additionalDataExt?.casestudy_ext;
   const resourceHubExt = additionalDataExt?.resources_hub_ext;
@@ -92,7 +91,7 @@ function RenderTrays({
       case "team_block":
         return <AboutTeamBlock trayData={tray} aboutExt={aboutusTeamExt} />;
       case "product_lists_with_filters":
-        return <ProductsListing productsData={productsData} megaMenuData={megaMenuData} />;
+        return <ProductsListing productsData={productsData} />;
       case "recently_viewed":
         return <RecentlyViewedBlockMain />;
       case "contact_us_page_form":
