@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import ProductDetail from "@/components/ProductDetail";
 import { productDetailUrl } from "@/utils/urls";
 import { headerMenuUrl } from "@/utils/urls";
@@ -6,15 +7,20 @@ import { useFireFightingData } from "@/context/FireFightingContext";
 import { handleGetReqAuth } from "@/utils/handleServerSideData";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import ShopAll from "@/components/ShopAll";
+import { isEmpty } from "lodash";
 
 function ProductDetailPage(props) {
+    const router = useRouter();
     const [listingData, setListingData] = useState([]);
     const { setFireFightingProData } = useFireFightingData();
-    const { data1, data2, data3 } = props;
+    const { data1, data2, data3, isProducts } = props;
     const productData = data1 && data1[0];
 
     useEffect(() => {
         setFireFightingProData(data2);
+        if (!isProducts && isEmpty(data1)) {
+            router.push('/shop')
+        }
     }, [])
 
     return !productData ? <ShopAll productData={listingData} trays={data3} /> : <ProductDetail productData={productData} />
@@ -45,7 +51,6 @@ export async function getServerSideProps(context) {
         const filterByslug = fireFighterProducts && fireFighterProducts?.length && fireFighterProducts[0]?.child_items?.filter((e) => {
             return e?.slug === slug
         })
-        console.log(filterByslug, '!!')
         const id = filterByslug && filterByslug?.length && filterByslug[0]?.object_id;
         const isProducts = fireFighterSlugs?.includes(slug);
 
@@ -63,7 +68,8 @@ export async function getServerSideProps(context) {
                 data1: data1.data || null,
                 data2: data2.data || null,
                 data3: data3 || null,
-                slug: slug
+                slug: slug,
+                isProducts: isProducts
             },
         };
     } catch (error) {
