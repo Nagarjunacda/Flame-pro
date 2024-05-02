@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
+import { isEmpty } from "lodash";
 import { Scrollbar } from "smooth-scrollbar-react";
 import { headerMenuUrl, footerMenuUrl } from "@/utils/urls";
 import { useFooterContextData } from "@/context/FooterDataContext";
 import { useSpeakToPopupState } from "@/context/SpeakToPopupContext";
 import { HeaderDataProvider } from "@/context/headerContext";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
+import { useFireFightingData } from "@/context/FireFightingContext";
 import { CartDataProvider } from "@/context/CartContext";
 import { ProductCatDataProvider } from "@/context/ProductCatContext";
 import { NonceProvider } from "@/context/NonceContext";
@@ -21,12 +23,14 @@ function LayoutWrapper({ children }) {
   const router = useRouter();
   const { route, query } = router;
   const { isSpeakPopupOpen, setIsSpeakPopupOpen } = useSpeakToPopupState();
+  const { fireFightingProData } = useFireFightingData();
   const { footerContextData } = useFooterContextData();
   const [headerData, setHeaderData] = useState({});
   const [footerData, setfooterData] = useState({});
   const [scrolled, setScrolled] = useState(false);
+  const productDataMegaMenu = isEmpty(headerData) ? fireFightingProData : headerData;
 
-  const fireFighterArr = headerData?.items?.filter((navItems) => {
+  const fireFighterArr = productDataMegaMenu?.items?.filter((navItems) => {
     return navItems?.slug === 'firefighting-ppe'
   })
   const fireFighterProducts = fireFighterArr && fireFighterArr.length && fireFighterArr[0]?.child_items?.filter((e) => {

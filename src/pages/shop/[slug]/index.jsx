@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductDetail from "@/components/ProductDetail";
 import { productDetailUrl } from "@/utils/urls";
 import { headerMenuUrl } from "@/utils/urls";
+import { useFireFightingData } from "@/context/FireFightingContext";
 import { handleGetReqAuth } from "@/utils/handleServerSideData";
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import ShopAll from "@/components/ShopAll";
 
 function ProductDetailPage(props) {
     const [listingData, setListingData] = useState([]);
+    const { setFireFightingProData } = useFireFightingData();
     const { data1, data2, data3 } = props;
     const productData = data1 && data1[0];
+
+    useEffect(() => {
+        setFireFightingProData(data2);
+    }, [])
 
     return !productData ? <ShopAll productData={listingData} trays={data3} /> : <ProductDetail productData={productData} />
 }
