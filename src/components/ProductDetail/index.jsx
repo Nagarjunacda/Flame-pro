@@ -58,7 +58,7 @@ function ProductDetail({ productData }) {
 
   return (
     <>
-      {productData ? (
+      {productData &&
         <main className={styles.mainCont}>
           <Breadcrumbs />
           <ProductBlock
@@ -81,12 +81,7 @@ function ProductDetail({ productData }) {
             setShow={setShowPopup}
             productData={productData}
           />
-        </main>
-      ) : (
-        <h2 className={styles.errorText}>
-          No Product Data Found Redirecting To Shop Page{" "}
-        </h2>
-      )}
+        </main>}
     </>
   );
 }

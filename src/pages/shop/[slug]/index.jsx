@@ -50,8 +50,9 @@ function ProductDetailPage(props) {
             }
         }
         getData();
-    }, [prductCatData, slug])
-    return isProducts ? <ShopAll productData={listingData} megaMenuData={isFromMenu} trays={trayData} /> : <ProductDetail productData={productData} />
+    }, [headerConData, slug])
+
+    return !productData ? <ShopAll productData={listingData} megaMenuData={isFromMenu} trays={trayData} /> : <ProductDetail productData={productData} />
 }
 export default ProductDetailPage
 

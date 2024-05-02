@@ -1,9 +1,8 @@
 import dynamic from 'next/dynamic';
 import { handleServerSideProps } from "@/utils/handleServerSideData";
 import { productsUrl } from "@/utils/urls";
+import ShopAll from '@/components/ShopAll';
 import { allPageUrl } from '@/utils/urls';
-
-const ShopAll = dynamic(() => import("@/components/ShopAll"));
 
 function ShopAllPage({ data }) {
     const { products } = data;
