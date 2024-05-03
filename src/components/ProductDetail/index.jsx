@@ -36,6 +36,11 @@ function ProductDetail({ productData }) {
       id: productId,
       quantity: productQuantity,
     };
+    if (!productQuantity) {
+      setShowToast(true);
+      setToastMsg('Mininum quantity should be atleast 1');
+      return
+    }
     setIsLoading(true);
     const customHeaders = { Nonce: nonceVal };
     const res = await handlePostRequests(addToCartUrl, data, customHeaders);

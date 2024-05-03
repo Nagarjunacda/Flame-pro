@@ -2,4 +2,6 @@
         border:2px solid var(--color-primary);
         display: 'inline-block';
         padding: 8px 20px;
+        min-height: 44px;
+        cursor: pointer;
 }

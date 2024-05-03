@@ -10,9 +10,17 @@ function EditableDiv({ getProductQuantity }) {
     };
 
     const handleValueChange = (e) => {
-        const quant = e.target.value;
-        setValue(quant);
-        getProductQuantity(quant);
+        const inputValue = e.target.value;
+        if (inputValue === '') {
+            setValue(inputValue);
+            return
+        }
+        // Check if the input value is a valid number
+        if (!isNaN(inputValue) && inputValue !== '') {
+            const quant = parseInt(inputValue);
+            setValue(quant);
+            getProductQuantity(quant);
+        }
     }
 
     return (
