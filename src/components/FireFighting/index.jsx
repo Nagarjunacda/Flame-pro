@@ -11,7 +11,7 @@ function FireFighting({ pageData }) {
       {trayData ? (
         <RenderTrays trayData={trayData} categories={categories} additionalDataExt={additionalDataExt} />
       ) : (
-        <p>This Page Under Development</p>
+        <p>Something Went Wrong!</p>
       )}
     </main>
   );

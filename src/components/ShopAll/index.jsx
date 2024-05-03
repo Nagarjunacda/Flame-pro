@@ -12,6 +12,7 @@ function ShopAll({ productsData, trays }) {
     const { slug } = query;
     const trayData = trays?.acf?.content_blocks;
     const additionalDataExt = trays?.acf_fields;
+    const compData = { image: 'https://cms.cdastagging.com/wp-content/uploads/2024/04/Group-4786.png', speak_to_us_button: 'Shop', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', title: 'No Proudct Found, Redirecting to Shop Page' }
     // const trayData = { image: "https://flameprodev.cda-development3.co.uk/cms/wp-content/uploads/2024/02/Firefighting-bannerimage.jpg", title: slug ? slug : 'Shop', speak_to_us_button: 'Speak To Us' }
 
     // return < section className={styles.mainCont} >
@@ -25,7 +26,7 @@ function ShopAll({ productsData, trays }) {
                 <RenderTrays trayData={trayData} productsData={productsData} additionalDataExt={additionalDataExt} />
                 // ) : (
                 //     <p>This Page Under Development</p>
-                : <LoaderComponent />}
+                : <LoaderComponent trayData={compData} />}
         </main>
     );
 }
