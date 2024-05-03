@@ -1,5 +1,5 @@
 import { handleServerSideProps } from "@/utils/handleServerSideData";
-import { fireFightingUrl } from "@/utils/urls";
+import { pageNotFoundUrl } from "@/utils/urls";
 import PageNotFound from "@/components/PageNotFound";
 
 function PageNotFoundPage(props) {
@@ -7,8 +7,8 @@ function PageNotFoundPage(props) {
 }
 export default PageNotFoundPage
 
-export async function getServerSideProps(context) {
-    const { data, error } = await handleServerSideProps(fireFightingUrl);
+export async function getStaticProps(context) {
+    const { data, error } = await handleServerSideProps(pageNotFoundUrl);
     if (error) {
         return {
             props: {

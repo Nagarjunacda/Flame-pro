@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import FlameImage from '@/reusbleComponents/FlameImage'
 import SignUpForm from '@/components/SignUpForm'
 import FlameBtn from '@/reusbleComponents/FlameBtn'
@@ -12,7 +13,8 @@ function ContactFormBlock({ trayData }) {
     const textColor = 'var(--color-primary)'
     const btnText = trayData?.button_title
     const formHeading = 'Enter Your Details'
-    const formData = [{ section1: 'Full Name*', section2: 'Email Address*' }, { section1: 'Phone Number*', section2: 'Company Name*' }, { section1: 'Job Title*' }, { section1: 'Message' }]
+    const formData = [{ section1: 'Full Name*', section2: 'Email Address*' }, { section1: 'Phone Number*', section2: 'Company Name*' }, { section1: 'Job Title*' }, { section1: 'Message' }];
+    const buttonLink = trayData?.button_link;
 
     const btnFunction = () => { }
 
@@ -28,9 +30,9 @@ function ContactFormBlock({ trayData }) {
             <section className={styles.textBlock}>
                 <p className={styles.title}>{title}</p>
                 <p className={styles.text}>{renderHTML(text)}</p>
-                <section>
+                <Link href={buttonLink}>
                     <FlameBtn color={btnColor} text={btnText} textColor={textColor} isLoadState={false} btnFunction={btnFunction} />
-                </section>
+                </Link>
             </section>
         </section>
     </section>
