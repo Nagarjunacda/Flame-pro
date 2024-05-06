@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import NonceContext from "@/context/NonceContext";
@@ -14,6 +14,7 @@ import styles from './checkoutForm.module.css';
 function CheckoutForm({ heading, formFields, heading2 }) {
     const nonceVal = useContext(NonceContext);
     const router = useRouter();
+    const countryRef = useRef(null);
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [contactBy, setContactBy] = useState('Phone')
@@ -23,6 +24,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
     const [showToast, setShowToast] = useState(false);
     const [isLoadState, setIsLoadState] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
+    const [countryDropdown, setCountryDropdown] = useState(false)
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
     const phnBtncolor = contactBy === 'Phone' ? "var(--color-primary)" : "var(--color-mwebSearch)";
@@ -168,6 +170,19 @@ function CheckoutForm({ heading, formFields, heading2 }) {
         }
     };
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (countryRef.current && !countryRef.current.contains(event.target)) {
+                setCountryDropdown(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [countryRef]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
     };
@@ -211,7 +226,7 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                                     {areaOfInt}
                                 </section>
                             )}
-                            {fieldName.section1 === 'Phone Number*' && <CountrySelector />}
+                            {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
                             )}
