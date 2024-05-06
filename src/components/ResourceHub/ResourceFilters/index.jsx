@@ -245,7 +245,7 @@ function ResourceFilters({
             <section className={styles.iconSty}>
               <FlameImage src={closeBtnSrc} alt="clear" />
             </section>
-            <p className={styles.clearTxt}>clear Filters</p>
+            <p className={styles.clearTxt}>Clear Filters</p>
           </section>
         )}
       </section>
