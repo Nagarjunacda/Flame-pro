@@ -106,6 +106,16 @@
     opacity: 0.5;
     font-weight: var(--font-wt-bold); /* White with 50% opacity */
   }
+  .textArea{
+      background-color: transparent;
+      color: var(--color-primary);
+      border: none;
+      border-bottom: 2px solid var(--color-primary);
+      font-size: var(--font-size-xs-ext);
+      width: 100%;
+      outline: none;
+      padding-bottom: 8px;
+  }
   .areaInterestInput {
     background-color: transparent;
     color: var(--color-secondary);

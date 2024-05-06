@@ -204,28 +204,38 @@ function CheckoutForm({ heading, formFields, heading2 }) {
                 {formFields?.map((fieldName) => (
                     <div key={fieldName} className={styles.formDiv}>
                         <section className={styles.formInput}>
-                            {fieldName?.section1 !== "Area Of Interest*" ? (
-                                <input
+                            {fieldName?.section1 === "Message*" ?
+                                <textarea
                                     type="text"
                                     id={fieldName?.section1}
                                     name={fieldName?.section1}
-                                    className={
-                                        fieldName?.section1 === "Area Of Interest*"
-                                            ? styles.areaInterestInput : fieldName?.section1 === 'Phone Number*' ? styles.textInputPhoneNum
-                                                : styles.textInput
-                                    }
+                                    className={styles.textArea}
                                     placeholder={fieldName?.section1}
                                     onChange={(e) => handleChange(e, fieldName?.section1)}
                                     value={formData[fieldName?.section1] || ""}
                                 />
-                            ) : (
-                                <section
-                                    className={styles.areaInterestInput}
-                                    onClick={handleDropdown}
-                                >
-                                    {areaOfInt}
-                                </section>
-                            )}
+                                : fieldName?.section1 !== "Area Of Interest*" ? (
+                                    <input
+                                        type="text"
+                                        id={fieldName?.section1}
+                                        name={fieldName?.section1}
+                                        className={
+                                            fieldName?.section1 === "Area Of Interest*"
+                                                ? styles.areaInterestInput : fieldName?.section1 === 'Phone Number*' ? styles.textInputPhoneNum
+                                                    : styles.textInput
+                                        }
+                                        placeholder={fieldName?.section1}
+                                        onChange={(e) => handleChange(e, fieldName?.section1)}
+                                        value={formData[fieldName?.section1] || ""}
+                                    />
+                                ) : (
+                                    <section
+                                        className={styles.areaInterestInput}
+                                        onClick={handleDropdown}
+                                    >
+                                        {areaOfInt}
+                                    </section>
+                                )}
                             {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
                             {errors[fieldName?.section1] && (
                                 <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
