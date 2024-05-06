@@ -144,6 +144,13 @@ function OffCanvasDweb({
           },
         }}
       >
+        <style>
+          {`
+      .scrollbar-thumb {
+        background-color: #000000 !important;
+      }
+    `}
+        </style>
         <Offcanvas.Body className={styles.offCanvasBody}>
           <FireFighterppe
             postsData={postsData}
