@@ -6,7 +6,7 @@ import ResourceHubFiltersDweb from "./ResourceHubFiltersDweb";
 import ResourceHubFiltersMweb from "./ResourceHubFiltersMweb";
 
 
-function ResourceHubFilters({ setItemsNumbers, setSelectedPageNum, mainCatFilter, setMainCatFilter, setSelectedFilterArr }) {
+function ResourceHubFilters({ setItemsNumbers, selectedSlug = '', setSelectedPageNum, mainCatFilter, setMainCatFilter, setSelectedFilterArr }) {
     const [resourceFiltersData, setResourceFiltersData] = useState([]);
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
     const availableFilters = ['industry', 'application', 'standard--certification']
@@ -18,6 +18,19 @@ function ResourceHubFilters({ setItemsNumbers, setSelectedPageNum, mainCatFilter
                 const filteredData = [];
                 for (let key in data) {
                     filteredData.push({ name: key, data: data[key] });
+                }
+                if (selectedSlug) {
+                    const onlyShowSelCat = filteredData?.map((e) => {
+                        if (e?.name === "Categories") {
+                            const removedCategories = e?.data?.filter((label) => {
+                                return label?.slug === selectedSlug
+                            })
+                            return { name: e?.name, data: removedCategories }
+                        }
+                        return e
+                    })
+                    setResourceFiltersData(onlyShowSelCat);
+                    return
                 }
                 setResourceFiltersData(filteredData);
             }
