@@ -22,7 +22,8 @@ function ResourceHubFiltersDweb({
     const [isChecked, setIsChecked] = useState(false);
     const [selectedItem, setSelectedItem] = useState({});
     const [itemsArray, setItemsArray] = useState([]);
-    const [categoryArr, setCategoryArr] = useState([]);
+    const initalCategoryArr = filtersData.map((cat) => cat?.name)
+    const [categoryArr, setCategoryArr] = useState(initalCategoryArr);
     const downArrowSrc = "/Images/bottomGreyArrow.svg";
     const upArrowSrc = "/Images/upGreyArrow.svg";
     const closeBtnSrc = "/Images/closeImg.png";
@@ -73,20 +74,21 @@ function ResourceHubFiltersDweb({
     useEffect(() => {
         if (slug) {
             setItemsArray([obj])
-            setCategoryArr(['Categories'])
+            // setCategoryArr(['Categories'])
             setSelectedFilterArr([obj]);
         }
-    }, [slug])
+        setCategoryArr(initalCategoryArr)
+    }, [slug, filtersData])
 
     const handleClearSelections = () => {
         if (slug) {
             setItemsArray([obj])
-            setCategoryArr(['Categories'])
+            // setCategoryArr(['Categories'])
             setSelectedFilterArr([obj]);
             return
         }
         setItemsArray([]);
-        setCategoryArr([]);
+        // setCategoryArr([]);
         setSelectedFilterArr([]);
         setSelectedPageNum(1);
         setItemsNumbers(10);
