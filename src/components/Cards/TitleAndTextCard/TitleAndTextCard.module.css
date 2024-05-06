@@ -11,20 +11,18 @@
 }
 @media(min-width:900px){
     .cardImg{
-        min-height: 220px;
-        max-height: 220px; 
+        min-height: 200px;
+        aspect-ratio: 1;
     }
 }
 @media(min-width:1280px){
     .cardImg{
-        min-height: 380px;
-        max-height: 380px; 
+        min-height: 280px;
     }
 }
 @media(min-width:1680px){
     .cardImg{
-        min-height: 480px;
-        max-height: 480px; 
+        min-height: 360px;
     }
 }
 .text{

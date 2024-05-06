@@ -27,7 +27,7 @@ function ResourceHubFiltersDweb({
     const downArrowSrc = "/Images/bottomGreyArrow.svg";
     const upArrowSrc = "/Images/upGreyArrow.svg";
     const closeBtnSrc = "/Images/closeImg.png";
-    const showClearSel = slug ? itemsArray?.length > 1 : itemsArray?.length ? itemsArray?.length : mainCatFilter === 'fire' || mainCatFilter === 'defence';
+    const showClearSel = slug ? itemsArray?.length > 1 || mainCatFilter === 'fire' || mainCatFilter === 'defence' : itemsArray?.length ? itemsArray?.length : mainCatFilter === 'fire' || mainCatFilter === 'defence';
 
     const handleItemClick = async (item) => {
         if (slug && item?.taxonomy === 'category') {
@@ -85,6 +85,7 @@ function ResourceHubFiltersDweb({
             setItemsArray([obj])
             // setCategoryArr(['Categories'])
             setSelectedFilterArr([obj]);
+            setMainCatFilter('');
             return
         }
         setItemsArray([]);

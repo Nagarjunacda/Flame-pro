@@ -115,6 +115,7 @@
       width: 100%;
       outline: none;
       padding-bottom: 8px;
+      min-height: 76px;
   }
   .areaInterestInput {
     background-color: transparent;
