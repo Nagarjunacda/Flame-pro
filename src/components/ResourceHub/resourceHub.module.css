@@ -211,3 +211,119 @@
     justify-content: center;
     align-items: center;
   }
+  .popupBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the popup is above other content */
+}
+.popupContent {
+    background-color: white;
+    padding: 36px;
+    width: 90%;
+    height: 320px;
+    overflow-y: scroll;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Ensure the popup content is above the background */
+}
+@media(min-width:1024px){
+  .popupContent{
+    height: 260px;
+  }
+}
+.popupCont{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: auto;
+}
+.headingSec{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.closeBtnSec{
+width: 100%;
+display: flex;
+justify-content: flex-end;
+cursor: pointer;
+}
+.closeBtn {
+  width: 16px;
+  height: 16px;
+}
+.popupHeading{
+  font-size: var(--font-size-lg);
+  width: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+@media(min-width:1024px){
+  .form{
+    flex-direction: row;
+  }
+}
+.formDiv {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  /* max-width: 500px; */
+}
+.formInput {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.textInput {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+  font-size: var(--font-size-xs-ext);
+  width: 100%;
+  outline: none;
+  padding-bottom: 8px;
+}
+/* Style placeholder text */
+.textInput::placeholder {
+  color: var(--color-primary);
+  opacity: 0.5;
+  font-weight: var(--font-wt-bold); /* White with 50% opacity */
+}
+.textInputPhoneNum {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+  padding-left: 90px;
+  border-bottom: 2px solid var(--color-primary);
+  font-size: var(--font-size-xs-ext);
+  width: 100%;
+  outline: none;
+  padding-bottom: 8px;
+}
+/* Style placeholder text */
+.textInputPhoneNum::placeholder {
+  color: var(--color-primary);
+  opacity: 0.5;
+  font-weight: var(--font-wt-bold); /* White with 50% opacity */
+}
+.errorMsg {
+  padding-top: 8px;
+  color: var(--color-fire);
+  font-size: var(--font-size-xs);
+}

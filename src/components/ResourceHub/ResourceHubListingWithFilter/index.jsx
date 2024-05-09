@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import FlameBtn from '@/reusbleComponents/FlameBtn';
 import { handleServerSideProps } from '@/utils/handleServerSideData';
 import FlameImage from '@/reusbleComponents/FlameImage';
 import TitleAndTextCard from '@/components/Cards/TitleAndTextCard';
@@ -8,6 +9,7 @@ import ResourceHubFilters from '../ResourceHubFilters';
 import ResourceFilters from '../ResourceFilters';
 import { blogPostsUrl } from '@/utils/urls';
 import { resourceFiltersUrl } from '@/utils/urls';
+import CountrySelector from '@/components/CountrySelector';
 import _isEmpty from 'lodash/isEmpty';
 import styles from '../resourceHub.module.css';
 
@@ -16,6 +18,7 @@ function ResourceHubListingWithFilter({ listingData }) {
     const { query } = router;
     const { slug } = query;
     const showNoOfItemsRef = useRef(null);
+    const countryRef = useRef(null);
     const [mainCatFilter, setMainCatFilter] = useState('');
     const str = slug;
     const result = str.includes('-') ? str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) : str;
@@ -26,18 +29,30 @@ function ResourceHubListingWithFilter({ listingData }) {
     const [selectedPageNum, setSelectedPageNum] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDropdown2, setShowDropdown2] = useState(false);
+    const [shouldOpenDownloadPopup, setShouldOpenDownloadPopup] = useState(false);
+    const [countryDropdown, setCountryDropdown] = useState(false)
     const [filtersUrl, setFiltersUrl] = useState('');
     const [posts, setPosts] = useState([]);
+    const [formData, setFormData] = useState({});
+    const [errors, setErrors] = useState({});
+    const [showToast, setShowToast] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const arrowSrc = "/Images/bottomGreyArrow.svg";
     const leftArrowSrc = "/Images/leftGreyArrow.svg";
     const rightArrowSrc = "/Images/rightGreyArrow.svg";
+    const offCanvasClose = '/Images/offCanvasClose.svg';
+    const btnColor = "var(--color-primary)";
+    const textColor = "var(--color-secondary)";
     const pageNumbers = Array.from(
         { length: totalPages },
         (_, index) => index + 1
     );
     const numberArr = [10, 20, 30, 40, 50];
     const isPostsEmpty = _isEmpty(posts);
+    const formFields = [{ section1: "Full Name*" },
+    { section1: "Email Address*" },
+    { section1: "Phone Number*" }];
 
     // useEffect(() => {
     //     setPosts(listingData);
@@ -54,13 +69,16 @@ function ResourceHubListingWithFilter({ listingData }) {
                 setShowDropdown(false)
                 setShowDropdown2(false)
             }
+            if (countryRef.current && !countryRef.current.contains(event.target)) {
+                setCountryDropdown(false);
+            }
         }
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [showNoOfItemsRef]);
+    }, [showNoOfItemsRef, countryRef]);
 
     useEffect(() => {
         const getPostsData = async () => {
@@ -132,6 +150,85 @@ function ResourceHubListingWithFilter({ listingData }) {
         setShowDropdown2(false);
         scrollToTop.scrollIntoView({ behavior: "smooth" });
     };
+
+    const handleDownloadPopup = () => {
+        setShouldOpenDownloadPopup(true);
+    }
+
+    const closePopup = () => {
+        setShouldOpenDownloadPopup(false);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    const handleChange = async (e, fieldName) => {
+        const { name, value } = e.target;
+        if (!value) {
+            setErrors({
+                ...errors,
+                [fieldName]: `${fieldName} is required`,
+            });
+            setFormData({
+                ...formData,
+                [fieldName]: e.target.value,
+            });
+            return;
+        }
+        if (name === "Full Name*") {
+            if (!/^[a-zA-Z\s]+$/.test(value)) {
+                setErrors({
+                    ...errors,
+                    [fieldName]: "Please enter a valid name",
+                });
+            }
+        }
+        if (name === "Email Address*") {
+            if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(value)) {
+                setErrors({
+                    ...errors,
+                    [fieldName]: "Please enter valid email address",
+                });
+            }
+        }
+        if (name === "Phone Number*") {
+            if (!/^[0-9]+$/.test(value)) {
+                setErrors({
+                    ...errors,
+                    [fieldName]: "Please enter valid phone number",
+                });
+            }
+        }
+        errors[fieldName] = null;
+        setFormData({
+            ...formData,
+            [fieldName]: e.target.value,
+        });
+    }
+
+    const handleButtonClick = async () => {
+        if (Object.keys(errors).some((key) => errors[key])) {
+            setShowToast(true);
+            setToastMsg("Please enter all the required fields.");
+            return;
+        }
+        let formValid = true;
+        formFields.forEach((fieldName) => {
+            if (!formData[fieldName?.section1]) {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    [fieldName?.section1]: `${fieldName?.section1} is required`,
+                }));
+                formValid = false;
+            }
+        });
+        if (!formValid) {
+            setShowToast(true);
+            setToastMsg("Please enter all the required fields.");
+            return;
+        }
+    }
 
     return <section className={styles.mainCont}>
         <ResourceHubFilters setItemsNumbers={setItemsNumbers} mainCatFilter={mainCatFilter} selectedSlug={slug} setMainCatFilter={setMainCatFilter} setSelectedPageNum={setSelectedPageNum} setSelectedFilterArr={setSelectedFilterArr} />
@@ -219,7 +316,7 @@ function ResourceHubListingWithFilter({ listingData }) {
             </section>}
             {isPostsEmpty ? <h3 className={styles.noPostText}>No Posts Found</h3> : <section className={styles.products}>
                 {posts?.map((product, index) => {
-                    return <TitleAndTextCard key={index} data={product} />
+                    return <TitleAndTextCard key={index} data={product} handleDownloadPopup={handleDownloadPopup} />
                 })}
             </section>}
             {!isPostsEmpty && <section className={styles.pagesCont}>
@@ -295,6 +392,56 @@ function ResourceHubListingWithFilter({ listingData }) {
                 </section>
             </section>}
         </section>
+        {shouldOpenDownloadPopup && <div className={styles.popupBackground} onClick={closePopup}>
+            <div
+                className={styles.popupContent}
+                onClick={(e) => e.stopPropagation()}
+            >
+                <section className={styles.popupCont}>
+                    <section className={styles.headingSec}>
+                        <h3 className={styles.popupHeading}>Please Enter Your Details To Access This</h3>
+                        <section className={styles.closeBtnSec}>
+                            <figure className={styles.closeBtn} onClick={closePopup}>
+                                <FlameImage src={offCanvasClose} alt='closeBtn' />
+                            </figure>
+                        </section>
+                    </section>
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        {formFields?.map((fieldName) => (
+                            <div key={fieldName} className={styles.formDiv}>
+                                <section className={styles.formInput}>
+                                    <input
+                                        type="text"
+                                        id={fieldName?.section1}
+                                        name={fieldName?.section1}
+                                        className={
+                                            fieldName?.section1 === 'Phone Number*' ? styles.textInputPhoneNum
+                                                : styles.textInput
+                                        }
+                                        placeholder={fieldName?.section1}
+                                        onChange={(e) => handleChange(e, fieldName?.section1)}
+                                        value={formData[fieldName?.section1] || ""}
+                                    />
+                                    {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
+                                    {errors[fieldName?.section1] && (
+                                        <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
+                                    )}
+                                </section>
+                            </div>
+                        ))}
+                        <section className={styles.cta}>
+                            <FlameBtn
+                                color={btnColor}
+                                text={"Submit"}
+                                textColor={textColor}
+                                isLoadState={false}
+                                btnFunction={handleButtonClick}
+                            />
+                        </section>
+                    </form>
+                </section>
+            </div>
+        </div>}
     </section>
 }
 export default ResourceHubListingWithFilter
