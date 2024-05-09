@@ -7,6 +7,7 @@ import SearchMweb from '../SearchMweb';
 import BasketMweb from '../BasketMweb';
 import Search from '@/components/Search';
 import FireFighterppe from '@/components/ContentBlocks/FireFighterppe';
+import { Scrollbar } from "smooth-scrollbar-react";
 import DefenceProcurement from '@/components/ContentBlocks/DefenceProcurement';
 import ResoureceHub from '@/components/ContentBlocks/ResourceHub';
 import styles from '../header.module.css'
@@ -96,11 +97,28 @@ function OffCanvas({ show, handleClose, headerData, postsData }) {
                     </section>
                 </Offcanvas.Title>
             </Offcanvas.Header>
-            <Offcanvas.Body className={styles.offCanvasBody}>
-                {orderedNavItems?.map((item, index) => {
-                    return <nav onClick={() => { handleItemClick(item) }} key={index} className={styles.canvasTextItems}>{getNavItem(item)}</nav>
-                })}
-            </Offcanvas.Body>
+            <Scrollbar
+                alwaysShowTracks={true}
+                damping={0.1}
+                plugins={{
+                    overscroll: {
+                        effect: "bounce",
+                    },
+                }}
+            >
+                <style>
+                    {`
+      .scrollbar-thumb {
+        background-color: #000000 !important;
+      }
+    `}
+                </style>
+                <Offcanvas.Body className={styles.offCanvasBody}>
+                    {orderedNavItems?.map((item, index) => {
+                        return <nav onClick={() => { handleItemClick(item) }} key={index} className={styles.canvasTextItems}>{getNavItem(item)}</nav>
+                    })}
+                </Offcanvas.Body>
+            </Scrollbar>
         </Offcanvas>
         <Offcanvas show={isOverlayCanvasOpen} className={styles.offCanvasCont} onHide={handleOverlayClose} placement={'end'}>
             <Offcanvas.Header>
@@ -115,9 +133,26 @@ function OffCanvas({ show, handleClose, headerData, postsData }) {
                     </section>
                 </Offcanvas.Title>
             </Offcanvas.Header>
-            <Offcanvas.Body className={styles.offCanvasBody}>
-                {selectedNavItem?.title === 'Search' ? <Search getSearchData={getSearchData} handleCloseMwebDrawer={handleOverlayClose} /> : <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} postsData={postsData} />}
-            </Offcanvas.Body>
+            <Scrollbar
+                alwaysShowTracks={true}
+                damping={0.1}
+                plugins={{
+                    overscroll: {
+                        effect: "bounce",
+                    },
+                }}
+            >
+                <style>
+                    {`
+      .scrollbar-thumb {
+        background-color: #000000 !important;
+      }
+    `}
+                </style>
+                <Offcanvas.Body className={styles.offCanvasBody}>
+                    {selectedNavItem?.title === 'Search' ? <Search getSearchData={getSearchData} handleCloseMwebDrawer={handleOverlayClose} /> : <FireFighterppe selectedNavItem={selectedNavItem} handleOverlayClose={handleOverlayClose} postsData={postsData} />}
+                </Offcanvas.Body>
+            </Scrollbar>
         </Offcanvas>
     </>
 }
