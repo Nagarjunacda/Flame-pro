@@ -122,6 +122,13 @@ function LayoutWrapper({ children }) {
               <Footer footerData={footerData} />
               {isSpeakPopupOpen && (
                 <div className={Styles.popupBackground} onClick={closePopup}>
+                  <style>
+                    {`
+      .scrollbar-thumb {
+        background-color: #000000 !important;
+      }
+    `}
+                  </style>
                   <Scrollbar
                     alwaysShowTracks
                     damping={0.1}

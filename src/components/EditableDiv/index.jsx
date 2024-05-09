@@ -13,6 +13,7 @@ function EditableDiv({ getProductQuantity }) {
         const inputValue = e.target.value;
         if (inputValue === '') {
             setValue(inputValue);
+            getProductQuantity(inputValue);
             return
         }
         // Check if the input value is a valid number

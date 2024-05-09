@@ -258,7 +258,6 @@
     display: flex;
     align-items: center;
     flex: 1 1 0%;
-    margin-left: 12px;
   }
   @media (min-width:900px) {
     .cta{

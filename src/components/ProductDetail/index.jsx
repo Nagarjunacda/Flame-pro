@@ -18,7 +18,7 @@ function ProductDetail({ productData }) {
   const { footerContextData } = useFooterContextData();
   const trays = footerContextData?.acf?.content_blocks;
   const { setTriggerUpdate } = useCartData();
-  const [productQuantity, setProductQuantity] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMsg, setToastMsg] = useState("");

@@ -39,6 +39,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
     const [toastMsg, setToastMsg] = useState("");
     const [countryDropdown, setCountryDropdown] = useState(false)
     const isDesktop = useMediaQuery({ query: "(min-width:900px)" });
+    const isLargeScr = useMediaQuery({ query: "(min-width:1280px)" });
     const timeZoneVal = 'BST';
     const btnColor = "var(--color-primary)";
     const textColor = "var(--color-secondary)";
@@ -367,14 +368,14 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                         isLoadState={false}
                         btnFunction={() => { handleContactSel('Phone') }}
                         isFromContactForm
-                        isSmallBtn={isDesktop ? false : true} />
+                        isSmallBtn={isFromPopup && !isLargeScr ? true : isDesktop ? false : true} />
                     <FlameBtn color={emailBtncolor}
                         text={"Email"}
                         textColor={emailBtnTextClr}
                         isLoadState={false}
                         btnFunction={() => { handleContactSel('Email') }}
                         isFromContactForm
-                        isSmallBtn={isDesktop ? false : true} />
+                        isSmallBtn={isFromPopup && !isLargeScr ? true : isDesktop ? false : true} />
                 </section>
             </section>
             {contactBy === 'Phone' && <section className={styles.form2Cont}>
@@ -385,7 +386,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                         isLoadState={false}
                         btnFunction={() => { handleTimeSel('ASAP') }}
                         isFromContactForm
-                        isSmallBtn={isDesktop ? false : true}
+                        isSmallBtn={isFromPopup && !isLargeScr ? true : isDesktop ? false : true}
                     />
                     <FlameBtn color={emailBtncolor2}
                         text={"Arrange A Time"}
@@ -393,7 +394,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                         isLoadState={false}
                         btnFunction={() => { handleTimeSel('Arrange A Time') }}
                         isFromContactForm
-                        isSmallBtn={isDesktop ? false : true} />
+                        isSmallBtn={isFromPopup && !isLargeScr ? true : isDesktop ? false : true} />
                 </section>
             </section>}
             {/* <DatePickerComp /> */}
@@ -477,6 +478,7 @@ function ContactUsPageForm({ heading, formFields, heading2, isFromPopup }) {
                         textColor={textColor}
                         isLoadState={isLoadState}
                         btnFunction={handleButtonClick}
+                        isSmallBtn={isFromPopup && !isLargeScr ? true : isDesktop ? false : true}
                     />
                 </section>
             </section>

@@ -31,6 +31,23 @@
     align-items: center;
     z-index: 1000; /* Ensure the popup is above other content */
 }
+.popupCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+@media(min-width:1280px){
+  .popupCont{
+    gap: 36px;
+  }
+}
+@media(min-width:1680px){
+  .popupCont{
+    gap: 52px;
+  }
+}
 .popupContent {
     background-color: white;
     padding: 36px;

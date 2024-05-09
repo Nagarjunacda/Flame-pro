@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useMediaQuery } from "react-responsive";
 import CheckBoxWithText from "../SignUpForm/CheckBoxWithText";
+import { Scrollbar } from "smooth-scrollbar-react";
 import TeamBlockContactForm from "../TeamBlockContactForm";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import AboutTeamCard from "@/reusbleComponents/AboutTeamCard";
@@ -48,28 +49,47 @@ function AboutTeamBlock({ trayData, aboutExt }) {
         </Row>
       </div>
       {showPopup && <div className={styles.popupBackground} onClick={closePopup}>
-        <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
-          <section className={styles.closeBtnSec}>
-            <figure className={styles.closeBtn} onClick={closePopup}>
-              <FlameImage src={offCanvasClose} alt='closeBtn' />
-            </figure>
-          </section>
-          <section className={styles.personInfo}>
-            <section className={styles.imageSection}>
-              <FlameImage src={selectedMember?.featured_image_url} alt={'memberImg'} />
+        <style>
+          {`
+      .scrollbar-thumb {
+        background-color: #000000 !important;
+      }
+    `}
+        </style>
+        <Scrollbar
+          alwaysShowTracks
+          damping={0.1}
+          plugins={{
+            overscroll: {
+              effect: "bounce",
+            },
+          }}
+        >
+          <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+            <section className={styles.popupCont}>
+              <section className={styles.closeBtnSec}>
+                <figure className={styles.closeBtn} onClick={closePopup}>
+                  <FlameImage src={offCanvasClose} alt='closeBtn' />
+                </figure>
+              </section>
+              <section className={styles.personInfo}>
+                <section className={styles.imageSection}>
+                  <FlameImage src={selectedMember?.featured_image_url} alt={'memberImg'} />
+                </section>
+                <section className={styles.personDesc}>
+                  <h3 className={styles.personName}>{personName}</h3>
+                  <h4 className={styles.jobTitle}>{jobTitle}</h4>
+                  <p className={styles.desc}>{description}</p>
+                </section>
+              </section>
+              <TeamBlockContactForm
+                isFromPopup={false}
+                heading={`Contact Person's Name`}
+                formFields={formData}
+                heading2={""} />
             </section>
-            <section className={styles.personDesc}>
-              <h3 className={styles.personName}>{personName}</h3>
-              <h4 className={styles.jobTitle}>{jobTitle}</h4>
-              <p className={styles.desc}>{description}</p>
-            </section>
-          </section>
-          <TeamBlockContactForm
-            isFromPopup={false}
-            heading={`Contact Person's Name`}
-            formFields={formData}
-            heading2={""} />
-        </div>
+          </div>
+        </Scrollbar>
       </div>}
     </section>
   );
