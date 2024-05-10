@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FlameImage from "@/reusbleComponents/FlameImage";
 import styles from "./additionalInfoBlock.module.css";
+import { useEffect } from "react";
 
 function AdditionalInfoBlock({ productInfo }) {
   const data = productInfo?.filter(
@@ -17,6 +18,25 @@ function AdditionalInfoBlock({ productInfo }) {
   const pdf3 = info?.downloads?.uk_declaration_of_conformity?.filename;
   const pdf4 = info?.downloads?.eu_declaration_of_conformity?.filename;
   const techDataLink = info?.downloads?.technical_data_sheet_download?.url;
+
+  // useEffect(() => {
+  //   const handleDownload = async () => {
+  //     try {
+  //       const response = await fetch(brochureLink);
+  //       const blob = await response.blob();
+  //       const url = window.URL.createObjectURL(new Blob([blob]));
+  //       const link = document.createElement('a');
+  //       link.href = url;
+  //       link.setAttribute('download', pdf1);
+  //       document.body.appendChild(link);
+  //       link.click();
+  //       link.parentNode.removeChild(link);
+  //     } catch (error) {
+  //       console.error('Error downloading PDF:', error);
+  //     }
+  //   };
+  //   handleDownload();
+  // }, [])
 
   return (
     <section className={styles.mainCont}>
