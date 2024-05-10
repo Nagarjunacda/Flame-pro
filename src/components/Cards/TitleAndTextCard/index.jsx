@@ -5,7 +5,7 @@ import { renderHTML } from "@/utils/htmlString";
 import { formatDate } from "@/utils/formatDate";
 import styles from "./TitleAndTextCard.module.css";
 
-function TitleAndTextCard({ data, handleDownloadPopup }) {
+function TitleAndTextCard({ data, handleDownloadPopup, popupSubmit }) {
   const router = useRouter();
   const { query } = router;
   const { slug } = query;
@@ -23,17 +23,15 @@ function TitleAndTextCard({ data, handleDownloadPopup }) {
 
   function handleClick() {
     if (handleDownloadPopup) {
-      handleDownloadPopup();
+      handleDownloadPopup(url);
     }
   }
 
   return (
-    <Card className={styles.cardCont}>
-      <Link href={url} >
-        <Card.Img variant="top" src={cardImage} className={styles.cardImg} />
-      </Link>
+    <Card className={styles.cardCont} onClick={handleClick}>
+      <Card.Img variant="top" src={cardImage} className={styles.cardImg} />
       <Card.Body className={styles.body}>
-        <Card.Title className={styles.date} onClick={handleClick}>
+        <Card.Title className={styles.date}>
           <p>{formattedDate}</p>
         </Card.Title>
         <Card.Title className={styles.title}>

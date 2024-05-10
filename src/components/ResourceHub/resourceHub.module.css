@@ -240,7 +240,7 @@
 .popupCont{
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   width: 100%;
   height: auto;
 }
@@ -326,4 +326,10 @@ cursor: pointer;
   padding-top: 8px;
   color: var(--color-fire);
   font-size: var(--font-size-xs);
+  visibility: visible;
+  height: 20px;
+}
+.errorMsgHide {
+  visibility: hidden;
+  height: 20px;
 }

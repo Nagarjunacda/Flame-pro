@@ -3,7 +3,7 @@ import FlameImage from '@/reusbleComponents/FlameImage';
 import Select from 'react-select';
 import styles from './reactFlags.module.css'
 
-function CountrySelector({ countryDropdown, setCountryDropdown, countryRef, isError }) {
+function CountrySelector({ countryDropdown, setCountryDropdown, isFromResource, countryRef, isError }) {
     const [countryOptions, setCountryOptions] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
     // const [countryDropdown, setCountryDropdown] = useState(false);
@@ -48,14 +48,14 @@ function CountrySelector({ countryDropdown, setCountryDropdown, countryRef, isEr
     const countryRootCode = selectedCountry?.idd?.root || '';
     const countryId = selectedCountry?.idd?.suffixes.length ? selectedCountry?.idd?.suffixes[0] : '';
 
-    const countryCode = `${countryRootCode}${countryId}`
+    const countryCode = `${countryRootCode}${countryId}`;
+    const styleClass = isFromResource && isError ? styles.mainContErrorRes : isFromResource ? styles.mainContRes : isError ? styles.maincontError : styles.maincont;
 
     return (
-        <section className={isError ? styles.maincontError : styles.maincont} onClick={handleCountrySel}>
+        <section className={styleClass} onClick={handleCountrySel}>
             <section className={styles.flagIcon}>
                 <FlameImage src={selectedCountry?.flags.svg} alt={'icon'} />
             </section>
-
             <section className={styles.downArr}>
                 <FlameImage src={downArrSrc} alt={'icon'} />
             </section>

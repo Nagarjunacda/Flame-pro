@@ -11,6 +11,7 @@ import { blogPostsUrl } from '@/utils/urls';
 import { resourceFiltersUrl } from '@/utils/urls';
 import CountrySelector from '@/components/CountrySelector';
 import _isEmpty from 'lodash/isEmpty';
+import { invalidDomain } from '@/utils/invalidDomain';
 import styles from '../resourceHub.module.css';
 
 function ResourceHubListingWithFilter({ listingData }) {
@@ -37,6 +38,8 @@ function ResourceHubListingWithFilter({ listingData }) {
     const [errors, setErrors] = useState({});
     const [showToast, setShowToast] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
+    const [popupSubmit, setPopupSubmit] = useState(false);
+    const [redirectUrl, setRedirectUrl] = useState('');
     const scrollToTop = typeof window !== 'undefined' && document.getElementById("scrollId");
     const arrowSrc = "/Images/bottomGreyArrow.svg";
     const leftArrowSrc = "/Images/leftGreyArrow.svg";
@@ -151,8 +154,10 @@ function ResourceHubListingWithFilter({ listingData }) {
         scrollToTop.scrollIntoView({ behavior: "smooth" });
     };
 
-    const handleDownloadPopup = () => {
+    const handleDownloadPopup = (url) => {
         setShouldOpenDownloadPopup(true);
+        setRedirectUrl(url);
+
     }
 
     const closePopup = () => {
@@ -185,10 +190,22 @@ function ResourceHubListingWithFilter({ listingData }) {
             }
         }
         if (name === "Email Address*") {
-            if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(value)) {
+            const emailParts = value.split('@');
+            const domain = emailParts[emailParts.length - 1];
+            if (invalidDomain.includes(domain)) {
                 setErrors({
                     ...errors,
-                    [fieldName]: "Please enter valid email address",
+                    [fieldName]: "This email domain is not allowed",
+                });
+            } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(value)) {
+                setErrors({
+                    ...errors,
+                    [fieldName]: "Please enter a valid email address",
+                });
+            } else {
+                setErrors({
+                    ...errors,
+                    [fieldName]: null,
                 });
             }
         }
@@ -228,6 +245,8 @@ function ResourceHubListingWithFilter({ listingData }) {
             setToastMsg("Please enter all the required fields.");
             return;
         }
+        window.open(redirectUrl, '_blank');
+        setShouldOpenDownloadPopup(false);
     }
 
     return <section className={styles.mainCont}>
@@ -422,10 +441,8 @@ function ResourceHubListingWithFilter({ listingData }) {
                                         onChange={(e) => handleChange(e, fieldName?.section1)}
                                         value={formData[fieldName?.section1] || ""}
                                     />
-                                    {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
-                                    {errors[fieldName?.section1] && (
-                                        <p className={styles.errorMsg}>{errors[fieldName?.section1]}</p>
-                                    )}
+                                    {fieldName.section1 === 'Phone Number*' && <CountrySelector countryDropdown={countryDropdown} isFromResource setCountryDropdown={setCountryDropdown} isError={errors[fieldName?.section1]} countryRef={countryRef} />}
+                                    <p className={errors[fieldName?.section1] ? styles.errorMsg : styles.errorMsgHide}>{errors[fieldName?.section1]}</p>
                                 </section>
                             </div>
                         ))}

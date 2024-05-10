@@ -17,12 +17,40 @@
     gap: 4px;
     cursor: pointer;
 }
+.mainContRes{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    bottom: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+    gap: 4px;
+    cursor: pointer;
+}
 .maincontError{
     position: absolute;
     width: 100%;
     left: 0px;
     top: 0px;
     bottom: 54px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+    gap: 4px;
+    cursor: pointer;
+}
+.mainContErrorRes{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    bottom: 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
