@@ -21,7 +21,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields, signupTitle }) {
   const btnColor = "var(--color-secondary)";
   const textColor = "var(--color-primary)";
   const checkBoxText = "I consent to email marketing";
-  const areaOfInterests = ["Fire Fighting PPE", "Defence Procurement"];
+  const areaOfInterests = ["Firefighting PPE", "Defence Procurement"];
   const arrowImgSrc = isDropdownOpen
     ? "/Images/upWhiteArrow.svg"
     : "/Images/downWhiteArrow.svg";
@@ -122,7 +122,7 @@ function SignUpForm({ isFromFooter, text, heading, formFields, signupTitle }) {
     }
     setIsLoadState(true);
     const selOption =
-      areaOfInt === "Fire Fighting PPE"
+      areaOfInt === "Firefighting PPE"
         ? "firefighting_ppe"
         : areaOfInt === "Defence Procurement"
           ? "defence_procurement"
