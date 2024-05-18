@@ -9,6 +9,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.3",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
